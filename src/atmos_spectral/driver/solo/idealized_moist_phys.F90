@@ -94,7 +94,7 @@ integer, parameter :: UNSET = -1,                & !! are NONE, SIMPLE_BETTS_MIL
                       FULL_BETTS_MILLER_CONV = 2,&
                       DRY_CONV = 3,              &
                       RAS_CONV = 4
-                      
+
 integer :: r_conv_scheme = UNSET  ! the selected convection scheme
 
 logical :: lwet_convection = .false.
@@ -125,11 +125,13 @@ character(len=256) :: land_file_name  = 'INPUT/land.nc'
 character(len=256) :: land_field_name = 'land_mask'
 
 ! RG Add bucket
-logical :: bucket = .false. 
+logical :: bucket = .false.
 integer :: future
 real :: init_bucket_depth = 1000. ! default large value
-real :: init_bucket_depth_land = 20. 
+real :: init_bucket_depth_land = 20.
 real :: max_bucket_depth_land = 0.15 ! default from Manabe 1969
+real :: bucket_max_evap_depth = 0.15*0.75 ! if bucket is more than 75% full, evaporate at max rate
+logical :: bucket_can_overflow = .true.
 real :: robert_bucket = 0.04   ! default robert coefficient for bucket depth LJJ
 real :: raw_bucket = 0.53       ! default raw coefficient for bucket depth LJJ
 ! end RG Add bucket
@@ -141,8 +143,9 @@ namelist / idealized_moist_phys_nml / turb, lwet_convection, do_bm, do_ras, roug
                                       land_option, land_file_name, land_field_name,   & !s options for idealised land
                                       land_roughness_prefactor,               &
                                       gp_surface, convection_scheme,          &
-                                      bucket, init_bucket_depth, init_bucket_depth_land, & !RG Add bucket 
-                                      max_bucket_depth_land, robert_bucket, raw_bucket
+                                      bucket, init_bucket_depth, init_bucket_depth_land, & !RG Add bucket
+                                      max_bucket_depth_land, bucket_max_evap_depth, robert_bucket, raw_bucket, &
+                                      bucket_can_overflow
 
 
 integer, parameter :: num_time_levels = 2 !RG Add bucket - number of time levels added to allow timestepping in this module
@@ -260,11 +263,11 @@ real,    allocatable, dimension(:) :: pref, p_half_1d, ln_p_half_1d, p_full_1d,l
 real,    allocatable, dimension(:,:) :: capeflag !s Added for Betts Miller scheme (rather than the simplified Betts Miller scheme).
 
 type(surf_diff_type) :: Tri_surf ! used by gcm_vert_diff
-	
-!s initialise constants ready to be used in rh_calc	
+
+!s initialise constants ready to be used in rh_calc
 real :: d622 = 0.
 real :: d378 = 0.
-	
+
 logical :: used, doing_edt, doing_entrain, do_strat
 integer, dimension(4) :: axes
 integer :: is, ie, js, je, num_levels, nsphum, dt_integer
@@ -335,7 +338,7 @@ else if(uppercase(trim(convection_scheme)) == 'SIMPLE_BETTS_MILLER') then
   lwet_convection = .true.
   do_bm           = .false.
   do_ras          = .false.
-  
+
 
 else if(uppercase(trim(convection_scheme)) == 'FULL_BETTS_MILLER') then
   r_conv_scheme = FULL_BETTS_MILLER_CONV
@@ -343,7 +346,7 @@ else if(uppercase(trim(convection_scheme)) == 'FULL_BETTS_MILLER') then
   do_bm           = .true.
   lwet_convection = .false.
   do_ras          = .false.
-  
+
 
 else if(uppercase(trim(convection_scheme)) == 'RAS') then
   r_conv_scheme = RAS_CONV
@@ -357,7 +360,7 @@ else if(uppercase(trim(convection_scheme)) == 'DRY') then
   call error_mesg('idealized_moist_phys','Using dry convection scheme.', NOTE)
   lwet_convection = .false.
   do_bm           = .false.
-  do_ras          = .false.  
+  do_ras          = .false.
 
 else if(uppercase(trim(convection_scheme)) == 'UNSET') then
   call error_mesg('idealized_moist_phys','determining convection scheme from flags', NOTE)
@@ -372,7 +375,7 @@ else if(uppercase(trim(convection_scheme)) == 'UNSET') then
   if (do_ras) then
     r_conv_scheme = RAS_CONV
     call error_mesg('idealized_moist_phys','Using  relaxed Arakawa Schubert convection scheme.', NOTE)
-  end if    
+  end if
 else
   call error_mesg('idealized_moist_phys','"'//trim(convection_scheme)//'"'//' is not a valid convection scheme.'// &
       ' Choices are NONE, SIMPLE_BETTS, FULL_BETTS_MILLER, RAS, DRY', FATAL)
@@ -380,12 +383,12 @@ endif
 
 if(lwet_convection .and. do_bm) &
   call error_mesg('idealized_moist_phys','lwet_convection and do_bm cannot both be .true.',FATAL)
-  
+
 if(lwet_convection .and. do_ras) &
-  call error_mesg('idealized_moist_phys','lwet_convection and do_ras cannot both be .true.',FATAL)  
+  call error_mesg('idealized_moist_phys','lwet_convection and do_ras cannot both be .true.',FATAL)
 
 if(do_bm .and. do_ras) &
-  call error_mesg('idealized_moist_phys','do_bm and do_ras cannot both be .true.',FATAL)  
+  call error_mesg('idealized_moist_phys','do_bm and do_ras cannot both be .true.',FATAL)
 
 nsphum = nhum
 Time_step = Time_step_in
@@ -566,7 +569,7 @@ if(mixed_layer_bc) then
   t_surf = t_surf_init + 1.0
 
   call mixed_layer_init(is, ie, js, je, num_levels, t_surf, bucket_depth, get_axis_id(), Time, albedo, rad_lonb_2d(:,:), rad_latb_2d(:,:), land, bucket) ! t_surf is intent(inout) !s albedo distribution set here.
-  
+
 elseif(gp_surface) then
   albedo=0.0
   call error_mesg('idealized_moist_phys','Because gp_surface=.True., setting albedo=0.0', NOTE)
@@ -626,7 +629,7 @@ case(RAS_CONV)
         !run without startiform cloud scheme
 
        !---------------------------------------------------------------------
-       !    retrieve the number of registered tracers in order to determine 
+       !    retrieve the number of registered tracers in order to determine
        !    which tracers are to be convectively transported.
        !---------------------------------------------------------------------
 
@@ -638,7 +641,7 @@ case(RAS_CONV)
        do_strat = .false.
 
        !Commented code not used such that tracers are not advected by RAS. Could implement in future.
-       
+
        ! do n=1, num_tracers
        !   if (query_method ('convection', MODEL_ATMOS, n, scheme)) then
        !    num_ras_tracers = num_ras_tracers + 1
@@ -654,13 +657,13 @@ case(RAS_CONV)
 
        !----------------------------------------------------------------------
        !    for each tracer, determine if it is to be transported by convect-
-       !    ion, and the convection schemes that are to transport it. set a 
+       !    ion, and the convection schemes that are to transport it. set a
        !    logical flag to .true. for each tracer that is to be transported by
        !    each scheme and increment the count of tracers to be transported
        !    by that scheme.
        !----------------------------------------------------------------------
 
-        call ras_init (do_strat, axes,Time,tracers_in_ras) 
+        call ras_init (do_strat, axes,Time,tracers_in_ras)
 
 end select
 
@@ -820,19 +823,19 @@ case(DRY_CONV)
 
 case(RAS_CONV)
 
-    call ras   (is,   js,     Time,                                                  &  
+    call ras   (is,   js,     Time,                                                  &
                 tg(:,:,:,previous),   grid_tracers(:,:,:,previous,nsphum),           &
                 ug(:,:,:,previous),  vg(:,:,:,previous),    p_full(:,:,:,previous),  &
                 p_half(:,:,:,previous), z_half(:,:,:,previous), coldT,  delta_t,     &
                 conv_dt_tg,   conv_dt_qg, dt_ug_conv,  dt_vg_conv,                   &
-                rain, snow,   do_strat,                                              &                                              
-                !OPTIONAL 
+                rain, snow,   do_strat,                                              &
+                !OPTIONAL
                 mask,  kbot,                                                         &
                 !OPTIONAL OUT
                 mc,   tracer(:,:,:), tracer(:,:,:),                          &
                tracer(:,:,:),  tracertnd(:,:,:),                             &
                tracertnd(:,:,:), tracertnd(:,:,:))
-                
+
 
       !update tendencies - dT and dq are done after cases
       tg_tmp = tg(:,:,:,previous) + conv_dt_tg
@@ -916,7 +919,7 @@ if(.not.mixed_layer_bc) then
 !!$  t_surf = surface_temperature(tg(:,:,:,previous), p_full(:,:,:,current), p_half(:,:,:,current))
 end if
 
-if(.not.gp_surface) then 
+if(.not.gp_surface) then
 call surface_flux(                                                          &
                   tg(:,:,num_levels,previous),                              &
  grid_tracers(:,:,num_levels,previous,nsphum),                              &
@@ -930,7 +933,7 @@ call surface_flux(                                                          &
                                   q_surf(:,:),                              & ! is intent(inout)
                                        bucket,                              &     ! RG Add bucket
                     bucket_depth(:,:,current),                              &     ! RG Add bucket
-                        max_bucket_depth_land,                              &     ! RG Add bucket
+                        bucket_max_evap_depth,                              &     ! JP switch to giving max evap depth rather than max bucket depth
                          depth_change_lh(:,:),                              &     ! RG Add bucket
                        depth_change_conv(:,:),                              &     ! RG Add bucket
                        depth_change_cond(:,:),                              &     ! RG Add bucket
@@ -996,7 +999,7 @@ endif
 if(gp_surface) then
 
 	call gp_surface_flux (dt_tg(:,:,:), p_half(:,:,:,current), num_levels)
-	
+
     call compute_rayleigh_bottom_drag( 1,                     ie-is+1, &
                                        1,                     je-js+1, &
                                      Time,                    delta_t, &
@@ -1101,7 +1104,7 @@ if(turb) then
 !
 ! update surface temperature
 !
-   if(mixed_layer_bc) then	
+   if(mixed_layer_bc) then
    call mixed_layer(                                                       &
                               Time, Time+Time_step,                        &
                               t_surf(:,:),                                 & ! t_surf is intent(inout)
@@ -1136,8 +1139,8 @@ endif ! if(turb) then
 
 
 ! RG Add bucket
-! Timestepping for bucket. 
-! NB In tapios github, all physics is still in atmosphere.F90 and this leapfrogging is done there. 
+! Timestepping for bucket.
+! NB In tapios github, all physics is still in atmosphere.F90 and this leapfrogging is done there.
 !This part has been included here to avoid editing atmosphere.F90
 ! Therefore define a future variable locally, but do not feedback any changes to timestepping variables upstream, so as to avoid messing with the model's overall timestepping.
 ! Bucket diffusion has been cut for this version - could be incorporated later.
@@ -1152,7 +1155,7 @@ if(bucket) then
 
    ! bucket time tendency
    dt_bucket = depth_change_cond + depth_change_conv - depth_change_lh
-   !change in bucket depth in one leapfrog timestep [m]                                 
+   !change in bucket depth in one leapfrog timestep [m]
 
    ! use the raw filter in leapfrog time stepping
 
@@ -1164,20 +1167,22 @@ if(bucket) then
         *(bucket_depth(:,:,previous) - 2.0*bucket_depth(:,:,current) + bucket_depth(:,:,future)) * raw_bucket
    else
       bucket_depth(:,:,current) = bucket_depth(:,:,current ) + robert_bucket &
-        *(bucket_depth(:,:,previous) - 2.0*bucket_depth(:,:,current)) * raw_bucket 
+        *(bucket_depth(:,:,previous) - 2.0*bucket_depth(:,:,current)) * raw_bucket
       bucket_depth(:,:,future ) = bucket_depth(:,:,previous) + dt_bucket
       bucket_depth(:,:,current) = bucket_depth(:,:,current) + robert_bucket * bucket_depth(:,:,future) * raw_bucket
    endif
 
    bucket_depth(:,:,future) = bucket_depth(:,:,future) + robert_bucket * (filt(:,:) + bucket_depth(:,:, future)) &
-                           * (raw_bucket - 1.0)  
+                           * (raw_bucket - 1.0)
 
    where (bucket_depth <= 0.) bucket_depth = 0.
 
    ! truncate surface reservoir over land points
+    if (bucket_can_overflow) then
        where(land .and. (bucket_depth(:,:,future) > max_bucket_depth_land))
             bucket_depth(:,:,future) = max_bucket_depth_land
        end where
+    end if
 
    if(id_bucket_depth > 0) used = send_data(id_bucket_depth, bucket_depth(:,:,future), Time)
    if(id_bucket_depth_conv > 0) used = send_data(id_bucket_depth_conv, depth_change_conv(:,:), Time)

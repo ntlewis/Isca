@@ -152,6 +152,8 @@ def interpolate_output(infile, outfile, var_names=None, p_levs = "input"):
         elif p_levs.upper() == "EVEN":
             #plev = ' -p "100000 95000 90000 85000 80000 75000 70000 65000 60000 55000 50000 45000 40000 35000 30000 25000 20000 15000 10000 5000" '
             levels = [100000, 95000, 90000, 85000, 80000, 75000, 70000, 65000, 60000, 55000, 50000, 45000, 40000, 35000, 30000, 25000, 20000, 15000, 10000, 5000]
+        else:
+            raise ValueError("Unknown level set '%r'" % p_levs)
     else:
         levels = p_levs
 
