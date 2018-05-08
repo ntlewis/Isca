@@ -83,7 +83,7 @@ exp.namelist = namelist = Namelist({
         'do_read_co2': True,
         'dt_rad':4320,
         'store_intermediate_rad':True,
-    }, 
+    },
     'idealized_moist_phys_nml': {
         'do_damping': True,
         'turb':True,
@@ -92,10 +92,10 @@ exp.namelist = namelist = Namelist({
         'do_simple': True,
         'roughness_mom':3.21e-05,
         'roughness_heat':3.21e-05,
-        'roughness_moist':3.21e-05,            
+        'roughness_moist':3.21e-05,
         'two_stream_gray': False,     #Use the grey radiation scheme
         'do_socrates_radiation': True,
-        'convection_scheme': 'SIMPLE_BETTS_MILLER', #Use simple Betts miller convection            
+        'convection_scheme': 'SIMPLE_BETTS_MILLER', #Use simple Betts miller convection
     },
 
     'vert_turb_driver_nml': {
@@ -105,7 +105,7 @@ exp.namelist = namelist = Namelist({
         'constant_gust': 0.0,          # default: 1.0
         'use_tau': False
     },
-    
+
     'diffusivity_nml': {
         'do_entrain':False,
         'do_simple': True,
@@ -114,7 +114,7 @@ exp.namelist = namelist = Namelist({
     'surface_flux_nml': {
         'use_virtual_temp': False,
         'do_simple': True,
-        'old_dtaudv': True    
+        'old_dtaudv': True
     },
 
     'atmosphere_nml': {
@@ -125,31 +125,31 @@ exp.namelist = namelist = Namelist({
     'mixed_layer_nml': {
         'tconst' : 285.,
         'prescribe_initial_dist':True,
-        'evaporation':True,  
+        'evaporation':True,
         'depth': 2.5,                          #Depth of mixed layer used
-        'albedo_value': 0.38,                  #Albedo value used      
+        'albedo_value': 0.38,                  #Albedo value used
     },
 
     'qe_moist_convection_nml': {
         'rhbm':0.7,
         'Tmin':160.,
-        'Tmax':350.   
+        'Tmax':350.
     },
-    
+
     'lscale_cond_nml': {
         'do_simple':True,
         'do_evap':True
     },
-    
+
     'sat_vapor_pres_nml': {
         'do_simple':True
     },
-    
+
     'damping_driver_nml': {
         'do_rayleigh': True,
         'trayfric': -0.25,              # neg. value: time in *days*
         'sponge_pbottom':  5000., #Bottom of the model's sponge down to 50hPa
-        'do_conserve_energy': True,    
+        'do_conserve_energy': True,
     },
 
     'two_stream_gray_rad_nml': {
@@ -158,7 +158,7 @@ exp.namelist = namelist = Namelist({
         'do_seasonal':  True,          #do_seasonal=false uses the p2 insolation profile from Frierson 2006. do_seasonal=True uses the GFDL astronomy module to calculate seasonally-varying insolation.
         'equinox_day':  0.75,          #A calendar parameter to get autumn equinox in september, as in the standard earth calendar.
         'do_read_co2':  True, #Read in CO2 timeseries from input file
-        'co2_file':  'co2', #Tell model name of co2 input file        
+        'co2_file':  'co2', #Tell model name of co2 input file
     },
 
     # FMS Framework configuration
@@ -176,7 +176,7 @@ exp.namelist = namelist = Namelist({
     },
 
     'spectral_dynamics_nml': {
-        'damping_order': 4,             
+        'damping_order': 4,
         'water_correction_limit': 200.e2,
         'reference_sea_level_press':1.0e5,
         'num_levels':25,      #How many model pressure levels to use
@@ -200,4 +200,4 @@ if __name__=="__main__":
     s = 1.0
     exp.run(1, use_restart=False, num_cores=NCORES, run_idb=False)
     for i in range(2,121):
-        exp.run(i, num_cores=NCORES)
+        exp.run(i, num_cores=NCORES, openmp_threads=True)

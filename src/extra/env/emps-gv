@@ -7,3 +7,4 @@ module load git/2.1.2
 
 export F90=mpifort
 export CC=mpicc
+#export OMP_NUM_THREADS=4
