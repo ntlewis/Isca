@@ -246,13 +246,19 @@ def read_command_line_options(fail_if_underconditioned=True):
     return config
 
 
-def run_cli(exp, fail_if_underconditioned=True):
+def run_cli(exps, fail_if_underconditioned=True):
     """Provide a basic command line interface to run the experiment."""
+    try:
+        iter_exps = iter(exps)
+    except:
+        iter_exps = [exps]
     config = read_command_line_options(fail_if_underconditioned)
     if config['log_file']:
         save_log(exp, config['log_file'])
     if config['compile']:
-        exp.codebase.compile()
+        codebases = set(exp.codebase for exp in exps)
+        for cb in codebases:
+            cb.compile()
     if config['run']:
         context = exp_progress if config.get('progress_bar') else no_context
         if config['up_to']:
@@ -260,5 +266,6 @@ def run_cli(exp, fail_if_underconditioned=True):
         else:
             runs = [config['run']]
         for i in runs:
-            with context(exp):
-                exp.run(i,**config['run_config'])
+            for exp in exps:
+                with context(exp):
+                    exp.run(i,**config['run_config'])
