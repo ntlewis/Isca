@@ -4,6 +4,7 @@ import numpy as np
 
 from isca import SocratesCodeBase, DiagTable, Experiment, Namelist, GFDL_BASE
 from isca.util import exp_progress
+from ntfy import notify
 
 NCORES = 16
 base_dir = os.path.dirname(os.path.realpath(__file__))
@@ -24,16 +25,13 @@ cb.compile(debug=False)  # compile the source code to working directory $GFDL_WO
 
 # create an Experiment object to handle the configuration of model parameters
 # and output diagnostics
-exp = Experiment('soc_test_mk52_check_half_and_full_level_temp_aq_start_new_interp', codebase=cb)
+exp = Experiment('soc_test_mk44_chunk_size_optimize', codebase=cb)
 
-exp.inputfiles = [os.path.join(base_dir,'input/co2.nc'), os.path.join(GFDL_BASE,'input/rrtm_input_files/ozone_1990.nc')]
+exp.inputfiles = inputfiles = [os.path.join(base_dir,'input/co2.nc'), os.path.join(GFDL_BASE,'input/rrtm_input_files/ozone_1990.nc')]
 
 #Tell model how to write diagnostics
 diag = DiagTable()
-diag.add_file('atmos_timestep', 720, 'seconds', time_units='hours')
-
-# diag.add_file('atmos_daily', 1, 'days', time_units='hours')
-# diag.add_file('atmos_monthly', 30, 'days', time_units='hours')
+diag.add_file('atmos_monthly', 30, 'days', time_units='days')
 
 #Tell model which diagnostics to write
 diag.add_field('dynamics', 'ps', time_avg=True)
@@ -54,11 +52,9 @@ diag.add_field('dynamics', 'div', time_avg=True)
 # diag.add_field('socrates', 'soc_surf_spectrum_sw', time_avg=True)
 #diag.add_field('socrates', 'soc_heating_lw', time_avg=True)
 #diag.add_field('socrates', 'soc_heating_sw', time_avg=True)
-#diag.add_field('socrates', 'soc_heating_rate', time_avg=True)
+diag.add_field('socrates', 'soc_heating_rate', time_avg=True)
 #diag.add_field('socrates', 'soc_flux_up_lw', time_avg=True)
-diag.add_field('socrates', 'soc_flux_down_sw', time_avg=True)
-diag.add_field('socrates', 'temp_half', time_avg=True)
-diag.add_field('socrates', 'temp_norm', time_avg=True)
+#diag.add_field('socrates', 'soc_flux_down_sw', time_avg=True)
 
 
 exp.diag_table = diag
@@ -69,8 +65,8 @@ exp.clear_rundir()
 #Define values for the 'core' namelist
 exp.namelist = namelist = Namelist({
     'main_nml':{
-     'days'   : 0,
-     'hours'  : 2,
+     'days'   : 30,
+     'hours'  : 0,
      'minutes': 0,
      'seconds': 0,
      'dt_atmos':720,
@@ -85,7 +81,8 @@ exp.namelist = namelist = Namelist({
         'do_read_ozone': True,
         'ozone_file_name':'ozone_1990',
         'ozone_field_name':'ozone_1990',
-        'dt_rad':720,
+        'do_read_co2': True,
+        'dt_rad':4320,
         'store_intermediate_rad':True,
         'chunk_size': 16,
     }, 
@@ -157,6 +154,15 @@ exp.namelist = namelist = Namelist({
         'do_conserve_energy': True,      
     },
 
+    'two_stream_gray_rad_nml': {
+        'rad_scheme':  'byrne',        #Select radiation scheme to use
+        'atm_abs': 0.2,                      # Add a bit of solar absorption of sw
+        'do_seasonal':  True,          #do_seasonal=false uses the p2 insolation profile from Frierson 2006. do_seasonal=True uses the GFDL astronomy module to calculate seasonally-varying insolation.
+        'equinox_day':  0.75,          #A calendar parameter to get autumn equinox in september, as in the standard earth calendar.
+        'do_read_co2':  True, #Read in CO2 timeseries from input file
+        'co2_file':  'co2', #Tell model name of co2 input file        
+    },
+
     # FMS Framework configuration
     'diag_manager_nml': {
         'mix_snapshot_average_fields': False  # time avg fields are labelled with time in middle of window
@@ -184,14 +190,27 @@ exp.namelist = namelist = Namelist({
         'exponent':7.0,
         'robert_coeff':0.03
     },
-
 })
+
+exp.set_resolution('T42', 40)
 
 #Lets do a run!
 if __name__=="__main__":
 
-    s = 1.0
-    exp.run(241, use_restart=True, num_cores=NCORES, restart_file='/scratch/sit204/mounts/isca_data/soc_test_mk49_direct_rrtm_comparison_more_outputs_net_surf_sw/restarts/res0240.tar.gz')
-#     for i in range(2,3):
-#         exp.run(i, num_cores=NCORES)
-# 
+    chunk_size_list = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+
+    for chunk in chunk_size_list:
+            exp = Experiment('socrates_test_mk44_chunk_size_longer_'+str(chunk), codebase=cb)
+            exp.clear_rundir()
+
+            exp.diag_table = diag
+            exp.namelist = namelist.copy()
+            exp.namelist['socrates_rad_nml']['chunk_size']     = chunk
+            exp.inputfiles=inputfiles
+
+            notify('socrates with chunk_size = '+str(chunk)+' has started', 'gv3')
+
+            exp.run(1, use_restart=False, num_cores=NCORES)
+            for i in range(2, 13):
+                exp.run(i, num_cores=NCORES)
+            notify('socrates with chunk_size = '+str(chunk)+' has completed', 'gv3')

@@ -2,14 +2,14 @@ import os
 
 import numpy as np
 
-from isca import SocratesCodeBase, DiagTable, Experiment, Namelist, GFDL_BASE
+from isca import IscaCodeBase, DiagTable, Experiment, Namelist, GFDL_BASE
 from isca.util import exp_progress
 
 NCORES = 16
 base_dir = os.path.dirname(os.path.realpath(__file__))
 # a CodeBase can be a directory on the computer,
 # useful for iterative development
-cb = SocratesCodeBase.from_directory(GFDL_BASE)
+cb = IscaCodeBase.from_directory(GFDL_BASE)
 
 # or it can point to a specific git repo and commit id.
 # This method should ensure future, independent, reproducibility of results.
@@ -24,16 +24,12 @@ cb.compile(debug=False)  # compile the source code to working directory $GFDL_WO
 
 # create an Experiment object to handle the configuration of model parameters
 # and output diagnostics
-exp = Experiment('soc_test_mk52_check_half_and_full_level_temp_aq_start_new_interp', codebase=cb)
 
-exp.inputfiles = [os.path.join(base_dir,'input/co2.nc'), os.path.join(GFDL_BASE,'input/rrtm_input_files/ozone_1990.nc')]
+inputfiles = [os.path.join(GFDL_BASE,'input/rrtm_input_files/ozone_1990.nc')]
 
 #Tell model how to write diagnostics
 diag = DiagTable()
-diag.add_file('atmos_timestep', 720, 'seconds', time_units='hours')
-
-# diag.add_file('atmos_daily', 1, 'days', time_units='hours')
-# diag.add_file('atmos_monthly', 30, 'days', time_units='hours')
+diag.add_file('atmos_monthly', 30, 'days', time_units='days')
 
 #Tell model which diagnostics to write
 diag.add_field('dynamics', 'ps', time_avg=True)
@@ -52,42 +48,30 @@ diag.add_field('dynamics', 'div', time_avg=True)
 #diag.add_field('socrates', 'soc_olr', time_avg=True)
 # diag.add_field('socrates', 'soc_olr_spectrum_lw', time_avg=True)
 # diag.add_field('socrates', 'soc_surf_spectrum_sw', time_avg=True)
-#diag.add_field('socrates', 'soc_heating_lw', time_avg=True)
-#diag.add_field('socrates', 'soc_heating_sw', time_avg=True)
-#diag.add_field('socrates', 'soc_heating_rate', time_avg=True)
-#diag.add_field('socrates', 'soc_flux_up_lw', time_avg=True)
-diag.add_field('socrates', 'soc_flux_down_sw', time_avg=True)
-diag.add_field('socrates', 'temp_half', time_avg=True)
-diag.add_field('socrates', 'temp_norm', time_avg=True)
+diag.add_field('rrtm_radiation', 'flux_lw', time_avg=True)
+diag.add_field('rrtm_radiation', 'flux_sw', time_avg=True)
+diag.add_field('rrtm_radiation', 'tdt_rad', time_avg=True)
+diag.add_field('rrtm_radiation', 'tdt_lw', time_avg=True)
+diag.add_field('rrtm_radiation', 'tdt_sw', time_avg=True)
 
 
-exp.diag_table = diag
-
-#Empty the run directory ready to run
-exp.clear_rundir()
 
 #Define values for the 'core' namelist
-exp.namelist = namelist = Namelist({
+namelist = Namelist({
     'main_nml':{
-     'days'   : 0,
-     'hours'  : 2,
+     'days'   : 30,
+     'hours'  : 0,
      'minutes': 0,
      'seconds': 0,
-     'dt_atmos':720,
+     'dt_atmos':600,
      'current_date' : [1,1,1,0,0,0],
      'calendar' : 'thirty_day'
     },
-    'socrates_rad_nml': {
-        'stellar_constant':1370.,
-        'lw_spectral_filename':os.path.join(GFDL_BASE,'src/atmos_param/socrates/src/trunk/data/spectra/ga7/sp_lw_ga7'),
-        'sw_spectral_filename':os.path.join(GFDL_BASE,'src/atmos_param/socrates/src/trunk/data/spectra/ga7/sp_sw_ga7'),
-        'tidally_locked': False,
+    'rrtm_radiation_nml': {
+        'solr_cnst':1370.,
         'do_read_ozone': True,
-        'ozone_file_name':'ozone_1990',
-        'ozone_field_name':'ozone_1990',
-        'dt_rad':720,
-        'store_intermediate_rad':True,
-        'chunk_size': 16,
+        'ozone_file':'ozone_1990',
+        'dt_rad':3600,
     }, 
     'idealized_moist_phys_nml': {
         'do_damping': True,
@@ -99,7 +83,7 @@ exp.namelist = namelist = Namelist({
         'roughness_heat':3.21e-05,
         'roughness_moist':3.21e-05,            
         'two_stream_gray': False,     #Use the grey radiation scheme
-        'do_socrates_radiation': True,
+        'do_rrtm_radiation': True,
         'convection_scheme': 'SIMPLE_BETTS_MILLER', #Use simple Betts miller convection            
     },
 
@@ -190,8 +174,23 @@ exp.namelist = namelist = Namelist({
 #Lets do a run!
 if __name__=="__main__":
 
-    s = 1.0
-    exp.run(241, use_restart=True, num_cores=NCORES, restart_file='/scratch/sit204/mounts/isca_data/soc_test_mk49_direct_rrtm_comparison_more_outputs_net_surf_sw/restarts/res0240.tar.gz')
-#     for i in range(2,3):
-#         exp.run(i, num_cores=NCORES)
-# 
+    co2_values_list = [True, False]
+
+    for co2_value in co2_values_list:
+        #Set up the experiment object, with the first argument being the experiment name.
+        #This will be the name of the folder that the data will appear in.
+
+        exp = Experiment('rrtm_long_test_input_o3_is_mmr_'+str(co2_value), codebase=cb)
+        exp.clear_rundir()
+
+        exp.diag_table = diag
+        exp.inputfiles = inputfiles
+
+        exp.namelist = namelist.copy()
+        exp.namelist['rrtm_radiation_nml']['input_o3_file_is_mmr'] = co2_value
+
+        #Step 6. Run the fortran code
+
+        exp.run(1, use_restart=False, num_cores=NCORES)
+        for i in range(2,121):
+            exp.run(i, num_cores=NCORES)

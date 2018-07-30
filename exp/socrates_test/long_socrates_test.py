@@ -24,9 +24,7 @@ cb.compile(debug=False)  # compile the source code to working directory $GFDL_WO
 
 # create an Experiment object to handle the configuration of model parameters
 # and output diagnostics
-exp = Experiment('soc_test_mk37_long_diurnal', codebase=cb)
-
-exp.inputfiles = [os.path.join(base_dir,'input/co2.nc'), os.path.join(GFDL_BASE,'input/rrtm_input_files/ozone_1990.nc')]
+inputfiles = [os.path.join(GFDL_BASE,'input/rrtm_input_files/ozone_1990.nc')]
 
 #Tell model how to write diagnostics
 diag = DiagTable()
@@ -49,29 +47,26 @@ diag.add_field('dynamics', 'div', time_avg=True)
 #diag.add_field('socrates', 'soc_olr', time_avg=True)
 # diag.add_field('socrates', 'soc_olr_spectrum_lw', time_avg=True)
 # diag.add_field('socrates', 'soc_surf_spectrum_sw', time_avg=True)
-#diag.add_field('socrates', 'soc_heating_lw', time_avg=True)
-#diag.add_field('socrates', 'soc_heating_sw', time_avg=True)
-#diag.add_field('socrates', 'soc_heating_rate', time_avg=True)
-#diag.add_field('socrates', 'soc_flux_up_lw', time_avg=True)
-#diag.add_field('socrates', 'soc_flux_down_sw', time_avg=True)
+diag.add_field('socrates', 'soc_heating_lw', time_avg=True)
+diag.add_field('socrates', 'soc_heating_sw', time_avg=True)
+diag.add_field('socrates', 'soc_heating_rate', time_avg=True)
+diag.add_field('socrates', 'soc_flux_up_lw', time_avg=True)
+diag.add_field('socrates', 'soc_flux_down_sw', time_avg=True)
 
 
-exp.diag_table = diag
-
-#Empty the run directory ready to run
-exp.clear_rundir()
 
 #Define values for the 'core' namelist
-exp.namelist = namelist = Namelist({
+namelist = Namelist({
     'main_nml':{
      'days'   : 30,
      'hours'  : 0,
      'minutes': 0,
      'seconds': 0,
-     'dt_atmos':720,
+     'dt_atmos':600,
      'current_date' : [1,1,1,0,0,0],
      'calendar' : 'thirty_day'
     },
+
     'socrates_rad_nml': {
         'stellar_constant':1370.,
         'lw_spectral_filename':os.path.join(GFDL_BASE,'src/atmos_param/socrates/src/trunk/data/spectra/ga7/sp_lw_ga7'),
@@ -80,10 +75,12 @@ exp.namelist = namelist = Namelist({
         'do_read_ozone': True,
         'ozone_file_name':'ozone_1990',
         'ozone_field_name':'ozone_1990',
-        'do_read_co2': True,
-        'dt_rad':4320,
+        'dt_rad':3600,
         'store_intermediate_rad':True,
+        'chunk_size': 16,
+        'use_pressure_interp_for_half_levels':False,
     },
+
     'idealized_moist_phys_nml': {
         'do_damping': True,
         'turb':True,
@@ -147,18 +144,9 @@ exp.namelist = namelist = Namelist({
 
     'damping_driver_nml': {
         'do_rayleigh': True,
-        'trayfric': -0.25,              # neg. value: time in *days*
-        'sponge_pbottom':  5000., #Bottom of the model's sponge down to 50hPa
+        'trayfric': -0.5,              # neg. value: time in *days*
+        'sponge_pbottom':  150., #Setting the lower pressure boundary for the model sponge layer in Pa.
         'do_conserve_energy': True,
-    },
-
-    'two_stream_gray_rad_nml': {
-        'rad_scheme':  'byrne',        #Select radiation scheme to use
-        'atm_abs': 0.2,                      # Add a bit of solar absorption of sw
-        'do_seasonal':  True,          #do_seasonal=false uses the p2 insolation profile from Frierson 2006. do_seasonal=True uses the GFDL astronomy module to calculate seasonally-varying insolation.
-        'equinox_day':  0.75,          #A calendar parameter to get autumn equinox in september, as in the standard earth calendar.
-        'do_read_co2':  True, #Read in CO2 timeseries from input file
-        'co2_file':  'co2', #Tell model name of co2 input file
     },
 
     # FMS Framework configuration
@@ -179,25 +167,36 @@ exp.namelist = namelist = Namelist({
         'damping_order': 4,
         'water_correction_limit': 200.e2,
         'reference_sea_level_press':1.0e5,
-        'num_levels':25,      #How many model pressure levels to use
+        'num_levels':40,      #How many model pressure levels to use
         'valid_range_t':[100.,800.],
         'initial_sphum':[2.e-6],
-        'vert_coord_option':'input',#Use the vertical levels from Frierson 2006
-        'surf_res':0.5,
+        'vert_coord_option':'uneven_sigma',
+        'surf_res':0.2, #Parameter that sets the vertical distribution of sigma levels
         'scale_heights' : 11.0,
         'exponent':7.0,
         'robert_coeff':0.03
     },
-    'vert_coordinate_nml': {
-        'bk': [0.000000, 0.0117665, 0.0196679, 0.0315244, 0.0485411, 0.0719344, 0.1027829, 0.1418581, 0.1894648, 0.2453219, 0.3085103, 0.3775033, 0.4502789, 0.5244989, 0.5977253, 0.6676441, 0.7322627, 0.7900587, 0.8400683, 0.8819111, 0.9157609, 0.9422770, 0.9625127, 0.9778177, 0.9897489, 1.0000000],
-        'pk': [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000],
-       }
+
 })
 
 #Lets do a run!
 if __name__=="__main__":
 
-    s = 1.0
-    exp.run(1, use_restart=False, num_cores=NCORES, run_idb=False)
-    for i in range(2,121):
-        exp.run(i, num_cores=NCORES, openmp_threads=True)
+    co2_values_list = [False, True]
+
+    for co2_value in co2_values_list:
+        #Set up the experiment object, with the first argument being the experiment name.
+        #This will be the name of the folder that the data will appear in.
+
+        exp = Experiment('soc_test_co2_mmr_'+str(co2_value), codebase=cb)
+        exp.clear_rundir()
+
+        exp.diag_table = diag
+        exp.inputfiles = inputfiles
+
+        exp.namelist = namelist.copy()
+        exp.namelist['socrates_rad_nml']['input_co2_mmr'] = co2_value
+
+        exp.run(1, use_restart=False, num_cores=NCORES)
+        for i in range(2,121):
+            exp.run(i, num_cores=NCORES)
