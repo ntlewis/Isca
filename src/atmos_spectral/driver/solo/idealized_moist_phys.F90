@@ -137,6 +137,8 @@ integer :: future
 real :: init_bucket_depth = 1000. ! default large value
 real :: init_bucket_depth_land = 20. 
 real :: max_bucket_depth_land = 0.15 ! default from Manabe 1969
+real :: bucket_max_evap_depth = 0.15*0.75 ! if bucket is more than 75% full, evaporate at max rate
+logical :: bucket_can_overflow = .true.
 real :: robert_bucket = 0.04   ! default robert coefficient for bucket depth LJJ
 real :: raw_bucket = 0.53       ! default raw coefficient for bucket depth LJJ
 ! end RG Add bucket
@@ -150,6 +152,7 @@ namelist / idealized_moist_phys_nml / turb, lwet_convection, do_bm, do_ras, roug
                                       gp_surface, convection_scheme,          &
                                       bucket, init_bucket_depth, init_bucket_depth_land, & !RG Add bucket 
                                       max_bucket_depth_land, robert_bucket, raw_bucket, &
+                                      bucket_max_evap_depth, bucket_can_overflow, & !JP permit infinite buckets
                                       do_socrates_radiation
 
 
@@ -948,7 +951,7 @@ call surface_flux(                                                          &
                                   q_surf(:,:),                              & ! is intent(inout)
                                        bucket,                              &     ! RG Add bucket
                     bucket_depth(:,:,current),                              &     ! RG Add bucket
-                        max_bucket_depth_land,                              &     ! RG Add bucket
+                        bucket_max_evap_depth,                              &     ! JP switch to giving max evap depth rather than max bucket depth
                          depth_change_lh(:,:),                              &     ! RG Add bucket
                        depth_change_conv(:,:),                              &     ! RG Add bucket
                        depth_change_cond(:,:),                              &     ! RG Add bucket
@@ -1205,9 +1208,11 @@ if(bucket) then
    where (bucket_depth <= 0.) bucket_depth = 0.
 
    ! truncate surface reservoir over land points
+    if (bucket_can_overflow) then
        where(land .and. (bucket_depth(:,:,future) > max_bucket_depth_land))
             bucket_depth(:,:,future) = max_bucket_depth_land
        end where
+    end if
 
    if(id_bucket_depth > 0) used = send_data(id_bucket_depth, bucket_depth(:,:,future), Time)
    if(id_bucket_depth_conv > 0) used = send_data(id_bucket_depth_conv, depth_change_conv(:,:), Time)
