@@ -336,7 +336,7 @@ def run_cli(exps):
     def list_exps(args):
         exps = filter_exps(args._exps, args)
         for e in exps:
-            print e.name
+            print(e.name)
 
     parser = argparse.ArgumentParser(description="Run an Isca experiment.")
     parser.add_argument('-e', '--exp', type=str, default=None, help='Run only a specific named experiment(s) with names that match the argument')
