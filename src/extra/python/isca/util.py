@@ -272,8 +272,26 @@ def run_cli(exps, fail_if_underconditioned=True):
                 with context(exp):
                     exp.run(i,**config['run_config'])
 
-def run_cli2(exps):
-    """Read command line arguments and return a dict of configuration."""
+def run_cli(exps):
+    """Allow an experiment file to be controlled from the command line.
+
+    At the end of your experiment script, rather than using a loop to run all
+    your experiments you can instead do:
+        from isca.util import run_cli
+        run_cli(exp)
+    or, if you have a number of defined experiments
+        exps = [exp1, exp2, ...]
+        run_cli(exps)
+    
+    Then on the command line you can compile and run your experiments, changing
+    basic run options: e.g.
+        $ python my_exp.py compile
+        ...
+        $ python my_exp.py run --up-to 10 -n 16  # runs months 1-10 on 16 cores
+    To get the full list of commands:
+        $ python my_exp.py --help
+    
+    """
     try:
         exps = list(exps)
     except TypeError: 
@@ -302,6 +320,9 @@ def run_cli2(exps):
         run_config['overwrite_data'] = args.force
         for f in ('mpirun_opts', 'nice_score', 'restart_file', 'num_cores'):
             run_config[f] = vars(args)[f]
+        
+        if args.log_file:
+            save_log(exp, args.log_file)
 
         if args.up_to:
             runs = range(1, args.run+1)
