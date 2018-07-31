@@ -246,11 +246,13 @@ def read_command_line_options(fail_if_underconditioned=True):
     return config
 
 
+
+
 def run_cli(exps, fail_if_underconditioned=True):
     """Provide a basic command line interface to run the experiment."""
     try:
         iter_exps = iter(exps)
-    except:
+    except TypeError: 
         iter_exps = [exps]
     config = read_command_line_options(fail_if_underconditioned)
     if config['log_file']:
@@ -269,3 +271,75 @@ def run_cli(exps, fail_if_underconditioned=True):
             for exp in exps:
                 with context(exp):
                     exp.run(i,**config['run_config'])
+
+def run_cli2(exps):
+    """Read command line arguments and return a dict of configuration."""
+    try:
+        exps = list(exps)
+    except TypeError: 
+        exps = [exps]
+
+    def filter_exps(exps, args):
+        if args.exp:
+            return [e for e in args._exps if args.exp in e.name]
+        else:
+            return exps
+
+    def compile_exps(args):
+        exps = filter_exps(args._exps, args)
+        codebases = set(exp.codebase for exp in exps)
+        for cb in codebases:
+            cb.compile()
+
+    def run_exps(args):
+        exps = filter_exps(args._exps, args)
+        context = exp_progress if args.progress_bar else no_context
+        run_config = {}
+        if args.no_restart and args.restart_file is not None:
+            print('Error: --no-restart flag set and also a restart file specified.  Not sure what to do.')
+            sys.exit(1)
+        run_config['use_restart'] = not args.no_restart
+        run_config['overwrite_data'] = args.force
+        for f in ('mpirun_opts', 'nice_score', 'restart_file', 'num_cores'):
+            run_config[f] = vars(args)[f]
+
+        if args.up_to:
+            runs = range(1, args.run+1)
+        else:
+            runs = [args.run]
+        for i in runs:
+            for exp in exps:
+                with context(exp):
+                    exp.run(i,**run_config)
+
+    def list_exps(args):
+        exps = filter_exps(args._exps, args)
+        for e in exps:
+            print e.name
+
+    parser = argparse.ArgumentParser(description="Run an Isca experiment.")
+    parser.add_argument('-e', '--exp', type=str, default=None, help='Run only a specific named experiment(s) with names that match the argument')
+    subs = parser.add_subparsers()
+    parser.set_defaults(_exps=exps)
+
+    compiler = subs.add_parser('compile', help='Compile the experiment codebase.')
+    compiler.set_defaults(func=compile_exps)
+    
+    runner = subs.add_parser('run', help='Run the experiments')
+    runner.add_argument('run',  type=int, default=None, help='Run (up to) iteration i.')
+    runner.add_argument('--up-to', action='store_true', default=False, help='Don\'t just run iteration i, run all preceeding as well.')
+    runner.add_argument('-n', '--num-cores',  type=int, default=8, help='Run on a given number of cores.')
+    runner.add_argument('-r', '--restart-file', type=str, help='Use a given restart file.  If not given, default is to use the end state from iteration (i-1).')
+    runner.add_argument('-f', '--force', action='store_true', default=False, help='Force the run, overwriting existing data.')
+    runner.add_argument('--nice-score', type=int, default=0, help='Control execution priority by setting a nice score for the mpirun')
+    runner.add_argument('--mpirun-opts', type=str, default='', help='(Advanced) Pass additional options to the mpi_run command.')
+    runner.add_argument('--no-restart', action='store_true', default=False, help='Start the run without a restart file.')
+    runner.add_argument('--progress-bar', action='store_true', default=False, help='Show a progress bar instead of daily output')
+    runner.add_argument('-l', '--log-file', type=str, default=None, help='Save the output log to a file.')
+    runner.set_defaults(func=run_exps)
+
+    lister = subs.add_parser('ls', help='list available experiments')
+    lister.set_defaults(func=list_exps)
+    args = parser.parse_args()
+    args.func(args)
+
