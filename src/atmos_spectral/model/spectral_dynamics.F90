@@ -81,7 +81,7 @@ use        tracer_type_mod, only: tracer_type, tracer_type_version, tracer_type_
 use every_step_diagnostics_mod, only: every_step_diagnostics_init, every_step_diagnostics, every_step_diagnostics_end
 
 use        mpp_domains_mod, only: mpp_global_field
-use        mpp_mod,         only: NULL_PE, mpp_transmit, mpp_sync, mpp_send, mpp_broadcast, mpp_recv, mpp_max
+use        mpp_mod,         only: NULL_PE, mpp_transmit, mpp_sync, mpp_send, mpp_broadcast, mpp_recv, mpp_max, mpp_min
 
 use       polvani_2004_mod, only: polvani_2004
 use       polvani_2007_mod, only: polvani_2007, polvani_2007_tracer_init, get_polvani_2007_tracers
@@ -1854,13 +1854,18 @@ integer :: year, month, days, hours, minutes, seconds
 character(len=4), dimension(12) :: month_name
 
 real, dimension(is:ie, js:je, num_levels) :: speed
-real :: max_speed, avgT
+real :: max_speed, avgT, maxT, minT
 
 month_name=(/' Jan',' Feb',' Mar',' Apr',' May',' Jun',' Jul',' Aug',' Sep',' Oct',' Nov',' Dec'/)
 
 speed = sqrt(u_grid*u_grid + v_grid*v_grid)
 max_speed = maxval(speed)
 call mpp_max(max_speed)
+maxT = maxval(t_grid)
+call mpp_max(maxT)
+minT = minval(t_grid)
+call mpp_min(minT)
+
 
 avgT = area_weighted_global_mean(t_grid(:,:, num_levels))
 
@@ -1875,7 +1880,7 @@ if(mpp_pe() == mpp_root_pe()) then
   else
     call get_date(Time, year, month, days, hours, minutes, seconds)
     if (json_logging) then
-      write(*,400) year, month, days, hours, minutes, seconds, max_speed, avgT
+      write(*,400) year, month, days, hours, minutes, seconds, max_speed, avgT, maxT, minT
     else
       write(*,200) year, month_name(month), days, hours, minutes, seconds
     end if
@@ -1886,7 +1891,7 @@ endif
 300 format(1x, '{"day":',i6,2x,',"second":', i6, &
     2x,',"max_speed":',e13.6,3x,',"avg_T":',e13.6, 3x '}')
 400 format(1x, '{"date": "',i0.4,'-',i0.2,'-',i0.2, &
-  '", "time": "', i0.2,':', i0.2,':', i0.2, '", "max_speed":',f6.1,3x,',"avg_T":',f6.1, 3x '}')
+  '", "time": "', i0.2,':', i0.2,':', i0.2, '", "max_speed":',f6.1,3x,',"avg_T":',f6.1, 3x,',"max_T":',f6.1, 3x, ',"min_T":',f6.1, 3x, '}')
 
 end subroutine global_integrals
 !===================================================================================
