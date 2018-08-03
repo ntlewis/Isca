@@ -321,7 +321,7 @@ write(stdlog_unit, socrates_rad_nml)
   ! -----------------------------------------------------------------------------
   subroutine socrates_interface(Time_diag, rlat, rlon, soc_mode,  &
        fms_temp, fms_spec_hum, fms_ozone, fms_co2, fms_t_surf, fms_p_full, fms_p_half, fms_z_full, fms_z_half, fms_albedo, n_profile, n_layer,        &
-       output_heating_rate, output_soc_flux_down_sw, output_soc_flux_up_lw, fms_net_surf_sw_down, fms_surf_lw_down, fms_coszen, output_soc_spectral_olr, t_half_level_out )
+       output_heating_rate, output_soc_flux_down_sw, output_soc_flux_up_lw, fms_net_surf_sw_down, fms_surf_lw_down, fms_coszen, fms_rrsun, output_soc_spectral_olr, t_half_level_out )
 
     use realtype_rd
     use read_control_mod
@@ -358,6 +358,7 @@ write(stdlog_unit, socrates_rad_nml)
     real(r_def), intent(in) :: rlon(:,:)
     real(r_def), intent(in) :: rlat(:,:)
     real(r_def), intent(in) :: fms_z_full(:,:,:), fms_z_half(:,:,:)
+    real, intent(in) :: rrsun ! need this for eccentricity to work 
 
 
     ! Output arrays
@@ -446,7 +447,7 @@ write(stdlog_unit, socrates_rad_nml)
           input_planet_albedo = reshape(fms_albedo(:,:),(/n_profile /))
 
           !Set tide-locked flux - should be set by namelist eventually!
-          input_solar_irrad = stellar_constant
+          input_solar_irrad = stellar_constant * rrsun ! need this for eccentricity to work, rrsun calculated by diurnal solar, or set to 1 if tidally locked. 
           input_t_surf = reshape(fms_t_surf(:,:),(/si*sj /))
           z_full_reshaped = reshape(fms_z_full(:,:,:), (/si*sj, sk/))
           z_half_reshaped = reshape(fms_z_half(:,:,:), (/si*sj, sk+1/))
@@ -709,6 +710,7 @@ subroutine run_socrates(Time, Time_diag, rad_lat, rad_lon, temp_in, q_in, t_surf
        if (tidally_locked == .TRUE.) then
            coszen = COS(rad_lat(:,:))*COS(rad_lon(:,:))
            WHERE (coszen < 0.0) coszen = 0.0
+           rrsun = 1 ! need this to be defined, 1 makes no change
        else
        
         ! compute zenith angle
@@ -789,7 +791,8 @@ subroutine run_socrates(Time, Time_diag, rad_lat, rad_lon, temp_in, q_in, t_surf
 
        CALL socrates_interface(Time, rad_lat_soc, rad_lon_soc, soc_lw_mode,  &
             tg_tmp_soc, q_soc, ozone_soc, co2_soc, t_surf_for_soc, p_full_soc, p_half_soc, z_full_soc, z_half_soc, albedo_soc, n_profile, n_layer,     &
-            output_heating_rate_lw, output_soc_flux_down_sw, output_soc_flux_up_lw,  output_net_surf_sw_down, output_surf_lw_down, coszen, outputted_soc_spectral_olr, t_half_level_out = t_half_out)
+            output_heating_rate_lw, output_soc_flux_down_sw, output_soc_flux_up_lw,  output_net_surf_sw_down, output_surf_lw_down, coszen, rrsun, &
+            outputted_soc_spectral_olr, t_half_level_out = t_half_out)
 
        tg_tmp_soc = tg_tmp_soc + output_heating_rate_lw*delta_t
        surf_lw_down(:,:) = REAL(output_surf_lw_down(:,:))
@@ -802,7 +805,7 @@ subroutine run_socrates(Time, Time_diag, rad_lat, rad_lon, temp_in, q_in, t_surf
        soc_lw_mode = .FALSE.
        CALL socrates_interface(Time, rad_lat_soc, rad_lon_soc, soc_lw_mode,  &
             tg_tmp_soc, q_soc, ozone_soc, co2_soc, t_surf_for_soc, p_full_soc, p_half_soc, z_full_soc, z_half_soc, albedo_soc, n_profile, n_layer,     &
-            output_heating_rate_sw, output_soc_flux_down_sw, output_soc_flux_up_lw, output_net_surf_sw_down, output_surf_lw_down, coszen )
+            output_heating_rate_sw, output_soc_flux_down_sw, output_soc_flux_up_lw, output_net_surf_sw_down, output_surf_lw_down, coszen, rrsun )
 
        tg_tmp_soc = tg_tmp_soc + output_heating_rate_sw*delta_t
        net_surf_sw_down(:,:) = REAL(output_net_surf_sw_down(:,:))
