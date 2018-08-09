@@ -43,6 +43,9 @@ LOGICAL :: l_planet_grey_surface = .TRUE.
   integer   :: solday=0  ! if >0, do perpetual run corresponding to day of the year = solday \in [0,days per year]
   logical   :: do_rad_time_avg = .true. ! Average coszen for SW radiation over dt_rad?
   real      :: equinox_day=0.75                ! fraction of the year defining NH autumn equinox \in [0,1]
+  ! NTL ideal seasons
+  logical   :: ideal_seasons = .false.
+  real      :: semi_amp = 0.
 
   ! radiation time stepping and spatial sampling
   integer   :: dt_rad=0                        ! Radiation timestep - every step if dt_rad<dt_atmos
@@ -122,6 +125,6 @@ LOGICAL :: l_planet_grey_surface = .TRUE.
                              hfc134a_mix_ratio, &
                              inc_h2o, inc_co2, inc_co, inc_o3, inc_n2o, inc_ch4, inc_o2, &
                              inc_so2, inc_cfc11, inc_cfc12, inc_cfc113, inc_hcfc22, inc_hfc134a, &
-                             use_pressure_interp_for_half_levels
+                             use_pressure_interp_for_half_levels, ideal_seasons, semi_amp
 
 end module socrates_config_mod
