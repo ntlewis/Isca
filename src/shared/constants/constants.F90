@@ -163,8 +163,8 @@ real, public, parameter :: TFREEZE = 273.16
 !  mean sea level pressure
 ! </DATA>
 
-real, public, parameter :: WTMAIR = 2.896440E+01
-real, public, parameter :: WTMH2O = WTMAIR*(EARTH_RDGAS/RVGAS) !pjp OK to change value because not used yet.
+real, public, parameter :: WTMAIR_EARTH = 2.896440E+01
+real, public, parameter :: WTMH2O = WTMAIR_EARTH*(EARTH_RDGAS/RVGAS) !pjp OK to change value because not used yet.
 !real, public, parameter :: WTMO3  = 47.99820E+01
 real, public, parameter :: WTMOZONE =  47.99820
 real, public, parameter :: WTMC     =  12.00000
@@ -264,9 +264,11 @@ real, public :: PSTD_MKS    = PSTD_MKS_EARTH
 real, public :: RDGAS  = EARTH_RDGAS
 real, public :: KAPPA = EARTH_KAPPA
 real, public :: CP_AIR = EARTH_CP_AIR
+real, public :: WTMAIR = WTMAIR_EARTH
 logical :: earthday_multiple = .false.
 
-namelist/constants_nml/ radius, grav, omega, orbital_period, pstd, pstd_mks, rdgas, kappa, solar_const, earthday_multiple
+namelist/constants_nml/ radius, grav, omega, orbital_period, pstd, pstd_mks, rdgas, kappa, solar_const, earthday_multiple, & 
+wtmair
 
 !-----------------------------------------------------------------------
 ! version and tagname published
