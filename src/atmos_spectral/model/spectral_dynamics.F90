@@ -107,6 +107,7 @@ character(len=128), parameter :: tagname = '$Name: siena_201211 $'
 integer :: id_ps, id_u, id_v, id_t, id_vor, id_div, id_omega, id_wspd, id_slp
 integer :: id_pres_full, id_pres_half, id_zfull, id_zhalf, id_vort_norm, id_EKE
 integer :: id_uu, id_vv, id_tt, id_omega_omega, id_uv, id_omega_t, id_vw, id_uw, id_ut, id_vt, id_v_vor
+integer :: id_dt_ug_damp, id_dt_vg_damp ! NTL tendencies from spectral damping, call to send_data in spectral_dynamics
 integer, allocatable, dimension(:) :: id_tr, id_utr, id_vtr, id_wtr !extra advection diags added by RG
 real :: gamma, expf, expf_inverse
 character(len=8) :: mod_name = 'dynamics'
@@ -825,6 +826,11 @@ real, dimension(is:ie, js:je, num_levels, num_tracers) :: part_filt_tr
 logical :: pe_is_valid = .true.
 logical :: r_pe_is_valid = .true.
 
+! NTL create variables for outputting spectral damping tendency
+complex, dimension(ms:me, ns:ne, num_levels  ) :: dt_vors_damp, dt_divs_damp
+real, dimension(is:ie, js:je, num_levels     ) :: dt_ug_damp, dt_vg_damp
+logical :: used
+
 if(.not.module_is_initialized) then
   call error_mesg('spectral_dynamics','dynamics has not been initialized ', FATAL)
 endif
@@ -905,9 +911,24 @@ dt_divs = dt_divs - compute_laplacian(phis_plus_ke)
 
 if(use_implicit) call implicit_correction (dt_divs, dt_ts, dt_ln_ps, divs, ts, ln_ps, delta_t, previous, current)
 
+! to output u,v tendency from molecular diffusion, save dt_vors, dt_divs ! NTL FOR ANG MOM BUDGET 
+if((id_dt_ug_damp > 0) .or. (id_dt_vg_damp > 0)) then 
+  dt_vors_damp = dt_vors
+  dt_divs_damp = dt_divs
+endif 
+
 call compute_spectral_damping_vor (vors(:,:,:,previous), dt_vors, delta_t)
 call compute_spectral_damping_div (divs(:,:,:,previous), dt_divs, delta_t)
 call compute_spectral_damping     (ts  (:,:,:,previous), dt_ts,   delta_t)
+
+! compute div, vor tendency owing to spectral_damping and convert back to dt_ug, dt_vg ! NTL FOR ANG MOM BUDGET 
+if((id_dt_ug_damp > 0) .or. (id_dt_vg_damp > 0)) then 
+  dt_vors_damp = dt_vors - dt_vors_damp
+  dt_divs_damp = dt_divs - dt_divs_damp
+  call uv_grid_from_vor_div(dt_vors_damp, dt_divs_damp, dt_ug_damp, dt_vg_damp)
+  if (id_dt_ug_damp > 0) used = send_data(id_dt_ug_damp, dt_ug_damp, Time + Time_step)
+  if (id_dt_vg_damp > 0) used = send_data(id_dt_vg_damp, dt_vg_damp, Time + Time_step)
+endif 
 
 if(.not.robert_complete_for_fields) then
   call error_mesg('spectral_dynamics','robert_complete_for_fields should be .true.',FATAL)
@@ -1672,6 +1693,12 @@ id_zhalf   = register_diag_field(mod_name, &
 
 id_slp = register_diag_field(mod_name, &
       'slp',(/id_lon,id_lat/),       Time, 'sea level pressure',           'pascals')
+
+! NTL diagnostics for u, v tendency due to spectral damping 
+id_dt_ug_damp = register_diag_field(mod_name, &
+      'dt_ug_damp', axes_3d_full, Time, 'u tendency du/dt due to spectral damping', 'm sec**-2')
+id_dt_vg_damp = register_diag_field(mod_name, &
+      'dt_vg_damp', axes_3d_full, Time, 'v tendency dv/dt due to spectral damping', 'm sec**-2')
 
 if(id_slp > 0) then
   gamma = 0.006
