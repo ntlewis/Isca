@@ -3,7 +3,7 @@ import numpy as np
 from isca import DryCodeBase, DiagTable, Experiment, Namelist, GFDL_BASE
 
 NCORES = 16
-RESOLUTION = 'T42', 40  # T42 horizontal resolution, 25 levels in pressure
+RESOLUTION = 'T21', 31  # T42 horizontal resolution, 21 levels in pressure
 
 # a CodeBase can be a directory on the computer,
 # useful for iterative development
@@ -23,12 +23,12 @@ cb.compile()  # compile the source code to working directory $GFDL_WORK/codebase
 # create an Experiment object to handle the configuration of model parameters
 # and output diagnostics
 
-exp_name = 'venus_default'
+exp_name = 'venus_default4'
 exp = Experiment(exp_name, codebase=cb)
 
 #Tell model how to write diagnostics
 diag = DiagTable()
-diag.add_file('atmos_monthly', 5, 'days', time_units='days')
+diag.add_file('atmos_out', 75, 'days', time_units='days')
 
 #Tell model which diagnostics to write
 diag.add_field('dynamics', 'ps', time_avg=True)
@@ -39,17 +39,34 @@ diag.add_field('dynamics', 'vcomp', time_avg=True)
 diag.add_field('dynamics', 'temp', time_avg=True)
 diag.add_field('dynamics', 'vor', time_avg=True)
 diag.add_field('dynamics', 'div', time_avg=True)
+diag.add_field('hs_forcing', 'teq', time_avg=True)
 
 exp.diag_table = diag
 
 # define namelist values as python dictionary
 # wrapped as a namelist object.
+
+
+exp.inputfiles = ['/home/lewis/research/tools/stuff_for_making_profile/relaxation_profile2.nc']
+
+#etas = np.array([2.265e-6, 2.925e-6, 4.500e-6, 7.950e-6, 1.525e-5, 
+#3.070e-5, 6.355e-5, 1.324e-4, 2.710e-4, 5.400e-4, 1.043e-3, 1.934e-3, 3.454e-3, 
+#5.929e-3, 9.814e-3, 1.569e-2, 2.430e-2, 3.657e-2, 5.361e-2, 7.672e-2, 1.074e-1, 
+#1.472e-1, 1.979e-1, 2.610e-1, 3.373e-1, 4.273e-1, 5.299e-1, 6.420e-1, 7.577e-1, 
+#8.679e-1, 9.602e-1])
+etas = np.array([0.00022, 0.00029, 0.00045, 0.00078, 0.0015, 0.0030, 0.0062, 0.0130, 0.0266, 0.0532, 0.1029, 0.1912, 0.3419, 0.5878, 0.9739, 1.5584, 2.4162, 3.6385, 5.3373, 7.6420, 10.703, 14.678, 19.738, 26.035, 33.660, 42.658, 52.918, 64.136, 75.715, 86.746, 95.994]) * 1.e-2
+etas = (etas[:-1] + etas[1:])/2.
+etas = etas.tolist()
+
+half_etas = np.concatenate(([0.],etas,[1.])) 
+half_etas = half_etas.tolist()
+
 namelist = Namelist({
     'main_nml': {
-        'dt_atmos': 600,
-        'days': 10,
-        'calendar': 'thirty_day',
-        'current_date': [2000,1,1,0,0,0]
+        'dt_atmos': 150,
+        'days': 75,
+        'current_date' : [1,1,1,0,0,0],
+        'calendar': 'no_calendar',
     },
 
     'atmosphere_nml': {
@@ -57,32 +74,40 @@ namelist = Namelist({
     },
 
     'spectral_dynamics_nml': {                                                      # NTL: (**) indicates action required 
-        'damping_order'           : 4,                      # default: 2            # NTL: What do Joao / Chris use?                         **
-        'water_correction_limit'  : 200.e2,                 # default: 0            # NTL: What does this do?                                **
-        'reference_sea_level_press': 92.0e5,                # default: 101325       # NTL: Change to Venus surface pressure 
-        'valid_range_t'           : [100., 800.],           # default: (100, 500)   # NTL: extend range for Venus        
+        'damping_order'           : 4,                      # default: 2            # NTL: As suggested in Lee and Richardson (2010)
+        'damping_coeff'           : 4e-6,                   # default: 1.157...e-4  # NTL: double diffusion to see what it does. 
+        'water_correction_limit'  : 200.e2,                 # default: 0            # NTL: What does this do?                          **
+        'reference_sea_level_press': 9.2e6,                 # default: 101325       # NTL: Change to Venus surface pressure 
+        'valid_range_t'           : [50., 850.],            # default: (100, 500)   # NTL: extend range for Venus        
         'initial_sphum'           : 0.0,                    # default: 0            # NTL: Start with no water
-        'vert_coord_option'       : 'uneven_sigma',         # default: 'even_sigma' # NTL: change this to input                              **
-        'scale_heights': 6.0,                                                       # NTL: What does this do (exactly)? What does Greg use?  **
-        'exponent': 7.5,                                                            # NTL: " " " "                                           **
-        'surf_res': 0.5                                                             # NTL: " " " "                                           **
+        'vert_coord_option'       : 'input',                # default: 'even_sigma' # NTL: change this to input    
     },
 
-    # configure the relaxation profile -- for the time being, read this from input, use what Chris and Joao used. **
+    # CONVERT LEE INPUT PRESSURE INTO INPUT SIGMA... 
+    'vert_coordinate_nml': {
+       'bk': half_etas,
+       'pk': [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000],
+      },
+
+    # configure the relaxation profile -- for the time being, read this from input, use what Chris and Joao used. 
     'hs_forcing_nml': {
-        't_zero': 315.,    # temperature at reference pressure at equator (default 315K)
-        't_strat': 200.,   # stratosphere temperature (default 200K)
-        'delh': 60.,       # equator-pole temp gradient (default 60K)
-        'delv': 10.,       # lapse rate (default 10K)
-        'eps': 0.,         # stratospheric latitudinal variation (default 0K)
-        'sigma_b': 0.7,    # boundary layer friction height (default p/ps = sigma = 0.7)
-
-        # negative sign is a flag indicating that the units are days
-        'ka':   -40.,      # Constant Newtonian cooling timescale (default 40 days)
-        'ks':    -4.,      # Boundary layer dependent cooling timescale (default 4 days)
-        'kf':   -1.,       # BL momentum frictional timescale (default 1 days)
-
+        'equilibrium_t_option' : 'from_file',
+        'equilibrium_t_file'   : 'relaxation_profile2',                          # NTL: MAKE THIS FILE                       **
+        'venus_model'          : True, 
         'do_conserve_energy':   True,  # convert dissipated momentum into heat (default True)
+    },
+
+    'constants_nml': {
+        'omega': 2.99e-7, 
+        'grav': 8.87,
+        'radius': 6.0518e6,
+        'rdgas': 188.,
+        'PSTD':92.0e6,
+        'PSTD_MKS':92.0e5,
+        'kappa': 188. / 850.1,
+        'wtmair':43.45
+        #'CP_AIR': 900.,
+
     },
 
     'diag_manager_nml': {
@@ -105,5 +130,5 @@ exp.set_resolution(*RESOLUTION)
 #Lets do a run!
 if __name__ == '__main__':
     exp.run(1, num_cores=NCORES, use_restart=False)
-    for i in range(2, 4):
+    for i in range(2, 487):
         exp.run(i, num_cores=NCORES)  # use the restart i-1 by default
