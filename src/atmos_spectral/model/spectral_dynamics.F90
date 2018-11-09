@@ -104,10 +104,14 @@ character(len=128), parameter :: tagname = '$Name: siena_201211 $'
 
 !===============================================================================================
 ! variables needed for diagnostics
-integer :: id_ps, id_u, id_v, id_t, id_vor, id_div, id_omega, id_wspd, id_slp
+integer :: id_ps, id_u, id_v, id_t, id_theta, id_vor, id_div, id_omega, id_wspd, id_slp
 integer :: id_pres_full, id_pres_half, id_zfull, id_zhalf, id_vort_norm, id_EKE
 integer :: id_uu, id_vv, id_tt, id_omega_omega, id_uv, id_omega_t, id_vw, id_uw, id_ut, id_vt, id_v_vor, id_uz, id_vz, id_omega_z
 integer :: id_dt_ug_damp, id_dt_vg_damp ! NTL tendencies from spectral damping, call to send_data in spectral_dynamics
+integer :: id_dt_ug_dyn, id_dt_vg_dyn ! NTL tendencies from dynamical core, call to send_data in spectral_dynamics 
+integer :: id_dt_ug, id_dt_vg
+integer :: id_dt_psg_tot
+integer :: id_up_vp, id_up_omegap, id_vp_thetap
 integer, allocatable, dimension(:) :: id_tr, id_utr, id_vtr, id_wtr !extra advection diags added by RG
 real :: gamma, expf, expf_inverse
 character(len=8) :: mod_name = 'dynamics'
@@ -830,6 +834,9 @@ logical :: r_pe_is_valid = .true.
 complex, dimension(ms:me, ns:ne, num_levels  ) :: dt_vors_damp, dt_divs_damp
 real, dimension(is:ie, js:je, num_levels     ) :: dt_ug_damp, dt_vg_damp
 logical :: used
+! NTL And for total dynamical core tendency 
+complex, dimension(ms:me, ns:ne, num_levels  ) :: dt_vors_start, dt_divs_start, dt_vors_dyn, dt_divs_dyn
+real, dimension(is:ie, js:je, num_levels     ) :: dt_ug_dyn, dt_vg_dyn, dt_ug_tot, dt_vg_tot
 
 if(.not.module_is_initialized) then
   call error_mesg('spectral_dynamics','dynamics has not been initialized ', FATAL)
@@ -853,6 +860,11 @@ dt_ug_tmp  = dt_ug
 dt_vg_tmp  = dt_vg
 dt_tg_tmp  = dt_tg
 dt_tracers_tmp = dt_tracers
+
+! NTL: convert intput u, v tendency from physics to spectral space if we want dycore u, v tendencies as diag 
+if((id_dt_ug_dyn > 0) .or. (id_dt_vg_dyn > 0)) then 
+  call vor_div_from_uv_grid(dt_ug, dt_vg, dt_vors_start, dt_divs_start, triang = triang_trunc)
+endif 
 
 call initialize_corrections(dt_ug, dt_vg, dt_tg, dt_tracers, delta_t)
 
@@ -957,6 +969,26 @@ call uv_grid_from_vor_div(vors(:,:,:,future), divs(:,:,:,future), ug(:,:,:,futur
 call trans_spherical_to_grid(ts   (:,:,:,future), tg(:,:,:,future))
 call trans_spherical_to_grid(ln_ps(:,:,  future), ln_psg)
 psg(:,:,future) = exp(ln_psg)
+
+
+! NTL: compute div, vor tendency owing to dycore and convert back to dt_ug, dt_vg to output as diag 
+if((id_dt_ug_dyn > 0) .or. (id_dt_vg_dyn > 0)) then 
+  dt_vors_dyn = dt_vors - dt_vors_start
+  dt_divs_dyn = dt_divs - dt_divs_start
+  call uv_grid_from_vor_div(dt_vors_dyn, dt_divs_dyn, dt_ug_dyn, dt_vg_dyn)
+  if (id_dt_ug_dyn > 0) used = send_data(id_dt_ug_dyn, dt_ug_dyn, Time + Time_step)
+  if (id_dt_vg_dyn > 0) used = send_data(id_dt_vg_dyn, dt_vg_dyn, Time + Time_step)
+endif 
+if((id_dt_ug > 0) .or. (id_dt_vg > 0)) then 
+  call uv_grid_from_vor_div(dt_vors, dt_divs, dt_ug_tot, dt_vg_tot)
+  if (id_dt_ug > 0) used = send_data(id_dt_ug, dt_ug_tot, Time + Time_step)
+  if (id_dt_vg > 0) used = send_data(id_dt_vg, dt_vg_tot, Time + Time_step)
+endif
+if(id_dt_psg_tot > 0) then 
+  call trans_spherical_to_grid(dt_ln_ps, dt_psg_tmp)
+  dt_psg_tmp = dt_psg_tmp * psg(:,:,current)
+  used = send_data(id_dt_psg_tot, dt_psg_tmp, Time+ Time_step)
+endif 
 
 if(minval(tg(:,:,:,future)) < valid_range_t(1) .or. maxval(tg(:,:,:,future)) > valid_range_t(2)) then
   pe_is_valid = .false.
@@ -1664,6 +1696,9 @@ id_wspd= register_diag_field(mod_name, &
 id_t   = register_diag_field(mod_name, &
       'temp',    axes_3d_full,       Time, 'temperature',                  'deg_k',      range=valid_range_t)
 
+id_theta = register_diag_field(mod_name, &
+      'theta', axes_3d_full, Time, 'potential temperature', 'deg_K')
+
 id_tt  = register_diag_field(mod_name, &
       'temp_sq', axes_3d_full,       Time, 'temperature squared',          'deg_k**2',   range=(/0.,valid_range_t(2)**2/))
 
@@ -1708,6 +1743,26 @@ id_dt_ug_damp = register_diag_field(mod_name, &
       'dt_ug_damp', axes_3d_full, Time, 'u tendency du/dt due to spectral damping', 'm sec**-2')
 id_dt_vg_damp = register_diag_field(mod_name, &
       'dt_vg_damp', axes_3d_full, Time, 'v tendency dv/dt due to spectral damping', 'm sec**-2')
+! NTL diagnostics for u, v tendency due to dynamical core 
+id_dt_ug_dyn = register_diag_field(mod_name, &
+      'dt_ug_dyn', axes_3d_full, Time, 'u tendency du/dt due to dynamics', 'm sec**-2')
+id_dt_vg_dyn = register_diag_field(mod_name, &
+      'dt_vg_dyn', axes_3d_full, Time, 'v tendency dv/dt due to dynamics', 'm sec**-2')
+! NTL diagnostics for u, v tendency on timestep 
+id_dt_ug = register_diag_field(mod_name, &
+      'dt_ug', axes_3d_full, Time, 'u tendency du/dt on timestep', 'm sec**-2')
+id_dt_vg = register_diag_field(mod_name, &
+      'dt_vg', axes_3d_full, Time, 'v tendency dv/dt on timestep', 'm sec**-2')
+! NTL surface pressure tendency (total dynamics + physics)
+id_dt_psg_tot = register_diag_field(mod_name, &
+      'dt_psg_tot', (/id_lon,id_lat/), Time, 'surface pressure tendency dp/dt', 'Pa sec**-1')
+! NTL various diagnostics required to calculate EP flux 
+id_up_vp = register_diag_field(mod_name, &
+      'up_vp', axes_3d_full, Time, 'u anomaly * v anomaly', '(m sec**-1)**2')
+id_up_omegap = register_diag_field(mod_name, &
+      'up_omegap', axes_3d_full, Time, 'u anomaly * omega anomaly', 'Pa m sec**-2')
+id_vp_thetap = register_diag_field(mod_name, &
+      'vp_thetap', axes_3d_full, Time, 'v anomaly * pot. temp. anomaly', 'm K sec**-1')
 
 if(id_slp > 0) then
   gamma = 0.006
@@ -1741,9 +1796,10 @@ real, intent(in), dimension(is:, js:, :)       :: u_grid, v_grid, t_grid, wg_ful
 real, intent(in), dimension(is:, js:, :, :, :) :: tr_grid
 integer, intent(in) :: time_level
 
-real, dimension(is:ie, js:je, num_levels)    :: ln_p_full, p_full, z_full, worka3d, workb3d
+real, dimension(is:ie, js:je, num_levels)    :: ln_p_full, p_full, z_full, theta_full, worka3d, workb3d
 real, dimension(is:ie, js:je, num_levels+1)  :: ln_p_half, p_half, z_half
 real, dimension(is:ie, js:je)                :: t_low, slp, worka2d, workb2d
+real, dimension(js:je, num_levels)           :: workc2d, workd2d
 complex, dimension(ms:me, ns:ne, num_levels) :: vor_spec, div_spec
 complex, dimension(ms:me, ns:ne)             :: vorx, vory
 logical :: used
@@ -1770,6 +1826,14 @@ if(id_zfull > 0)   used = send_data(id_zfull,      z_full, Time)
 if(id_zhalf > 0)   used = send_data(id_zhalf,      z_half, Time)
 if(id_pres_full>0) used = send_data(id_pres_full,  p_full, Time)
 if(id_pres_half>0) used = send_data(id_pres_half,  p_half, Time)
+
+if (id_theta > 0 .or. id_vp_thetap > 0) then
+  do k = 1, num_levels
+    theta_full(:, :, k) = t_grid(:, :, k) * (p_full(:, :, k) / p_surf(:, :)) ** (rdgas / cp_air)
+  enddo
+endif 
+
+if(id_theta > 0) used = send_data(id_theta, theta_full, Time)
 
 if(id_wspd > 0) then
   worka3d = sqrt(u_grid**2 + v_grid**2)
@@ -1889,6 +1953,33 @@ if(id_EKE > 0) then
   EKE = mass_weighted_global_integral(.5*(worka3d**2 + workb3d**2), p_surf)
   used = send_data(id_EKE, EKE, Time)
 endif
+
+! NTL Additional diagnostics for EP flux 
+if (id_up_vp > 0) then 
+  workc2d = sum(u_grid, DIM=1) / size(u_grid,1)
+  workd2d = sum(v_grid, DIM=1) / size(v_grid,1)
+  do i = is, ie
+    worka3d(i, :, :) = (u_grid(i, :, :) - workc2d) * (v_grid(i, :, :) - workd2d)
+  enddo
+  used = send_data(id_up_vp, worka3d, Time)
+endif
+if (id_vp_thetap > 0) then 
+  workc2d = sum(theta_full, DIM=1) / size(theta_full,1)
+  workd2d = sum(v_grid, DIM=1) / size(v_grid,1)
+  do i = is, ie
+    worka3d(i, :, :) = (theta_full(i, :, :) - workc2d) * (v_grid(i, :, :) - workd2d)
+  enddo
+  used = send_data(id_vp_thetap, worka3d, Time)
+endif
+if (id_up_omegap > 0) then 
+  workc2d = sum(u_grid, DIM=1) / size(u_grid,1)
+  workd2d = sum(wg_full, DIM=1) / size(wg_full,1)
+  do i = is, ie
+    worka3d(i, :, :) = (u_grid(i, :, :) - workc2d) * (wg_full(i, :, :) - workd2d)
+  enddo
+  used = send_data(id_up_omegap, worka3d, Time)
+endif
+  
 
 return
 end subroutine spectral_diagnostics
