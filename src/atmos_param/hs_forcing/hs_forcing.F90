@@ -528,8 +528,13 @@ real, intent(in),  dimension(:,:,:), optional :: mask
        real, dimension(size(t,2),size(t,3)) :: tz
        real :: rrsun
 
-       integer :: k, i, j
+       integer :: k, i, j, counter
        real    :: tcoeff, pref
+
+       ! required to construct venusian relaxation profile 
+       real, dimension(size(t,3)) :: T_grad
+       real, dimension(6) :: poly_coeffs
+       real :: T_sum
 
 !-----------------------------------------------------------------------
 !------------latitudinal constants--------------------------------------
@@ -551,6 +556,13 @@ real, intent(in),  dimension(:,:,:), optional :: mask
       pref = P00
       rps  = 1./ps
 
+
+      !VENUS: define eq - pole temperature gradient for each eta, and polynomial coefficients from Lee et al. (2007) 
+      if(equilibrium_t_option == 'venus') then 
+        T_grad = (/2.000, 2.370, 3.126, 4.439, 6.504, 9.599, 14.001, 19.807, 26.758, 34.295, 41.536, 47.342, 50.757, 51.175, 48.534, 43.315, 36.373, 28.746, 21.370, 14.948, 9.840, 7.524, 7.167, 6.762, 6.719, 6.678, 6.634, 6.410, 6.176, 6.136, 6.101/)
+        poly_coeffs = (/733.4861, 301.2670, 47.2002, -5.0230, -2.3257, -0.1896/)
+      endif !1
+
       do k = 1, size(t,3)
 
         !  ----- compute equilibrium temperature (teq) -----
@@ -561,6 +573,17 @@ real, intent(in),  dimension(:,:,:), optional :: mask
                teq(i,j,k)=tz(j,k)
              enddo
            enddo
+        else if(equilibrium_t_option == 'venus') then 
+          ! construct venusian profile following Lee et al. (2007)
+          do i = 1, size(t,1)
+            do j = 1, size(t, 2)
+            T_sum = 0
+              do counter = 1, 6
+                T_sum = T_sum + poly_coeffs(counter) * (log10(p_full(i, j, k)*rps(i,j)))**(counter-1) 
+              enddo 
+            teq(i,j,k) = T_sum + + T_grad(k) * (cos_lat(i,j) - PI / 4)
+            enddo 
+          enddo 
         else if(trim(equilibrium_t_option) == 'Held_Suarez') then
           p_norm(:,:) = p_full(:,:,k)/pref
           the   (:,:) = t_star(:,:) - delv*cos_lat_2(:,:)*log(p_norm(:,:))
@@ -591,7 +614,7 @@ real, intent(in),  dimension(:,:,:), optional :: mask
         sigma(:,:) = p_full(:,:,k)*rps(:,:)
         if (venus_model) then
           if (k .eq. 1) then 
-            tdamp(:,:,k) = 1. / (15. * 86400.) ! NTL: Hard code damping timescale from Lee (2006) Thesis for Venus model 
+            tdamp(:,:,k) = 1. / (15. * 86400.) ! NTL: Hard code thermal relaxation timescale from Lee (2006) Thesis for Venus model 
           else if (k .eq. 2) then 
             tdamp(:,:,k) = 1. / (18. * 86400.)
           else if (k .eq. 3) then 
@@ -679,21 +702,8 @@ real, dimension(size(u,1)) :: ueddy, veddy
                vmean = sum(u(:,j,k)) / size(v,1)
                ueddy = u(:,j,k) - umean 
                veddy = v(:,j,k) - vmean 
-               udt(:,j,k) = -ueddy / (sigma(:,j) * 1.E6 * 86400.) ! replaced ISSI with LR2010 
+               udt(:,j,k) = -ueddy / (sigma(:,j) * 1.E6 * 86400.) ! damping timescale follows LR2010 
                vdt(:,j,k) = -veddy / (sigma(:,j) * 1.E6 * 86400.)! " " " " 
-               !if (k .eq. 1) then 
-               !   udt(:,j,k) = - ueddy / (9.6 * 10000.)
-               !   vdt(:,j,k) = - veddy / (9.6 * 10000.)
-               !elseif (k .eq. 2) then 
-               !   udt(:,j,k) = - ueddy / (1.2 * 100000.)
-               !   vdt(:,j,k) = - veddy / (1.2 * 100000.)
-               !elseif (k .eq. 3) then 
-               !   udt(:,j,k) = - ueddy / (1.23 * 100000.)
-               !   vdt(:,j,k) = - veddy / (1.23 * 100000.)
-               !elseif (k .eq. 4) then 
-               !   udt(:,j,k) = - ueddy / (1.6 * 100000.)
-               !   vdt(:,j,k) = - veddy / (1.6 * 100000.)
-               !endif
             enddo
          enddo
       else 
