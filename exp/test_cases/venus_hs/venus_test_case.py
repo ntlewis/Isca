@@ -93,7 +93,6 @@ etas = np.array([2.265e-6, 2.925e-6, 4.500e-6, 7.950e-6, 1.525e-5,
 central_half_etas = (etas[:-1] + etas[1:])/2.
 half_etas = np.concatenate(([0.],central_half_etas,[1.])) 
 half_etas = half_etas.tolist()
-print(len(half_etas), len(np.zeros_like(half_etas).tolist()))
 
 ### configure experiment resolution and number of cores to use 
 NCORES = 16
