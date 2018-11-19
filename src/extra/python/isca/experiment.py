@@ -41,6 +41,13 @@ class Experiment(Logger, EventEmitter):
             'num_spherical': 86
         },
 
+        'T63': {
+            'lon_max': 192,
+            'lat_max': 96,
+            'num_fourier': 63,
+            'num_spherical': 64,
+        },
+
         'T42': {
             'lon_max': 128,
             'lat_max': 64,
