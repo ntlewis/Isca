@@ -566,7 +566,8 @@ real, intent(in),  dimension(:,:,:), optional :: mask
 
           real, dimension(size(t,1),size(t,2)) :: &
      sin_lat, cos_lat, sin_lat_2, cos_lat_2, t_star, cos_lat_4, &
-     tstr, sigma, the, tfactr, rps, p_norm, sin_sublon_2, coszen, fracday
+     tstr, sigma, the, tfactr, rps, p_norm, sin_sublon_2, coszen, fracday, &
+     exner
 
        real, dimension(size(t,1),size(t,2),size(t,3)) :: tdamp
        real, dimension(size(t,2),size(t,3)) :: tz
@@ -623,6 +624,11 @@ real, intent(in),  dimension(:,:,:), optional :: mask
          p_norm(:,:) = p_full(:,:,k)/p_trop
          teq(:,:,k) = t_star(:,:)*cos_lat(:,:)*(p_norm(:,:))**alpha
          teq(:,:,k) = max( teq(:,:,k), t_strat )
+      else if(uppercase(trim(equilibrium_t_option)) == 'CONDUCTIVE_SOLUTION') then 
+         p_norm(:,:) = p_full(:,:,k)/pref
+         exner(:,:) = p_norm(:,:) ** KAPPA 
+         teq(:,:,k) = (t_zero + delh*(exner(:,:)**(0.1) - 1. - sin_lat_2(:,:)*exner(:,:)**(-0.1))) * exner(:,:)
+         teq(:,:,k) = max(teq(:,:,k), tstr(:,:))
       else
          call error_mesg ('hs_forcing_nml', &
          '"'//trim(equilibrium_t_option)//'"  is not a valid value for equilibrium_t_option',FATAL)
