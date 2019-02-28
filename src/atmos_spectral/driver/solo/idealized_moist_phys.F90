@@ -117,6 +117,7 @@ logical :: do_damping = .false.
 logical :: mixed_layer_bc = .false.
 logical :: gp_surface = .false. !s Use Schneider & Liu 2009's prescription of lower-boundary heat flux
 logical :: newt_relax_surface = .false. !s Use Schneider & Liu 2009's prescription of lower-boundary heat flux
+logical :: no_surface_flux = .false.
 
 
 logical :: do_simple = .false. !s Have added this to enable relative humidity to be calculated correctly below.
@@ -150,7 +151,8 @@ namelist / idealized_moist_phys_nml / turb, lwet_convection, do_bm, do_ras, roug
                                       gp_surface, newt_relax_surface, convection_scheme,          &
                                       bucket, init_bucket_depth, init_bucket_depth_land, & !RG Add bucket 
                                       max_bucket_depth_land, robert_bucket, raw_bucket, &
-                                      do_newtonian_cooling_as_rad, do_lscale_cond
+                                      do_newtonian_cooling_as_rad, do_lscale_cond, &
+                                      no_surface_flux
 
 
 integer, parameter :: num_time_levels = 2 !RG Add bucket - number of time levels added to allow timestepping in this module
@@ -940,6 +942,7 @@ if(.not.mixed_layer_bc) then
 end if
 
 if(.not.gp_surface .and. .not.newt_relax_surface) then 
+if(.not.no_surface_flux)then
 call surface_flux(                                                          &
                   tg(:,:,num_levels,previous),                              &
  grid_tracers(:,:,num_levels,previous,nsphum),                              &
@@ -988,6 +991,7 @@ call surface_flux(                                                          &
                                     land(:,:),                              &
                                .not.land(:,:),                              &
                                    avail(:,:)  )
+endif
 endif
 
 ! Now complete the radiation calculation by computing the upward and net fluxes.
