@@ -64,7 +64,7 @@ MODULE socrates_interface_mod
   CHARACTER(len=10), PARAMETER :: soc_mod_name = 'socrates'
   REAL :: missing_value = -999
 
-  type(interpolate_type),save                :: o3_interp, co2_interp            ! use external file for ozone and co2
+  type(interpolate_type),save                :: o3_interp, co2_interp, h2o_interp            ! use external file for ozone and co2
 
   REAL :: dt_last !Time of last radiation calculation - used to tell whether it is time to recompute radiation or not
   REAL(r_def), allocatable, dimension(:,:,:) :: tdt_soc_sw_store, tdt_soc_lw_store
@@ -303,6 +303,10 @@ write(stdlog_unit, socrates_rad_nml)
       if(do_read_co2)then
          call interpolator_init (co2_interp, trim(co2_file_name)//'.nc', lonb, latb, data_out_of_bounds=(/ZERO/))
       endif      
+
+      if(do_read_h2o)then
+        call interpolator_init (h2o_interp, trim(h2o_file_name)//'.nc', lonb, latb, data_out_of_bounds=(/ZERO/))
+      endif   
 
     if (mod((size(lonb,1)-1)*(size(latb,1)-1), chunk_size) .ne. 0) then
     
@@ -705,7 +709,7 @@ subroutine run_socrates(Time, Time_diag, rad_lat, rad_lon, temp_in, q_in, t_surf
     integer :: seconds, days, year_in_s
     real :: r_seconds, r_days, r_total_seconds, frac_of_day, frac_of_year, gmt, time_since_ae, rrsun, dt_rad_radians, day_in_s, r_solday, r_dt_rad_avg
     real, dimension(size(temp_in,1), size(temp_in,2)) :: coszen, fracsun, surf_lw_net, olr, toa_sw, p2
-    real, dimension(size(temp_in,1), size(temp_in,2), size(temp_in,3)) :: ozone_in, co2_in
+    real, dimension(size(temp_in,1), size(temp_in,2), size(temp_in,3)) :: ozone_in, co2_in, q_in_from_interp
     real, dimension(size(temp_in,1), size(temp_in,2), size(temp_in,3)+1) :: thd_sw_flux_net, thd_lw_flux_net
     type(time_type) :: Time_loc
 
@@ -910,6 +914,10 @@ subroutine run_socrates(Time, Time_diag, rad_lat, rad_lon, temp_in, q_in, t_surf
          endif
        endif
 
+       if(do_read_h2o)then 
+        call interpolator( h2o_interp, Time_diag, p_half_in, q_in_from_interp, trim(h2o_field_name))
+       endif 
+
 
        n_profile = INT(size(temp_in,2)*size(temp_in,1), kind(i_def))
        n_layer   = INT(size(temp_in,3), kind(i_def))
@@ -922,7 +930,11 @@ subroutine run_socrates(Time, Time_diag, rad_lat, rad_lon, temp_in, q_in, t_surf
        rad_lat_soc = REAL(rad_lat, kind(r_def))
        rad_lon_soc = REAL(rad_lon, kind(r_def))
        tg_tmp_soc =  REAL(temp_in, kind(r_def))
-       q_soc      =  REAL(q_in, kind(r_def))
+       if(do_read_h2o)then 
+        q_soc      = REAL(q_in_from_interp, kind(r_def))
+       else 
+        q_soc      = REAL(q_in, kind(r_def))
+       endif 
        ozone_soc  =  REAL(ozone_in, kind(r_def)) 
        co2_soc    =  REAL(co2_in, kind(r_def))      
        p_full_soc = REAL(p_full_in, kind(r_def))
@@ -1057,6 +1069,7 @@ subroutine run_socrates_end
 
     if(do_read_ozone) call interpolator_end(o3_interp)
     if(do_read_co2)   call interpolator_end(co2_interp)
+    if(do_read_h2o)   call interpolator_end(h2o_interp)
     
 
 end subroutine run_socrates_end

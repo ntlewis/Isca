@@ -39,6 +39,9 @@ LOGICAL :: l_planet_grey_surface = .TRUE.
   real(r_def) :: input_planet_emissivity = 1.0 !Emissivity of surface. Defined as constant all over surface.
   real :: co2_ppmv = 300. !Default CO2 concentration in PPMV
   logical ::  input_co2_mmr=.false. !Socrates wants input concentrations as mmr not vmr, so need to make sure input data supplied is converted if necessary
+  logical :: do_read_h2o = .FALSE. ! read specific humidity from an external file? 
+  character(len=256) :: h2o_file_name='sphum' ! Name of file containing sphum field 
+  character(len=256) :: h2o_field_name='sphum' ! Name of sphum variable in file 
 
   logical :: use_pressure_interp_for_half_levels = .False. !By default (.False.) does linear interpolation in height for half-level temperatures. True does linear interp using pressure. 
       
@@ -116,7 +119,8 @@ LOGICAL :: l_planet_grey_surface = .TRUE.
                              input_planet_emissivity, co2_ppmv, &
                              account_for_effect_of_water, account_for_effect_of_ozone, &
                              do_read_ozone, ozone_file_name, ozone_field_name, input_o3_file_is_mmr, &
-                             do_read_co2, co2_file_name, co2_field_name, input_co2_mmr, &                             
+                             do_read_co2, co2_file_name, co2_field_name, input_co2_mmr, &   
+                             do_read_h2o, h2o_file_name, h2o_field_name, &                                             
                              solday, do_rad_time_avg, equinox_day,  &
                              store_intermediate_rad, dt_rad_avg, dt_rad, &
                              chunk_size, &
