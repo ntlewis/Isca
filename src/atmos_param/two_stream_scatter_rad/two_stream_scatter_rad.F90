@@ -83,6 +83,9 @@ real :: lw_sca_c = 0.0
 real :: lw_abs_a = 0.1627 * 9.80 / 101325.0 ! dtau = a * dsigma   --->   dtau = 1/g * c * dp   where c = ga/p_s 
 real :: lw_abs_b = 1997.9 * 9.80 / 101325.0 
 real :: lw_abs_c = 0.17   * 9.80 / 101325.0
+real :: lw_abs_d = 0.0 
+real :: lw_abs_f = 1.0
+real :: lw_abs_pref = 101325.0 
 
 ! parameters for sw optical depths (defaults to BOG... i.e. no scattering or absorption)
 real :: sw_sca_a = 0.0
@@ -90,6 +93,8 @@ real :: sw_sca_b = 0.0
 real :: sw_sca_c = 0.0
 real :: sw_abs_a = 0.0
 real :: sw_abs_b = 0.0 
+logical :: do_sw_window = .false.
+real :: sw_window_frac = 0.0 
 
 real :: gamma = 1.0 ! associated with closure for integrating over all angles 
 real :: gammaprime = 1.0 ! " " " (see discussion in Pierrehumbert, 2010, Chapter 5)
@@ -128,10 +133,11 @@ namelist/two_stream_scatter_rad_nml/ solar_constant, del_sol, del_sw, &
            do_seasonal, solday, equinox_day,  &
            use_time_average_coszen, dt_rad_avg,&
            diabatic_acce,& !Schneider Liu values 
-           lw_abs_a, lw_abs_b, lw_abs_c, &
+           lw_abs_a, lw_abs_b, lw_abs_c, lw_abs_d, lw_abs_f, lw_abs_pref, &
            lw_sca_a, lw_sca_b, lw_sca_c, &
            sw_abs_a, sw_abs_b, &
            sw_sca_a, sw_sca_b, sw_sca_c, &
+           sw_window_frac, do_sw_window, & 
            gamma, gammaprime, g_asym, &
            do_read_co2, co2_file, co2_variable_name, carbon_conc, &
            sw_optical_depth
@@ -198,6 +204,10 @@ if(dt_rad_avg .le. 0) dt_rad_avg = dt_real !s if dt_rad_avg is set to a value in
 if(do_read_co2)then
    call interpolator_init (co2_interp, trim(co2_file)//'.nc', lonb, latb, data_out_of_bounds=(/ZERO/))
 endif
+
+if (do_sw_window) then 
+  call error_mesg('two_stream_scatter','using SW window. DO NOT use this if the surface albedo or sw scattering coefficients are non-zero', NOTE)
+endif 
 
 if (uppercase(trim(sw_optical_depth)) == 'TRANSPARENT') then 
   sw_flag = sw_TRANSPARENT
@@ -506,7 +516,11 @@ case(sw_GENERIC)
   enddo 
 
   ! Compute direct downward radiation 
-  sw_down_direct(:,:,1) = insolation(:,:)
+  if (do_sw_window) then 
+    sw_down_direct(:,:,1) = insolation(:,:) * (1-sw_window_frac)
+  else 
+    sw_down_direct(:,:,1) = insolation(:,:)
+  endif 
   do k = 1, n 
     where ((coszen).ne.0.0) 
     sw_down_direct(:,:,k+1) =  sw_down_direct(:,:,k) * &
@@ -514,6 +528,12 @@ case(sw_GENERIC)
                              (2*coszen(:,:) - sw_del_tau(:,:,k)) ! << Will this always be non-zero? 
     endwhere 
   enddo 
+  if (do_sw_window) then 
+    sw_down_direct(:,:,1) = sw_down_direct(:,:,1) + insolation(:,:) * sw_window_frac
+    do k = 1, n 
+      sw_down_direct(:,:,k+1) = sw_down_direct(:,:,k+1) + insolation(:,:) * sw_window_frac 
+    enddo 
+  endif 
   
   !!!! Zero blackbody radiation for shortwave !!!!
   pi_B_surf = 0.0
@@ -537,6 +557,8 @@ case(sw_GENERIC)
     
     enddo
   enddo 
+
+  
 
 end select 
 
@@ -567,7 +589,9 @@ lw_ss_albedo     = 0.0
 ! Compute scattering coefficient (currently no contribution from carbon_conc, easily added though...)
 lw_scatter_coeff  = lw_sca_a + lw_sca_b * q 
 ! Compute absorption coefficient 
-lw_abs_coeff = lw_abs_a + lw_abs_b * q + lw_abs_c * log(carbon_conc / 360.)
+do k = 1, n 
+  lw_abs_coeff(:,:,k) = lw_abs_a + lw_abs_b * q(:,:,k) + lw_abs_c * log(carbon_conc / 360.) + lw_abs_d * grav * (lw_abs_f / p_half(:,:,n+1) + (1 - lw_abs_f) / (2 * p_half(:,:,n+1)) * (p_full(:,:,k) / lw_abs_pref)) !NTL: complicated and 'd' is normalised differentl;y!* (p_full/lw_abs_pref)
+enddo
 ! Compute single scattering albedo 
 where ((lw_abs_coeff + lw_scatter_coeff).ne.0.0) 
   lw_ss_albedo = lw_scatter_coeff / (lw_abs_coeff + lw_scatter_coeff)
