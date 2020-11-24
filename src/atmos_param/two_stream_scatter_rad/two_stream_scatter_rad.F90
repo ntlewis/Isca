@@ -84,6 +84,7 @@ real :: lw_abs_a = 0.1627 * 9.80 / 101325.0 ! dtau = a * dsigma   --->   dtau = 
 real :: lw_abs_b = 1997.9 * 9.80 / 101325.0 
 real :: lw_abs_c = 0.17   * 9.80 / 101325.0
 real :: lw_abs_d = 0.0 
+real :: lw_abs_e = 0.0
 real :: lw_abs_f = 1.0
 real :: lw_abs_pref = 101325.0 
 
@@ -92,7 +93,8 @@ real :: sw_sca_a = 0.0
 real :: sw_sca_b = 0.0
 real :: sw_sca_c = 0.0
 real :: sw_abs_a = 0.0
-real :: sw_abs_b = 0.0 
+real :: sw_abs_b = 0.0
+real :: sw_abs_c = 0.0 
 logical :: do_sw_window = .false.
 real :: sw_window_frac = 0.0 
 
@@ -133,9 +135,9 @@ namelist/two_stream_scatter_rad_nml/ solar_constant, del_sol, del_sw, &
            do_seasonal, solday, equinox_day,  &
            use_time_average_coszen, dt_rad_avg,&
            diabatic_acce,& !Schneider Liu values 
-           lw_abs_a, lw_abs_b, lw_abs_c, lw_abs_d, lw_abs_f, lw_abs_pref, &
+           lw_abs_a, lw_abs_b, lw_abs_c, lw_abs_d, lw_abs_e, lw_abs_f, lw_abs_pref, &
            lw_sca_a, lw_sca_b, lw_sca_c, &
-           sw_abs_a, sw_abs_b, &
+           sw_abs_a, sw_abs_b, sw_abs_c, &
            sw_sca_a, sw_sca_b, sw_sca_c, &
            sw_window_frac, do_sw_window, & 
            gamma, gammaprime, g_asym, &
@@ -489,7 +491,9 @@ case(sw_GENERIC)
   ! Compute scattering coefficient (currently no contribution from carbon_conc, easily added though...)
   sw_scatter_coeff  = sw_sca_a + sw_sca_b * q 
   ! Compute absorption coefficient 
-  sw_abs_coeff = sw_abs_a + sw_abs_b*q 
+
+  sw_abs_coeff = sw_abs_a + sw_abs_b * q + sw_abs_c * 4. / 3. * (p_full / pstd_mks) ** (1. / 3.)
+  
   ! Compute single scattering albedo 
   where((sw_abs_coeff + sw_scatter_coeff).ne.0.0) 
     sw_ss_albedo = sw_scatter_coeff / (sw_abs_coeff + sw_scatter_coeff)
@@ -589,9 +593,11 @@ lw_ss_albedo     = 0.0
 ! Compute scattering coefficient (currently no contribution from carbon_conc, easily added though...)
 lw_scatter_coeff  = lw_sca_a + lw_sca_b * q 
 ! Compute absorption coefficient 
-do k = 1, n 
-  lw_abs_coeff(:,:,k) = lw_abs_a + lw_abs_b * q(:,:,k) + lw_abs_c * log(carbon_conc / 360.) + lw_abs_d * grav * (lw_abs_f / p_half(:,:,n+1) + (1 - lw_abs_f) / (2 * p_half(:,:,n+1)) * (p_full(:,:,k) / lw_abs_pref)) !NTL: complicated and 'd' is normalised differentl;y!* (p_full/lw_abs_pref)
-enddo
+
+lw_abs_coeff = lw_abs_a + lw_abs_b * q + lw_abs_c * log(carbon_conc / 360.) + & 
+               lw_abs_d * grav * (lw_abs_f / pstd_mks + (1 - lw_abs_f) / (2 * pstd_mks) * (p_full / lw_abs_pref)) + & !NTL: complicated and 'd' is normalised differently!* (p_full/lw_abs_pref)
+               lw_abs_e * 4. / 3. * (p_full / pstd_mks) ** (1. / 3.)
+
 ! Compute single scattering albedo 
 where ((lw_abs_coeff + lw_scatter_coeff).ne.0.0) 
   lw_ss_albedo = lw_scatter_coeff / (lw_abs_coeff + lw_scatter_coeff)
