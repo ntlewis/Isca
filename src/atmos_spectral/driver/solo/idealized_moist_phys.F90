@@ -1013,6 +1013,7 @@ case(RAS_CONV)
 
 case(NO_CONV)
    conv_dt_tg = 0.0
+   conv_dt_qg = 0.0
    tg_tmp = tg(:,:,:,previous)
    qg_tmp = grid_tracers(:,:,:,previous,nsphum)
 
