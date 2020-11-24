@@ -48,6 +48,7 @@ module damping_driver_mod
 !     Non-orographic gravity wave parameterization, updated as for Cohen et al. 2013
 ! mj actively choose rayleigh friction
    logical  :: do_rayleigh = .false.
+   logical  :: rayleigh_eddy_only = .false. ! NTL: add option so that the sponge only damps eddies  
    logical  :: do_cg_drag = .false.
    logical  :: do_topo_drag = .false.
    logical  :: do_const_drag = .false.
@@ -56,7 +57,7 @@ module damping_driver_mod
    logical  :: do_conserve_energy = .false.
 
    namelist /damping_driver_nml/  trayfric,  &
-                                  do_rayleigh, sponge_pbottom,  & ! mj
+                                  do_rayleigh, rayleigh_eddy_only, sponge_pbottom,  & ! mj
                                   do_cg_drag, do_topo_drag, &
                                   do_mg_drag, do_conserve_energy, &
                                   do_const_drag, const_drag_amp,const_drag_off    !mj
@@ -597,20 +598,35 @@ endif
   real,    intent(in),  dimension(:,:,:)   :: p2, u, v
   real,    intent(out), dimension(:,:,:)   :: udt, vdt, tdt
 
-  real, dimension(size(u,1),size(u,2)) :: fact
-  integer :: k
+  real, dimension(size(u,1)) :: fact
+  integer :: j, k
+  real :: umean, vmean 
 !-----------------------------------------------------------------------
 !--------------rayleigh damping of momentum (to zero)-------------------
 
    udt = 0.
    vdt = 0.
    do k = 1, nlev_rayfric
-      where ( p2(:,:,k) < sponge_pbottom ) !mj note: p2==pfull now
-!         fact(:,:) = rfactr*(1.+(p2(:,:,1)-p2(:,:,k))/(p2(:,:,1)+p2(:,:,k)))
-         fact(:,:) = rfactr*(sponge_pbottom-p2(:,:,k))**2/(sponge_pbottom)**2
-         udt(:,:,k) = -u(:,:,k)*fact(:,:)
-         vdt(:,:,k) = -v(:,:,k)*fact(:,:)
-      endwhere
+      do j = 1, size(u,2)
+         if (rayleigh_eddy_only) then
+            umean = sum(u(:,j,k)) / size(u,1)
+            vmean = sum(v(:,j,k)) / size(u,1)
+            where ( p2(:,j,k) < sponge_pbottom )
+               fact(:)    = rfactr * (sponge_pbottom - p2(:,j,k))**2 / (sponge_pbottom)**2
+!               umean      = sum(u(:,j,k)) / size(u,1)
+!               vmean      = sum(v(:,j,k)) / size(u,1)
+               udt(:,j,k) = -(u(:,j,k) - umean) * fact(:)
+               vdt(:,j,k) = -(v(:,j,k) - vmean) * fact(:)
+            endwhere       
+         else
+            where ( p2(:,j,k) < sponge_pbottom ) !mj note: p2==pfull now
+!              fact(:,:) = rfactr*(1.+(p2(:,:,1)-p2(:,:,k))/(p2(:,:,1)+p2(:,:,k)))
+               fact(:)    = rfactr * (sponge_pbottom - p2(:,j,k))**2 / (sponge_pbottom)**2
+               udt(:,j,k) = -u(:,j,k) * fact(:)
+               vdt(:,j,k) = -v(:,j,k) * fact(:)
+            endwhere
+         endif
+      enddo
    enddo
 !   do k = nlev_rayfric+1, size(u,3)
 !     udt(:,:,k) = 0.0
