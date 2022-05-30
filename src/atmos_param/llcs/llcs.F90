@@ -70,11 +70,13 @@ LOGICAL :: do_simple = .FALSE. !
 REAL, PARAMETER :: p_zero = 1.e5 ! reference pressure for conversion between theta and temperature 
 REAl :: repsilon = 0.0 ! rdgas/rvgas, initialised in llcs_init
 REAL :: one_minus_epsilon = 0.0 ! 1 - repsilon, initialised in llcs_init
-
+REAL :: kappa_use = 0.0 ! modified kappa (kappa_use = kappa * alpha) 
+                        ! initialised in llcs_init
+REAL :: alpha = 1.0 ! DONT CHANGE FROM 1.0 unless the atmosphere is dry 
 
 
 namelist /llcs_nml/ llcs_detrain_coef, llcs_rhcrit, llcs_timescale, llcs_rain_frac, & 
-                    fac_qsat, qlmin, mparwtr, cloud_option, do_simple 
+                    fac_qsat, qlmin, mparwtr, cloud_option, do_simple, alpha 
 
 CONTAINS
 
@@ -116,6 +118,9 @@ SUBROUTINE llcs_init ()
     ! initialise repsilon and one_minus_epsilon
     repsilon = rdgas / rvgas 
     one_minus_epsilon = 1 - repsilon
+
+    ! initialise kappa_use 
+    kappa_use = kappa * alpha 
 
     ! select llcs cloud option 
     if(uppercase(trim(cloud_option)) == 'ALL_RAIN') then
@@ -545,7 +550,7 @@ final_level = -1
 rh_use = 1.0
 moist_trigger = .FALSE.
 
-temp = theta_start(current_level) * (p_full(current_level)/p_zero) ** (kappa)
+temp = theta_start(current_level) * (p_full(current_level)/p_zero) ** (kappa_use)
 
 CALL qsat_calc(p_full(current_level), temp, q_sat)
 q_crit = llcs_rhcrit * q_sat
@@ -562,7 +567,7 @@ IF ( (theta_start(current_level) >= theta_start(current_level+1)) .OR.         &
     convection_flag = .TRUE. ! TODO: shouldn't it be outside this IF-statement?
 
     DO j_lev = current_level, nlevels - 1
-      temp = theta_start(j_lev) * (p_full(j_lev)/p_zero) ** (kappa)
+      temp = theta_start(j_lev) * (p_full(j_lev)/p_zero) ** (kappa_use)
 
       CALL qsat_calc(p_full(current_level), temp, q_sat)
 
@@ -581,7 +586,7 @@ IF ( (theta_start(current_level) >= theta_start(current_level+1)) .OR.         &
     ! This is commented out for now pending further testing, but the code
     ! is left here for ease of future development
     ! IF (cloudbase /= -1) THEN
-    !   temp = theta_start(cloudbase) * (p_full(cloudbase)/p_zero) ** (kappa)
+    !   temp = theta_start(cloudbase) * (p_full(cloudbase)/p_zero) ** (kappa_use)
     !   CALL qsat_calc(p_full(cloudbase), temp, q_sat)
     !   rh = q_start(cloudbase) / q_sat
     !   IF ((rh > rh_use) .AND. (rh <= 1.0)) THEN
@@ -811,7 +816,7 @@ IF (final_level == -1) THEN
         temp(j_lev) = temp(j_lev-1) +                                          &
             gamma_p * (p_full(j_lev-1) - p_full(j_lev))
         ! adjust potential temperature accordingly
-        theta_adjust(j_lev) = temp(j_lev) * (p_zero / p_full(j_lev))**kappa
+        theta_adjust(j_lev) = temp(j_lev) * (p_zero / p_full(j_lev))**kappa_use
 
         moist_has_happened = .TRUE.
 
@@ -1142,7 +1147,7 @@ DO j_lev = 1, nlevels
           latent = latent * latent_ratio
           DO k = bottom, top
             temp_new = temp_noq(k) + latent(k) / ((delta_p(k) / grav) * cp_air)
-            theta_adj_rlx(k) = temp_new * (p_zero/p_full(k))**kappa 
+            theta_adj_rlx(k) = temp_new * (p_zero/p_full(k))**kappa_use 
           END DO
           qcl_inc = qcl_inc * event_q_total / rain_out
           event_q_total = rain_out_new
@@ -1325,7 +1330,7 @@ REAL :: temp
 REAL :: q_sat
 
 DO j_lev = 1, nlevels
-  temp = theta_start(j_lev) * (p_full(j_lev)/p_zero) ** (kappa)
+  temp = theta_start(j_lev) * (p_full(j_lev)/p_zero) ** (kappa_use)
   CALL qsat_calc(p_full(j_lev), temp, q_sat)
 
   ! Equivalent to opt. 4 in cloud_w_6a scheme in Met Office UM 
@@ -1421,7 +1426,7 @@ IMPLICIT NONE
 REAL, INTENT(IN) :: theta(:), p_full(:)
 REAL, INTENT(OUT) :: temp(:)
 
-temp = theta * (p_full/p_zero)**(kappa)
+temp = theta * (p_full/p_zero)**(kappa_use)
 
 END SUBROUTINE calc_temp
 
@@ -1438,7 +1443,7 @@ IMPLICIT NONE
 REAL, INTENT(IN) :: temp(:), p_full(:)
 REAL, INTENT(OUT) :: theta(:)
 
-theta = temp * (p_zero/p_full)**(kappa)
+theta = temp * (p_zero/p_full)**(kappa_use)
 
 END SUBROUTINE calc_theta
 

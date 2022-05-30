@@ -163,8 +163,8 @@ real, public, parameter :: TFREEZE = 273.16
 !  mean sea level pressure
 ! </DATA>
 
-real, public, parameter :: WTMAIR = 2.896440E+01
-real, public, parameter :: WTMH2O = WTMAIR*(EARTH_RDGAS/RVGAS) !pjp OK to change value because not used yet.
+real, public, parameter :: WTMAIR_EARTH = 2.896440E+01
+real, public, parameter :: WTMH2O = WTMAIR_EARTH*(EARTH_RDGAS/RVGAS) !pjp OK to change value because not used yet.
 !real, public, parameter :: WTMO3  = 47.99820E+01
 real, public, parameter :: WTMOZONE =  47.99820
 real, public, parameter :: WTMC     =  12.00000
@@ -236,7 +236,7 @@ real, public, parameter :: ALOGMIN     = -50.0
 
 real, public, parameter :: GAS_CONSTANT = 8.314 !(Consistent with correct value of 8.3144598 and value gotten by doing earth_rdgas * wtmair / 1000 = 8.313941376)
 real, public, parameter :: STEFAN  = 5.6734e-8
-real, public, parameter :: VONKARM = 0.40
+real, public, parameter :: DEF_VONKARM = 0.40
 real, public, parameter :: PI      = 3.14159265358979323846
 real, public, parameter :: RAD_TO_DEG=180./PI
 real, public, parameter :: DEG_TO_RAD=PI/180.
@@ -264,10 +264,12 @@ real, public :: PSTD_MKS    = PSTD_MKS_EARTH
 real, public :: RDGAS  = EARTH_RDGAS
 real, public :: KAPPA = EARTH_KAPPA
 real, public :: CP_AIR = EARTH_CP_AIR
+real, public :: WTMAIR = WTMAIR_EARTH
 real, public :: es0 = DEF_ES0
+real, public :: VONKARM = DEF_VONKARM 
 logical :: earthday_multiple = .false.
 
-namelist/constants_nml/ radius, grav, omega, orbital_period, pstd, pstd_mks, rdgas, kappa, solar_const, earthday_multiple, es0
+namelist/constants_nml/ radius, grav, omega, orbital_period, pstd, pstd_mks, rdgas, kappa, solar_const, earthday_multiple, wtmair, es0, VONKARM 
 
 !-----------------------------------------------------------------------
 ! version and tagname published

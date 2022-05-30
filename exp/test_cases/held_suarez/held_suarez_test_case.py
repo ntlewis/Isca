@@ -2,8 +2,8 @@ import numpy as np
 
 from isca import DryCodeBase, DiagTable, Experiment, Namelist, GFDL_BASE
 
-NCORES = 16
-RESOLUTION = 'T42', 25  # T42 horizontal resolution, 25 levels in pressure
+NCORES = 2
+RESOLUTION = 'T21', 20  # T42 horizontal resolution, 25 levels in pressure
 
 # a CodeBase can be a directory on the computer,
 # useful for iterative development
@@ -23,7 +23,7 @@ cb.compile()  # compile the source code to working directory $GFDL_WORK/codebase
 # create an Experiment object to handle the configuration of model parameters
 # and output diagnostics
 
-exp_name = 'held_suarez_default'
+exp_name = 'held_suarez_default_test'
 exp = Experiment(exp_name, codebase=cb)
 
 #Tell model how to write diagnostics
@@ -105,5 +105,5 @@ exp.set_resolution(*RESOLUTION)
 #Lets do a run!
 if __name__ == '__main__':
     exp.run(1, num_cores=NCORES, use_restart=False)
-    for i in range(2, 13):
+    for i in range(2, 3):
         exp.run(i, num_cores=NCORES)  # use the restart i-1 by default

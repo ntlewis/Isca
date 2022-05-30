@@ -1,0 +1,81 @@
+/home/l/lewis/.bashrc: line 87: goisca: command not found
+2022-03-02 17:07:19,857 - isca - WARNING - Environment variable GFDL_SOC not set, but this is only required if using SocratesCodebase. Setting to None
+2022-03-02 17:07:20,524 - isca - INFO - RRTM compilation disabled.
+2022-03-02 17:07:20,524 - isca - INFO - SOCRATES compilation disabled.
+2022-03-02 17:07:20,541 - isca - INFO - Writing path_names to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_l_lewis_research_isca_dir_Isca/build/held_suarez/path_names'
+2022-03-02 17:07:20,560 - isca - INFO - Running compiler
+2022-03-02 17:07:20,605 - isca - INFO - loadmodules for oxford machines
+2022-03-02 17:07:21,015 - isca - INFO - [?1h=Currently Loaded Modulefiles:[m
+2022-03-02 17:07:21,039 - isca - INFO - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-02 17:07:21,040 - isca - INFO - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-02 17:07:21,040 - isca - INFO - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-02 17:07:21,040 - isca - INFO - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-02 17:07:21,040 - isca - INFO - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-02 17:07:21,062 - isca - INFO - [K[?1l>/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_l_lewis_research_isca_dir_Isca/build/held_suarez/path_names
+2022-03-02 17:07:29,729 - isca - INFO - .............................................................................................................................. Makefile is ready.
+2022-03-02 17:07:30,833 - isca - INFO - make: Nothing to be done for 'all'.
+2022-03-02 17:07:31,337 - isca - INFO - make: 'held_suarez.x' is up to date.
+2022-03-02 17:07:31,339 - isca - INFO - Compilation complete.
+2022-03-02 17:07:31,998 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/tl_1_1rad_1_2rt2om_1_1tau_rad_diff10/run'
+2022-03-02 17:07:32,214 - isca - WARNING - Data for run 1 already exists and overwrite_data is True. Overwriting.
+2022-03-02 17:07:33,572 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/tl_1_1rad_1_2rt2om_1_1tau_rad_diff10/run/input.nml'
+2022-03-02 17:07:33,640 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/tl_1_1rad_1_2rt2om_1_1tau_rad_diff10/run/field_table'
+2022-03-02 17:07:33,766 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/tl_1_1rad_1_2rt2om_1_1tau_rad_diff10/run/diag_table'
+2022-03-02 17:07:33,881 - isca - INFO - Running without restart file
+2022-03-02 17:07:33,966 - isca - INFO - Beginning run 1
+2022-03-02 17:07:33,979 - isca - INFO - process running as 24870
+2022-03-02 17:07:34,009 - isca - DEBUG - loadmodules for oxford machines
+2022-03-02 17:07:34,438 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-02 17:07:34,522 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-02 17:07:34,522 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-02 17:07:34,522 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-02 17:07:34,522 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-02 17:07:34,522 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-02 17:07:35,032 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-02 17:07:35,033 - isca - DEBUG - &MPP_IO_NML
+2022-03-02 17:07:35,033 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-02 17:07:35,033 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-02 17:07:35,033 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-02 17:07:35,033 - isca - DEBUG - SHUFFLE =           0,
+2022-03-02 17:07:35,033 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-02 17:07:35,033 - isca - DEBUG - /
+2022-03-02 17:07:35,035 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-02 17:07:35,038 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-02 17:07:35,233 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-02 17:07:35,240 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-02 17:07:35,240 - isca - DEBUG - X-AXIS =  128
+2022-03-02 17:07:35,240 - isca - DEBUG - Y-AXIS =    2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+2022-03-02 17:07:35,240 - isca - DEBUG - 2   2   2   2   2   2   2   2
+2022-03-02 17:07:35,664 - isca - DEBUG - mean surface pressure=1000.0000 mb
+2022-03-02 17:07:37,036 - isca - DEBUG - Integration completed through     1 days     0 seconds
+2022-03-02 17:07:38,028 - isca - DEBUG - Integration completed through     2 days     0 seconds
+2022-03-02 17:07:39,005 - isca - DEBUG - Integration completed through     3 days     0 seconds
+2022-03-02 17:07:39,986 - isca - DEBUG - Integration completed through     4 days     0 seconds
+2022-03-02 17:07:40,965 - isca - DEBUG - Integration completed through     5 days     0 seconds
+2022-03-02 17:07:41,942 - isca - DEBUG - Integration completed through     6 days     0 seconds
+2022-03-02 17:07:42,919 - isca - DEBUG - Integration completed through     7 days     0 seconds
+2022-03-02 17:07:43,901 - isca - DEBUG - Integration completed through     8 days     0 seconds
+2022-03-02 17:07:44,878 - isca - DEBUG - Integration completed through     9 days     0 seconds
+2022-03-02 17:07:45,863 - isca - DEBUG - Integration completed through    10 days     0 seconds
+2022-03-02 17:07:46,841 - isca - DEBUG - Integration completed through    11 days     0 seconds
+2022-03-02 17:07:47,819 - isca - DEBUG - Integration completed through    12 days     0 seconds
+2022-03-02 17:07:48,791 - isca - DEBUG - Integration completed through    13 days     0 seconds
+2022-03-02 17:07:49,766 - isca - DEBUG - Integration completed through    14 days     0 seconds
+2022-03-02 17:07:50,745 - isca - DEBUG - Integration completed through    15 days     0 seconds
+2022-03-02 17:07:51,716 - isca - DEBUG - Integration completed through    16 days     0 seconds
+2022-03-02 17:07:52,687 - isca - DEBUG - Integration completed through    17 days     0 seconds
+2022-03-02 17:07:53,663 - isca - DEBUG - Integration completed through    18 days     0 seconds
+2022-03-02 17:07:54,644 - isca - DEBUG - Integration completed through    19 days     0 seconds
+2022-03-02 17:07:55,624 - isca - DEBUG - Integration completed through    20 days     0 seconds
+2022-03-02 17:07:56,601 - isca - DEBUG - Integration completed through    21 days     0 seconds
+2022-03-02 17:07:57,574 - isca - DEBUG - Integration completed through    22 days     0 seconds
+2022-03-02 17:07:58,549 - isca - DEBUG - Integration completed through    23 days     0 seconds
+2022-03-02 17:07:59,532 - isca - DEBUG - Integration completed through    24 days     0 seconds
+2022-03-02 17:08:00,510 - isca - DEBUG - Integration completed through    25 days     0 seconds
+2022-03-02 17:08:01,487 - isca - DEBUG - Integration completed through    26 days     0 seconds
+2022-03-02 17:08:02,469 - isca - DEBUG - Integration completed through    27 days     0 seconds
+2022-03-02 17:08:03,446 - isca - DEBUG - Integration completed through    28 days     0 seconds
+2022-03-02 17:08:04,424 - isca - DEBUG - Integration completed through    29 days     0 seconds
+2022-03-02 17:08:04,712 - isca - DEBUG - srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+2022-03-02 17:08:04,723 - isca - DEBUG - slurmstepd-atmnode024: error: *** STEP 338450.0 ON atmnode024 CANCELLED AT 2022-03-02T17:08:04 ***
+slurmstepd-atmnode024: error: *** JOB 338450 ON atmnode024 CANCELLED AT 2022-03-02T17:08:04 ***

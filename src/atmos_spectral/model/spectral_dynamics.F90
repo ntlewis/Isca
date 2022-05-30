@@ -72,7 +72,7 @@ use       fv_advection_mod, only: fv_advection_init, fv_advection_end, a_grid_ho
 
 use    water_borrowing_mod, only: water_borrowing
 
-use    global_integral_mod, only: mass_weighted_global_integral
+use    global_integral_mod, only: mass_weighted_global_integral, mass_weighted_vertical_integral
 
 use spectral_init_cond_mod, only: spectral_init_cond
 
@@ -107,6 +107,10 @@ character(len=128), parameter :: tagname = '$Name: siena_201211 $'
 integer :: id_ps, id_u, id_v, id_t, id_vor, id_div, id_omega, id_wspd, id_slp
 integer :: id_pres_full, id_pres_half, id_zfull, id_zhalf, id_vort_norm, id_EKE
 integer :: id_uu, id_vv, id_tt, id_omega_omega, id_uv, id_omega_t, id_vw, id_uw, id_ut, id_vt, id_v_vor, id_uz, id_vz, id_omega_z
+integer :: id_dt_ug_damp, id_dt_vg_damp, id_dt_tg_damp, id_dt_tg_core, id_dt_tg_core_precorrect, id_dt_tg_core_prespec ! NTL tendencies from spectral damping, call to send_data in spectral_dynamics
+integer :: id_ur, id_ud, id_vr, id_vd, id_dse, id_dseu, id_dsev, id_dsefluxdiv, id_rt_dlnpsdt_int
+integer :: id_dsefluxdivint
+! NTL output Helmholtz decomposition, and dse 
 integer, allocatable, dimension(:) :: id_tr, id_utr, id_vtr, id_wtr !extra advection diags added by RG
 real :: gamma, expf, expf_inverse
 character(len=8) :: mod_name = 'dynamics'
@@ -196,9 +200,11 @@ real    :: damping_coeff       = 1.15740741e-4, & ! (one tenth day)**-1
            exponent            = 2.5, &
          ocean_topog_smoothing = .93, &
            initial_sphum       = 0.0, &
-     reference_sea_level_press =  101325.,&
-        water_correction_limit = 0.0, & !mj
-           raw_filter_coeff    = 1.0     !st Default value of 1.0 turns the RAW part of the filtering off. 0.5 is the desired value, but this appears unstable. Requires further testing.
+           reference_sea_level_press = 101325.,&
+           water_correction_limit = 0.0, & !mj
+           raw_filter_coeff    = 1.0, &     !st Default value of 1.0 turns the RAW part of the filtering off. 0.5 is the desired value, but this appears unstable. Requires further testing.
+           damping_ptaper = 0.0
+
 
 logical :: json_logging = .false.    ! print steps to std out in a machine readable format
 !===============================================================================================
@@ -221,7 +227,7 @@ namelist /spectral_dynamics_nml/ use_virtual_temperature, damping_option, cutoff
                                  raw_filter_coeff,                                                   & !st
                                  graceful_shutdown, json_logging,                                    &
                                  graceful_shutdown,                                                  &
-								 make_symmetric                                                       !GC/RG add make_symmetric option
+								 make_symmetric, damping_ptaper                                                       !GC/RG add make_symmetric option
 
 contains
 
@@ -462,7 +468,7 @@ do k=1,size(pk,1)-1
 enddo
 
 call spectral_damping_init(damping_coeff, damping_order, damping_option, cutoff_wn, num_fourier, num_spherical, &
-                           num_levels, eddy_sponge_coeff, zmu_sponge_coeff, zmv_sponge_coeff,        &
+                           num_levels, eddy_sponge_coeff, zmu_sponge_coeff, zmv_sponge_coeff, reference_sea_level_press, damping_ptaper,     &
                            damping_coeff_vor=damping_coeff_vor, damping_order_vor=damping_order_vor, &
                            damping_coeff_div=damping_coeff_div, damping_order_div=damping_order_div)
 
@@ -778,7 +784,7 @@ end subroutine get_initial_fields
 !===============================================================================================
 
 subroutine spectral_dynamics(Time, psg_final, ug_final, vg_final, tg_final, tracer_attributes, grid_tracers_final, &
-                             time_level_out, dt_psg, dt_ug, dt_vg, dt_tg, dt_tracers, wg_full, p_full, p_half, z_full)
+                             time_level_out, dt_psg, dt_ug, dt_vg, dt_tg, dt_tracers, wg_full, wg, p_full, p_half, z_full)
 
 type(time_type),  intent(in) :: Time
 real, intent(out), dimension(is:, js:      ) :: psg_final
@@ -791,7 +797,7 @@ real, intent(inout), dimension(is:, js:      ) :: dt_psg
 real, intent(inout), dimension(is:, js:, :   ) :: dt_ug, dt_vg, dt_tg
 real, intent(inout), dimension(is:, js:, :, :) :: dt_tracers
 real, intent(out),   dimension(is:, js:, :   ) :: wg_full, p_full
-real, intent(out),   dimension(is:, js:, :   ) :: p_half
+real, intent(out),   dimension(is:, js:, :   ) :: wg, p_half
 real, intent(in),    dimension(is:, js:, :   ) :: z_full
 
 ! < > < > < > < > < > < > < > < > < > < > < > < > < > < > < > < > < > < > < > < > < > < > < > < >
@@ -803,11 +809,14 @@ complex, dimension(ms:me, ns:ne, num_levels  ) :: dt_vors, dt_divs, dt_ts, phis_
 real   , dimension(is:ie, js:je, num_levels  ) :: virtual_t, dp, dt_grid_tmp
 real   , dimension(is:ie, js:je              ) :: dx_psg, dy_psg, ln_psg, dt_ln_psg
 real   , dimension(is:ie, js:je, num_levels  ) :: phig_full, ln_p_full, phig_full_plus_ke
-real   , dimension(is:ie, js:je, num_levels+1) :: phig_half, ln_p_half, wg
+real   , dimension(is:ie, js:je, num_levels+1) :: phig_half, ln_p_half!, wg
 
 real, dimension(is:ie, js:je                         ) :: dt_psg_tmp
 real, dimension(is:ie, js:je, num_levels             ) :: dt_ug_tmp, dt_vg_tmp, dt_tg_tmp
 real, dimension(is:ie, js:je, num_levels, num_tracers) :: dt_tracers_tmp
+
+real, dimension(is:ie, js:je, num_levels             ) :: rt_dlnps_dt_tmp
+real, dimension(is:ie, js:je                         ) :: psg_save
 
 integer :: j, k, time_level, seconds, days, p
 real    :: delta_t
@@ -824,6 +833,12 @@ real, dimension(is:ie, js:je, num_levels, num_tracers) :: part_filt_tr
 
 logical :: pe_is_valid = .true.
 logical :: r_pe_is_valid = .true.
+
+! NTL create variables for outputting spectral damping tendency
+complex, dimension(ms:me, ns:ne, num_levels  ) :: dt_vors_damp, dt_divs_damp, dt_ts_damp
+real, dimension(is:ie, js:je, num_levels     ) :: dt_ug_damp, dt_vg_damp, dt_tg_damp
+real, dimension(is:ie, js:je, num_levels     ) :: dt_tg_core, dt_tg_save, tg_save 
+logical :: used
 
 if(.not.module_is_initialized) then
   call error_mesg('spectral_dynamics','dynamics has not been initialized ', FATAL)
@@ -847,6 +862,12 @@ dt_ug_tmp  = dt_ug
 dt_vg_tmp  = dt_vg
 dt_tg_tmp  = dt_tg
 dt_tracers_tmp = dt_tracers
+if (id_dt_tg_core > 0 .or. id_dt_tg_core_precorrect > 0 .or. id_dt_tg_core_prespec > 0) then 
+  dt_tg_save = dt_tg
+  tg_save = tg(:,:,:,previous)
+endif 
+
+!if (id_rt_dlnpsdt_int > 0) psg_save = psg(:,:,previous)
 
 call initialize_corrections(dt_ug, dt_vg, dt_tg, dt_tracers, delta_t)
 
@@ -887,7 +908,17 @@ if(t_vert_advect_scheme == VAN_LEER_LINEAR .or.  t_vert_advect_scheme == FINITE_
 call vert_advection(delta_t, wg, dp, tg(:,:,:,time_level),  dt_grid_tmp, scheme=t_vert_advect_scheme, form=ADVECTIVE_FORM)
 dt_tg_tmp = dt_tg_tmp + dt_grid_tmp
 
+
+if (id_dt_tg_core_prespec > 0) then 
+  dt_tg_core = dt_tg_tmp - dt_tg_save
+  used = send_data(id_dt_tg_core_prespec, dt_tg_core, Time + Time_step)
+endif 
+
 call horizontal_advection(ts(:,:,:,current), ug(:,:,:,current), vg(:,:,:,current), dt_tg_tmp)
+
+
+
+
 call trans_grid_to_spherical(dt_tg_tmp, dt_ts)
 
 do k=1,num_levels
@@ -905,9 +936,32 @@ dt_divs = dt_divs - compute_laplacian(phis_plus_ke)
 
 if(use_implicit) call implicit_correction (dt_divs, dt_ts, dt_ln_ps, divs, ts, ln_ps, delta_t, previous, current)
 
+! to output u,v tendency from molecular diffusion, save dt_vors, dt_divs ! NTL FOR ANG MOM BUDGET 
+if((id_dt_ug_damp > 0) .or. (id_dt_vg_damp > 0)) then 
+  dt_vors_damp = dt_vors
+  dt_divs_damp = dt_divs
+endif 
+if(id_dt_tg_damp > 0) then 
+  dt_ts_damp = dt_ts 
+endif 
+
 call compute_spectral_damping_vor (vors(:,:,:,previous), dt_vors, delta_t)
 call compute_spectral_damping_div (divs(:,:,:,previous), dt_divs, delta_t)
 call compute_spectral_damping     (ts  (:,:,:,previous), dt_ts,   delta_t)
+
+! compute div, vor tendency owing to spectral_damping and convert back to dt_ug, dt_vg ! NTL FOR ANG MOM BUDGET 
+if((id_dt_ug_damp > 0) .or. (id_dt_vg_damp > 0)) then 
+  dt_vors_damp = dt_vors - dt_vors_damp
+  dt_divs_damp = dt_divs - dt_divs_damp
+  call uv_grid_from_vor_div(dt_vors_damp, dt_divs_damp, dt_ug_damp, dt_vg_damp)
+  if (id_dt_ug_damp > 0) used = send_data(id_dt_ug_damp, dt_ug_damp, Time + Time_step)
+  if (id_dt_vg_damp > 0) used = send_data(id_dt_vg_damp, dt_vg_damp, Time + Time_step)
+endif 
+if(id_dt_tg_damp > 0) then 
+  dt_ts_damp = dt_ts - dt_ts_damp 
+  call trans_spherical_to_grid(dt_ts_damp, dt_tg_damp)
+  used = send_data(id_dt_tg_damp, dt_tg_damp, Time + Time_step)
+endif 
 
 if(.not.robert_complete_for_fields) then
   call error_mesg('spectral_dynamics','robert_complete_for_fields should be .true.',FATAL)
@@ -1008,6 +1062,11 @@ call update_tracers(tracer_attributes, dt_tracers_tmp, wg, p_half, delta_t, part
 
 !mj add a vertical limit to water correction
 !call compute_corrections(delta_t, tracer_attributes)
+if (id_dt_tg_core_precorrect > 0) then 
+  dt_tg_core = (tg(:,:,:,future) - tg_save) / delta_t - dt_tg_save
+  used = send_data(id_dt_tg_core_precorrect, dt_tg_core, Time + Time_step)
+endif 
+
 call compute_corrections(delta_t, tracer_attributes, p_full)
 
 previous = current
@@ -1026,6 +1085,21 @@ ug_final  =  ug(:,:,:,current)
 vg_final  =  vg(:,:,:,current)
 tg_final  =  tg(:,:,:,current)
 grid_tracers_final(:,:,:,time_level_out,:) = grid_tracers(:,:,:,current,:)
+
+if (id_rt_dlnpsdt_int > 0) then 
+  rt_dlnps_dt_tmp = 0.0
+  call trans_spherical_to_grid(dt_ln_ps(:,:), psg_save(:,:))
+  do k = 1, num_levels
+    rt_dlnps_dt_tmp(:,:,k) = rdgas * tg_final(:,:,k) * psg_save(:,:)
+  enddo 
+
+  used = send_data(id_rt_dlnpsdt_int, mass_weighted_vertical_integral(rt_dlnps_dt_tmp, psg_final), Time+Time_step)
+endif 
+
+if (id_dt_tg_core > 0) then 
+  dt_tg_core = (tg(:,:,:,current) - tg_save) / delta_t - dt_tg_save
+  used = send_data(id_dt_tg_core, dt_tg_core, Time + Time_step)
+endif 
 
 
 call complete_robert_filter(tracer_attributes, part_filt_ln_ps, part_filt_vors, part_filt_divs, part_filt_ts, part_filt_trs, part_filt_tr)
@@ -1610,6 +1684,39 @@ id_u   = register_diag_field(mod_name, &
 id_v   = register_diag_field(mod_name, &
       'vcomp',   axes_3d_full,       Time, 'meridional wind component',    'm/sec',      range=vrange)
 
+id_ur  = register_diag_field(mod_name, &
+      'ucompr',   axes_3d_full,       Time, 'rotational zonal wind component',         'm/sec',      range=vrange)
+
+id_ud  = register_diag_field(mod_name, &
+      'ucompd',   axes_3d_full,       Time, 'divergent zonal wind component',         'm/sec',      range=vrange)
+
+id_vr  = register_diag_field(mod_name, &
+      'vcompr',   axes_3d_full,       Time, 'rotational meridional wind component',         'm/sec',      range=vrange)
+
+id_vd  = register_diag_field(mod_name, &
+      'vcompd',   axes_3d_full,       Time, 'divergent meridional wind component',         'm/sec',      range=vrange)
+
+id_dse= register_diag_field(mod_name, &
+      'dse',   axes_3d_full,       Time, 'dry static energy',         'J/kg')
+
+id_dseu= register_diag_field(mod_name, &
+      'dse_ucomp',   axes_3d_full,       Time, 'dry static energy * zonal wind',         'J/kg * m/sec')
+
+id_dsev= register_diag_field(mod_name, &
+      'dse_vcomp',   axes_3d_full,       Time, 'dry static energy * meridional wind',     'J/kg * m/sec')
+
+id_dsefluxdiv = register_diag_field(mod_name, &
+      'dsefluxdiv',   axes_3d_full,       Time, 'dry static energy flux divergence',      'W/kg')
+
+id_dsefluxdivint = register_diag_field(mod_name, &
+      'dsefluxdivint',   (/id_lon,id_lat/),       Time, 'integrated dry static energy flux divergence',      'W/kg')
+
+id_rt_dlnpsdt_int = register_diag_field(mod_name, &
+      'rt_dlnpsdt_int',   (/id_lon,id_lat/),       Time, 'integrated temp * logpressure surface tendency',      '???')
+
+!id_msefluxdiv = register_diag_field(mod_name, &
+!      'msefluxdiv',   axes_3d_full,       Time, 'dry static energy flux divergence',      'W/kg')
+
 id_uu  = register_diag_field(mod_name, &
       'ucomp_sq',axes_3d_full,       Time, 'zonal wind squared',           '(m/sec)**2', range=(/0.,vrange(2)**2/))
 
@@ -1682,6 +1789,24 @@ id_zhalf   = register_diag_field(mod_name, &
 id_slp = register_diag_field(mod_name, &
       'slp',(/id_lon,id_lat/),       Time, 'sea level pressure',           'pascals')
 
+! NTL diagnostics for u, v tendency due to spectral damping 
+id_dt_ug_damp = register_diag_field(mod_name, &
+ 'dt_ug_damp', axes_3d_full, Time, 'u tendency du/dt due to spectral damping', 'm sec**-2')
+id_dt_vg_damp = register_diag_field(mod_name, &
+ 'dt_vg_damp', axes_3d_full, Time, 'v tendency dv/dt due to spectral damping', 'm sec**-2')
+
+id_dt_tg_damp = register_diag_field(mod_name, &
+'dt_tg_damp', axes_3d_full, Time, 'T tendency dT/dt due to spectral damping', 'K sec**-1')
+
+id_dt_tg_core = register_diag_field(mod_name, &
+ 'dt_tg_core', axes_3d_full, Time, 't tendency dT/dt due to dynamics', 'K sec**-1')
+
+ id_dt_tg_core_precorrect = register_diag_field(mod_name, &
+ 'dt_tg_core_precorrect', axes_3d_full, Time, 't tendency dT/dt due to dynamics', 'K sec**-1')
+ 
+ id_dt_tg_core_prespec = register_diag_field(mod_name, &
+ 'dt_tg_core_prespec', axes_3d_full, Time, 't tendency dT/dt due to dynamics', 'K sec**-1')
+
 if(id_slp > 0) then
   gamma = 0.006
   expf = rdgas*gamma/grav
@@ -1706,19 +1831,20 @@ id_EKE       = register_diag_field(mod_name, 'EKE', Time, 'eddy kinetic energy',
 return
 end subroutine spectral_diagnostics_init
 !===================================================================================
-subroutine spectral_diagnostics(Time, p_surf, u_grid, v_grid, t_grid, wg_full, tr_grid, time_level)
+subroutine spectral_diagnostics(Time, p_surf, u_grid, v_grid, t_grid, wg_full, wg, tr_grid, time_level)
 
 type(time_type), intent(in) :: Time
 real, intent(in), dimension(is:, js:)          :: p_surf
-real, intent(in), dimension(is:, js:, :)       :: u_grid, v_grid, t_grid, wg_full
+real, intent(in), dimension(is:, js:, :)       :: u_grid, v_grid, t_grid, wg_full, wg
 real, intent(in), dimension(is:, js:, :, :, :) :: tr_grid
 integer, intent(in) :: time_level
 
-real, dimension(is:ie, js:je, num_levels)    :: ln_p_full, p_full, z_full, worka3d, workb3d
+real, dimension(is:ie, js:je, num_levels)    :: ln_p_full, p_full, z_full, worka3d, workb3d, workc3d, workd3d
 real, dimension(is:ie, js:je, num_levels+1)  :: ln_p_half, p_half, z_half
 real, dimension(is:ie, js:je)                :: t_low, slp, worka2d, workb2d
-complex, dimension(ms:me, ns:ne, num_levels) :: vor_spec, div_spec
+complex, dimension(ms:me, ns:ne, num_levels) :: vor_spec, div_spec, zero_spec, height_spec 
 complex, dimension(ms:me, ns:ne)             :: vorx, vory
+complex, dimension(ms:me, ns:ne, num_levels) :: heightx, heighty
 logical :: used
 integer :: ntr, i, j, k
 character(len=8) :: err_msg_1, err_msg_2
@@ -1804,6 +1930,74 @@ if(id_omega_z > 0) then
   worka3d = wg_full*z_full
   used = send_data(id_omega_z, worka3d, Time)
 endif
+
+!Helmholtz 
+if (id_ur > 0 .or. id_ud > 0 .or. id_vr > 0 .or. id_vd > 0) then 
+  call vor_div_from_uv_grid(u_grid, v_grid, vor_spec, div_spec, triang=triang_trunc)
+  zero_spec(:,:,:) = cmplx(0.0,0.0)
+  call uv_grid_from_vor_div(vor_spec, zero_spec, worka3d, workb3d)
+  if(id_ur > 0)    used = send_data(id_ur, worka3d, Time)
+  if(id_vr > 0)    used = send_data(id_vr, workb3d, Time)
+  if(id_ud > 0)    used = send_data(id_ud, u_grid - worka3d, Time)
+  if(id_vd > 0)    used = send_data(id_vd, v_grid - workb3d, Time)
+endif 
+
+!dse 
+
+! call vor_div_from_uv_grid(u_grid(:,:,num_levels), v_grid(:,:,num_levels), &
+! vor_spec(:,:,num_levels), div_spec(:,:,num_levels), triang=triang_trunc)
+! call compute_gradient_cos(vor_spec(:,:,num_levels), vorx, vory)
+! call trans_spherical_to_grid(vorx, worka2d)
+! call trans_spherical_to_grid(vory, workb2d)
+! call divide_by_cos(worka2d)
+! call divide_by_cos(workb2d)
+if (id_dseu > 0 .or. id_dsev > 0 .or. id_dsefluxdiv > 0 .or. id_dsefluxdivint > 0) then 
+  call compute_pressures_and_heights(t_grid, p_surf, surf_geopotential, z_full, z_half, p_full, p_half, tr_grid(:,:,:,time_level,nhum))
+  worka3d = u_grid * (cp_air * t_grid + grav * z_full)
+  workb3d = v_grid * (cp_air * t_grid + grav * z_full)
+  worka2d = (wg(:,:,1) * (cp_air * t_grid(:,:,1) + grav * z_half(:,:,1)) - wg(:,:,num_levels+1) * (cp_air * t_grid(:,:,num_levels) + grav * z_half(:,:,num_levels+1))) / grav
+  if (id_dse > 0) then 
+    used    = send_data(id_dse, worka3d/u_grid, Time)
+  endif 
+  if (id_dseu > 0) then 
+    used    = send_data(id_dseu, worka3d, Time)
+  endif 
+  if (id_dsev > 0) then 
+    used    = send_data(id_dsev, workb3d, Time)
+  endif 
+  if (id_dsefluxdiv > 0 .or. id_dsefluxdivint > 0) then
+    ! get divergence of dse 
+    call vor_div_from_uv_grid(worka3d, workb3d, vor_spec, div_spec, triang=triang_trunc)
+    call trans_spherical_to_grid(div_spec, worka3d)
+
+
+
+    ! get v.grad(phi) term 
+    call trans_grid_to_spherical(z_full, height_spec)
+    call compute_gradient_cos(height_spec, heightx, heighty)
+    call trans_spherical_to_grid(heightx, workc3d)
+    call trans_spherical_to_grid(heighty, workd3d) 
+    call divide_by_cos(workc3d)
+    call divide_by_cos(workd3d)
+    workb3d = grav * (u_grid * workc3d + v_grid * workd3d)
+
+    ! combine two terms and send data 
+    if (id_dsefluxdiv > 0) used    = send_data(id_dsefluxdiv, worka3d - workb3d, Time)
+    if (id_dsefluxdivint > 0) then 
+      workb2d = mass_weighted_vertical_integral(worka3d - workb3d, p_surf) + worka2d
+      used    = send_data(id_dsefluxdivint, workb2d, Time)
+    endif 
+  endif 
+endif 
+
+
+  
+
+
+
+
+
+
 
 if(size(tr_grid,5) /= num_tracers) then
   write(err_msg_1,'(i8)') size(tr_grid,5)

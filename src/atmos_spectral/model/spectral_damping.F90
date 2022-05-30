@@ -26,6 +26,8 @@ use        fms_mod, only: mpp_pe, mpp_root_pe, error_mesg, FATAL, &
 
 use transforms_mod, only: get_eigen_laplacian, get_spec_domain
 
+use press_and_geopot_mod, only: pressure_variables 
+
 implicit none
 
 private
@@ -38,7 +40,7 @@ real, allocatable, dimension(:,:) :: damping, damping_vor, damping_div, damping_
 real, allocatable, dimension(:)   :: damping_zmu_sponge, damping_zmv_sponge
 logical :: module_is_initialized = .false.
 integer :: ms, me, ns, ne, num_levels
-
+real :: pref_local, damping_ptaper_local
 ! begin LJJ addition via ST
 real    :: damping_coeff_vor_local, damping_coeff_div_local, damping_coeff_local
 integer :: damping_order_vor_local, damping_order_div_local, damping_order_local
@@ -54,7 +56,7 @@ public :: compute_spectral_damping_vor, compute_spectral_damping_div
 contains
 !----------------------------------------------------------------------------------------------------------------
 subroutine spectral_damping_init (damping_coeff, damping_order, damping_option, cutoff_wn, num_fourier, num_spherical, &
-                                  num_levels_in, eddy_sponge_coeff, zmu_sponge_coeff, zmv_sponge_coeff,     &
+                                  num_levels_in, eddy_sponge_coeff, zmu_sponge_coeff, zmv_sponge_coeff, pref, damping_ptaper,    &
                                   damping_coeff_vor, damping_order_vor, damping_coeff_div, damping_order_div, &
                                   damping_coeff_r)
 
@@ -63,9 +65,11 @@ integer, intent(in) :: cutoff_wn
 integer, intent(in) :: damping_order, num_fourier, num_spherical, num_levels_in
 real,    intent(in) :: eddy_sponge_coeff, zmu_sponge_coeff, zmv_sponge_coeff
 character(len=*), intent(in) :: damping_option
+real, intent(in)    :: pref, damping_ptaper
 real,    intent(in), optional :: damping_coeff_vor, damping_coeff_div
 integer, intent(in), optional :: damping_order_vor, damping_order_div
 real,    intent(in), optional :: damping_coeff_r ! linear drag coefficient (units = 1/seconds)
+
 
 ! begin LJJ addition via ST - These vars now defined globally within module
 ! real    :: damping_coeff_vor_local, damping_coeff_div_local
@@ -73,6 +77,9 @@ real,    intent(in), optional :: damping_coeff_r ! linear drag coefficient (unit
 ! end LJJ addition via ST
 
 real, dimension(0:num_fourier, 0:num_spherical) :: eigen, sqrt_eigen
+
+
+integer :: k
 
 if(module_is_initialized) return
 
@@ -87,6 +94,21 @@ allocate(damping_eddy_sponge(0:num_fourier, 0:num_spherical))
 allocate(damping    (0:num_fourier, 0:num_spherical))
 allocate(damping_vor(0:num_fourier, 0:num_spherical))
 allocate(damping_div(0:num_fourier, 0:num_spherical))
+
+pref_local = pref 
+damping_ptaper_local = damping_ptaper
+
+! damping_pfactor = 1.0 
+! if (damping_ptaper .ne. 0.0) then 
+!   call pressure_variables(p_half, ln_p_half, p_full, ln_p_full, pref)
+!   where ( p_full(:) < damping_ptaper )
+!   damping_pfactor(:) = damping_pfactor(:) + (damping_ptaper - p_full(:))**2. / damping_ptaper * 50. 
+!   endwhere 
+! endif 
+
+! do k = 1, num_levels 
+!   write(*,*) p_full(k), damping_pfactor(k) 
+! enddo
 
 call get_eigen_laplacian(eigen)
 
@@ -176,6 +198,7 @@ real,    intent(in) :: current_dt
 complex, intent(inout), dimension (:,:,:) :: dt_spec
 
 real, dimension(size(spec,1),size(spec,2)) :: coeff, damping_eff
+real, dimension(num_levels) :: damping_pfactor_local
 
 integer :: k
 
@@ -190,9 +213,15 @@ else
  damping_eff = damping(ms:me, ns:ne)
 endif
 
-coeff = 1.0/(1.0 + damping_eff*current_dt)
+if (damping_ptaper_local .ne. 0.0) then 
+  call comp_damping_pfactor(damping_pfactor_local)
+else 
+  damping_pfactor_local = 1.0
+endif 
+
 
 do k = 1, size(spec,3)
+  coeff = 1.0/(1.0 + damping_eff*current_dt*damping_pfactor_local(k))
   dt_spec(:,:,k) =   coeff(:,:) * (dt_spec(:,:,k) - damping_eff*spec(:,:,k))
 end do
 ! end LJJ addition via ST
@@ -207,6 +236,7 @@ real,    intent(in) :: current_dt
 complex, intent(inout), dimension(ms:me, ns:ne, num_levels) :: dt_vor
 
 real, dimension(ms:me, ns:ne) :: coeff, damping_vor_eff
+real, dimension(num_levels) :: damping_pfactor_local
 
 integer :: k, m, n
 
@@ -221,9 +251,15 @@ else
  damping_vor_eff = damping_vor(ms:me,ns:ne)
 endif
 
-coeff = 1.0/(1.0 + damping_vor_eff*current_dt)
+
+if (damping_ptaper_local .ne. 0.0) then 
+  call comp_damping_pfactor(damping_pfactor_local)
+else 
+  damping_pfactor_local = 1.0
+endif 
 
 do k = 1, size(vor,3)
+  coeff = 1.0/(1.0 + damping_vor_eff*current_dt*damping_pfactor_local(k))
   dt_vor(:,:,k) = coeff * (dt_vor(:,:,k) - damping_vor_eff*vor(:,:,k))
 end do
 ! end LJJ addition via ST
@@ -252,6 +288,7 @@ real,    intent(in) :: current_dt
 complex, intent(inout), dimension (ms:me, ns:ne, num_levels) :: dt_div
 
 real, dimension(ms:me, ns:ne) :: coeff, damping_div_eff
+real, dimension(num_levels) :: damping_pfactor_local
 
 integer :: k, m, n
 
@@ -266,9 +303,14 @@ else
  damping_div_eff = damping_div(ms:me,ns:ne)
 endif
 
-coeff = 1.0/(1.0 + damping_div_eff*current_dt)
+if (damping_ptaper_local .ne. 0.0) then 
+  call comp_damping_pfactor(damping_pfactor_local)
+else 
+  damping_pfactor_local = 1.0
+endif 
 
 do k = 1, size(div,3)
+  coeff = 1.0/(1.0 + damping_div_eff*current_dt*damping_pfactor_local(k))
   dt_div(:,:,k) = coeff * (dt_div(:,:,k) - damping_div_eff*div(:,:,k))
 end do
 ! end LJJ addition via ST
@@ -315,6 +357,30 @@ dt_spec = coeff*(dt_spec - damping_eff*spec)
 
 return
 end subroutine compute_spectral_damping_2d
+
+subroutine comp_damping_pfactor(damping_pfactor)
+
+  real, intent(out), dimension(:) :: damping_pfactor
+
+  real, dimension(size(damping_pfactor,1))   :: p_full, ln_p_full
+  real, dimension(size(damping_pfactor,1)+1) :: p_half, ln_p_half
+  
+
+  damping_pfactor = 0.0 
+
+  call pressure_variables(p_half, ln_p_half, p_full, ln_p_full, pref_local)
+
+  where ( p_full(:) < damping_ptaper_local)
+    damping_pfactor(:) = (damping_ptaper_local - p_full(:))**2. / damping_ptaper_local**2. * 50. 
+  endwhere 
+
+  damping_pfactor = damping_pfactor + 1.0
+
+end subroutine comp_damping_pfactor 
+
+  ! do k = 1, num_levels 
+  !   write(*,*) p_full(k), damping_pfactor(k) 
+  ! enddo
 
 !-----------------------------------------------------------------
 subroutine spectral_damping_end

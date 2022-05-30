@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --ntasks-per-node=32
+#SBATCH --ntasks=64
+#SBATCH --cpus-per-task=2
+#SBATCH --time=800:00:00
+#SBATCH --mincpus=64
+#SBATCH --mem-per-cpu=1000
+##SBATCH --exclude=atmnode007,atmnode008,atmnode009,atmnode010,atmnode011,atmnode012,atmnode013,atmnode014,atmnode015,atmnode016,atmnode025,atmnode026,atmnode027,atmnode028
+#SBATCH --nodelist=atmnode023,atmnode024
+#SBATCH --output=frierson.out
+#SBATCH -p priority-rp
+source $HOME/.bashrc
+cd $HOME/research/isca_dir/Isca/exp/test_cases/frierson/
+$HOME/anaconda3/envs/isca_env/bin/python frierson_test_case.py

@@ -1,0 +1,142 @@
+/home/lewis/.bashrc: line 75: goisca: command not found
+2021-11-22 11:52:49,718 - isca - WARNING - Environment variable GFDL_SOC not set, but this is only required if using SocratesCodebase. Setting to None
+2021-11-22 11:52:50,082 - isca - INFO - SOCRATES compilation disabled.
+2021-11-22 11:52:50,103 - isca - INFO - Writing path_names to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_lewis_research_isca_dir_Isca/build/isca/path_names'
+2021-11-22 11:52:50,122 - isca - INFO - Running compiler
+2021-11-22 11:52:50,167 - isca - INFO - loadmodules for oxford machines
+2021-11-22 11:52:50,574 - isca - INFO - [?1h=Currently Loaded Modulefiles:[m
+2021-11-22 11:52:50,592 - isca - INFO - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-11-22 11:52:50,593 - isca - INFO - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-11-22 11:52:50,593 - isca - INFO - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-11-22 11:52:50,593 - isca - INFO - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-11-22 11:52:50,593 - isca - INFO - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-11-22 11:52:50,610 - isca - INFO - [K[?1l>/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_lewis_research_isca_dir_Isca/build/isca/path_names
+2021-11-22 11:53:02,521 - isca - INFO - ....................................................................................................................................................................................................... Makefile is ready.
+2021-11-22 11:53:03,241 - isca - INFO - make: Nothing to be done for 'all'.
+2021-11-22 11:53:03,891 - isca - INFO - make: 'isca.x' is up to date.
+2021-11-22 11:53:03,893 - isca - INFO - Compilation complete.
+2021-11-22 11:53:03,896 - isca - DEBUG - Making directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/VENUS_T21L52_olddiff_highsponge_ures'
+2021-11-22 11:53:03,981 - isca - WARNING - Tried to remove run directory but it doesnt exist
+2021-11-22 11:53:04,073 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/VENUS_T21L52_olddiff_highsponge_ures/run'
+2021-11-22 11:53:04,662 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/VENUS_T21L52_olddiff_highsponge_ures/run'
+2021-11-22 11:53:05,602 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/VENUS_T21L52_olddiff_highsponge_ures/run/input.nml'
+2021-11-22 11:53:05,672 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/VENUS_T21L52_olddiff_highsponge_ures/run/field_table'
+2021-11-22 11:53:05,759 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/VENUS_T21L52_olddiff_highsponge_ures/run/diag_table'
+2021-11-22 11:53:05,885 - isca - INFO - Running without restart file
+2021-11-22 11:53:05,920 - isca - INFO - Beginning run 1
+2021-11-22 11:53:05,935 - isca - INFO - process running as 50301
+2021-11-22 11:53:05,973 - isca - DEBUG - loadmodules for oxford machines
+2021-11-22 11:53:06,353 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-11-22 11:53:06,371 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-11-22 11:53:06,372 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-11-22 11:53:06,372 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-11-22 11:53:06,372 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-11-22 11:53:06,372 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-11-22 11:53:06,772 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-11-22 11:53:06,772 - isca - DEBUG - &MPP_IO_NML
+2021-11-22 11:53:06,772 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-11-22 11:53:06,773 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-11-22 11:53:06,773 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-11-22 11:53:06,773 - isca - DEBUG - SHUFFLE =           0,
+2021-11-22 11:53:06,773 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-11-22 11:53:06,773 - isca - DEBUG - /
+2021-11-22 11:53:06,774 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-11-22 11:53:06,777 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-11-22 11:53:06,992 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-11-22 11:53:07,003 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-11-22 11:53:07,003 - isca - DEBUG - X-AXIS =   64
+2021-11-22 11:53:07,004 - isca - DEBUG - Y-AXIS =    2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+2021-11-22 11:53:07,431 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-11-22 11:53:07,528 - isca - DEBUG - 
+2021-11-22 11:53:07,529 - isca - DEBUG - 
+2021-11-22 11:53:07,529 - isca - DEBUG - Rayleigh Drag in boundary layer.
+2021-11-22 11:53:07,529 - isca - DEBUG - Extent of frictional layer: sigma_b =     0.70
+2021-11-22 11:53:07,529 - isca - DEBUG - Frictional timescale in days:      1.00
+2021-11-22 11:53:07,529 - isca - DEBUG - 
+2021-11-22 11:53:07,529 - isca - DEBUG - 
+2021-11-22 11:53:14,887 - isca - DEBUG - Integration completed through    1 Jan  2   0: 0: 0
+2021-11-22 11:53:21,554 - isca - DEBUG - Integration completed through    1 Jan  3   0: 0: 0
+2021-11-22 11:53:28,231 - isca - DEBUG - Integration completed through    1 Jan  4   0: 0: 0
+2021-11-22 11:53:34,902 - isca - DEBUG - Integration completed through    1 Jan  5   0: 0: 0
+2021-11-22 11:53:41,705 - isca - DEBUG - Integration completed through    1 Jan  6   0: 0: 0
+2021-11-22 11:53:48,502 - isca - DEBUG - Integration completed through    1 Jan  7   0: 0: 0
+2021-11-22 11:53:55,316 - isca - DEBUG - Integration completed through    1 Jan  8   0: 0: 0
+2021-11-22 11:54:02,137 - isca - DEBUG - Integration completed through    1 Jan  9   0: 0: 0
+2021-11-22 11:54:08,968 - isca - DEBUG - Integration completed through    1 Jan 10   0: 0: 0
+2021-11-22 11:54:15,792 - isca - DEBUG - Integration completed through    1 Jan 11   0: 0: 0
+2021-11-22 11:54:22,626 - isca - DEBUG - Integration completed through    1 Jan 12   0: 0: 0
+2021-11-22 11:54:29,465 - isca - DEBUG - Integration completed through    1 Jan 13   0: 0: 0
+2021-11-22 11:54:36,309 - isca - DEBUG - Integration completed through    1 Jan 14   0: 0: 0
+2021-11-22 11:54:43,145 - isca - DEBUG - Integration completed through    1 Jan 15   0: 0: 0
+2021-11-22 11:54:49,987 - isca - DEBUG - Integration completed through    1 Jan 16   0: 0: 0
+2021-11-22 11:54:56,824 - isca - DEBUG - Integration completed through    1 Jan 17   0: 0: 0
+2021-11-22 11:55:03,668 - isca - DEBUG - Integration completed through    1 Jan 18   0: 0: 0
+2021-11-22 11:55:10,516 - isca - DEBUG - Integration completed through    1 Jan 19   0: 0: 0
+2021-11-22 11:55:17,363 - isca - DEBUG - Integration completed through    1 Jan 20   0: 0: 0
+2021-11-22 11:55:24,220 - isca - DEBUG - Integration completed through    1 Jan 21   0: 0: 0
+2021-11-22 11:55:31,074 - isca - DEBUG - Integration completed through    1 Jan 22   0: 0: 0
+2021-11-22 11:55:37,925 - isca - DEBUG - Integration completed through    1 Jan 23   0: 0: 0
+2021-11-22 11:55:44,776 - isca - DEBUG - Integration completed through    1 Jan 24   0: 0: 0
+2021-11-22 11:55:51,630 - isca - DEBUG - Integration completed through    1 Jan 25   0: 0: 0
+2021-11-22 11:55:58,483 - isca - DEBUG - Integration completed through    1 Jan 26   0: 0: 0
+2021-11-22 11:56:05,332 - isca - DEBUG - Integration completed through    1 Jan 27   0: 0: 0
+2021-11-22 11:56:12,183 - isca - DEBUG - Integration completed through    1 Jan 28   0: 0: 0
+2021-11-22 11:56:19,037 - isca - DEBUG - Integration completed through    1 Jan 29   0: 0: 0
+2021-11-22 11:56:25,894 - isca - DEBUG - Integration completed through    1 Jan 30   0: 0: 0
+2021-11-22 11:56:32,748 - isca - DEBUG - Integration completed through    1 Feb  1   0: 0: 0
+2021-11-22 11:56:39,596 - isca - DEBUG - Integration completed through    1 Feb  2   0: 0: 0
+2021-11-22 11:56:46,448 - isca - DEBUG - Integration completed through    1 Feb  3   0: 0: 0
+2021-11-22 11:56:53,303 - isca - DEBUG - Integration completed through    1 Feb  4   0: 0: 0
+2021-11-22 11:57:00,159 - isca - DEBUG - Integration completed through    1 Feb  5   0: 0: 0
+2021-11-22 11:57:07,015 - isca - DEBUG - Integration completed through    1 Feb  6   0: 0: 0
+2021-11-22 11:57:13,875 - isca - DEBUG - Integration completed through    1 Feb  7   0: 0: 0
+2021-11-22 11:57:20,736 - isca - DEBUG - Integration completed through    1 Feb  8   0: 0: 0
+2021-11-22 11:57:27,597 - isca - DEBUG - Integration completed through    1 Feb  9   0: 0: 0
+2021-11-22 11:57:34,458 - isca - DEBUG - Integration completed through    1 Feb 10   0: 0: 0
+2021-11-22 11:57:41,325 - isca - DEBUG - Integration completed through    1 Feb 11   0: 0: 0
+2021-11-22 11:57:48,192 - isca - DEBUG - Integration completed through    1 Feb 12   0: 0: 0
+2021-11-22 11:57:55,058 - isca - DEBUG - Integration completed through    1 Feb 13   0: 0: 0
+2021-11-22 11:58:01,924 - isca - DEBUG - Integration completed through    1 Feb 14   0: 0: 0
+2021-11-22 11:58:08,795 - isca - DEBUG - Integration completed through    1 Feb 15   0: 0: 0
+2021-11-22 11:58:15,664 - isca - DEBUG - Integration completed through    1 Feb 16   0: 0: 0
+2021-11-22 11:58:22,534 - isca - DEBUG - Integration completed through    1 Feb 17   0: 0: 0
+2021-11-22 11:58:29,405 - isca - DEBUG - Integration completed through    1 Feb 18   0: 0: 0
+2021-11-22 11:58:36,279 - isca - DEBUG - Integration completed through    1 Feb 19   0: 0: 0
+2021-11-22 11:58:43,153 - isca - DEBUG - Integration completed through    1 Feb 20   0: 0: 0
+2021-11-22 11:58:50,023 - isca - DEBUG - Integration completed through    1 Feb 21   0: 0: 0
+2021-11-22 11:58:56,894 - isca - DEBUG - Integration completed through    1 Feb 22   0: 0: 0
+2021-11-22 11:59:03,771 - isca - DEBUG - Integration completed through    1 Feb 23   0: 0: 0
+2021-11-22 11:59:10,647 - isca - DEBUG - Integration completed through    1 Feb 24   0: 0: 0
+2021-11-22 11:59:17,522 - isca - DEBUG - Integration completed through    1 Feb 25   0: 0: 0
+2021-11-22 11:59:24,397 - isca - DEBUG - Integration completed through    1 Feb 26   0: 0: 0
+2021-11-22 11:59:31,271 - isca - DEBUG - Integration completed through    1 Feb 27   0: 0: 0
+2021-11-22 11:59:38,149 - isca - DEBUG - Integration completed through    1 Feb 28   0: 0: 0
+2021-11-22 11:59:45,031 - isca - DEBUG - Integration completed through    1 Feb 29   0: 0: 0
+2021-11-22 11:59:51,916 - isca - DEBUG - Integration completed through    1 Feb 30   0: 0: 0
+2021-11-22 11:59:58,802 - isca - DEBUG - Integration completed through    1 Mar  1   0: 0: 0
+2021-11-22 12:00:05,692 - isca - DEBUG - Integration completed through    1 Mar  2   0: 0: 0
+2021-11-22 12:00:12,576 - isca - DEBUG - Integration completed through    1 Mar  3   0: 0: 0
+2021-11-22 12:00:19,459 - isca - DEBUG - Integration completed through    1 Mar  4   0: 0: 0
+2021-11-22 12:00:26,343 - isca - DEBUG - Integration completed through    1 Mar  5   0: 0: 0
+2021-11-22 12:00:33,229 - isca - DEBUG - Integration completed through    1 Mar  6   0: 0: 0
+2021-11-22 12:00:40,115 - isca - DEBUG - Integration completed through    1 Mar  7   0: 0: 0
+2021-11-22 12:00:47,000 - isca - DEBUG - Integration completed through    1 Mar  8   0: 0: 0
+2021-11-22 12:00:53,885 - isca - DEBUG - Integration completed through    1 Mar  9   0: 0: 0
+2021-11-22 12:01:00,774 - isca - DEBUG - Integration completed through    1 Mar 10   0: 0: 0
+2021-11-22 12:01:07,664 - isca - DEBUG - Integration completed through    1 Mar 11   0: 0: 0
+2021-11-22 12:01:14,549 - isca - DEBUG - Integration completed through    1 Mar 12   0: 0: 0
+2021-11-22 12:01:21,433 - isca - DEBUG - Integration completed through    1 Mar 13   0: 0: 0
+2021-11-22 12:01:28,320 - isca - DEBUG - Integration completed through    1 Mar 14   0: 0: 0
+2021-11-22 12:01:35,207 - isca - DEBUG - Integration completed through    1 Mar 15   0: 0: 0
+2021-11-22 12:01:42,094 - isca - DEBUG - Integration completed through    1 Mar 16   0: 0: 0
+2021-11-22 12:01:48,984 - isca - DEBUG - Integration completed through    1 Mar 17   0: 0: 0
+2021-11-22 12:01:55,871 - isca - DEBUG - Integration completed through    1 Mar 18   0: 0: 0
+2021-11-22 12:02:02,757 - isca - DEBUG - Integration completed through    1 Mar 19   0: 0: 0
+2021-11-22 12:02:09,643 - isca - DEBUG - Integration completed through    1 Mar 20   0: 0: 0
+2021-11-22 12:02:16,530 - isca - DEBUG - Integration completed through    1 Mar 21   0: 0: 0
+2021-11-22 12:02:23,416 - isca - DEBUG - Integration completed through    1 Mar 22   0: 0: 0
+2021-11-22 12:02:30,303 - isca - DEBUG - Integration completed through    1 Mar 23   0: 0: 0
+2021-11-22 12:02:37,193 - isca - DEBUG - Integration completed through    1 Mar 24   0: 0: 0
+2021-11-22 12:02:41,246 - isca - DEBUG - srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+2021-11-22 12:02:41,248 - isca - DEBUG - slurmstepd-atmnode004: error: *** STEP 231541.0 ON atmnode004 CANCELLED AT 2021-11-22T12:02:41 ***
+slurmstepd-atmnode004: error: *** JOB 231541 ON atmnode004 CANCELLED AT 2021-11-22T12:02:41 ***

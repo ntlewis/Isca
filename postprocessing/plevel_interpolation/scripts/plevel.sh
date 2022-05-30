@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 #  Script for converting to pressure levels
 #-----------------------------------------------------------------------
@@ -85,7 +85,7 @@ fi
 
 #source /opt/modules/default/init/sh
 #source ../../../src/extra/loadmodule
-source $GFDL_BASE/src/extra/env/$GFDL_ENV
+source $GFDL_BASE/src/extra/env/gfortran #$GFDL_ENV
 executable=$GFDL_BASE/postprocessing/plevel_interpolation/exec/plev.x
 if [ ! -x "$executable" ]; then
    echo "ERROR: executable does not exist"

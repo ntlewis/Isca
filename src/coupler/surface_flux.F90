@@ -35,7 +35,7 @@ module surface_flux_mod
 !
 ! ============================================================================
 
-use             fms_mod, only: FATAL, close_file, mpp_pe, mpp_root_pe, write_version_number
+use             fms_mod, only: FATAL, close_file, mpp_pe, mpp_root_pe, write_version_number, error_mesg
 use             fms_mod, only: file_exist, check_nml_error, open_namelist_file, stdlog
 use   monin_obukhov_mod, only: mo_drag, mo_profile
 use  sat_vapor_pres_mod, only: escomp, descomp
@@ -46,7 +46,7 @@ implicit none
 private
 
 ! ==== public interface ======================================================
-public  surface_flux, gp_surface_flux
+public  surface_flux_init, surface_flux, surface_flux_end, gp_surface_flux
 ! ==== end of public interface ===============================================
 
 ! <INTERFACE NAME="surface_flux">
@@ -197,7 +197,7 @@ end interface
 character(len=*), parameter :: version = '$Id: surface_flux.F90,v 19.0.6.1 2013/01/24 20:23:30 pjp Exp $'
 character(len=*), parameter :: tagname = '$Name:  $'
 
-logical :: do_init = .true.
+logical :: module_is_initialized = .false. 
 
 !jp As grav is no longer a `parameter`, initialisation of these variables
 !   now happens in surface_flux_init
@@ -267,6 +267,8 @@ real    :: land_evap_prefactor  =  1.0    !s Default is that land makes no diffe
 real    :: flux_heat_gp  =  5.7    !s Default value for Jupiter of 5.7 Wm^-2
 real    :: diabatic_acce =  1.0    !s Diabatic acceleration??
 
+logical :: do_tj_bl = .false. ! Do boundary layer following Thatcher and Jablonowski? 
+real    :: tj_coeff = 0.0044 ! dimensionless difussivity from Thatcher and Jablonowski 
 
 namelist /surface_flux_nml/ no_neg_q,             &
                             use_virtual_temp,     &
@@ -282,7 +284,8 @@ namelist /surface_flux_nml/ no_neg_q,             &
                             land_humidity_prefactor, & !s Added to make land 'dry', i.e. to decrease the evaporative heat flux in areas of land.
                             land_evap_prefactor, & !s Added to make land 'dry', i.e. to decrease the evaporative heat flux in areas of land.
                             flux_heat_gp,         &    !s prescribed lower boundary heat flux on a giant planet
-			    diabatic_acce
+                            diabatic_acce, &
+                            tj_coeff ! thatcher and jablonowski BL params 
 
 
 
@@ -397,8 +400,10 @@ subroutine surface_flux_1d (                                           &
 
   integer :: i, nbad
 
+  if(.not.module_is_initialized) then
+   call error_mesg('surface_flux','surface_flux module is not initialized',FATAL)
+ endif
 
-  if (do_init) call surface_flux_init
 
   !---- use local value of surf temp ----
 
@@ -500,22 +505,31 @@ subroutine surface_flux_1d (                                           &
      endwhere
   endif
 
-  !  monin-obukhov similarity theory
-  call mo_drag (thv_atm, thv_surf, z_atm,                  &
-       rough_mom, rough_heat, rough_moist, w_atm,          &
-       cd_m, cd_t, cd_q, u_star, b_star, avail             )
+  if (do_tj_bl) then 
+   cd_m = 0.0 ! value doesn't matter as shouldn't be used 
+   cd_t = tj_coeff 
+   cd_q = tj_coeff 
+   u_star = 0.0 ! value doesn't matter as shouldn't be used 
+   b_star = 0.0 ! value doesn't matter as shouldn't be used 
+  else 
+     !  monin-obukhov similarity theory
+     call mo_drag (thv_atm, thv_surf, z_atm,                  &
+          rough_mom, rough_heat, rough_moist, w_atm,          &
+          cd_m, cd_t, cd_q, u_star, b_star, avail             )
+  endif 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!! added by mp586 for 10m winds and 2m temperature add mo_profile()!!!!!!!!
 
+  if (.not.do_tj_bl) then 
+     zrefm = 10. !want winds at 10m
+     zrefh = 2.  !want temp and q at 2m
 
-  zrefm = 10. !want winds at 10m
-  zrefh = 2.  !want temp and q at 2m
-
-  call mo_profile( zrefm, zrefh, z_atm,   rough_mom, &
-       rough_heat, rough_moist,          &
-       u_star, b_star, q_star,        &
-       ex_del_m, ex_del_h, ex_del_q, avail  )
+     call mo_profile( zrefm, zrefh, z_atm,   rough_mom, &
+           rough_heat, rough_moist,          &
+           u_star, b_star, q_star,        &
+           ex_del_m, ex_del_h, ex_del_q, avail  )
+  
 
 
 ! adapted from https://github.com/mom-ocean/MOM5/blob/3702ad86f9653f4e315b98613eb824a47d89cf00/src/coupler/flux_exchange.F90#L1932
@@ -557,7 +571,7 @@ subroutine surface_flux_1d (                                           &
       ! ------- reference relative humidity -----------
       where (avail) &
          rh_2m = q_2m / q_sat_2m
-
+   endif ! if .not.do_tj_bl
 
   ! override with ocean fluxes from NCAR calculation
   if (ncar_ocean_flux .or. ncar_ocean_flux_orig) then
@@ -565,26 +579,48 @@ subroutine surface_flux_1d (                                           &
                              seawater, cd_m, cd_t, cd_q, u_star, b_star     )
   end if
 
-  where (avail)
-     ! scale momentum drag coefficient on orographic roughness
-     cd_m = cd_m*(log(z_atm/rough_mom+1)/log(z_atm/rough_scale+1))**2
-     ! surface layer drag coefficients
-     drag_t = cd_t * w_atm
-     drag_q = cd_q * w_atm
-     drag_m = cd_m * w_atm
+  if(.not.do_tj_bl) then 
+      where (avail)
+         ! scale momentum drag coefficient on orographic roughness
+            cd_m = cd_m*(log(z_atm/rough_mom+1)/log(z_atm/rough_scale+1))**2
+         ! surface layer drag coefficients
+         drag_t = cd_t * w_atm
+         drag_q = cd_q * w_atm
+         drag_m = cd_m * w_atm
 
-     ! density
-     rho = p_atm / (rdgas * tv_atm)
+         ! density
+         rho = p_atm / (rdgas * tv_atm)
 
-     ! sensible heat flux
-     rho_drag = cp_air * drag_t * rho
-     flux_t = rho_drag * (t_surf0 - th_atm)  ! flux of sensible heat (W/m**2)
-     dhdt_surf =  rho_drag                   ! d(sensible heat flux)/d(surface temperature)
-     dhdt_atm  = -rho_drag*p_ratio           ! d(sensible heat flux)/d(atmos temperature)
+         ! sensible heat flux
+         rho_drag = cp_air * drag_t * rho 
+         flux_t = rho_drag * (t_surf0 - th_atm)  ! flux of sensible heat (W/m**2)
+         dhdt_surf =  rho_drag                   ! d(sensible heat flux)/d(surface temperature)
+         dhdt_atm  = -rho_drag*p_ratio           ! d(sensible heat flux)/d(atmos temperature)
 
-     ! evaporation
-     rho_drag  =  drag_q * rho
-  end where  
+         ! evaporation
+         rho_drag  =  drag_q * rho
+      end where  
+  else !tj_bl does temperature not dse so change dhdt_atm and flux_t to use temp
+      where (avail)
+         ! surface layer drag coefficients
+         drag_t = cd_t * w_atm
+         drag_q = cd_q * w_atm
+         drag_m = cd_m * w_atm
+
+         ! density
+         rho = p_atm / (rdgas * tv_atm)
+
+         ! sensible heat flux
+         rho_drag = cp_air * drag_t * rho 
+         flux_t = rho_drag * (t_surf0 - th_atm)  ! flux of sensible heat (W/m**2)
+         dhdt_surf =  rho_drag                   ! d(sensible heat flux)/d(surface temperature)
+         dhdt_atm  = -rho_drag                   ! d(sensible heat flux)/d(atmos temperature)
+
+         ! evaporation
+         rho_drag  =  drag_q * rho
+      end where  
+  endif 
+
 
 !RG Add bucket - if bucket is on evaluate fluxes based on moisture availability.
 !RG Note changes to avail statements to allow bucket to be switched on or off	  
@@ -682,6 +718,10 @@ subroutine surface_flux_1d (                                           &
      q_surf     = 0.0
      w_atm      = 0.0
   end where
+
+  if (do_tj_bl) then 
+   q_star = 0.0 ! value doesn't matter, but stop it being NaN as this isn't used 
+  endif 
 
   ! calculate d(stress component)/d(atmos wind component)
   dtaudu_atm = 0.0
@@ -902,7 +942,10 @@ end subroutine surface_flux_2d
 ! ============================================================================
 !  Initialization of the surface flux module--reads the nml.
 !
-subroutine surface_flux_init
+subroutine surface_flux_init(do_tj_bl_in, alpha_in)
+
+logical,  intent(in)    :: do_tj_bl_in
+real,     intent(in)    :: alpha_in
 
 ! ---- local vars ----------------------------------------------------------
   integer :: unit, ierr, io
@@ -932,17 +975,24 @@ subroutine surface_flux_init
   d378   = 1.-d622
   hlars  = hlv/rvgas
   gcp    = grav/cp_air
-  kappa  = rdgas/cp_air
+  kappa  = rdgas/cp_air*alpha_in
   d608   = d378/d622
 
   ! d608 set to zero  if the use of
   ! virtual temperatures is turned off in namelist
   if(.not. use_virtual_temp) d608 = 0.0
 
-  do_init = .false.
+  do_tj_bl = do_tj_bl_in
+
+  module_is_initialized = .true. 
 
 end subroutine surface_flux_init
 
+subroutine surface_flux_end 
+
+   module_is_initialized = .false. 
+
+end subroutine 
 
 
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!

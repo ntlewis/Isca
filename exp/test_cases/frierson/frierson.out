@@ -1,0 +1,332 @@
+/home/l/lewis/.bashrc: line 87: goisca: command not found
+2022-03-26 14:38:52,445 - isca - WARNING - Environment variable GFDL_SOC not set, but this is only required if using SocratesCodebase. Setting to None
+2022-03-26 14:38:52,668 - isca - INFO - RRTM compilation disabled.
+2022-03-26 14:38:52,668 - isca - INFO - SOCRATES compilation disabled.
+2022-03-26 14:38:52,683 - isca - INFO - Writing path_names to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_l_lewis_research_isca_dir_Isca/build/grey_isca/path_names'
+2022-03-26 14:38:52,703 - isca - INFO - Running compiler
+2022-03-26 14:38:52,746 - isca - INFO - loadmodules for oxford machines
+2022-03-26 14:38:53,160 - isca - INFO - [?1h=Currently Loaded Modulefiles:[m
+2022-03-26 14:38:53,179 - isca - INFO - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-26 14:38:53,179 - isca - INFO - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-26 14:38:53,179 - isca - INFO - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-26 14:38:53,179 - isca - INFO - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-26 14:38:53,179 - isca - INFO - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-26 14:38:53,199 - isca - INFO - [K[?1l>/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_l_lewis_research_isca_dir_Isca/build/grey_isca/path_names
+2022-03-26 14:39:03,441 - isca - INFO - .............................................................................................................................. Makefile is ready.
+2022-03-26 14:39:04,200 - isca - INFO - make: Nothing to be done for 'all'.
+2022-03-26 14:39:04,740 - isca - INFO - make: 'grey_isca.x' is up to date.
+2022-03-26 14:39:04,742 - isca - INFO - Compilation complete.
+2022-03-26 14:39:04,745 - isca - DEBUG - Making directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3'
+2022-03-26 14:39:04,945 - isca - WARNING - Tried to remove run directory but it doesnt exist
+2022-03-26 14:39:05,459 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run'
+2022-03-26 14:39:05,653 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run'
+2022-03-26 14:39:06,788 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/input.nml'
+2022-03-26 14:39:06,847 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/field_table'
+2022-03-26 14:39:07,016 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/diag_table'
+2022-03-26 14:39:07,086 - isca - INFO - Running without restart file
+2022-03-26 14:39:07,213 - isca - INFO - Beginning run 1
+2022-03-26 14:39:07,226 - isca - INFO - process running as 20204
+2022-03-26 14:39:07,260 - isca - DEBUG - loadmodules for oxford machines
+2022-03-26 14:39:07,687 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-26 14:39:07,705 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-26 14:39:07,706 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-26 14:39:07,706 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-26 14:39:07,706 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-26 14:39:07,706 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-26 14:39:10,115 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-26 14:39:10,115 - isca - DEBUG - &MPP_IO_NML
+2022-03-26 14:39:10,115 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-26 14:39:10,115 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-26 14:39:10,115 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-26 14:39:10,115 - isca - DEBUG - SHUFFLE =           0,
+2022-03-26 14:39:10,115 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-26 14:39:10,115 - isca - DEBUG - /
+2022-03-26 14:39:10,118 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-26 14:39:10,121 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-26 14:39:10,401 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-26 14:39:10,413 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-26 14:39:10,413 - isca - DEBUG - X-AXIS =  512
+2022-03-26 14:39:10,413 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 14:39:10,413 - isca - DEBUG - 4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 14:39:10,413 - isca - DEBUG - 4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 14:39:10,855 - isca - DEBUG - mean surface pressure=1000.0000 mb
+2022-03-26 14:39:10,862 - isca - DEBUG - 
+2022-03-26 14:39:10,862 - isca - WARNING - WARNING from PE    0: diag_manager_mod::register_static_field: module/field dynamics/zsurf is STATIC.  Cannot perform time operations average, maximum, or minimum on static fields.  Setting the time operation to "NONE" for this field.
+2022-03-26 14:39:10,862 - isca - DEBUG - 
+2022-03-26 14:39:10,863 - isca - DEBUG - 
+2022-03-26 14:39:10,863 - isca - WARNING - WARNING from PE    0: diag_manager_mod::register_static_field: module/field dynamics/zsurf is STATIC.  Cannot perform time operations average, maximum, or minimum on static fields.  Setting the time operation to "NONE" for this field.
+2022-03-26 14:39:10,863 - isca - DEBUG - 
+2022-03-26 14:39:10,959 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: No convective adjustment scheme used.
+2022-03-26 14:39:11,348 - isca - DEBUG - NOTE from PE    0: two_stream_gray_rad: Using Frierson (2006) radiation scheme.
+2022-03-26 14:39:48,239 - isca - DEBUG - Integration completed through    1 Jan  2   0: 0: 0
+2022-03-26 14:40:28,770 - isca - DEBUG - Integration completed through    1 Jan  3   0: 0: 0
+2022-03-26 14:41:05,988 - isca - DEBUG - Integration completed through    1 Jan  4   0: 0: 0
+2022-03-26 14:41:43,410 - isca - DEBUG - Integration completed through    1 Jan  5   0: 0: 0
+2022-03-26 14:42:21,379 - isca - DEBUG - Integration completed through    1 Jan  6   0: 0: 0
+2022-03-26 14:42:58,685 - isca - DEBUG - Integration completed through    1 Jan  7   0: 0: 0
+2022-03-26 14:43:36,112 - isca - DEBUG - Integration completed through    1 Jan  8   0: 0: 0
+2022-03-26 14:44:13,562 - isca - DEBUG - Integration completed through    1 Jan  9   0: 0: 0
+2022-03-26 14:44:51,034 - isca - DEBUG - Integration completed through    1 Jan 10   0: 0: 0
+2022-03-26 14:45:28,698 - isca - DEBUG - Integration completed through    1 Jan 11   0: 0: 0
+2022-03-26 14:46:05,941 - isca - DEBUG - Integration completed through    1 Jan 12   0: 0: 0
+2022-03-26 14:46:43,415 - isca - DEBUG - Integration completed through    1 Jan 13   0: 0: 0
+2022-03-26 14:47:21,152 - isca - DEBUG - Integration completed through    1 Jan 14   0: 0: 0
+2022-03-26 14:47:58,538 - isca - DEBUG - Integration completed through    1 Jan 15   0: 0: 0
+2022-03-26 14:48:36,014 - isca - DEBUG - Integration completed through    1 Jan 16   0: 0: 0
+2022-03-26 14:49:13,338 - isca - DEBUG - Integration completed through    1 Jan 17   0: 0: 0
+2022-03-26 14:49:50,824 - isca - DEBUG - Integration completed through    1 Jan 18   0: 0: 0
+2022-03-26 14:50:28,172 - isca - DEBUG - Integration completed through    1 Jan 19   0: 0: 0
+2022-03-26 14:51:05,668 - isca - DEBUG - Integration completed through    1 Jan 20   0: 0: 0
+2022-03-26 14:51:43,138 - isca - DEBUG - Integration completed through    1 Jan 21   0: 0: 0
+2022-03-26 14:52:21,188 - isca - DEBUG - Integration completed through    1 Jan 22   0: 0: 0
+2022-03-26 14:52:58,732 - isca - DEBUG - Integration completed through    1 Jan 23   0: 0: 0
+2022-03-26 14:53:36,191 - isca - DEBUG - Integration completed through    1 Jan 24   0: 0: 0
+2022-03-26 14:54:13,671 - isca - DEBUG - Integration completed through    1 Jan 25   0: 0: 0
+2022-03-26 14:54:51,225 - isca - DEBUG - Integration completed through    1 Jan 26   0: 0: 0
+2022-03-26 14:55:28,675 - isca - DEBUG - Integration completed through    1 Jan 27   0: 0: 0
+2022-03-26 14:56:06,093 - isca - DEBUG - Integration completed through    1 Jan 28   0: 0: 0
+2022-03-26 14:56:43,560 - isca - DEBUG - Integration completed through    1 Jan 29   0: 0: 0
+2022-03-26 14:57:21,400 - isca - DEBUG - Integration completed through    1 Jan 30   0: 0: 0
+2022-03-26 14:57:58,763 - isca - DEBUG - Integration completed through    1 Feb  1   0: 0: 0
+2022-03-26 14:57:59,901 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to    3276800.
+2022-03-26 14:58:08,253 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=      102400
+2022-03-26 14:58:08,254 - isca - DEBUG - 
+2022-03-26 14:58:08,254 - isca - DEBUG - Tabulating mpp_clock statistics across     64 PEs...
+2022-03-26 14:58:08,254 - isca - DEBUG - 
+2022-03-26 14:58:08,254 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-03-26 14:58:08,254 - isca - DEBUG - Total runtime                      1138.141067   1138.141653   1138.141360      0.000281  1.000     0     0    63
+2022-03-26 14:58:08,254 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-03-26 14:58:08,576 - isca - INFO - Run 1 complete
+2022-03-26 14:59:43,109 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2022-03-26 15:00:39,272 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/restarts/res0001.tar.gz
+2022-03-26 15:00:39,554 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/run0001/input.nml'
+2022-03-26 15:00:39,748 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/run0001/field_table'
+2022-03-26 15:00:40,034 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/run0001/diag_table'
+2022-03-26 15:00:41,192 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run'
+2022-03-26 15:00:41,416 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run'
+2022-03-26 15:00:42,215 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/input.nml'
+2022-03-26 15:00:43,023 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/field_table'
+2022-03-26 15:00:43,560 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/diag_table'
+2022-03-26 15:00:43,683 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/restarts/res0001.tar.gz'
+2022-03-26 15:00:50,980 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/restarts/res0001.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/INPUT
+2022-03-26 15:00:51,386 - isca - INFO - Beginning run 2
+2022-03-26 15:00:51,403 - isca - INFO - process running as 21007
+2022-03-26 15:00:51,431 - isca - DEBUG - loadmodules for oxford machines
+2022-03-26 15:00:51,866 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-26 15:00:51,889 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-26 15:00:51,889 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-26 15:00:51,889 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-26 15:00:51,889 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-26 15:00:51,889 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-26 15:00:54,400 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-26 15:00:54,401 - isca - DEBUG - &MPP_IO_NML
+2022-03-26 15:00:54,401 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-26 15:00:54,401 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-26 15:00:54,401 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-26 15:00:54,401 - isca - DEBUG - SHUFFLE =           0,
+2022-03-26 15:00:54,401 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-26 15:00:54,401 - isca - DEBUG - /
+2022-03-26 15:00:54,404 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-26 15:00:54,406 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-26 15:00:54,644 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-26 15:00:54,657 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-26 15:00:54,658 - isca - DEBUG - X-AXIS =  512
+2022-03-26 15:00:54,658 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 15:00:54,658 - isca - DEBUG - 4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 15:00:54,658 - isca - DEBUG - 4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 15:00:57,073 - isca - DEBUG - 
+2022-03-26 15:00:57,074 - isca - WARNING - WARNING from PE    0: diag_manager_mod::register_static_field: module/field dynamics/zsurf is STATIC.  Cannot perform time operations average, maximum, or minimum on static fields.  Setting the time operation to "NONE" for this field.
+2022-03-26 15:00:57,074 - isca - DEBUG - 
+2022-03-26 15:00:57,074 - isca - DEBUG - 
+2022-03-26 15:00:57,074 - isca - WARNING - WARNING from PE    0: diag_manager_mod::register_static_field: module/field dynamics/zsurf is STATIC.  Cannot perform time operations average, maximum, or minimum on static fields.  Setting the time operation to "NONE" for this field.
+2022-03-26 15:00:57,074 - isca - DEBUG - 
+2022-03-26 15:00:58,449 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: No convective adjustment scheme used.
+2022-03-26 15:00:58,925 - isca - DEBUG - NOTE from PE    0: two_stream_gray_rad: Using Frierson (2006) radiation scheme.
+2022-03-26 15:01:36,419 - isca - DEBUG - Integration completed through    1 Feb  2   0: 0: 0
+2022-03-26 15:02:19,093 - isca - DEBUG - Integration completed through    1 Feb  3   0: 0: 0
+2022-03-26 15:02:57,124 - isca - DEBUG - Integration completed through    1 Feb  4   0: 0: 0
+2022-03-26 15:03:35,303 - isca - DEBUG - Integration completed through    1 Feb  5   0: 0: 0
+2022-03-26 15:04:13,350 - isca - DEBUG - Integration completed through    1 Feb  6   0: 0: 0
+2022-03-26 15:04:51,493 - isca - DEBUG - Integration completed through    1 Feb  7   0: 0: 0
+2022-03-26 15:05:29,750 - isca - DEBUG - Integration completed through    1 Feb  8   0: 0: 0
+2022-03-26 15:06:07,835 - isca - DEBUG - Integration completed through    1 Feb  9   0: 0: 0
+2022-03-26 15:06:46,011 - isca - DEBUG - Integration completed through    1 Feb 10   0: 0: 0
+2022-03-26 15:07:24,689 - isca - DEBUG - Integration completed through    1 Feb 11   0: 0: 0
+2022-03-26 15:08:02,735 - isca - DEBUG - Integration completed through    1 Feb 12   0: 0: 0
+2022-03-26 15:08:40,826 - isca - DEBUG - Integration completed through    1 Feb 13   0: 0: 0
+2022-03-26 15:09:18,850 - isca - DEBUG - Integration completed through    1 Feb 14   0: 0: 0
+2022-03-26 15:09:56,924 - isca - DEBUG - Integration completed through    1 Feb 15   0: 0: 0
+2022-03-26 15:10:35,203 - isca - DEBUG - Integration completed through    1 Feb 16   0: 0: 0
+2022-03-26 15:11:13,180 - isca - DEBUG - Integration completed through    1 Feb 17   0: 0: 0
+2022-03-26 15:11:51,417 - isca - DEBUG - Integration completed through    1 Feb 18   0: 0: 0
+2022-03-26 15:12:30,066 - isca - DEBUG - Integration completed through    1 Feb 19   0: 0: 0
+2022-03-26 15:13:08,107 - isca - DEBUG - Integration completed through    1 Feb 20   0: 0: 0
+2022-03-26 15:13:46,295 - isca - DEBUG - Integration completed through    1 Feb 21   0: 0: 0
+2022-03-26 15:14:24,430 - isca - DEBUG - Integration completed through    1 Feb 22   0: 0: 0
+2022-03-26 15:15:02,524 - isca - DEBUG - Integration completed through    1 Feb 23   0: 0: 0
+2022-03-26 15:15:40,828 - isca - DEBUG - Integration completed through    1 Feb 24   0: 0: 0
+2022-03-26 15:16:18,927 - isca - DEBUG - Integration completed through    1 Feb 25   0: 0: 0
+2022-03-26 15:16:57,228 - isca - DEBUG - Integration completed through    1 Feb 26   0: 0: 0
+2022-03-26 15:17:36,051 - isca - DEBUG - Integration completed through    1 Feb 27   0: 0: 0
+2022-03-26 15:18:14,161 - isca - DEBUG - Integration completed through    1 Feb 28   0: 0: 0
+2022-03-26 15:18:52,262 - isca - DEBUG - Integration completed through    1 Feb 29   0: 0: 0
+2022-03-26 15:19:30,327 - isca - DEBUG - Integration completed through    1 Feb 30   0: 0: 0
+2022-03-26 15:20:08,413 - isca - DEBUG - Integration completed through    1 Mar  1   0: 0: 0
+2022-03-26 15:20:09,434 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to    3276800.
+2022-03-26 15:20:17,724 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=      102400
+2022-03-26 15:20:17,725 - isca - DEBUG - 
+2022-03-26 15:20:17,725 - isca - DEBUG - Tabulating mpp_clock statistics across     64 PEs...
+2022-03-26 15:20:17,725 - isca - DEBUG - 
+2022-03-26 15:20:17,725 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-03-26 15:20:17,725 - isca - DEBUG - Total runtime                      1163.326751   1163.326926   1163.326841      0.000075  1.000     0     0    63
+2022-03-26 15:20:17,725 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-03-26 15:20:18,012 - isca - INFO - Run 2 complete
+2022-03-26 15:21:49,613 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2022-03-26 15:22:40,148 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/restarts/res0002.tar.gz
+2022-03-26 15:22:40,426 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/run0002/input.nml'
+2022-03-26 15:22:40,515 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/run0002/field_table'
+2022-03-26 15:22:40,653 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/run0002/diag_table'
+2022-03-26 15:22:41,919 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run'
+2022-03-26 15:22:42,134 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run'
+2022-03-26 15:22:42,843 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/input.nml'
+2022-03-26 15:22:42,848 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/field_table'
+2022-03-26 15:22:42,990 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/diag_table'
+2022-03-26 15:22:43,126 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/restarts/res0002.tar.gz'
+2022-03-26 15:22:50,379 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/restarts/res0002.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/INPUT
+2022-03-26 15:22:50,559 - isca - INFO - Beginning run 3
+2022-03-26 15:22:50,576 - isca - INFO - process running as 21806
+2022-03-26 15:22:50,606 - isca - DEBUG - loadmodules for oxford machines
+2022-03-26 15:22:51,035 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-26 15:22:51,058 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-26 15:22:51,058 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-26 15:22:51,058 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-26 15:22:51,058 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-26 15:22:51,059 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-26 15:22:53,538 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-26 15:22:53,538 - isca - DEBUG - &MPP_IO_NML
+2022-03-26 15:22:53,538 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-26 15:22:53,538 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-26 15:22:53,538 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-26 15:22:53,538 - isca - DEBUG - SHUFFLE =           0,
+2022-03-26 15:22:53,538 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-26 15:22:53,538 - isca - DEBUG - /
+2022-03-26 15:22:53,541 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-26 15:22:53,543 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-26 15:22:53,772 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-26 15:22:53,784 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-26 15:22:53,784 - isca - DEBUG - X-AXIS =  512
+2022-03-26 15:22:53,784 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 15:22:53,784 - isca - DEBUG - 4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 15:22:53,784 - isca - DEBUG - 4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 15:22:56,652 - isca - DEBUG - 
+2022-03-26 15:22:56,652 - isca - WARNING - WARNING from PE    0: diag_manager_mod::register_static_field: module/field dynamics/zsurf is STATIC.  Cannot perform time operations average, maximum, or minimum on static fields.  Setting the time operation to "NONE" for this field.
+2022-03-26 15:22:56,652 - isca - DEBUG - 
+2022-03-26 15:22:56,653 - isca - DEBUG - 
+2022-03-26 15:22:56,653 - isca - WARNING - WARNING from PE    0: diag_manager_mod::register_static_field: module/field dynamics/zsurf is STATIC.  Cannot perform time operations average, maximum, or minimum on static fields.  Setting the time operation to "NONE" for this field.
+2022-03-26 15:22:56,653 - isca - DEBUG - 
+2022-03-26 15:22:58,513 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: No convective adjustment scheme used.
+2022-03-26 15:22:58,871 - isca - DEBUG - NOTE from PE    0: two_stream_gray_rad: Using Frierson (2006) radiation scheme.
+2022-03-26 15:23:37,098 - isca - DEBUG - Integration completed through    1 Mar  2   0: 0: 0
+2022-03-26 15:24:19,938 - isca - DEBUG - Integration completed through    1 Mar  3   0: 0: 0
+2022-03-26 15:24:58,454 - isca - DEBUG - Integration completed through    1 Mar  4   0: 0: 0
+2022-03-26 15:25:37,096 - isca - DEBUG - Integration completed through    1 Mar  5   0: 0: 0
+2022-03-26 15:26:15,851 - isca - DEBUG - Integration completed through    1 Mar  6   0: 0: 0
+2022-03-26 15:26:54,464 - isca - DEBUG - Integration completed through    1 Mar  7   0: 0: 0
+2022-03-26 15:27:33,784 - isca - DEBUG - Integration completed through    1 Mar  8   0: 0: 0
+2022-03-26 15:28:12,503 - isca - DEBUG - Integration completed through    1 Mar  9   0: 0: 0
+2022-03-26 15:28:51,121 - isca - DEBUG - Integration completed through    1 Mar 10   0: 0: 0
+2022-03-26 15:29:29,907 - isca - DEBUG - Integration completed through    1 Mar 11   0: 0: 0
+2022-03-26 15:30:08,460 - isca - DEBUG - Integration completed through    1 Mar 12   0: 0: 0
+2022-03-26 15:30:47,261 - isca - DEBUG - Integration completed through    1 Mar 13   0: 0: 0
+2022-03-26 15:31:25,983 - isca - DEBUG - Integration completed through    1 Mar 14   0: 0: 0
+2022-03-26 15:32:04,593 - isca - DEBUG - Integration completed through    1 Mar 15   0: 0: 0
+2022-03-26 15:32:43,820 - isca - DEBUG - Integration completed through    1 Mar 16   0: 0: 0
+2022-03-26 15:33:22,605 - isca - DEBUG - Integration completed through    1 Mar 17   0: 0: 0
+2022-03-26 15:34:01,228 - isca - DEBUG - Integration completed through    1 Mar 18   0: 0: 0
+2022-03-26 15:34:39,887 - isca - DEBUG - Integration completed through    1 Mar 19   0: 0: 0
+2022-03-26 15:35:18,670 - isca - DEBUG - Integration completed through    1 Mar 20   0: 0: 0
+2022-03-26 15:35:57,559 - isca - DEBUG - Integration completed through    1 Mar 21   0: 0: 0
+2022-03-26 15:36:36,269 - isca - DEBUG - Integration completed through    1 Mar 22   0: 0: 0
+2022-03-26 15:37:15,237 - isca - DEBUG - Integration completed through    1 Mar 23   0: 0: 0
+2022-03-26 15:37:54,046 - isca - DEBUG - Integration completed through    1 Mar 24   0: 0: 0
+2022-03-26 15:38:32,826 - isca - DEBUG - Integration completed through    1 Mar 25   0: 0: 0
+2022-03-26 15:39:11,582 - isca - DEBUG - Integration completed through    1 Mar 26   0: 0: 0
+2022-03-26 15:39:50,424 - isca - DEBUG - Integration completed through    1 Mar 27   0: 0: 0
+2022-03-26 15:40:29,155 - isca - DEBUG - Integration completed through    1 Mar 28   0: 0: 0
+2022-03-26 15:41:07,816 - isca - DEBUG - Integration completed through    1 Mar 29   0: 0: 0
+2022-03-26 15:41:46,546 - isca - DEBUG - Integration completed through    1 Mar 30   0: 0: 0
+2022-03-26 15:42:25,669 - isca - DEBUG - Integration completed through    1 Apr  1   0: 0: 0
+2022-03-26 15:42:26,651 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to    3276800.
+2022-03-26 15:42:34,775 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=      102400
+2022-03-26 15:42:34,775 - isca - DEBUG - 
+2022-03-26 15:42:34,775 - isca - DEBUG - Tabulating mpp_clock statistics across     64 PEs...
+2022-03-26 15:42:34,775 - isca - DEBUG - 
+2022-03-26 15:42:34,775 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-03-26 15:42:34,776 - isca - DEBUG - Total runtime                      1181.241179   1181.241554   1181.241370      0.000178  1.000     0     0    63
+2022-03-26 15:42:34,776 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-03-26 15:42:35,077 - isca - INFO - Run 3 complete
+2022-03-26 15:44:08,694 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2022-03-26 15:44:56,801 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/restarts/res0003.tar.gz
+2022-03-26 15:44:57,096 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/run0003/input.nml'
+2022-03-26 15:44:57,269 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/run0003/field_table'
+2022-03-26 15:44:57,428 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/run0003/diag_table'
+2022-03-26 15:44:58,740 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run'
+2022-03-26 15:44:58,937 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run'
+2022-03-26 15:44:59,553 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/input.nml'
+2022-03-26 15:44:59,616 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/field_table'
+2022-03-26 15:44:59,747 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/diag_table'
+2022-03-26 15:44:59,865 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/restarts/res0003.tar.gz'
+2022-03-26 15:45:06,985 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/frierson_test_experiment_test_nodT3/restarts/res0003.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/frierson_test_experiment_test_nodT3/run/INPUT
+2022-03-26 15:45:07,235 - isca - INFO - Beginning run 4
+2022-03-26 15:45:07,252 - isca - INFO - process running as 22605
+2022-03-26 15:45:07,283 - isca - DEBUG - loadmodules for oxford machines
+2022-03-26 15:45:07,700 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-26 15:45:07,720 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-26 15:45:07,721 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-26 15:45:07,721 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-26 15:45:07,721 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-26 15:45:07,721 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-26 15:45:10,179 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-26 15:45:10,180 - isca - DEBUG - &MPP_IO_NML
+2022-03-26 15:45:10,180 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-26 15:45:10,180 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-26 15:45:10,180 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-26 15:45:10,180 - isca - DEBUG - SHUFFLE =           0,
+2022-03-26 15:45:10,180 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-26 15:45:10,180 - isca - DEBUG - /
+2022-03-26 15:45:10,183 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-26 15:45:10,185 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-26 15:45:10,292 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-26 15:45:10,304 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-26 15:45:10,305 - isca - DEBUG - X-AXIS =  512
+2022-03-26 15:45:10,305 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 15:45:10,305 - isca - DEBUG - 4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 15:45:10,305 - isca - DEBUG - 4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2022-03-26 15:45:13,121 - isca - DEBUG - 
+2022-03-26 15:45:13,122 - isca - WARNING - WARNING from PE    0: diag_manager_mod::register_static_field: module/field dynamics/zsurf is STATIC.  Cannot perform time operations average, maximum, or minimum on static fields.  Setting the time operation to "NONE" for this field.
+2022-03-26 15:45:13,122 - isca - DEBUG - 
+2022-03-26 15:45:13,122 - isca - DEBUG - 
+2022-03-26 15:45:13,122 - isca - WARNING - WARNING from PE    0: diag_manager_mod::register_static_field: module/field dynamics/zsurf is STATIC.  Cannot perform time operations average, maximum, or minimum on static fields.  Setting the time operation to "NONE" for this field.
+2022-03-26 15:45:13,122 - isca - DEBUG - 
+2022-03-26 15:45:14,671 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: No convective adjustment scheme used.
+2022-03-26 15:45:15,187 - isca - DEBUG - NOTE from PE    0: two_stream_gray_rad: Using Frierson (2006) radiation scheme.
+2022-03-26 15:45:52,580 - isca - DEBUG - Integration completed through    1 Apr  2   0: 0: 0
+2022-03-26 15:46:35,278 - isca - DEBUG - Integration completed through    1 Apr  3   0: 0: 0
+2022-03-26 15:47:12,833 - isca - DEBUG - Integration completed through    1 Apr  4   0: 0: 0
+2022-03-26 15:47:50,806 - isca - DEBUG - Integration completed through    1 Apr  5   0: 0: 0
+2022-03-26 15:48:28,638 - isca - DEBUG - Integration completed through    1 Apr  6   0: 0: 0
+2022-03-26 15:49:06,405 - isca - DEBUG - Integration completed through    1 Apr  7   0: 0: 0
+2022-03-26 15:49:44,230 - isca - DEBUG - Integration completed through    1 Apr  8   0: 0: 0
+2022-03-26 15:50:22,058 - isca - DEBUG - Integration completed through    1 Apr  9   0: 0: 0
+2022-03-26 15:50:59,986 - isca - DEBUG - Integration completed through    1 Apr 10   0: 0: 0
+2022-03-26 15:51:37,826 - isca - DEBUG - Integration completed through    1 Apr 11   0: 0: 0
+2022-03-26 15:52:16,092 - isca - DEBUG - Integration completed through    1 Apr 12   0: 0: 0
+2022-03-26 15:52:53,896 - isca - DEBUG - Integration completed through    1 Apr 13   0: 0: 0
+2022-03-26 15:53:31,559 - isca - DEBUG - Integration completed through    1 Apr 14   0: 0: 0
+2022-03-26 15:54:09,301 - isca - DEBUG - Integration completed through    1 Apr 15   0: 0: 0
+2022-03-26 15:54:47,066 - isca - DEBUG - Integration completed through    1 Apr 16   0: 0: 0
+2022-03-26 15:55:24,807 - isca - DEBUG - Integration completed through    1 Apr 17   0: 0: 0
+2022-03-26 15:56:02,598 - isca - DEBUG - Integration completed through    1 Apr 18   0: 0: 0
+2022-03-26 15:56:32,784 - isca - DEBUG - srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-atmnode023: error: *** JOB 401898 ON atmnode023 CANCELLED AT 2022-03-26T15:56:32 ***
+2022-03-26 15:56:32,787 - isca - DEBUG - slurmstepd-atmnode023: error: *** STEP 401898.3 ON atmnode023 CANCELLED AT 2022-03-26T15:56:32 ***

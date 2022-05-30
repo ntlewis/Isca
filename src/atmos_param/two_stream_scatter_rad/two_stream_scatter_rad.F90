@@ -66,7 +66,8 @@ integer :: solday          = -10  !s Day of year to run perpetually if do_season
 real    :: equinox_day     = 0.75 !s Fraction of year [0,1] where NH autumn equinox occurs (only really useful if calendar has defined months).
 logical :: use_time_average_coszen = .false. !s if .true., then time-averaging is done on coszen so that insolation doesn't depend on timestep
 real    :: dt_rad_avg     = -1
-real :: diabatic_acce = 1.0 ! artefact from gp scheme in two_stream_grey_rad 
+real    :: diabatic_acce = 1.0 ! artefact from gp scheme in two_stream_grey_rad 
+logical :: perp_eq = .false.
 
 ! co2 
 real :: carbon_conc = 360.0 ! ppmv
@@ -132,7 +133,7 @@ character(len=256)                  :: co2_variable_name='co2'       !  file nam
 
 
 namelist/two_stream_scatter_rad_nml/ solar_constant, del_sol, del_sw, &
-           do_seasonal, solday, equinox_day,  &
+           do_seasonal, solday, equinox_day, perp_eq,  &
            use_time_average_coszen, dt_rad_avg,&
            diabatic_acce,& !Schneider Liu values 
            lw_abs_a, lw_abs_b, lw_abs_c, lw_abs_d, lw_abs_e, lw_abs_f, lw_abs_pref, &
@@ -438,7 +439,10 @@ if (do_seasonal) then
 
   insolation = solar_constant * coszen
 
-else
+else if (perp_eq) then 
+  insolation = (solar_constant / pi) * cos(lat)
+  coszen     = insolation / solar_constant
+else 
   ! Default: Averaged Earth insolation at all longitudes
   p2          = (1. - 3.*sin(lat)**2)/4.
   insolation  = 0.25 * solar_constant * (1.0 + del_sol * p2 + del_sw * sin(lat))
@@ -492,15 +496,22 @@ case(sw_GENERIC)
   sw_scatter_coeff  = sw_sca_a + sw_sca_b * q 
   ! Compute absorption coefficient 
 
-  sw_abs_coeff = sw_abs_a + sw_abs_b * q + sw_abs_c * 4. / 3. * (p_full / pstd_mks) ** (1. / 3.)
+  !sw_abs_coeff = sw_abs_a + sw_abs_b * q + sw_abs_c * 4. / 3. * (p_full / pstd_mks) ** (1. / 3.)
+
+  ! simpler specification 
+
+  sw_abs_coeff = sw_abs_c * 4. / 3. / pstd_mks * (p_full / pstd_mks) ** (1. / 3.)
   
   ! Compute single scattering albedo 
   where((sw_abs_coeff + sw_scatter_coeff).ne.0.0) 
     sw_ss_albedo = sw_scatter_coeff / (sw_abs_coeff + sw_scatter_coeff)
   endwhere 
   ! Compute SW del_tau 
-  sw_del_tau =  1 / grav * (sw_abs_coeff + sw_scatter_coeff) * & 
-               (p_half(:,:,1:n) - p_half(:,:,2:n+1) )
+  !sw_del_tau =  1 / grav * (sw_abs_coeff + sw_scatter_coeff) * & 
+  !             (p_half(:,:,1:n) - p_half(:,:,2:n+1) )
+
+  ! simpler specification 
+  sw_del_tau = sw_abs_coeff * (p_half(:,:,1:n) - p_half(:,:,2:n+1) )
 
 
   ! Compute SW optical depth 
@@ -594,9 +605,12 @@ lw_ss_albedo     = 0.0
 lw_scatter_coeff  = lw_sca_a + lw_sca_b * q 
 ! Compute absorption coefficient 
 
-lw_abs_coeff = lw_abs_a + lw_abs_b * q + lw_abs_c * log(carbon_conc / 360.) + & 
-               lw_abs_d * grav * (lw_abs_f / pstd_mks + (1 - lw_abs_f) / (2 * pstd_mks) * (p_full / lw_abs_pref)) + & !NTL: complicated and 'd' is normalised differently!* (p_full/lw_abs_pref)
-               lw_abs_e * 4. / 3. * (p_full / pstd_mks) ** (1. / 3.)
+! lw_abs_coeff = lw_abs_a + lw_abs_b * q + lw_abs_c * log(carbon_conc / 360.) + & 
+!                lw_abs_d * grav * (lw_abs_f / pstd_mks + 2 * (1 - lw_abs_f) / (2 * pstd_mks) * (p_full / pstd_mks)) + & !NTL: complicated and 'd' is normalised differently!* (p_full/lw_abs_pref)
+!                lw_abs_e * 4. / 3. * (p_full / pstd_mks) ** (1. / 3.)
+
+! simpler specification 
+lw_abs_coeff = lw_abs_d * (lw_abs_f / pstd_mks + 2 * (1 - lw_abs_f) / pstd_mks * p_full / pstd_mks) + lw_abs_e * 4. / 3. / pstd_mks * (p_full / pstd_mks) ** (1. / 3.)
 
 ! Compute single scattering albedo 
 where ((lw_abs_coeff + lw_scatter_coeff).ne.0.0) 
@@ -604,8 +618,11 @@ where ((lw_abs_coeff + lw_scatter_coeff).ne.0.0)
 endwhere 
 
 ! Compute lw del_tau 
-lw_del_tau = 1 / grav * (lw_abs_coeff + lw_scatter_coeff) * & 
-             (p_half(:,:,1:n) - p_half(:,:,2:n+1))
+!lw_del_tau = 1 / grav * (lw_abs_coeff + lw_scatter_coeff) * & 
+!             (p_half(:,:,1:n) - p_half(:,:,2:n+1))
+
+! simpler specification 
+lw_del_tau = lw_abs_coeff * (p_half(:,:,1:n) - p_half(:,:,2:n+1))
 
 ! Compute lw optical depth 
 !define optical depth to be zero at surface, following Pierrehumbert (2010)

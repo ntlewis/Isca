@@ -86,10 +86,12 @@ end type tracer_data_type
 ! tracer diffusion options and storage for f coefficients
 type(tracer_data_type), allocatable :: tracers(:)
 
-      
+logical :: do_tj_bl = .false.
+logical :: background_override = .false.
 logical :: do_conserve_energy = .true.
 logical :: use_virtual_temp_vert_diff, do_mcm_plev
 integer :: sphum, mix_rat
+real    :: gcp = 0.
 
 !--------------------- version number ---------------------------------
 
@@ -104,13 +106,16 @@ contains
 !#######################################################################
 
 subroutine vert_diff_init (Tri_surf, idim, jdim, kdim,    &
-                               do_conserve_energy_in,         &
+                               do_conserve_energy_in, do_tj_bl_in,        &
+                               background_override_in, alpha, &
                                use_virtual_temp_vert_diff_in, &
-                               do_mcm_plev_in )
+                               do_mcm_plev_in)
 
  type(surf_diff_type), intent(inout) :: Tri_surf
  integer,              intent(in)    :: idim, jdim, kdim
- logical,              intent(in)    :: do_conserve_energy_in
+ logical,              intent(in)    :: do_conserve_energy_in, do_tj_bl_in
+ logical,              intent(in)    :: background_override_in
+ real,                 intent(in)    :: alpha 
  logical, optional,    intent(in)    :: use_virtual_temp_vert_diff_in
  logical, optional,    intent(in)    :: do_mcm_plev_in
 
@@ -118,6 +123,8 @@ subroutine vert_diff_init (Tri_surf, idim, jdim, kdim,    &
  character(len=32)  :: tr_name ! tracer name
  character(len=128) :: scheme  ! tracer diffusion scheme
  integer :: n, logunit
+
+    gcp = GRAV/CP_AIR*alpha 
 
     call write_version_number ( version, tagname )
 
@@ -171,6 +178,9 @@ subroutine vert_diff_init (Tri_surf, idim, jdim, kdim,    &
  call alloc_surf_diff_type ( Tri_surf, idim, jdim, ntprog )
  
  do_conserve_energy = do_conserve_energy_in
+
+ do_tj_bl = do_tj_bl_in
+ background_override = background_override_in
 
  ! allocate data storage for tracers
  allocate ( tracers(ntprog) )
@@ -300,7 +310,7 @@ real, dimension(size(u,1),size(u,2)) ::           &
      f_t_delt_n1, f_q_delt_n1, f_tr_delt_n1, flux_tr, dflux_dtr, &
      mu_delt_n, nu_n, e_n1, delta_t_n, delta_q_n, delta_tr_n, &
             delta_u_n, delta_v_n
-real    :: gcp
+!real    :: gcp
 integer :: i, j, n, kb, ie, je, ntr, nlev
 
 !-----------------------------------------------------------------------
@@ -314,17 +324,21 @@ integer :: i, j, n, kb, ie, je, ntr, nlev
  ntr  = size(tr,4)
  nlev = size(mu,3)
  
- gcp       = GRAV/CP_AIR
- tt  = t + z_full*gcp   ! the vertical gradient of tt determines the
+!gcp       = GRAV/CP_AIR
+tt  = t + z_full*gcp   ! the vertical gradient of tt determines the
                         ! diffusive flux of temperature
 
  call compute_mu (p_half, mu)
  call compute_nu (diff_m, p_half, p_full, z_full, t, q, nu) 
 
 !  diffuse u-momentum and v_momentum
- call uv_vert_diff (delt, mu, nu, u, v, dtau_du, dtau_dv, tau_u, tau_v,  &
-                    dt_u, dt_v, dt_t, delta_u_n, delta_v_n,         &
-                    dissipative_heat, kbot)
+ if((.not. do_tj_bl).or.(background_override)) then 
+   call uv_vert_diff (delt, mu, nu, u, v, dtau_du, dtau_dv, tau_u, tau_v,  &
+                      dt_u, dt_v, dt_t, delta_u_n, delta_v_n,         &
+                      dissipative_heat, kbot)
+ else 
+   dissipative_heat = 0.0 
+ endif 
                             
 !  recompute nu for a different diffusivity
  call compute_nu   (diff_t, p_half, p_full, z_full, t, q, nu)
@@ -644,10 +658,10 @@ real, dimension(size(t,1),size(t,2)) :: mu_delt_n, nu_n,          &
 real, dimension(size(t,1),size(t,2),size(t,3)-1) :: e, f_t, f_q
 real, dimension(size(t,1),size(t,2),size(t,3)  ) :: tt
 
-real    :: gcp
+!real    :: gcp
 !-----------------------------------------------------------------------
 
- gcp = GRAV/CP_AIR
+ !gcp = GRAV/CP_AIR
  tt  = t + z_full*gcp
   
  call vert_diff_down_2 &

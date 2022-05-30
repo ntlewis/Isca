@@ -94,6 +94,8 @@ private
    real :: local_heating_vert_decay=1.e4         ! pascals            Used only when local_heating_option='Isidoro'
 
    logical :: relax_to_specified_wind = .false.
+   logical :: venus_model = .false.  ! If true then do Newtonian relaxation to a 'Venus-like' temperature profile. Also apply Rayleigh damping to 
+                                     ! at lower (mean) and upper boundaries (eddys only). Mendonca (2013) DPhil Thesis and references therein. 
    character(len=256) :: u_wind_file='u', v_wind_file='v' ! Name of files relative to $work/INPUT  Used only when relax_to_specified_wind=.true.
 
    character(len=256) :: equilibrium_t_option = 'Held_Suarez'  ! Valid options are 'Held_Suarez', 'from_file', 'exoplanet'
@@ -106,6 +108,8 @@ private
    real :: ml_depth=1               ! depth for heat capacity calculation
    real :: spinup_time=10800.     ! number of days to spin up heat capacity for - req. multiple of orbital_period
 
+   real    :: noon_longitude_tl = 180.
+   real, save :: deg_to_rad
 
 !-----------------------------------------------------------------------
 
@@ -119,7 +123,7 @@ private
                               u_wind_file, v_wind_file, equilibrium_t_option,&
                               equilibrium_t_file, p_trop, alpha, peri_time, smaxis, albedo, &
                               lapse, h_a, tau_s, orbital_period,         &
-                              heat_capacity, ml_depth, spinup_time, stratosphere_t_option, P00
+                              heat_capacity, ml_depth, spinup_time, stratosphere_t_option, P00, noon_longitude_tl, venus_model
 
 !-----------------------------------------------------------------------
 
@@ -413,7 +417,7 @@ contains
 
       id_teq = register_diag_field ( mod_name, 'teq', axes(1:3), Time, &
                       'equilibrium temperature (deg K)', 'deg_K'   , &
-                      missing_value=missing_value, range=(/0.,700./) )
+                      missing_value=missing_value, range=(/0.,800./) )
 
       if (trim(equilibrium_t_option) == 'top_down') then
       id_h_trop = register_diag_field ( mod_name, 'h_trop', axes(1:2), Time, &
@@ -464,6 +468,8 @@ contains
      endif
 
      call astronomy_init()
+
+     deg_to_rad = PI/180.
 
      module_is_initialized  = .true.
 
@@ -528,10 +534,15 @@ real, intent(in),  dimension(:,:,:), optional :: mask
 
        real, dimension(size(t,1),size(t,2),size(t,3)) :: tdamp
        real, dimension(size(t,2),size(t,3)) :: tz
-       real :: rrsun
+       real :: rrsun, noon_longitude
 
-       integer :: k, i, j
+       integer :: k, i, j, counter
        real    :: tcoeff, pref
+
+       ! required to construct venusian relaxation profile 
+       real, dimension(size(t,3)) :: T_grad
+       real, dimension(6) :: poly_coeffs
+       real :: T_sum
 
 !-----------------------------------------------------------------------
 !------------latitudinal constants--------------------------------------
@@ -553,6 +564,12 @@ real, intent(in),  dimension(:,:,:), optional :: mask
       pref = P00
       rps  = 1./ps
 
+      !VENUS: define eq - pole temperature gradient for each eta, and polynomial coefficients from Lee et al. (2007) 
+      if(equilibrium_t_option == 'venus') then 
+         T_grad = (/2.000, 2.370, 3.126, 4.439, 6.504, 9.599, 14.001, 19.807, 26.758, 34.295, 41.536, 47.342, 50.757, 51.175, 48.534, 43.315, 36.373, 28.746, 21.370, 14.948, 9.840, 7.524, 7.167, 6.762, 6.719, 6.678, 6.634, 6.410, 6.176, 6.136, 6.101/)
+         poly_coeffs = (/733.4861, 301.2670, 47.2002, -5.0230, -2.3257, -0.1896/)
+      endif !1
+
       do k = 1, size(t,3)
 
 !  ----- compute equilibrium temperature (teq) -----
@@ -563,6 +580,17 @@ real, intent(in),  dimension(:,:,:), optional :: mask
            teq(i,j,k)=tz(j,k)
          enddo
          enddo
+      else if(equilibrium_t_option == 'venus') then 
+         ! construct venusian profile following Lee et al. (2007)
+         do i = 1, size(t,1)
+           do j = 1, size(t, 2)
+           T_sum = 0
+             do counter = 1, 6
+               T_sum = T_sum + poly_coeffs(counter) * (log10(p_full(i, j, k)*rps(i,j)))**(counter-1) 
+             enddo 
+           teq(i,j,k) = T_sum + + T_grad(k) * (cos_lat(i,j) - PI / 4)
+           enddo 
+         enddo 
       else if(trim(equilibrium_t_option) == 'Held_Suarez') then
          p_norm(:,:) = p_full(:,:,k)/pref
          the   (:,:) = t_star(:,:) - delv*cos_lat_2(:,:)*log(p_norm(:,:))
@@ -581,6 +609,24 @@ real, intent(in),  dimension(:,:,:), optional :: mask
          p_norm(:,:) = p_full(:,:,k)/p_trop
          teq(:,:,k) = t_star(:,:)*cos_lat(:,:)*(p_norm(:,:))**alpha
          teq(:,:,k) = max( teq(:,:,k), t_strat )
+      else if(uppercase(trim(equilibrium_t_option)) == 'EXOPLANET_TL') then
+         !call diurnal_exoplanet(lat, lon, Time, coszen, fracday, rrsun)
+         noon_longitude = noon_longitude_tl * deg_to_rad 
+         coszen = cos_lat * cos(lon - noon_longitude)
+         where ((coszen).le.0.0)
+            coszen = 0.0
+         endwhere
+         !coszen = coszen * coszen 
+         t_star(:,:) = t_zero - delh*(1 - coszen(:,:)) - eps*sin_lat(:,:)
+         p_norm(:,:) = p_full(:,:,k)/pref
+         the   (:,:) = t_star(:,:) - delv*coszen(:,:)*log(p_norm(:,:))
+         teq(:,:,k) = the(:,:)*(p_norm(:,:))**KAPPA
+         teq(:,:,k) = max( teq(:,:,k), tstr(:,:) )
+      else if(trim(equilibrium_t_option) == 'Mitchell_Vallis') then
+         p_norm(:,:) = p_full(:,:,k)/pref
+         t_star(:,:) = t_zero * (1. + delh / 3. * (1. - 3. * sin_lat_2(:,:)))
+         the   (:,:) = t_star(:,:) * p_norm(:,:) ** alpha 
+         teq (:,:,k) = max(0.7 * t_zero, the(:,:)) 
       else
          call error_mesg ('hs_forcing_nml', &
          '"'//trim(equilibrium_t_option)//'"  is not a valid value for equilibrium_t_option',FATAL)
@@ -588,12 +634,33 @@ real, intent(in),  dimension(:,:,:), optional :: mask
 
 !  ----- compute damping -----
       sigma(:,:) = p_full(:,:,k)*rps(:,:)
-      where (sigma(:,:) <= 1.0 .and. sigma(:,:) > sigma_b)
-        tfactr(:,:) = tcoeff*(sigma(:,:)-sigma_b)
-        tdamp(:,:,k) = tka + cos_lat_4(:,:)*tfactr(:,:)
-      elsewhere
-        tdamp(:,:,k) = tka
-      endwhere
+      if (venus_model) then
+         if (k .eq. 1) then 
+           tdamp(:,:,k) = 1. / (15. * 86400.) ! NTL: Hard code thermal relaxation timescale from Lee (2006) Thesis for Venus model 
+         else if (k .eq. 2) then 
+           tdamp(:,:,k) = 1. / (18. * 86400.)
+         else if (k .eq. 3) then 
+           tdamp(:,:,k) = 1. / (22. * 86400.)
+         else 
+           tdamp(:,:,k) = 1. / (25. * 86400.)
+         end if 
+      else
+         if(uppercase(trim(equilibrium_t_option)) == 'EXOPLANET_TL') then
+            where (sigma(:,:) <= 1.0 .and. sigma(:,:) > sigma_b)
+            tfactr(:,:) = tcoeff*(sigma(:,:)-sigma_b)
+            tdamp(:,:,k) = tka + tfactr(:,:)!*coszen(:,:)*coszen(:,:)
+            elsewhere
+            tdamp(:,:,k) = tka
+            endwhere
+         else 
+            where (sigma(:,:) <= 1.0 .and. sigma(:,:) > sigma_b)
+            tfactr(:,:) = tcoeff*(sigma(:,:)-sigma_b)
+            tdamp(:,:,k) = tka + cos_lat_4(:,:)*tfactr(:,:)
+            elsewhere
+            tdamp(:,:,k) = tka
+            endwhere
+         endif
+      endif
 
       enddo
 
@@ -634,6 +701,7 @@ integer :: i,j,k
 real    :: vcoeff
 real, dimension(size(u,2),size(u,3)) :: uz, vz
 real :: umean, vmean
+real, dimension(size(u,1)) :: ueddy, veddy 
 
 !-----------------------------------------------------------------------
 !----------------compute damping----------------------------------------
@@ -645,29 +713,54 @@ real :: umean, vmean
       vcoeff = -vkf/(1.0-sigma_b)
       rps = 1./ps
 
-      do k = 1, size(u,3)
-      if (relax_to_specified_wind) then
-         do j=1, size(u,2)
-            umean=sum(u(:,j,k))/size(u,1)
-            vmean=sum(v(:,j,k))/size(v,1)
-            udt(:,j,k) = (uz(j,k)-umean)*vkf
-            vdt(:,j,k) = (vz(j,k)-vmean)*vkf
+      if (venus_model) then 
+         ! apply damping following Lee (2006): Modelling of the Atmosphere of Venus, 
+         ! DPhil Thesis, AOPP Oxford. ! constants hardcoded at the moment, taken from ISSI venus modelling intercomparison. 
+
+         ! apply linear rayleigh damping to wind at lowest level, default timescale is 32 Earth days 
+         udt(:,:,:) = 0.0 ! zero arrays
+         vdt(:,:,:) = 0.0 ! zero arrays 
+         k = size(u, 3)
+         udt(:,:,k) = - u(:,:,k) / (25. * 86400.) ! replaced 32 days for 25 days 
+         vdt(:,:,k) = - v(:,:,k) / (25. * 86400.) ! " " " " " " " 
+
+         ! apply rayleigh damping to top three model levels (only applied to eddies)
+         do k = 1, 4 ! NTL change from 4 to 3
+          sigma(:,:) = p_full(:,:,k) * rps(:,:)
+            do j = 1, size(u,2)
+               umean = sum(u(:,j,k)) / size(u,1)
+               vmean = sum(u(:,j,k)) / size(v,1)
+               ueddy = u(:,j,k) - umean 
+               veddy = v(:,j,k) - vmean 
+               udt(:,j,k) = -ueddy / (sigma(:,j) * 1.E6 * 86400.) ! damping timescale follows LR2010 
+               vdt(:,j,k) = -veddy / (sigma(:,j) * 1.E6 * 86400.)! " " " " 
+            enddo
          enddo
-      else
+      else 
+         do k = 1, size(u,3)
+         if (relax_to_specified_wind) then
+            do j=1, size(u,2)
+               umean=sum(u(:,j,k))/size(u,1)
+               vmean=sum(v(:,j,k))/size(v,1)
+               udt(:,j,k) = (uz(j,k)-umean)*vkf
+               vdt(:,j,k) = (vz(j,k)-vmean)*vkf
+            enddo
+         else
 
-         sigma(:,:) = p_full(:,:,k)*rps(:,:)
+            sigma(:,:) = p_full(:,:,k)*rps(:,:)
 
-         where (sigma(:,:) <= 1.0 .and. sigma(:,:) > sigma_b)
-            vfactr(:,:) = vcoeff*(sigma(:,:)-sigma_b)
-            udt(:,:,k)  = vfactr(:,:)*u(:,:,k)
-            vdt(:,:,k)  = vfactr(:,:)*v(:,:,k)
-         elsewhere
-            udt(:,:,k) = 0.0
-            vdt(:,:,k) = 0.0
-         endwhere
+            where (sigma(:,:) <= 1.0 .and. sigma(:,:) > sigma_b)
+               vfactr(:,:) = vcoeff*(sigma(:,:)-sigma_b)
+               udt(:,:,k)  = vfactr(:,:)*u(:,:,k)
+               vdt(:,:,k)  = vfactr(:,:)*v(:,:,k)
+            elsewhere
+               udt(:,:,k) = 0.0
+               vdt(:,:,k) = 0.0
+            endwhere
 
-      endif
-      enddo
+         endif
+         enddo
+      endif 
 
       if (present(mask)) then
           udt = udt * mask

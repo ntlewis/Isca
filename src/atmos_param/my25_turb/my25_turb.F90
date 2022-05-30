@@ -27,14 +27,20 @@
 
  use mpp_mod,           only : input_nml_file
  use fms_mod,           only : file_exist, open_namelist_file, error_mesg, &
-                               FATAL, close_file, note, read_data,          &
+                               FATAL, close_file, note, read_data,write_data, &
                                check_nml_error, mpp_pe, mpp_root_pe, &
-                               write_version_number, stdlog, open_restart_file
+                               write_version_number, stdlog, open_restart_file, & 
+                               nullify_domain
  use fms_io_mod,        only : register_restart_field, restart_file_type, &
                                save_restart, restore_state
  use tridiagonal_mod,   only : tri_invert, close_tridiagonal
  use constants_mod,     only : grav, vonkarm
  use monin_obukhov_mod, only : mo_diff
+#ifdef COLUMN_MODEL
+ use spec_mpp_mod,   only: grid_domain
+#else
+ use transforms_mod, only: grid_domain
+#endif
 
 !---------------------------------------------------------------------
  implicit none
@@ -104,12 +110,15 @@
  logical :: use_old_cons = .false.
  real    :: kcrit        =  0.01
 
+ real :: background_m = 0.0 
+ real :: background_t = 0.0
+
   NAMELIST / my25_turb_nml /                           &
          TKEmax,   TKEmin,   init_iters,               &
          akmax,    akmin_land, akmin_sea, nk_lim,      &
          el0max,   el0min,  alpha_land,  alpha_sea,    &
          do_thv_stab, use_old_cons,                    &
-         kcrit      
+         kcrit, background_m, background_t      
 
 !---------------------------------------------------------------------
 
@@ -589,6 +598,9 @@
   end if
 !====================================================================
 
+  if(background_m.gt.0.0) akm = max(akm,background_m)
+  if(background_t.gt.0.0) akh = max(akh,background_t)
+
 ! $$$$$$$$$$$$$$$$$
   end do
 ! $$$$$$$$$$$$$$$$$
@@ -706,14 +718,16 @@ end subroutine get_tke
 ! --- Input TKE
 !---------------------------------------------------------------------
 
-  id_restart = register_restart_field(Tur_restart, 'my25_turb.res', 'TKE', TKE)
+  id_restart = register_restart_field(Tur_restart, 'my25_turb.res.nc', 'TKE', TKE)
   if (file_exist( 'INPUT/my25_turb.res.nc' )) then
       if (mpp_pe() == mpp_root_pe() ) then
         call error_mesg ('my25_turb_mod',  'MY25_TURB_INIT:&
              &Reading netCDF formatted restart file: &
                                  &INPUT/my25_turb.res.nc', NOTE)
       endif
-      call restore_state(Tur_restart)
+      !call restore_state(Tur_restart)
+      call nullify_domain()
+      call read_data(trim('INPUT/my25_turb.res'), 'TKE',   TKE, grid_domain)
 
   else if( FILE_EXIST( 'INPUT/my25_turb.res' ) ) then
 
@@ -781,7 +795,9 @@ subroutine my25_turb_restart(timestamp)
 !    write out the restart data which is always needed, regardless of
 !    when the first donner calculation step is after restart.
 !----------------------------------------------------------------------
-  call save_restart(Tur_restart, timestamp)
+  !call save_restart(Tur_restart, timestamp)
+  call nullify_domain()
+  call write_data(trim('RESTART/my25_turb.res'), 'TKE', TKE, grid_domain)
 
 end subroutine my25_turb_restart
 ! </SUBROUTINE> NAME="my25_turb_restart"

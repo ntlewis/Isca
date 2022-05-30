@@ -1,0 +1,187 @@
+/home/l/lewis/.bashrc: line 87: goisca: command not found
+2022-02-25 11:33:21,120 - isca - WARNING - Environment variable GFDL_SOC not set, but this is only required if using SocratesCodebase. Setting to None
+2022-02-25 11:33:21,350 - isca - INFO - RRTM compilation disabled.
+2022-02-25 11:33:21,350 - isca - INFO - SOCRATES compilation disabled.
+2022-02-25 11:33:21,365 - isca - INFO - Writing path_names to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_l_lewis_research_isca_dir_Isca/build/held_suarez/path_names'
+2022-02-25 11:33:21,381 - isca - INFO - Running compiler
+2022-02-25 11:33:21,420 - isca - INFO - loadmodules for oxford machines
+2022-02-25 11:33:21,845 - isca - INFO - [?1h=Currently Loaded Modulefiles:[m
+2022-02-25 11:33:21,866 - isca - INFO - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-02-25 11:33:21,866 - isca - INFO - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-02-25 11:33:21,866 - isca - INFO - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-02-25 11:33:21,866 - isca - INFO - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-02-25 11:33:21,866 - isca - INFO - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-02-25 11:33:21,887 - isca - INFO - [K[?1l>/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_l_lewis_research_isca_dir_Isca/build/held_suarez/path_names
+2022-02-25 11:33:28,511 - isca - INFO - .............................................................................................................................. Makefile is ready.
+2022-02-25 11:33:28,938 - isca - INFO - make: Nothing to be done for 'all'.
+2022-02-25 11:33:29,402 - isca - INFO - make: 'held_suarez.x' is up to date.
+2022-02-25 11:33:29,404 - isca - INFO - Compilation complete.
+2022-02-25 11:33:29,409 - isca - DEBUG - Making directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/venus_test_4daily'
+2022-02-25 11:33:29,549 - isca - WARNING - Tried to remove run directory but it doesnt exist
+2022-02-25 11:33:29,583 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/venus_test_4daily/run'
+2022-02-25 11:33:30,271 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/venus_test_4daily/run/input.nml'
+2022-02-25 11:33:30,359 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/venus_test_4daily/run/field_table'
+2022-02-25 11:33:30,526 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/venus_test_4daily/run/diag_table'
+2022-02-25 11:33:30,593 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/venus_test_case/restarts/res0020.tar.gz'
+2022-02-25 11:33:30,987 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/venus_test_case/restarts/res0020.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/venus_test_4daily/run/INPUT
+2022-02-25 11:33:30,993 - isca - INFO - Beginning run 1
+2022-02-25 11:33:31,004 - isca - INFO - process running as 31239
+2022-02-25 11:33:31,033 - isca - DEBUG - loadmodules for oxford machines
+2022-02-25 11:33:31,466 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-02-25 11:33:31,489 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-02-25 11:33:31,489 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-02-25 11:33:31,489 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-02-25 11:33:31,489 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-02-25 11:33:31,489 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-02-25 11:33:31,914 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-02-25 11:33:31,914 - isca - DEBUG - &MPP_IO_NML
+2022-02-25 11:33:31,914 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-02-25 11:33:31,914 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-02-25 11:33:31,914 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-02-25 11:33:31,914 - isca - DEBUG - SHUFFLE =           0,
+2022-02-25 11:33:31,914 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-02-25 11:33:31,915 - isca - DEBUG - /
+2022-02-25 11:33:31,917 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-02-25 11:33:31,919 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-02-25 11:33:31,946 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-02-25 11:33:31,952 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-02-25 11:33:31,952 - isca - DEBUG - X-AXIS =  128
+2022-02-25 11:33:31,953 - isca - DEBUG - Y-AXIS =    2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+2022-02-25 11:33:31,953 - isca - DEBUG - 2   2   2   2   2   2   2   2
+2022-02-25 11:33:32,987 - isca - DEBUG - NOTE from PE    0: Interpolator: Using input file with no time dimension - venus_relaxation_profile.nc
+2022-02-25 11:33:32,987 - isca - DEBUG - Initializing src field : venus_relaxation_profile
+2022-02-25 11:33:47,435 - isca - DEBUG - Integration completed through  7201 days     0 seconds
+2022-02-25 11:34:01,682 - isca - DEBUG - Integration completed through  7202 days     0 seconds
+2022-02-25 11:34:15,929 - isca - DEBUG - Integration completed through  7203 days     0 seconds
+2022-02-25 11:34:30,222 - isca - DEBUG - Integration completed through  7204 days     0 seconds
+2022-02-25 11:34:45,523 - isca - DEBUG - Integration completed through  7205 days     0 seconds
+2022-02-25 11:34:59,892 - isca - DEBUG - Integration completed through  7206 days     0 seconds
+2022-02-25 11:35:14,302 - isca - DEBUG - Integration completed through  7207 days     0 seconds
+2022-02-25 11:35:28,687 - isca - DEBUG - Integration completed through  7208 days     0 seconds
+2022-02-25 11:35:43,182 - isca - DEBUG - Integration completed through  7209 days     0 seconds
+2022-02-25 11:35:57,579 - isca - DEBUG - Integration completed through  7210 days     0 seconds
+2022-02-25 11:36:11,979 - isca - DEBUG - Integration completed through  7211 days     0 seconds
+2022-02-25 11:36:26,384 - isca - DEBUG - Integration completed through  7212 days     0 seconds
+2022-02-25 11:36:40,972 - isca - DEBUG - Integration completed through  7213 days     0 seconds
+2022-02-25 11:36:55,388 - isca - DEBUG - Integration completed through  7214 days     0 seconds
+2022-02-25 11:37:10,830 - isca - DEBUG - Integration completed through  7215 days     0 seconds
+2022-02-25 11:37:25,296 - isca - DEBUG - Integration completed through  7216 days     0 seconds
+2022-02-25 11:37:39,901 - isca - DEBUG - Integration completed through  7217 days     0 seconds
+2022-02-25 11:37:54,384 - isca - DEBUG - Integration completed through  7218 days     0 seconds
+2022-02-25 11:38:08,874 - isca - DEBUG - Integration completed through  7219 days     0 seconds
+2022-02-25 11:38:23,378 - isca - DEBUG - Integration completed through  7220 days     0 seconds
+2022-02-25 11:38:37,925 - isca - DEBUG - Integration completed through  7221 days     0 seconds
+2022-02-25 11:38:52,435 - isca - DEBUG - Integration completed through  7222 days     0 seconds
+2022-02-25 11:39:06,949 - isca - DEBUG - Integration completed through  7223 days     0 seconds
+2022-02-25 11:39:21,455 - isca - DEBUG - Integration completed through  7224 days     0 seconds
+2022-02-25 11:39:36,024 - isca - DEBUG - Integration completed through  7225 days     0 seconds
+2022-02-25 11:39:50,536 - isca - DEBUG - Integration completed through  7226 days     0 seconds
+2022-02-25 11:40:05,095 - isca - DEBUG - Integration completed through  7227 days     0 seconds
+2022-02-25 11:40:19,611 - isca - DEBUG - Integration completed through  7228 days     0 seconds
+2022-02-25 11:40:34,267 - isca - DEBUG - Integration completed through  7229 days     0 seconds
+2022-02-25 11:40:48,789 - isca - DEBUG - Integration completed through  7230 days     0 seconds
+2022-02-25 11:41:03,299 - isca - DEBUG - Integration completed through  7231 days     0 seconds
+2022-02-25 11:41:17,809 - isca - DEBUG - Integration completed through  7232 days     0 seconds
+2022-02-25 11:41:32,461 - isca - DEBUG - Integration completed through  7233 days     0 seconds
+2022-02-25 11:41:46,971 - isca - DEBUG - Integration completed through  7234 days     0 seconds
+2022-02-25 11:42:01,475 - isca - DEBUG - Integration completed through  7235 days     0 seconds
+2022-02-25 11:42:16,826 - isca - DEBUG - Integration completed through  7236 days     0 seconds
+2022-02-25 11:42:31,445 - isca - DEBUG - Integration completed through  7237 days     0 seconds
+2022-02-25 11:42:45,970 - isca - DEBUG - Integration completed through  7238 days     0 seconds
+2022-02-25 11:43:00,487 - isca - DEBUG - Integration completed through  7239 days     0 seconds
+2022-02-25 11:43:15,006 - isca - DEBUG - Integration completed through  7240 days     0 seconds
+2022-02-25 11:43:29,600 - isca - DEBUG - Integration completed through  7241 days     0 seconds
+2022-02-25 11:43:44,125 - isca - DEBUG - Integration completed through  7242 days     0 seconds
+2022-02-25 11:43:58,653 - isca - DEBUG - Integration completed through  7243 days     0 seconds
+2022-02-25 11:44:13,176 - isca - DEBUG - Integration completed through  7244 days     0 seconds
+2022-02-25 11:44:27,799 - isca - DEBUG - Integration completed through  7245 days     0 seconds
+2022-02-25 11:44:42,332 - isca - DEBUG - Integration completed through  7246 days     0 seconds
+2022-02-25 11:44:56,846 - isca - DEBUG - Integration completed through  7247 days     0 seconds
+2022-02-25 11:45:11,402 - isca - DEBUG - Integration completed through  7248 days     0 seconds
+2022-02-25 11:45:26,034 - isca - DEBUG - Integration completed through  7249 days     0 seconds
+2022-02-25 11:45:40,567 - isca - DEBUG - Integration completed through  7250 days     0 seconds
+2022-02-25 11:45:55,101 - isca - DEBUG - Integration completed through  7251 days     0 seconds
+2022-02-25 11:46:09,642 - isca - DEBUG - Integration completed through  7252 days     0 seconds
+2022-02-25 11:46:24,308 - isca - DEBUG - Integration completed through  7253 days     0 seconds
+2022-02-25 11:46:38,841 - isca - DEBUG - Integration completed through  7254 days     0 seconds
+2022-02-25 11:46:53,370 - isca - DEBUG - Integration completed through  7255 days     0 seconds
+2022-02-25 11:47:08,702 - isca - DEBUG - Integration completed through  7256 days     0 seconds
+2022-02-25 11:47:23,297 - isca - DEBUG - Integration completed through  7257 days     0 seconds
+2022-02-25 11:47:37,827 - isca - DEBUG - Integration completed through  7258 days     0 seconds
+2022-02-25 11:47:52,360 - isca - DEBUG - Integration completed through  7259 days     0 seconds
+2022-02-25 11:48:06,890 - isca - DEBUG - Integration completed through  7260 days     0 seconds
+2022-02-25 11:48:21,481 - isca - DEBUG - Integration completed through  7261 days     0 seconds
+2022-02-25 11:48:35,999 - isca - DEBUG - Integration completed through  7262 days     0 seconds
+2022-02-25 11:48:50,520 - isca - DEBUG - Integration completed through  7263 days     0 seconds
+2022-02-25 11:49:05,041 - isca - DEBUG - Integration completed through  7264 days     0 seconds
+2022-02-25 11:49:19,726 - isca - DEBUG - Integration completed through  7265 days     0 seconds
+2022-02-25 11:49:34,268 - isca - DEBUG - Integration completed through  7266 days     0 seconds
+2022-02-25 11:49:48,802 - isca - DEBUG - Integration completed through  7267 days     0 seconds
+2022-02-25 11:50:03,379 - isca - DEBUG - Integration completed through  7268 days     0 seconds
+2022-02-25 11:50:18,032 - isca - DEBUG - Integration completed through  7269 days     0 seconds
+2022-02-25 11:50:32,569 - isca - DEBUG - Integration completed through  7270 days     0 seconds
+2022-02-25 11:50:47,100 - isca - DEBUG - Integration completed through  7271 days     0 seconds
+2022-02-25 11:51:01,636 - isca - DEBUG - Integration completed through  7272 days     0 seconds
+2022-02-25 11:51:16,268 - isca - DEBUG - Integration completed through  7273 days     0 seconds
+2022-02-25 11:51:30,802 - isca - DEBUG - Integration completed through  7274 days     0 seconds
+2022-02-25 11:51:45,340 - isca - DEBUG - Integration completed through  7275 days     0 seconds
+2022-02-25 11:51:59,867 - isca - DEBUG - Integration completed through  7276 days     0 seconds
+2022-02-25 11:52:15,142 - isca - DEBUG - Integration completed through  7277 days     0 seconds
+2022-02-25 11:52:29,674 - isca - DEBUG - Integration completed through  7278 days     0 seconds
+2022-02-25 11:52:44,213 - isca - DEBUG - Integration completed through  7279 days     0 seconds
+2022-02-25 11:52:58,745 - isca - DEBUG - Integration completed through  7280 days     0 seconds
+2022-02-25 11:53:13,423 - isca - DEBUG - Integration completed through  7281 days     0 seconds
+2022-02-25 11:53:27,968 - isca - DEBUG - Integration completed through  7282 days     0 seconds
+2022-02-25 11:53:42,510 - isca - DEBUG - Integration completed through  7283 days     0 seconds
+2022-02-25 11:53:57,042 - isca - DEBUG - Integration completed through  7284 days     0 seconds
+2022-02-25 11:54:11,711 - isca - DEBUG - Integration completed through  7285 days     0 seconds
+2022-02-25 11:54:26,241 - isca - DEBUG - Integration completed through  7286 days     0 seconds
+2022-02-25 11:54:40,799 - isca - DEBUG - Integration completed through  7287 days     0 seconds
+2022-02-25 11:54:55,332 - isca - DEBUG - Integration completed through  7288 days     0 seconds
+2022-02-25 11:55:10,093 - isca - DEBUG - Integration completed through  7289 days     0 seconds
+2022-02-25 11:55:24,627 - isca - DEBUG - Integration completed through  7290 days     0 seconds
+2022-02-25 11:55:39,155 - isca - DEBUG - Integration completed through  7291 days     0 seconds
+2022-02-25 11:55:53,697 - isca - DEBUG - Integration completed through  7292 days     0 seconds
+2022-02-25 11:56:08,303 - isca - DEBUG - Integration completed through  7293 days     0 seconds
+2022-02-25 11:56:22,834 - isca - DEBUG - Integration completed through  7294 days     0 seconds
+2022-02-25 11:56:37,366 - isca - DEBUG - Integration completed through  7295 days     0 seconds
+2022-02-25 11:56:51,896 - isca - DEBUG - Integration completed through  7296 days     0 seconds
+2022-02-25 11:57:07,477 - isca - DEBUG - Integration completed through  7297 days     0 seconds
+2022-02-25 11:57:22,038 - isca - DEBUG - Integration completed through  7298 days     0 seconds
+2022-02-25 11:57:36,560 - isca - DEBUG - Integration completed through  7299 days     0 seconds
+2022-02-25 11:57:51,090 - isca - DEBUG - Integration completed through  7300 days     0 seconds
+2022-02-25 11:58:05,762 - isca - DEBUG - Integration completed through  7301 days     0 seconds
+2022-02-25 11:58:20,300 - isca - DEBUG - Integration completed through  7302 days     0 seconds
+2022-02-25 11:58:34,822 - isca - DEBUG - Integration completed through  7303 days     0 seconds
+2022-02-25 11:58:49,357 - isca - DEBUG - Integration completed through  7304 days     0 seconds
+2022-02-25 11:59:04,015 - isca - DEBUG - Integration completed through  7305 days     0 seconds
+2022-02-25 11:59:18,546 - isca - DEBUG - Integration completed through  7306 days     0 seconds
+2022-02-25 11:59:33,083 - isca - DEBUG - Integration completed through  7307 days     0 seconds
+2022-02-25 11:59:47,608 - isca - DEBUG - Integration completed through  7308 days     0 seconds
+2022-02-25 12:00:02,456 - isca - DEBUG - Integration completed through  7309 days     0 seconds
+2022-02-25 12:00:16,975 - isca - DEBUG - Integration completed through  7310 days     0 seconds
+2022-02-25 12:00:31,505 - isca - DEBUG - Integration completed through  7311 days     0 seconds
+2022-02-25 12:00:46,030 - isca - DEBUG - Integration completed through  7312 days     0 seconds
+2022-02-25 12:01:00,629 - isca - DEBUG - Integration completed through  7313 days     0 seconds
+2022-02-25 12:01:15,157 - isca - DEBUG - Integration completed through  7314 days     0 seconds
+2022-02-25 12:01:29,686 - isca - DEBUG - Integration completed through  7315 days     0 seconds
+2022-02-25 12:01:44,224 - isca - DEBUG - Integration completed through  7316 days     0 seconds
+2022-02-25 12:01:58,900 - isca - DEBUG - Integration completed through  7317 days     0 seconds
+2022-02-25 12:02:14,368 - isca - DEBUG - Integration completed through  7318 days     0 seconds
+2022-02-25 12:02:28,892 - isca - DEBUG - Integration completed through  7319 days     0 seconds
+2022-02-25 12:02:43,426 - isca - DEBUG - Integration completed through  7320 days     0 seconds
+2022-02-25 12:02:43,691 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     253952.
+2022-02-25 12:02:44,350 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       31744
+2022-02-25 12:02:44,350 - isca - DEBUG - 
+2022-02-25 12:02:44,351 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2022-02-25 12:02:44,351 - isca - DEBUG - 
+2022-02-25 12:02:44,351 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-02-25 12:02:44,351 - isca - DEBUG - Total runtime                      1752.440243   1752.440249   1752.440246      0.000002  1.000     0     0    31
+2022-02-25 12:02:44,351 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-02-25 12:02:44,471 - isca - INFO - Run 1 complete
+2022-02-25 12:02:52,078 - isca - DEBUG - atmos_out.nc combined and copied to data directory
+2022-02-25 12:02:55,349 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/venus_test_4daily/restarts/res0001.tar.gz
+2022-02-25 12:02:55,441 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/venus_test_4daily/run0001/input.nml'
+2022-02-25 12:02:55,554 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/venus_test_4daily/run0001/field_table'
+2022-02-25 12:02:55,728 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/venus_test_4daily/run0001/diag_table'
+2022-02-25 12:02:56,559 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/venus_test_4daily/run'

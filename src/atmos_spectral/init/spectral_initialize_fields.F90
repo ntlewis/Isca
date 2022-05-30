@@ -59,7 +59,7 @@ real,    intent(out), dimension(:,:,:  ) :: vorg, divg
 real, allocatable, dimension(:,:) :: ln_psg
 
 real :: initial_sea_level_press, global_mean_psg
-real :: initial_perturbation   = 1.e-7
+real :: initial_perturbation   = 1.e-7 !1.e-9 ! NTL used to be 1.e-7
 
 integer :: ms, me, ns, ne, is, ie, js, je, num_levels
 
@@ -74,6 +74,12 @@ initial_sea_level_press = reference_sea_level_press
 
 ug      = 0.
 vg      = 0.
+! NTL begin addition 
+! call random_number(ug)
+! call random_number(vg)
+! ug = (ug - 0.5) / 1.e2 
+! vg = (vg - 0.5) / 1.e2
+! NTL end addition 
 tg      = 0.
 psg     = 0.
 vorg    = 0.
@@ -84,10 +90,18 @@ divs  = (0.,0.)
 ts    = (0.,0.)
 ln_ps = (0.,0.)
 
+! NTL begin comment out 
 tg     = initial_temperature
+! NTL end comment out
+! NTL begin addition 
+! call random_number(tg) 
+! call random_number(ln_psg)
+! tg = (tg-0.5)/1000. + initial_temperature
+! NTL end addition 
 ln_psg = log(initial_sea_level_press) - surf_geopotential/(rdgas*initial_temperature)
 psg    = exp(ln_psg)
 
+! NTL begin comment out 
 ! initial vorticity perturbation used in benchmark code
 if(ms <= 1 .and. me >= 1 .and. ns <= 3 .and. ne >= 3) then
   vors(2-ms,4-ns,num_levels  ) = initial_perturbation
@@ -110,6 +124,7 @@ if(ms <= 5 .and. me >= 5 .and. ns <= 2 .and. ne >= 2) then
   vors(6-ms,3-ns,num_levels-2) = initial_perturbation
 endif
 call uv_grid_from_vor_div(vors, divs, ug, vg)
+! NTL end comment out
 
 !  initial spectral fields (and spectrally-filtered) grid fields
 

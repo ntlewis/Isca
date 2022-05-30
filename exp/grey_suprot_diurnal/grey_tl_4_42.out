@@ -1,0 +1,15 @@
+/home/lewis/.bashrc: line 75: goisca: command not found
+2021-08-06 10:17:01,964 - isca - WARNING - Environment variable GFDL_SOC not set, but this is only required if using SocratesCodebase. Setting to None
+2021-08-06 10:17:02,336 - isca - INFO - RRTM compilation disabled.
+2021-08-06 10:17:02,337 - isca - INFO - SOCRATES compilation disabled.
+2021-08-06 10:17:02,355 - isca - INFO - Writing path_names to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_lewis_research_isca_dir_Isca/build/grey_isca/path_names'
+2021-08-06 10:17:02,373 - isca - INFO - Running compiler
+2021-08-06 10:17:02,422 - isca - INFO - loadmodules for oxford machines
+2021-08-06 10:17:02,849 - isca - INFO - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 10:17:02,869 - isca - INFO - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 10:17:02,869 - isca - INFO - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 10:17:02,870 - isca - INFO - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 10:17:02,870 - isca - INFO - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 10:17:02,870 - isca - INFO - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 10:17:02,891 - isca - INFO - [K[?1l>/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_lewis_research_isca_dir_Isca/build/grey_isca/path_names
+slurmstepd-atmnode017: error: *** JOB 6829 ON atmnode017 CANCELLED AT 2021-08-06T10:17:08 ***

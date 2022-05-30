@@ -1,0 +1,1845 @@
+/home/lewis/.bashrc: line 75: goisca: command not found
+2021-08-06 11:38:12,002 - isca - WARNING - Environment variable GFDL_SOC not set, but this is only required if using SocratesCodebase. Setting to None
+2021-08-06 11:38:12,409 - isca - INFO - RRTM compilation disabled.
+2021-08-06 11:38:12,409 - isca - INFO - SOCRATES compilation disabled.
+2021-08-06 11:38:12,427 - isca - INFO - Writing path_names to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_lewis_research_isca_dir_Isca/build/grey_isca/path_names'
+2021-08-06 11:38:12,447 - isca - INFO - Running compiler
+2021-08-06 11:38:12,489 - isca - INFO - loadmodules for oxford machines
+2021-08-06 11:38:12,905 - isca - INFO - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 11:38:12,926 - isca - INFO - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 11:38:12,927 - isca - INFO - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 11:38:12,927 - isca - INFO - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 11:38:12,927 - isca - INFO - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 11:38:12,927 - isca - INFO - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 11:38:12,947 - isca - INFO - [K[?1l>/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/codebase/_home_lewis_research_isca_dir_Isca/build/grey_isca/path_names
+2021-08-06 11:38:19,844 - isca - INFO - .............................................................................................................................. Makefile is ready.
+2021-08-06 11:38:20,232 - isca - INFO - make: Nothing to be done for 'all'.
+2021-08-06 11:38:20,554 - isca - INFO - make: 'grey_isca.x' is up to date.
+2021-08-06 11:38:20,556 - isca - INFO - Compilation complete.
+2021-08-06 11:38:20,559 - isca - DEBUG - Making directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd'
+2021-08-06 11:38:20,602 - isca - WARNING - Tried to remove run directory but it doesnt exist
+2021-08-06 11:38:20,668 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 11:38:20,790 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 11:38:21,593 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 11:38:21,685 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 11:38:21,727 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 11:38:21,815 - isca - INFO - Running without restart file
+2021-08-06 11:38:21,872 - isca - INFO - Beginning run 1
+2021-08-06 11:38:21,888 - isca - INFO - process running as 28208
+2021-08-06 11:38:21,918 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 11:38:22,344 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 11:38:22,368 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 11:38:22,368 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 11:38:22,368 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 11:38:22,368 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 11:38:22,368 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 11:38:22,715 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 11:38:22,716 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 11:38:22,716 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 11:38:22,716 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 11:38:22,716 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 11:38:22,716 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 11:38:22,716 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 11:38:22,716 - isca - DEBUG - /
+2021-08-06 11:38:22,717 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 11:38:22,719 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 11:38:22,962 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 11:38:22,968 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 11:38:22,969 - isca - DEBUG - X-AXIS =  256
+2021-08-06 11:38:22,969 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 11:38:22,969 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 11:38:23,332 - isca - DEBUG - mean surface pressure=1000.0000 mb
+2021-08-06 11:38:23,425 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 11:38:54,234 - isca - DEBUG - Integration completed through    1 Jan  2   0: 0: 0
+2021-08-06 11:39:25,760 - isca - DEBUG - Integration completed through    1 Jan  3   0: 0: 0
+2021-08-06 11:39:56,512 - isca - DEBUG - Integration completed through    1 Jan  4   0: 0: 0
+2021-08-06 11:40:27,301 - isca - DEBUG - Integration completed through    1 Jan  5   0: 0: 0
+2021-08-06 11:40:58,769 - isca - DEBUG - Integration completed through    1 Jan  6   0: 0: 0
+2021-08-06 11:41:30,416 - isca - DEBUG - Integration completed through    1 Jan  7   0: 0: 0
+2021-08-06 11:42:02,032 - isca - DEBUG - Integration completed through    1 Jan  8   0: 0: 0
+2021-08-06 11:42:32,772 - isca - DEBUG - Integration completed through    1 Jan  9   0: 0: 0
+2021-08-06 11:43:03,503 - isca - DEBUG - Integration completed through    1 Jan 10   0: 0: 0
+2021-08-06 11:43:34,400 - isca - DEBUG - Integration completed through    1 Jan 11   0: 0: 0
+2021-08-06 11:44:05,278 - isca - DEBUG - Integration completed through    1 Jan 12   0: 0: 0
+2021-08-06 11:44:35,942 - isca - DEBUG - Integration completed through    1 Jan 13   0: 0: 0
+2021-08-06 11:45:06,804 - isca - DEBUG - Integration completed through    1 Jan 14   0: 0: 0
+2021-08-06 11:45:37,720 - isca - DEBUG - Integration completed through    1 Jan 15   0: 0: 0
+2021-08-06 11:46:09,242 - isca - DEBUG - Integration completed through    1 Jan 16   0: 0: 0
+2021-08-06 11:46:40,310 - isca - DEBUG - Integration completed through    1 Jan 17   0: 0: 0
+2021-08-06 11:47:11,333 - isca - DEBUG - Integration completed through    1 Jan 18   0: 0: 0
+2021-08-06 11:47:42,159 - isca - DEBUG - Integration completed through    1 Jan 19   0: 0: 0
+2021-08-06 11:48:12,866 - isca - DEBUG - Integration completed through    1 Jan 20   0: 0: 0
+2021-08-06 11:48:43,738 - isca - DEBUG - Integration completed through    1 Jan 21   0: 0: 0
+2021-08-06 11:49:14,871 - isca - DEBUG - Integration completed through    1 Jan 22   0: 0: 0
+2021-08-06 11:49:45,683 - isca - DEBUG - Integration completed through    1 Jan 23   0: 0: 0
+2021-08-06 11:50:16,510 - isca - DEBUG - Integration completed through    1 Jan 24   0: 0: 0
+2021-08-06 11:50:47,487 - isca - DEBUG - Integration completed through    1 Jan 25   0: 0: 0
+2021-08-06 11:51:19,454 - isca - DEBUG - Integration completed through    1 Jan 26   0: 0: 0
+2021-08-06 11:51:50,222 - isca - DEBUG - Integration completed through    1 Jan 27   0: 0: 0
+2021-08-06 11:52:21,008 - isca - DEBUG - Integration completed through    1 Jan 28   0: 0: 0
+2021-08-06 11:52:52,047 - isca - DEBUG - Integration completed through    1 Jan 29   0: 0: 0
+2021-08-06 11:53:22,911 - isca - DEBUG - Integration completed through    1 Jan 30   0: 0: 0
+2021-08-06 11:53:53,584 - isca - DEBUG - Integration completed through    1 Feb  1   0: 0: 0
+2021-08-06 11:53:54,115 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 11:53:56,616 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 11:53:56,616 - isca - DEBUG - 
+2021-08-06 11:53:56,616 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 11:53:56,616 - isca - DEBUG - 
+2021-08-06 11:53:56,616 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 11:53:56,616 - isca - DEBUG - Total runtime                       933.903743    933.903747    933.903745      0.000001  1.000     0     0    31
+2021-08-06 11:53:56,617 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 11:53:56,746 - isca - INFO - Run 1 complete
+2021-08-06 11:54:20,133 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 11:54:29,778 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0001.tar.gz
+2021-08-06 11:54:29,963 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0001/input.nml'
+2021-08-06 11:54:29,973 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0001/field_table'
+2021-08-06 11:54:30,052 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0001/diag_table'
+2021-08-06 11:54:31,108 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 11:54:31,241 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 11:54:31,893 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 11:54:31,924 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 11:54:31,971 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 11:54:32,040 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0001.tar.gz'
+2021-08-06 11:54:34,156 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0001.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 11:54:34,177 - isca - INFO - Beginning run 2
+2021-08-06 11:54:34,189 - isca - INFO - process running as 28920
+2021-08-06 11:54:34,222 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 11:54:34,640 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 11:54:34,661 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 11:54:34,662 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 11:54:34,662 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 11:54:34,662 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 11:54:34,662 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 11:54:35,080 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 11:54:35,080 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 11:54:35,080 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 11:54:35,080 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 11:54:35,080 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 11:54:35,080 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 11:54:35,080 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 11:54:35,080 - isca - DEBUG - /
+2021-08-06 11:54:35,083 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 11:54:35,085 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 11:54:35,125 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 11:54:35,132 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 11:54:35,132 - isca - DEBUG - X-AXIS =  256
+2021-08-06 11:54:35,132 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 11:54:35,132 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 11:54:36,803 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 11:55:08,045 - isca - DEBUG - Integration completed through    1 Feb  2   0: 0: 0
+2021-08-06 11:55:39,614 - isca - DEBUG - Integration completed through    1 Feb  3   0: 0: 0
+2021-08-06 11:56:11,564 - isca - DEBUG - Integration completed through    1 Feb  4   0: 0: 0
+2021-08-06 11:56:44,878 - isca - DEBUG - Integration completed through    1 Feb  5   0: 0: 0
+2021-08-06 11:57:15,585 - isca - DEBUG - Integration completed through    1 Feb  6   0: 0: 0
+2021-08-06 11:57:46,556 - isca - DEBUG - Integration completed through    1 Feb  7   0: 0: 0
+2021-08-06 11:58:26,505 - isca - DEBUG - Integration completed through    1 Feb  8   0: 0: 0
+2021-08-06 11:58:48,332 - isca - DEBUG - Integration completed through    1 Feb  9   0: 0: 0
+2021-08-06 11:59:19,076 - isca - DEBUG - Integration completed through    1 Feb 10   0: 0: 0
+2021-08-06 11:59:50,258 - isca - DEBUG - Integration completed through    1 Feb 11   0: 0: 0
+2021-08-06 12:00:21,250 - isca - DEBUG - Integration completed through    1 Feb 12   0: 0: 0
+2021-08-06 12:00:52,336 - isca - DEBUG - Integration completed through    1 Feb 13   0: 0: 0
+2021-08-06 12:01:23,641 - isca - DEBUG - Integration completed through    1 Feb 14   0: 0: 0
+2021-08-06 12:01:54,751 - isca - DEBUG - Integration completed through    1 Feb 15   0: 0: 0
+2021-08-06 12:02:25,675 - isca - DEBUG - Integration completed through    1 Feb 16   0: 0: 0
+2021-08-06 12:02:56,477 - isca - DEBUG - Integration completed through    1 Feb 17   0: 0: 0
+2021-08-06 12:03:27,522 - isca - DEBUG - Integration completed through    1 Feb 18   0: 0: 0
+2021-08-06 12:03:58,434 - isca - DEBUG - Integration completed through    1 Feb 19   0: 0: 0
+2021-08-06 12:04:29,183 - isca - DEBUG - Integration completed through    1 Feb 20   0: 0: 0
+2021-08-06 12:05:00,043 - isca - DEBUG - Integration completed through    1 Feb 21   0: 0: 0
+2021-08-06 12:05:31,193 - isca - DEBUG - Integration completed through    1 Feb 22   0: 0: 0
+2021-08-06 12:06:03,166 - isca - DEBUG - Integration completed through    1 Feb 23   0: 0: 0
+2021-08-06 12:06:33,970 - isca - DEBUG - Integration completed through    1 Feb 24   0: 0: 0
+2021-08-06 12:07:05,099 - isca - DEBUG - Integration completed through    1 Feb 25   0: 0: 0
+2021-08-06 12:07:36,205 - isca - DEBUG - Integration completed through    1 Feb 26   0: 0: 0
+2021-08-06 12:08:07,020 - isca - DEBUG - Integration completed through    1 Feb 27   0: 0: 0
+2021-08-06 12:08:37,809 - isca - DEBUG - Integration completed through    1 Feb 28   0: 0: 0
+2021-08-06 12:09:08,970 - isca - DEBUG - Integration completed through    1 Feb 29   0: 0: 0
+2021-08-06 12:09:39,989 - isca - DEBUG - Integration completed through    1 Feb 30   0: 0: 0
+2021-08-06 12:10:10,888 - isca - DEBUG - Integration completed through    1 Mar  1   0: 0: 0
+2021-08-06 12:10:11,364 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 12:10:13,881 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 12:10:13,881 - isca - DEBUG - 
+2021-08-06 12:10:13,882 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 12:10:13,882 - isca - DEBUG - 
+2021-08-06 12:10:13,882 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 12:10:13,882 - isca - DEBUG - Total runtime                       938.807369    938.807377    938.807373      0.000002  1.000     0     0    31
+2021-08-06 12:10:13,882 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 12:10:13,990 - isca - INFO - Run 2 complete
+2021-08-06 12:10:36,922 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 12:10:45,834 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0002.tar.gz
+2021-08-06 12:10:46,005 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0002/input.nml'
+2021-08-06 12:10:46,080 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0002/field_table'
+2021-08-06 12:10:46,103 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0002/diag_table'
+2021-08-06 12:10:47,478 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 12:10:47,582 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 12:10:48,301 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 12:10:48,349 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 12:10:48,394 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 12:10:48,423 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0002.tar.gz'
+2021-08-06 12:10:50,506 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0002.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 12:10:50,509 - isca - INFO - Beginning run 3
+2021-08-06 12:10:50,519 - isca - INFO - process running as 29589
+2021-08-06 12:10:50,554 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 12:10:50,973 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 12:10:50,995 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 12:10:50,995 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 12:10:50,995 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 12:10:50,995 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 12:10:50,995 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 12:10:51,398 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 12:10:51,398 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 12:10:51,398 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 12:10:51,398 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 12:10:51,398 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 12:10:51,398 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 12:10:51,398 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 12:10:51,398 - isca - DEBUG - /
+2021-08-06 12:10:51,400 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 12:10:51,402 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 12:10:51,498 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 12:10:51,510 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 12:10:51,510 - isca - DEBUG - X-AXIS =  256
+2021-08-06 12:10:51,510 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 12:10:51,510 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 12:10:53,052 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 12:11:24,193 - isca - DEBUG - Integration completed through    1 Mar  2   0: 0: 0
+2021-08-06 12:11:57,851 - isca - DEBUG - Integration completed through    1 Mar  3   0: 0: 0
+2021-08-06 12:12:29,006 - isca - DEBUG - Integration completed through    1 Mar  4   0: 0: 0
+2021-08-06 12:12:59,963 - isca - DEBUG - Integration completed through    1 Mar  5   0: 0: 0
+2021-08-06 12:13:30,793 - isca - DEBUG - Integration completed through    1 Mar  6   0: 0: 0
+2021-08-06 12:14:01,781 - isca - DEBUG - Integration completed through    1 Mar  7   0: 0: 0
+2021-08-06 12:14:32,901 - isca - DEBUG - Integration completed through    1 Mar  8   0: 0: 0
+2021-08-06 12:15:03,938 - isca - DEBUG - Integration completed through    1 Mar  9   0: 0: 0
+2021-08-06 12:15:34,830 - isca - DEBUG - Integration completed through    1 Mar 10   0: 0: 0
+2021-08-06 12:16:06,949 - isca - DEBUG - Integration completed through    1 Mar 11   0: 0: 0
+2021-08-06 12:16:40,144 - isca - DEBUG - Integration completed through    1 Mar 12   0: 0: 0
+2021-08-06 12:17:10,977 - isca - DEBUG - Integration completed through    1 Mar 13   0: 0: 0
+2021-08-06 12:17:41,895 - isca - DEBUG - Integration completed through    1 Mar 14   0: 0: 0
+2021-08-06 12:18:13,073 - isca - DEBUG - Integration completed through    1 Mar 15   0: 0: 0
+2021-08-06 12:18:44,040 - isca - DEBUG - Integration completed through    1 Mar 16   0: 0: 0
+2021-08-06 12:19:14,964 - isca - DEBUG - Integration completed through    1 Mar 17   0: 0: 0
+2021-08-06 12:19:46,046 - isca - DEBUG - Integration completed through    1 Mar 18   0: 0: 0
+2021-08-06 12:20:17,262 - isca - DEBUG - Integration completed through    1 Mar 19   0: 0: 0
+2021-08-06 12:20:48,058 - isca - DEBUG - Integration completed through    1 Mar 20   0: 0: 0
+2021-08-06 12:21:19,984 - isca - DEBUG - Integration completed through    1 Mar 21   0: 0: 0
+2021-08-06 12:21:51,220 - isca - DEBUG - Integration completed through    1 Mar 22   0: 0: 0
+2021-08-06 12:22:22,170 - isca - DEBUG - Integration completed through    1 Mar 23   0: 0: 0
+2021-08-06 12:22:52,951 - isca - DEBUG - Integration completed through    1 Mar 24   0: 0: 0
+2021-08-06 12:23:24,036 - isca - DEBUG - Integration completed through    1 Mar 25   0: 0: 0
+2021-08-06 12:23:55,083 - isca - DEBUG - Integration completed through    1 Mar 26   0: 0: 0
+2021-08-06 12:24:25,900 - isca - DEBUG - Integration completed through    1 Mar 27   0: 0: 0
+2021-08-06 12:24:56,853 - isca - DEBUG - Integration completed through    1 Mar 28   0: 0: 0
+2021-08-06 12:25:28,071 - isca - DEBUG - Integration completed through    1 Mar 29   0: 0: 0
+2021-08-06 12:25:59,872 - isca - DEBUG - Integration completed through    1 Mar 30   0: 0: 0
+2021-08-06 12:26:30,693 - isca - DEBUG - Integration completed through    1 Apr  1   0: 0: 0
+2021-08-06 12:26:31,220 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 12:26:33,724 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 12:26:33,724 - isca - DEBUG - 
+2021-08-06 12:26:33,724 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 12:26:33,724 - isca - DEBUG - 
+2021-08-06 12:26:33,724 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 12:26:33,724 - isca - DEBUG - Total runtime                       942.328916    942.328920    942.328918      0.000001  1.000     0     0    31
+2021-08-06 12:26:33,724 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 12:26:33,801 - isca - INFO - Run 3 complete
+2021-08-06 12:26:56,604 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 12:27:04,982 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0003.tar.gz
+2021-08-06 12:27:05,205 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0003/input.nml'
+2021-08-06 12:27:05,214 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0003/field_table'
+2021-08-06 12:27:05,283 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0003/diag_table'
+2021-08-06 12:27:06,499 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 12:27:06,598 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 12:27:07,313 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 12:27:07,390 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 12:27:07,426 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 12:27:07,509 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0003.tar.gz'
+2021-08-06 12:27:09,629 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0003.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 12:27:09,631 - isca - INFO - Beginning run 4
+2021-08-06 12:27:09,643 - isca - INFO - process running as 30276
+2021-08-06 12:27:09,676 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 12:27:10,103 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 12:27:10,125 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 12:27:10,126 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 12:27:10,126 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 12:27:10,126 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 12:27:10,126 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 12:27:10,548 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 12:27:10,549 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 12:27:10,549 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 12:27:10,549 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 12:27:10,549 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 12:27:10,549 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 12:27:10,549 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 12:27:10,549 - isca - DEBUG - /
+2021-08-06 12:27:10,551 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 12:27:10,553 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 12:27:10,638 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 12:27:10,649 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 12:27:10,650 - isca - DEBUG - X-AXIS =  256
+2021-08-06 12:27:10,650 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 12:27:10,650 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 12:27:12,280 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 12:27:43,771 - isca - DEBUG - Integration completed through    1 Apr  2   0: 0: 0
+2021-08-06 12:28:15,640 - isca - DEBUG - Integration completed through    1 Apr  3   0: 0: 0
+2021-08-06 12:28:46,915 - isca - DEBUG - Integration completed through    1 Apr  4   0: 0: 0
+2021-08-06 12:29:18,111 - isca - DEBUG - Integration completed through    1 Apr  5   0: 0: 0
+2021-08-06 12:29:49,142 - isca - DEBUG - Integration completed through    1 Apr  6   0: 0: 0
+2021-08-06 12:30:20,419 - isca - DEBUG - Integration completed through    1 Apr  7   0: 0: 0
+2021-08-06 12:30:52,029 - isca - DEBUG - Integration completed through    1 Apr  8   0: 0: 0
+2021-08-06 12:31:23,466 - isca - DEBUG - Integration completed through    1 Apr  9   0: 0: 0
+2021-08-06 12:31:54,437 - isca - DEBUG - Integration completed through    1 Apr 10   0: 0: 0
+2021-08-06 12:32:25,724 - isca - DEBUG - Integration completed through    1 Apr 11   0: 0: 0
+2021-08-06 12:32:56,845 - isca - DEBUG - Integration completed through    1 Apr 12   0: 0: 0
+2021-08-06 12:33:27,851 - isca - DEBUG - Integration completed through    1 Apr 13   0: 0: 0
+2021-08-06 12:33:58,986 - isca - DEBUG - Integration completed through    1 Apr 14   0: 0: 0
+2021-08-06 12:34:30,234 - isca - DEBUG - Integration completed through    1 Apr 15   0: 0: 0
+2021-08-06 12:35:01,272 - isca - DEBUG - Integration completed through    1 Apr 16   0: 0: 0
+2021-08-06 12:35:32,339 - isca - DEBUG - Integration completed through    1 Apr 17   0: 0: 0
+2021-08-06 12:36:04,737 - isca - DEBUG - Integration completed through    1 Apr 18   0: 0: 0
+2021-08-06 12:36:35,966 - isca - DEBUG - Integration completed through    1 Apr 19   0: 0: 0
+2021-08-06 12:37:06,984 - isca - DEBUG - Integration completed through    1 Apr 20   0: 0: 0
+2021-08-06 12:37:38,135 - isca - DEBUG - Integration completed through    1 Apr 21   0: 0: 0
+2021-08-06 12:38:09,425 - isca - DEBUG - Integration completed through    1 Apr 22   0: 0: 0
+2021-08-06 12:38:40,570 - isca - DEBUG - Integration completed through    1 Apr 23   0: 0: 0
+2021-08-06 12:39:11,545 - isca - DEBUG - Integration completed through    1 Apr 24   0: 0: 0
+2021-08-06 12:39:42,778 - isca - DEBUG - Integration completed through    1 Apr 25   0: 0: 0
+2021-08-06 12:40:13,958 - isca - DEBUG - Integration completed through    1 Apr 26   0: 0: 0
+2021-08-06 12:40:44,939 - isca - DEBUG - Integration completed through    1 Apr 27   0: 0: 0
+2021-08-06 12:41:16,849 - isca - DEBUG - Integration completed through    1 Apr 28   0: 0: 0
+2021-08-06 12:41:50,141 - isca - DEBUG - Integration completed through    1 Apr 29   0: 0: 0
+2021-08-06 12:42:21,285 - isca - DEBUG - Integration completed through    1 Apr 30   0: 0: 0
+2021-08-06 12:42:52,286 - isca - DEBUG - Integration completed through    1 May  1   0: 0: 0
+2021-08-06 12:42:52,827 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 12:42:55,243 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 12:42:55,244 - isca - DEBUG - 
+2021-08-06 12:42:55,244 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 12:42:55,244 - isca - DEBUG - 
+2021-08-06 12:42:55,244 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 12:42:55,244 - isca - DEBUG - Total runtime                       944.697868    944.697872    944.697870      0.000001  1.000     0     0    31
+2021-08-06 12:42:55,244 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 12:42:55,333 - isca - INFO - Run 4 complete
+2021-08-06 12:43:19,507 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 12:43:27,761 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0004.tar.gz
+2021-08-06 12:43:27,958 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0004/input.nml'
+2021-08-06 12:43:27,999 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0004/field_table'
+2021-08-06 12:43:28,038 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0004/diag_table'
+2021-08-06 12:43:29,589 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 12:43:29,720 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 12:43:30,422 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 12:43:30,459 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 12:43:30,544 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 12:43:30,618 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0004.tar.gz'
+2021-08-06 12:43:32,657 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0004.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 12:43:32,716 - isca - INFO - Beginning run 5
+2021-08-06 12:43:32,728 - isca - INFO - process running as 30929
+2021-08-06 12:43:32,762 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 12:43:33,194 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 12:43:33,216 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 12:43:33,217 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 12:43:33,217 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 12:43:33,217 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 12:43:33,217 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 12:43:33,590 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 12:43:33,590 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 12:43:33,590 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 12:43:33,590 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 12:43:33,590 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 12:43:33,590 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 12:43:33,590 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 12:43:33,590 - isca - DEBUG - /
+2021-08-06 12:43:33,592 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 12:43:33,594 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 12:43:33,688 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 12:43:33,700 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 12:43:33,701 - isca - DEBUG - X-AXIS =  256
+2021-08-06 12:43:33,701 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 12:43:33,701 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 12:43:35,028 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 12:44:06,442 - isca - DEBUG - Integration completed through    1 May  2   0: 0: 0
+2021-08-06 12:44:38,201 - isca - DEBUG - Integration completed through    1 May  3   0: 0: 0
+2021-08-06 12:45:09,443 - isca - DEBUG - Integration completed through    1 May  4   0: 0: 0
+2021-08-06 12:45:40,494 - isca - DEBUG - Integration completed through    1 May  5   0: 0: 0
+2021-08-06 12:46:12,270 - isca - DEBUG - Integration completed through    1 May  6   0: 0: 0
+2021-08-06 12:46:43,652 - isca - DEBUG - Integration completed through    1 May  7   0: 0: 0
+2021-08-06 12:47:14,940 - isca - DEBUG - Integration completed through    1 May  8   0: 0: 0
+2021-08-06 12:47:45,948 - isca - DEBUG - Integration completed through    1 May  9   0: 0: 0
+2021-08-06 12:48:16,886 - isca - DEBUG - Integration completed through    1 May 10   0: 0: 0
+2021-08-06 12:48:48,099 - isca - DEBUG - Integration completed through    1 May 11   0: 0: 0
+2021-08-06 12:49:19,202 - isca - DEBUG - Integration completed through    1 May 12   0: 0: 0
+2021-08-06 12:49:50,085 - isca - DEBUG - Integration completed through    1 May 13   0: 0: 0
+2021-08-06 12:50:21,249 - isca - DEBUG - Integration completed through    1 May 14   0: 0: 0
+2021-08-06 12:50:52,996 - isca - DEBUG - Integration completed through    1 May 15   0: 0: 0
+2021-08-06 12:51:24,248 - isca - DEBUG - Integration completed through    1 May 16   0: 0: 0
+2021-08-06 12:51:55,224 - isca - DEBUG - Integration completed through    1 May 17   0: 0: 0
+2021-08-06 12:52:26,384 - isca - DEBUG - Integration completed through    1 May 18   0: 0: 0
+2021-08-06 12:52:57,511 - isca - DEBUG - Integration completed through    1 May 19   0: 0: 0
+2021-08-06 12:53:28,437 - isca - DEBUG - Integration completed through    1 May 20   0: 0: 0
+2021-08-06 12:53:59,473 - isca - DEBUG - Integration completed through    1 May 21   0: 0: 0
+2021-08-06 12:54:30,710 - isca - DEBUG - Integration completed through    1 May 22   0: 0: 0
+2021-08-06 12:55:01,772 - isca - DEBUG - Integration completed through    1 May 23   0: 0: 0
+2021-08-06 12:55:32,631 - isca - DEBUG - Integration completed through    1 May 24   0: 0: 0
+2021-08-06 12:56:04,760 - isca - DEBUG - Integration completed through    1 May 25   0: 0: 0
+2021-08-06 12:56:37,936 - isca - DEBUG - Integration completed through    1 May 26   0: 0: 0
+2021-08-06 12:57:08,819 - isca - DEBUG - Integration completed through    1 May 27   0: 0: 0
+2021-08-06 12:57:39,700 - isca - DEBUG - Integration completed through    1 May 28   0: 0: 0
+2021-08-06 12:58:10,817 - isca - DEBUG - Integration completed through    1 May 29   0: 0: 0
+2021-08-06 12:58:41,949 - isca - DEBUG - Integration completed through    1 May 30   0: 0: 0
+2021-08-06 12:59:12,837 - isca - DEBUG - Integration completed through    1 Jun  1   0: 0: 0
+2021-08-06 12:59:13,320 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 12:59:16,532 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 12:59:16,533 - isca - DEBUG - 
+2021-08-06 12:59:16,533 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 12:59:16,533 - isca - DEBUG - 
+2021-08-06 12:59:16,533 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 12:59:16,533 - isca - DEBUG - Total runtime                       942.945077    942.945081    942.945079      0.000001  1.000     0     0    31
+2021-08-06 12:59:16,533 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 12:59:16,618 - isca - INFO - Run 5 complete
+2021-08-06 12:59:39,694 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 12:59:48,092 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0005.tar.gz
+2021-08-06 12:59:48,262 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0005/input.nml'
+2021-08-06 12:59:48,272 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0005/field_table'
+2021-08-06 12:59:48,358 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0005/diag_table'
+2021-08-06 12:59:49,595 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 12:59:49,652 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 12:59:50,309 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 12:59:50,422 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 12:59:50,467 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 12:59:50,524 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0005.tar.gz'
+2021-08-06 12:59:52,491 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0005.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 12:59:52,798 - isca - INFO - Beginning run 6
+2021-08-06 12:59:52,812 - isca - INFO - process running as 31570
+2021-08-06 12:59:52,846 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 12:59:53,284 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 12:59:53,312 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 12:59:53,312 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 12:59:53,312 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 12:59:53,312 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 12:59:53,312 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 12:59:53,772 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 12:59:53,772 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 12:59:53,772 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 12:59:53,772 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 12:59:53,772 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 12:59:53,772 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 12:59:53,772 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 12:59:53,772 - isca - DEBUG - /
+2021-08-06 12:59:53,775 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 12:59:53,777 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 12:59:53,904 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 12:59:53,915 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 12:59:53,915 - isca - DEBUG - X-AXIS =  256
+2021-08-06 12:59:53,916 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 12:59:53,916 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 12:59:55,589 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 13:00:26,897 - isca - DEBUG - Integration completed through    1 Jun  2   0: 0: 0
+2021-08-06 13:00:59,251 - isca - DEBUG - Integration completed through    1 Jun  3   0: 0: 0
+2021-08-06 13:01:31,454 - isca - DEBUG - Integration completed through    1 Jun  4   0: 0: 0
+2021-08-06 13:02:02,377 - isca - DEBUG - Integration completed through    1 Jun  5   0: 0: 0
+2021-08-06 13:02:33,164 - isca - DEBUG - Integration completed through    1 Jun  6   0: 0: 0
+2021-08-06 13:03:04,329 - isca - DEBUG - Integration completed through    1 Jun  7   0: 0: 0
+2021-08-06 13:03:35,445 - isca - DEBUG - Integration completed through    1 Jun  8   0: 0: 0
+2021-08-06 13:04:06,269 - isca - DEBUG - Integration completed through    1 Jun  9   0: 0: 0
+2021-08-06 13:04:37,107 - isca - DEBUG - Integration completed through    1 Jun 10   0: 0: 0
+2021-08-06 13:05:08,316 - isca - DEBUG - Integration completed through    1 Jun 11   0: 0: 0
+2021-08-06 13:05:39,376 - isca - DEBUG - Integration completed through    1 Jun 12   0: 0: 0
+2021-08-06 13:06:11,152 - isca - DEBUG - Integration completed through    1 Jun 13   0: 0: 0
+2021-08-06 13:06:42,098 - isca - DEBUG - Integration completed through    1 Jun 14   0: 0: 0
+2021-08-06 13:07:13,144 - isca - DEBUG - Integration completed through    1 Jun 15   0: 0: 0
+2021-08-06 13:07:44,036 - isca - DEBUG - Integration completed through    1 Jun 16   0: 0: 0
+2021-08-06 13:08:14,902 - isca - DEBUG - Integration completed through    1 Jun 17   0: 0: 0
+2021-08-06 13:08:45,978 - isca - DEBUG - Integration completed through    1 Jun 18   0: 0: 0
+2021-08-06 13:09:17,052 - isca - DEBUG - Integration completed through    1 Jun 19   0: 0: 0
+2021-08-06 13:09:47,836 - isca - DEBUG - Integration completed through    1 Jun 20   0: 0: 0
+2021-08-06 13:10:18,903 - isca - DEBUG - Integration completed through    1 Jun 21   0: 0: 0
+2021-08-06 13:10:49,978 - isca - DEBUG - Integration completed through    1 Jun 22   0: 0: 0
+2021-08-06 13:11:21,827 - isca - DEBUG - Integration completed through    1 Jun 23   0: 0: 0
+2021-08-06 13:11:54,750 - isca - DEBUG - Integration completed through    1 Jun 24   0: 0: 0
+2021-08-06 13:12:25,830 - isca - DEBUG - Integration completed through    1 Jun 25   0: 0: 0
+2021-08-06 13:12:56,864 - isca - DEBUG - Integration completed through    1 Jun 26   0: 0: 0
+2021-08-06 13:13:27,736 - isca - DEBUG - Integration completed through    1 Jun 27   0: 0: 0
+2021-08-06 13:13:58,633 - isca - DEBUG - Integration completed through    1 Jun 28   0: 0: 0
+2021-08-06 13:14:29,733 - isca - DEBUG - Integration completed through    1 Jun 29   0: 0: 0
+2021-08-06 13:15:00,829 - isca - DEBUG - Integration completed through    1 Jun 30   0: 0: 0
+2021-08-06 13:15:31,693 - isca - DEBUG - Integration completed through    1 Jul  1   0: 0: 0
+2021-08-06 13:15:32,105 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 13:15:34,443 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 13:15:34,443 - isca - DEBUG - 
+2021-08-06 13:15:34,443 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 13:15:34,443 - isca - DEBUG - 
+2021-08-06 13:15:34,443 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 13:15:34,444 - isca - DEBUG - Total runtime                       940.673842    940.673847    940.673846      0.000001  1.000     0     0    31
+2021-08-06 13:15:34,444 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 13:15:34,510 - isca - INFO - Run 6 complete
+2021-08-06 13:15:58,506 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 13:16:07,079 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0006.tar.gz
+2021-08-06 13:16:07,251 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0006/input.nml'
+2021-08-06 13:16:07,329 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0006/field_table'
+2021-08-06 13:16:07,354 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0006/diag_table'
+2021-08-06 13:16:08,497 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 13:16:08,554 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 13:16:09,210 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 13:16:09,219 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 13:16:09,240 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 13:16:09,299 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0006.tar.gz'
+2021-08-06 13:16:11,262 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0006.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 13:16:11,264 - isca - INFO - Beginning run 7
+2021-08-06 13:16:11,276 - isca - INFO - process running as 32274
+2021-08-06 13:16:11,310 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 13:16:11,741 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 13:16:11,764 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 13:16:11,764 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 13:16:11,764 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 13:16:11,764 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 13:16:11,764 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 13:16:12,122 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 13:16:12,123 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 13:16:12,123 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 13:16:12,123 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 13:16:12,123 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 13:16:12,123 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 13:16:12,123 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 13:16:12,123 - isca - DEBUG - /
+2021-08-06 13:16:12,126 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 13:16:12,128 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 13:16:12,149 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 13:16:12,154 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 13:16:12,154 - isca - DEBUG - X-AXIS =  256
+2021-08-06 13:16:12,154 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 13:16:12,155 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 13:16:13,707 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 13:16:46,317 - isca - DEBUG - Integration completed through    1 Jul  2   0: 0: 0
+2021-08-06 13:17:18,548 - isca - DEBUG - Integration completed through    1 Jul  3   0: 0: 0
+2021-08-06 13:17:50,770 - isca - DEBUG - Integration completed through    1 Jul  4   0: 0: 0
+2021-08-06 13:18:22,943 - isca - DEBUG - Integration completed through    1 Jul  5   0: 0: 0
+2021-08-06 13:18:54,861 - isca - DEBUG - Integration completed through    1 Jul  6   0: 0: 0
+2021-08-06 13:19:26,936 - isca - DEBUG - Integration completed through    1 Jul  7   0: 0: 0
+2021-08-06 13:19:59,102 - isca - DEBUG - Integration completed through    1 Jul  8   0: 0: 0
+2021-08-06 13:20:31,311 - isca - DEBUG - Integration completed through    1 Jul  9   0: 0: 0
+2021-08-06 13:21:04,160 - isca - DEBUG - Integration completed through    1 Jul 10   0: 0: 0
+2021-08-06 13:21:36,498 - isca - DEBUG - Integration completed through    1 Jul 11   0: 0: 0
+2021-08-06 13:22:08,694 - isca - DEBUG - Integration completed through    1 Jul 12   0: 0: 0
+2021-08-06 13:22:40,658 - isca - DEBUG - Integration completed through    1 Jul 13   0: 0: 0
+2021-08-06 13:23:12,783 - isca - DEBUG - Integration completed through    1 Jul 14   0: 0: 0
+2021-08-06 13:23:45,133 - isca - DEBUG - Integration completed through    1 Jul 15   0: 0: 0
+2021-08-06 13:24:17,227 - isca - DEBUG - Integration completed through    1 Jul 16   0: 0: 0
+2021-08-06 13:24:49,258 - isca - DEBUG - Integration completed through    1 Jul 17   0: 0: 0
+2021-08-06 13:25:21,497 - isca - DEBUG - Integration completed through    1 Jul 18   0: 0: 0
+2021-08-06 13:25:54,373 - isca - DEBUG - Integration completed through    1 Jul 19   0: 0: 0
+2021-08-06 13:26:26,448 - isca - DEBUG - Integration completed through    1 Jul 20   0: 0: 0
+2021-08-06 13:26:58,613 - isca - DEBUG - Integration completed through    1 Jul 21   0: 0: 0
+2021-08-06 13:27:30,897 - isca - DEBUG - Integration completed through    1 Jul 22   0: 0: 0
+2021-08-06 13:28:02,979 - isca - DEBUG - Integration completed through    1 Jul 23   0: 0: 0
+2021-08-06 13:28:34,856 - isca - DEBUG - Integration completed through    1 Jul 24   0: 0: 0
+2021-08-06 13:29:07,061 - isca - DEBUG - Integration completed through    1 Jul 25   0: 0: 0
+2021-08-06 13:29:39,397 - isca - DEBUG - Integration completed through    1 Jul 26   0: 0: 0
+2021-08-06 13:30:11,491 - isca - DEBUG - Integration completed through    1 Jul 27   0: 0: 0
+2021-08-06 13:30:43,492 - isca - DEBUG - Integration completed through    1 Jul 28   0: 0: 0
+2021-08-06 13:31:16,589 - isca - DEBUG - Integration completed through    1 Jul 29   0: 0: 0
+2021-08-06 13:31:48,704 - isca - DEBUG - Integration completed through    1 Jul 30   0: 0: 0
+2021-08-06 13:32:20,678 - isca - DEBUG - Integration completed through    1 Aug  1   0: 0: 0
+2021-08-06 13:32:21,157 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 13:32:23,678 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 13:32:23,678 - isca - DEBUG - 
+2021-08-06 13:32:23,678 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 13:32:23,678 - isca - DEBUG - 
+2021-08-06 13:32:23,679 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 13:32:23,679 - isca - DEBUG - Total runtime                       971.558583    971.558589    971.558586      0.000002  1.000     0     0    31
+2021-08-06 13:32:23,679 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 13:32:23,808 - isca - INFO - Run 7 complete
+2021-08-06 13:32:45,686 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 13:32:54,182 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0007.tar.gz
+2021-08-06 13:32:54,342 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0007/input.nml'
+2021-08-06 13:32:54,351 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0007/field_table'
+2021-08-06 13:32:54,373 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0007/diag_table'
+2021-08-06 13:32:55,506 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 13:32:55,596 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 13:32:56,266 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 13:32:56,293 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 13:32:56,313 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 13:32:56,342 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0007.tar.gz'
+2021-08-06 13:32:58,341 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0007.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 13:32:58,343 - isca - INFO - Beginning run 8
+2021-08-06 13:32:58,355 - isca - INFO - process running as 32939
+2021-08-06 13:32:58,386 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 13:32:58,800 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 13:32:58,824 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 13:32:58,824 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 13:32:58,824 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 13:32:58,824 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 13:32:58,824 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 13:32:59,219 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 13:32:59,219 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 13:32:59,219 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 13:32:59,219 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 13:32:59,219 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 13:32:59,219 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 13:32:59,219 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 13:32:59,219 - isca - DEBUG - /
+2021-08-06 13:32:59,222 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 13:32:59,224 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 13:32:59,287 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 13:32:59,299 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 13:32:59,299 - isca - DEBUG - X-AXIS =  256
+2021-08-06 13:32:59,299 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 13:32:59,299 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 13:33:00,780 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 13:33:33,074 - isca - DEBUG - Integration completed through    1 Aug  2   0: 0: 0
+2021-08-06 13:34:05,134 - isca - DEBUG - Integration completed through    1 Aug  3   0: 0: 0
+2021-08-06 13:34:37,317 - isca - DEBUG - Integration completed through    1 Aug  4   0: 0: 0
+2021-08-06 13:35:09,604 - isca - DEBUG - Integration completed through    1 Aug  5   0: 0: 0
+2021-08-06 13:35:42,495 - isca - DEBUG - Integration completed through    1 Aug  6   0: 0: 0
+2021-08-06 13:36:15,478 - isca - DEBUG - Integration completed through    1 Aug  7   0: 0: 0
+2021-08-06 13:36:47,688 - isca - DEBUG - Integration completed through    1 Aug  8   0: 0: 0
+2021-08-06 13:37:19,703 - isca - DEBUG - Integration completed through    1 Aug  9   0: 0: 0
+2021-08-06 13:37:51,635 - isca - DEBUG - Integration completed through    1 Aug 10   0: 0: 0
+2021-08-06 13:38:23,900 - isca - DEBUG - Integration completed through    1 Aug 11   0: 0: 0
+2021-08-06 13:38:56,135 - isca - DEBUG - Integration completed through    1 Aug 12   0: 0: 0
+2021-08-06 13:39:28,095 - isca - DEBUG - Integration completed through    1 Aug 13   0: 0: 0
+2021-08-06 13:40:00,126 - isca - DEBUG - Integration completed through    1 Aug 14   0: 0: 0
+2021-08-06 13:40:32,482 - isca - DEBUG - Integration completed through    1 Aug 15   0: 0: 0
+2021-08-06 13:41:05,448 - isca - DEBUG - Integration completed through    1 Aug 16   0: 0: 0
+2021-08-06 13:41:37,446 - isca - DEBUG - Integration completed through    1 Aug 17   0: 0: 0
+2021-08-06 13:42:09,658 - isca - DEBUG - Integration completed through    1 Aug 18   0: 0: 0
+2021-08-06 13:42:41,838 - isca - DEBUG - Integration completed through    1 Aug 19   0: 0: 0
+2021-08-06 13:43:13,840 - isca - DEBUG - Integration completed through    1 Aug 20   0: 0: 0
+2021-08-06 13:43:45,991 - isca - DEBUG - Integration completed through    1 Aug 21   0: 0: 0
+2021-08-06 13:44:18,225 - isca - DEBUG - Integration completed through    1 Aug 22   0: 0: 0
+2021-08-06 13:44:50,258 - isca - DEBUG - Integration completed through    1 Aug 23   0: 0: 0
+2021-08-06 13:45:22,226 - isca - DEBUG - Integration completed through    1 Aug 24   0: 0: 0
+2021-08-06 13:45:55,040 - isca - DEBUG - Integration completed through    1 Aug 25   0: 0: 0
+2021-08-06 13:46:27,494 - isca - DEBUG - Integration completed through    1 Aug 26   0: 0: 0
+2021-08-06 13:46:59,416 - isca - DEBUG - Integration completed through    1 Aug 27   0: 0: 0
+2021-08-06 13:47:31,365 - isca - DEBUG - Integration completed through    1 Aug 28   0: 0: 0
+2021-08-06 13:48:03,633 - isca - DEBUG - Integration completed through    1 Aug 29   0: 0: 0
+2021-08-06 13:48:35,732 - isca - DEBUG - Integration completed through    1 Aug 30   0: 0: 0
+2021-08-06 13:49:07,629 - isca - DEBUG - Integration completed through    1 Sep  1   0: 0: 0
+2021-08-06 13:49:08,120 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 13:49:10,506 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 13:49:10,506 - isca - DEBUG - 
+2021-08-06 13:49:10,507 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 13:49:10,507 - isca - DEBUG - 
+2021-08-06 13:49:10,507 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 13:49:10,507 - isca - DEBUG - Total runtime                       971.290159    971.290165    971.290162      0.000001  1.000     0     0    31
+2021-08-06 13:49:10,507 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 13:49:10,639 - isca - INFO - Run 8 complete
+2021-08-06 13:49:33,466 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 13:49:42,011 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0008.tar.gz
+2021-08-06 13:49:42,191 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0008/input.nml'
+2021-08-06 13:49:42,200 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0008/field_table'
+2021-08-06 13:49:42,224 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0008/diag_table'
+2021-08-06 13:49:43,707 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 13:49:44,205 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 13:49:44,800 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 13:49:44,809 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 13:49:44,830 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 13:49:44,858 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0008.tar.gz'
+2021-08-06 13:49:46,879 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0008.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 13:49:46,881 - isca - INFO - Beginning run 9
+2021-08-06 13:49:46,893 - isca - INFO - process running as 33597
+2021-08-06 13:49:46,927 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 13:49:47,343 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 13:49:47,366 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 13:49:47,366 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 13:49:47,367 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 13:49:47,367 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 13:49:47,367 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 13:49:47,752 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 13:49:47,752 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 13:49:47,752 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 13:49:47,752 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 13:49:47,752 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 13:49:47,753 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 13:49:47,753 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 13:49:47,753 - isca - DEBUG - /
+2021-08-06 13:49:47,755 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 13:49:47,757 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 13:49:47,776 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 13:49:47,782 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 13:49:47,782 - isca - DEBUG - X-AXIS =  256
+2021-08-06 13:49:47,782 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 13:49:47,782 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 13:49:49,251 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 13:50:20,503 - isca - DEBUG - Integration completed through    1 Sep  2   0: 0: 0
+2021-08-06 13:50:51,632 - isca - DEBUG - Integration completed through    1 Sep  3   0: 0: 0
+2021-08-06 13:51:23,266 - isca - DEBUG - Integration completed through    1 Sep  4   0: 0: 0
+2021-08-06 13:51:54,318 - isca - DEBUG - Integration completed through    1 Sep  5   0: 0: 0
+2021-08-06 13:52:25,150 - isca - DEBUG - Integration completed through    1 Sep  6   0: 0: 0
+2021-08-06 13:52:56,196 - isca - DEBUG - Integration completed through    1 Sep  7   0: 0: 0
+2021-08-06 13:53:27,321 - isca - DEBUG - Integration completed through    1 Sep  8   0: 0: 0
+2021-08-06 13:53:58,250 - isca - DEBUG - Integration completed through    1 Sep  9   0: 0: 0
+2021-08-06 13:54:29,240 - isca - DEBUG - Integration completed through    1 Sep 10   0: 0: 0
+2021-08-06 13:55:00,420 - isca - DEBUG - Integration completed through    1 Sep 11   0: 0: 0
+2021-08-06 13:55:31,605 - isca - DEBUG - Integration completed through    1 Sep 12   0: 0: 0
+2021-08-06 13:56:03,551 - isca - DEBUG - Integration completed through    1 Sep 13   0: 0: 0
+2021-08-06 13:56:36,823 - isca - DEBUG - Integration completed through    1 Sep 14   0: 0: 0
+2021-08-06 13:57:08,074 - isca - DEBUG - Integration completed through    1 Sep 15   0: 0: 0
+2021-08-06 13:57:39,054 - isca - DEBUG - Integration completed through    1 Sep 16   0: 0: 0
+2021-08-06 13:58:09,983 - isca - DEBUG - Integration completed through    1 Sep 17   0: 0: 0
+2021-08-06 13:58:41,088 - isca - DEBUG - Integration completed through    1 Sep 18   0: 0: 0
+2021-08-06 13:59:12,123 - isca - DEBUG - Integration completed through    1 Sep 19   0: 0: 0
+2021-08-06 13:59:42,969 - isca - DEBUG - Integration completed through    1 Sep 20   0: 0: 0
+2021-08-06 14:00:14,172 - isca - DEBUG - Integration completed through    1 Sep 21   0: 0: 0
+2021-08-06 14:00:45,436 - isca - DEBUG - Integration completed through    1 Sep 22   0: 0: 0
+2021-08-06 14:01:17,311 - isca - DEBUG - Integration completed through    1 Sep 23   0: 0: 0
+2021-08-06 14:01:48,234 - isca - DEBUG - Integration completed through    1 Sep 24   0: 0: 0
+2021-08-06 14:02:19,379 - isca - DEBUG - Integration completed through    1 Sep 25   0: 0: 0
+2021-08-06 14:02:50,566 - isca - DEBUG - Integration completed through    1 Sep 26   0: 0: 0
+2021-08-06 14:03:21,519 - isca - DEBUG - Integration completed through    1 Sep 27   0: 0: 0
+2021-08-06 14:03:52,493 - isca - DEBUG - Integration completed through    1 Sep 28   0: 0: 0
+2021-08-06 14:04:23,745 - isca - DEBUG - Integration completed through    1 Sep 29   0: 0: 0
+2021-08-06 14:04:54,803 - isca - DEBUG - Integration completed through    1 Sep 30   0: 0: 0
+2021-08-06 14:05:25,800 - isca - DEBUG - Integration completed through    1 Oct  1   0: 0: 0
+2021-08-06 14:05:26,298 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 14:05:28,799 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 14:05:28,799 - isca - DEBUG - 
+2021-08-06 14:05:28,799 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 14:05:28,799 - isca - DEBUG - 
+2021-08-06 14:05:28,799 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 14:05:28,799 - isca - DEBUG - Total runtime                       941.048913    941.048916    941.048914      0.000001  1.000     0     0    31
+2021-08-06 14:05:28,799 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 14:05:28,836 - isca - INFO - Run 9 complete
+2021-08-06 14:05:53,627 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 14:06:02,919 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0009.tar.gz
+2021-08-06 14:06:03,107 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0009/input.nml'
+2021-08-06 14:06:03,117 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0009/field_table'
+2021-08-06 14:06:03,140 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0009/diag_table'
+2021-08-06 14:06:05,122 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 14:06:05,269 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 14:06:06,637 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 14:06:06,645 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 14:06:06,666 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 14:06:06,694 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0009.tar.gz'
+2021-08-06 14:06:08,626 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0009.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 14:06:08,628 - isca - INFO - Beginning run 10
+2021-08-06 14:06:08,641 - isca - INFO - process running as 34369
+2021-08-06 14:06:08,673 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 14:06:09,096 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 14:06:09,114 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 14:06:09,114 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 14:06:09,114 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 14:06:09,114 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 14:06:09,115 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 14:06:09,462 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 14:06:09,463 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 14:06:09,463 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 14:06:09,463 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 14:06:09,463 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 14:06:09,463 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 14:06:09,463 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 14:06:09,463 - isca - DEBUG - /
+2021-08-06 14:06:09,465 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 14:06:09,467 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 14:06:09,501 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 14:06:09,508 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 14:06:09,508 - isca - DEBUG - X-AXIS =  256
+2021-08-06 14:06:09,508 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 14:06:09,508 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 14:06:11,198 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 14:06:42,499 - isca - DEBUG - Integration completed through    1 Oct  2   0: 0: 0
+2021-08-06 14:07:15,619 - isca - DEBUG - Integration completed through    1 Oct  3   0: 0: 0
+2021-08-06 14:07:47,008 - isca - DEBUG - Integration completed through    1 Oct  4   0: 0: 0
+2021-08-06 14:08:18,112 - isca - DEBUG - Integration completed through    1 Oct  5   0: 0: 0
+2021-08-06 14:08:49,125 - isca - DEBUG - Integration completed through    1 Oct  6   0: 0: 0
+2021-08-06 14:09:20,266 - isca - DEBUG - Integration completed through    1 Oct  7   0: 0: 0
+2021-08-06 14:09:51,531 - isca - DEBUG - Integration completed through    1 Oct  8   0: 0: 0
+2021-08-06 14:10:22,648 - isca - DEBUG - Integration completed through    1 Oct  9   0: 0: 0
+2021-08-06 14:10:54,451 - isca - DEBUG - Integration completed through    1 Oct 10   0: 0: 0
+2021-08-06 14:11:25,712 - isca - DEBUG - Integration completed through    1 Oct 11   0: 0: 0
+2021-08-06 14:11:58,967 - isca - DEBUG - Integration completed through    1 Oct 12   0: 0: 0
+2021-08-06 14:12:29,999 - isca - DEBUG - Integration completed through    1 Oct 13   0: 0: 0
+2021-08-06 14:13:01,116 - isca - DEBUG - Integration completed through    1 Oct 14   0: 0: 0
+2021-08-06 14:13:32,430 - isca - DEBUG - Integration completed through    1 Oct 15   0: 0: 0
+2021-08-06 14:14:03,484 - isca - DEBUG - Integration completed through    1 Oct 16   0: 0: 0
+2021-08-06 14:14:34,513 - isca - DEBUG - Integration completed through    1 Oct 17   0: 0: 0
+2021-08-06 14:15:05,841 - isca - DEBUG - Integration completed through    1 Oct 18   0: 0: 0
+2021-08-06 14:15:36,995 - isca - DEBUG - Integration completed through    1 Oct 19   0: 0: 0
+2021-08-06 14:16:08,949 - isca - DEBUG - Integration completed through    1 Oct 20   0: 0: 0
+2021-08-06 14:16:40,386 - isca - DEBUG - Integration completed through    1 Oct 21   0: 0: 0
+2021-08-06 14:17:11,645 - isca - DEBUG - Integration completed through    1 Oct 22   0: 0: 0
+2021-08-06 14:17:42,757 - isca - DEBUG - Integration completed through    1 Oct 23   0: 0: 0
+2021-08-06 14:18:13,704 - isca - DEBUG - Integration completed through    1 Oct 24   0: 0: 0
+2021-08-06 14:18:44,918 - isca - DEBUG - Integration completed through    1 Oct 25   0: 0: 0
+2021-08-06 14:19:16,160 - isca - DEBUG - Integration completed through    1 Oct 26   0: 0: 0
+2021-08-06 14:19:47,143 - isca - DEBUG - Integration completed through    1 Oct 27   0: 0: 0
+2021-08-06 14:20:18,232 - isca - DEBUG - Integration completed through    1 Oct 28   0: 0: 0
+2021-08-06 14:20:49,437 - isca - DEBUG - Integration completed through    1 Oct 29   0: 0: 0
+2021-08-06 14:21:21,464 - isca - DEBUG - Integration completed through    1 Oct 30   0: 0: 0
+2021-08-06 14:21:53,373 - isca - DEBUG - Integration completed through    1 Nov  1   0: 0: 0
+2021-08-06 14:21:53,778 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 14:21:56,433 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 14:21:56,434 - isca - DEBUG - 
+2021-08-06 14:21:56,434 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 14:21:56,434 - isca - DEBUG - 
+2021-08-06 14:21:56,434 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 14:21:56,434 - isca - DEBUG - Total runtime                       946.973276    946.973283    946.973280      0.000002  1.000     0     0    31
+2021-08-06 14:21:56,434 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 14:21:56,508 - isca - INFO - Run 10 complete
+2021-08-06 14:22:22,902 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 14:22:31,771 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0010.tar.gz
+2021-08-06 14:22:32,060 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0010/input.nml'
+2021-08-06 14:22:32,069 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0010/field_table'
+2021-08-06 14:22:32,093 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0010/diag_table'
+2021-08-06 14:22:33,453 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 14:22:33,522 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 14:22:34,075 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 14:22:34,084 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 14:22:34,103 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 14:22:34,133 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0010.tar.gz'
+2021-08-06 14:22:36,012 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0010.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 14:22:36,014 - isca - INFO - Beginning run 11
+2021-08-06 14:22:36,029 - isca - INFO - process running as 35023
+2021-08-06 14:22:36,063 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 14:22:36,489 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 14:22:36,511 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 14:22:36,512 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 14:22:36,512 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 14:22:36,512 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 14:22:36,512 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 14:22:36,863 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 14:22:36,863 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 14:22:36,863 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 14:22:36,863 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 14:22:36,863 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 14:22:36,863 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 14:22:36,863 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 14:22:36,863 - isca - DEBUG - /
+2021-08-06 14:22:36,866 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 14:22:36,868 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 14:22:36,888 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 14:22:36,894 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 14:22:36,894 - isca - DEBUG - X-AXIS =  256
+2021-08-06 14:22:36,894 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 14:22:36,894 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 14:22:38,459 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 14:23:10,287 - isca - DEBUG - Integration completed through    1 Nov  2   0: 0: 0
+2021-08-06 14:23:42,026 - isca - DEBUG - Integration completed through    1 Nov  3   0: 0: 0
+2021-08-06 14:24:13,817 - isca - DEBUG - Integration completed through    1 Nov  4   0: 0: 0
+2021-08-06 14:24:45,387 - isca - DEBUG - Integration completed through    1 Nov  5   0: 0: 0
+2021-08-06 14:25:16,882 - isca - DEBUG - Integration completed through    1 Nov  6   0: 0: 0
+2021-08-06 14:25:48,517 - isca - DEBUG - Integration completed through    1 Nov  7   0: 0: 0
+2021-08-06 14:26:21,027 - isca - DEBUG - Integration completed through    1 Nov  8   0: 0: 0
+2021-08-06 14:26:54,355 - isca - DEBUG - Integration completed through    1 Nov  9   0: 0: 0
+2021-08-06 14:27:25,914 - isca - DEBUG - Integration completed through    1 Nov 10   0: 0: 0
+2021-08-06 14:27:57,696 - isca - DEBUG - Integration completed through    1 Nov 11   0: 0: 0
+2021-08-06 14:28:29,356 - isca - DEBUG - Integration completed through    1 Nov 12   0: 0: 0
+2021-08-06 14:29:00,798 - isca - DEBUG - Integration completed through    1 Nov 13   0: 0: 0
+2021-08-06 14:29:32,362 - isca - DEBUG - Integration completed through    1 Nov 14   0: 0: 0
+2021-08-06 14:30:04,213 - isca - DEBUG - Integration completed through    1 Nov 15   0: 0: 0
+2021-08-06 14:30:35,873 - isca - DEBUG - Integration completed through    1 Nov 16   0: 0: 0
+2021-08-06 14:31:08,129 - isca - DEBUG - Integration completed through    1 Nov 17   0: 0: 0
+2021-08-06 14:31:39,965 - isca - DEBUG - Integration completed through    1 Nov 18   0: 0: 0
+2021-08-06 14:32:11,667 - isca - DEBUG - Integration completed through    1 Nov 19   0: 0: 0
+2021-08-06 14:32:43,103 - isca - DEBUG - Integration completed through    1 Nov 20   0: 0: 0
+2021-08-06 14:33:14,728 - isca - DEBUG - Integration completed through    1 Nov 21   0: 0: 0
+2021-08-06 14:33:46,563 - isca - DEBUG - Integration completed through    1 Nov 22   0: 0: 0
+2021-08-06 14:34:18,134 - isca - DEBUG - Integration completed through    1 Nov 23   0: 0: 0
+2021-08-06 14:34:49,579 - isca - DEBUG - Integration completed through    1 Nov 24   0: 0: 0
+2021-08-06 14:35:21,402 - isca - DEBUG - Integration completed through    1 Nov 25   0: 0: 0
+2021-08-06 14:35:53,725 - isca - DEBUG - Integration completed through    1 Nov 26   0: 0: 0
+2021-08-06 14:36:25,340 - isca - DEBUG - Integration completed through    1 Nov 27   0: 0: 0
+2021-08-06 14:36:56,883 - isca - DEBUG - Integration completed through    1 Nov 28   0: 0: 0
+2021-08-06 14:37:28,771 - isca - DEBUG - Integration completed through    1 Nov 29   0: 0: 0
+2021-08-06 14:38:00,456 - isca - DEBUG - Integration completed through    1 Nov 30   0: 0: 0
+2021-08-06 14:38:31,948 - isca - DEBUG - Integration completed through    1 Dec  1   0: 0: 0
+2021-08-06 14:38:32,444 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 14:38:34,881 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 14:38:34,881 - isca - DEBUG - 
+2021-08-06 14:38:34,881 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 14:38:34,881 - isca - DEBUG - 
+2021-08-06 14:38:34,881 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 14:38:34,881 - isca - DEBUG - Total runtime                       958.020416    958.020419    958.020417      0.000001  1.000     0     0    31
+2021-08-06 14:38:34,881 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 14:38:34,934 - isca - INFO - Run 11 complete
+2021-08-06 14:38:59,291 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 14:39:07,711 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0011.tar.gz
+2021-08-06 14:39:07,884 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0011/input.nml'
+2021-08-06 14:39:07,894 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0011/field_table'
+2021-08-06 14:39:07,918 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0011/diag_table'
+2021-08-06 14:39:09,128 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 14:39:09,180 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 14:39:09,721 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 14:39:09,730 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 14:39:09,750 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 14:39:09,775 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0011.tar.gz'
+2021-08-06 14:39:11,693 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0011.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 14:39:11,695 - isca - INFO - Beginning run 12
+2021-08-06 14:39:11,706 - isca - INFO - process running as 35682
+2021-08-06 14:39:11,738 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 14:39:12,169 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 14:39:12,192 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 14:39:12,192 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 14:39:12,192 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 14:39:12,192 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 14:39:12,192 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 14:39:12,566 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 14:39:12,567 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 14:39:12,567 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 14:39:12,567 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 14:39:12,567 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 14:39:12,567 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 14:39:12,567 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 14:39:12,567 - isca - DEBUG - /
+2021-08-06 14:39:12,570 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 14:39:12,572 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 14:39:12,598 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 14:39:12,603 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 14:39:12,604 - isca - DEBUG - X-AXIS =  256
+2021-08-06 14:39:12,604 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 14:39:12,604 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 14:39:14,226 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 14:39:45,218 - isca - DEBUG - Integration completed through    1 Dec  2   0: 0: 0
+2021-08-06 14:40:15,843 - isca - DEBUG - Integration completed through    1 Dec  3   0: 0: 0
+2021-08-06 14:40:46,690 - isca - DEBUG - Integration completed through    1 Dec  4   0: 0: 0
+2021-08-06 14:41:18,359 - isca - DEBUG - Integration completed through    1 Dec  5   0: 0: 0
+2021-08-06 14:41:51,048 - isca - DEBUG - Integration completed through    1 Dec  6   0: 0: 0
+2021-08-06 14:42:21,888 - isca - DEBUG - Integration completed through    1 Dec  7   0: 0: 0
+2021-08-06 14:42:52,825 - isca - DEBUG - Integration completed through    1 Dec  8   0: 0: 0
+2021-08-06 14:43:23,581 - isca - DEBUG - Integration completed through    1 Dec  9   0: 0: 0
+2021-08-06 14:43:54,300 - isca - DEBUG - Integration completed through    1 Dec 10   0: 0: 0
+2021-08-06 14:44:25,273 - isca - DEBUG - Integration completed through    1 Dec 11   0: 0: 0
+2021-08-06 14:44:56,069 - isca - DEBUG - Integration completed through    1 Dec 12   0: 0: 0
+2021-08-06 14:45:26,724 - isca - DEBUG - Integration completed through    1 Dec 13   0: 0: 0
+2021-08-06 14:45:58,266 - isca - DEBUG - Integration completed through    1 Dec 14   0: 0: 0
+2021-08-06 14:46:29,543 - isca - DEBUG - Integration completed through    1 Dec 15   0: 0: 0
+2021-08-06 14:47:00,345 - isca - DEBUG - Integration completed through    1 Dec 16   0: 0: 0
+2021-08-06 14:47:31,114 - isca - DEBUG - Integration completed through    1 Dec 17   0: 0: 0
+2021-08-06 14:48:02,011 - isca - DEBUG - Integration completed through    1 Dec 18   0: 0: 0
+2021-08-06 14:48:32,907 - isca - DEBUG - Integration completed through    1 Dec 19   0: 0: 0
+2021-08-06 14:49:03,481 - isca - DEBUG - Integration completed through    1 Dec 20   0: 0: 0
+2021-08-06 14:49:34,347 - isca - DEBUG - Integration completed through    1 Dec 21   0: 0: 0
+2021-08-06 14:50:05,314 - isca - DEBUG - Integration completed through    1 Dec 22   0: 0: 0
+2021-08-06 14:50:36,009 - isca - DEBUG - Integration completed through    1 Dec 23   0: 0: 0
+2021-08-06 14:51:07,669 - isca - DEBUG - Integration completed through    1 Dec 24   0: 0: 0
+2021-08-06 14:51:38,545 - isca - DEBUG - Integration completed through    1 Dec 25   0: 0: 0
+2021-08-06 14:52:09,529 - isca - DEBUG - Integration completed through    1 Dec 26   0: 0: 0
+2021-08-06 14:52:40,179 - isca - DEBUG - Integration completed through    1 Dec 27   0: 0: 0
+2021-08-06 14:53:10,844 - isca - DEBUG - Integration completed through    1 Dec 28   0: 0: 0
+2021-08-06 14:53:41,850 - isca - DEBUG - Integration completed through    1 Dec 29   0: 0: 0
+2021-08-06 14:54:12,709 - isca - DEBUG - Integration completed through    1 Dec 30   0: 0: 0
+2021-08-06 14:54:43,430 - isca - DEBUG - Integration completed through    2 Jan  1   0: 0: 0
+2021-08-06 14:54:43,894 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 14:54:46,276 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 14:54:46,276 - isca - DEBUG - 
+2021-08-06 14:54:46,276 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 14:54:46,276 - isca - DEBUG - 
+2021-08-06 14:54:46,276 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 14:54:46,276 - isca - DEBUG - Total runtime                       933.711971    933.711975    933.711973      0.000001  1.000     0     0    31
+2021-08-06 14:54:46,276 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 14:54:46,342 - isca - INFO - Run 12 complete
+2021-08-06 14:55:10,099 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 14:55:18,556 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0012.tar.gz
+2021-08-06 14:55:18,729 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0012/input.nml'
+2021-08-06 14:55:18,738 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0012/field_table'
+2021-08-06 14:55:18,761 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0012/diag_table'
+2021-08-06 14:55:19,835 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 14:55:19,886 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 14:55:20,425 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 14:55:20,435 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 14:55:20,457 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 14:55:20,486 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0012.tar.gz'
+2021-08-06 14:55:22,378 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0012.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 14:55:22,380 - isca - INFO - Beginning run 13
+2021-08-06 14:55:22,391 - isca - INFO - process running as 36343
+2021-08-06 14:55:22,426 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 14:55:22,864 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 14:55:22,886 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 14:55:22,886 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 14:55:22,886 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 14:55:22,886 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 14:55:22,886 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 14:55:23,269 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 14:55:23,269 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 14:55:23,269 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 14:55:23,269 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 14:55:23,269 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 14:55:23,269 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 14:55:23,269 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 14:55:23,269 - isca - DEBUG - /
+2021-08-06 14:55:23,272 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 14:55:23,274 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 14:55:23,300 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 14:55:23,307 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 14:55:23,307 - isca - DEBUG - X-AXIS =  256
+2021-08-06 14:55:23,307 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 14:55:23,307 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 14:55:25,057 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 14:55:57,081 - isca - DEBUG - Integration completed through    2 Jan  2   0: 0: 0
+2021-08-06 14:56:28,229 - isca - DEBUG - Integration completed through    2 Jan  3   0: 0: 0
+2021-08-06 14:57:00,462 - isca - DEBUG - Integration completed through    2 Jan  4   0: 0: 0
+2021-08-06 14:57:31,308 - isca - DEBUG - Integration completed through    2 Jan  5   0: 0: 0
+2021-08-06 14:58:01,968 - isca - DEBUG - Integration completed through    2 Jan  6   0: 0: 0
+2021-08-06 14:58:32,795 - isca - DEBUG - Integration completed through    2 Jan  7   0: 0: 0
+2021-08-06 14:59:03,747 - isca - DEBUG - Integration completed through    2 Jan  8   0: 0: 0
+2021-08-06 14:59:34,484 - isca - DEBUG - Integration completed through    2 Jan  9   0: 0: 0
+2021-08-06 15:00:05,233 - isca - DEBUG - Integration completed through    2 Jan 10   0: 0: 0
+2021-08-06 15:00:36,223 - isca - DEBUG - Integration completed through    2 Jan 11   0: 0: 0
+2021-08-06 15:01:08,061 - isca - DEBUG - Integration completed through    2 Jan 12   0: 0: 0
+2021-08-06 15:01:38,741 - isca - DEBUG - Integration completed through    2 Jan 13   0: 0: 0
+2021-08-06 15:02:09,539 - isca - DEBUG - Integration completed through    2 Jan 14   0: 0: 0
+2021-08-06 15:02:40,462 - isca - DEBUG - Integration completed through    2 Jan 15   0: 0: 0
+2021-08-06 15:03:11,276 - isca - DEBUG - Integration completed through    2 Jan 16   0: 0: 0
+2021-08-06 15:03:41,978 - isca - DEBUG - Integration completed through    2 Jan 17   0: 0: 0
+2021-08-06 15:04:12,866 - isca - DEBUG - Integration completed through    2 Jan 18   0: 0: 0
+2021-08-06 15:04:43,663 - isca - DEBUG - Integration completed through    2 Jan 19   0: 0: 0
+2021-08-06 15:05:14,391 - isca - DEBUG - Integration completed through    2 Jan 20   0: 0: 0
+2021-08-06 15:05:45,172 - isca - DEBUG - Integration completed through    2 Jan 21   0: 0: 0
+2021-08-06 15:06:17,001 - isca - DEBUG - Integration completed through    2 Jan 22   0: 0: 0
+2021-08-06 15:06:47,757 - isca - DEBUG - Integration completed through    2 Jan 23   0: 0: 0
+2021-08-06 15:07:18,432 - isca - DEBUG - Integration completed through    2 Jan 24   0: 0: 0
+2021-08-06 15:07:49,382 - isca - DEBUG - Integration completed through    2 Jan 25   0: 0: 0
+2021-08-06 15:08:20,271 - isca - DEBUG - Integration completed through    2 Jan 26   0: 0: 0
+2021-08-06 15:08:50,961 - isca - DEBUG - Integration completed through    2 Jan 27   0: 0: 0
+2021-08-06 15:09:21,664 - isca - DEBUG - Integration completed through    2 Jan 28   0: 0: 0
+2021-08-06 15:09:52,536 - isca - DEBUG - Integration completed through    2 Jan 29   0: 0: 0
+2021-08-06 15:10:23,585 - isca - DEBUG - Integration completed through    2 Jan 30   0: 0: 0
+2021-08-06 15:10:55,105 - isca - DEBUG - Integration completed through    2 Feb  1   0: 0: 0
+2021-08-06 15:10:55,551 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 15:10:57,903 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 15:10:57,903 - isca - DEBUG - 
+2021-08-06 15:10:57,903 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 15:10:57,903 - isca - DEBUG - 
+2021-08-06 15:10:57,903 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 15:10:57,903 - isca - DEBUG - Total runtime                       934.636960    934.636966    934.636963      0.000002  1.000     0     0    31
+2021-08-06 15:10:57,903 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 15:10:57,957 - isca - INFO - Run 13 complete
+2021-08-06 15:11:21,570 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 15:11:29,864 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0013.tar.gz
+2021-08-06 15:11:30,123 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0013/input.nml'
+2021-08-06 15:11:30,133 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0013/field_table'
+2021-08-06 15:11:30,155 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0013/diag_table'
+2021-08-06 15:11:31,223 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 15:11:31,279 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 15:11:31,803 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 15:11:31,812 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 15:11:31,832 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 15:11:31,882 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0013.tar.gz'
+2021-08-06 15:11:33,698 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0013.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 15:11:33,700 - isca - INFO - Beginning run 14
+2021-08-06 15:11:33,712 - isca - INFO - process running as 37029
+2021-08-06 15:11:33,741 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 15:11:34,167 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 15:11:34,190 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 15:11:34,190 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 15:11:34,190 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 15:11:34,190 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 15:11:34,190 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 15:11:34,563 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 15:11:34,563 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 15:11:34,563 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 15:11:34,563 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 15:11:34,563 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 15:11:34,563 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 15:11:34,563 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 15:11:34,563 - isca - DEBUG - /
+2021-08-06 15:11:34,565 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 15:11:34,567 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 15:11:34,592 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 15:11:34,598 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 15:11:34,598 - isca - DEBUG - X-AXIS =  256
+2021-08-06 15:11:34,598 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 15:11:34,599 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 15:11:36,212 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 15:12:07,323 - isca - DEBUG - Integration completed through    2 Feb  2   0: 0: 0
+2021-08-06 15:12:37,982 - isca - DEBUG - Integration completed through    2 Feb  3   0: 0: 0
+2021-08-06 15:13:08,857 - isca - DEBUG - Integration completed through    2 Feb  4   0: 0: 0
+2021-08-06 15:13:39,775 - isca - DEBUG - Integration completed through    2 Feb  5   0: 0: 0
+2021-08-06 15:14:10,414 - isca - DEBUG - Integration completed through    2 Feb  6   0: 0: 0
+2021-08-06 15:14:41,285 - isca - DEBUG - Integration completed through    2 Feb  7   0: 0: 0
+2021-08-06 15:15:12,275 - isca - DEBUG - Integration completed through    2 Feb  8   0: 0: 0
+2021-08-06 15:15:42,956 - isca - DEBUG - Integration completed through    2 Feb  9   0: 0: 0
+2021-08-06 15:16:14,616 - isca - DEBUG - Integration completed through    2 Feb 10   0: 0: 0
+2021-08-06 15:16:45,882 - isca - DEBUG - Integration completed through    2 Feb 11   0: 0: 0
+2021-08-06 15:17:16,811 - isca - DEBUG - Integration completed through    2 Feb 12   0: 0: 0
+2021-08-06 15:17:47,447 - isca - DEBUG - Integration completed through    2 Feb 13   0: 0: 0
+2021-08-06 15:18:18,200 - isca - DEBUG - Integration completed through    2 Feb 14   0: 0: 0
+2021-08-06 15:18:49,266 - isca - DEBUG - Integration completed through    2 Feb 15   0: 0: 0
+2021-08-06 15:19:20,122 - isca - DEBUG - Integration completed through    2 Feb 16   0: 0: 0
+2021-08-06 15:19:50,854 - isca - DEBUG - Integration completed through    2 Feb 17   0: 0: 0
+2021-08-06 15:20:21,893 - isca - DEBUG - Integration completed through    2 Feb 18   0: 0: 0
+2021-08-06 15:20:53,092 - isca - DEBUG - Integration completed through    2 Feb 19   0: 0: 0
+2021-08-06 15:21:25,348 - isca - DEBUG - Integration completed through    2 Feb 20   0: 0: 0
+2021-08-06 15:21:58,177 - isca - DEBUG - Integration completed through    2 Feb 21   0: 0: 0
+2021-08-06 15:22:29,251 - isca - DEBUG - Integration completed through    2 Feb 22   0: 0: 0
+2021-08-06 15:23:00,140 - isca - DEBUG - Integration completed through    2 Feb 23   0: 0: 0
+2021-08-06 15:23:30,792 - isca - DEBUG - Integration completed through    2 Feb 24   0: 0: 0
+2021-08-06 15:24:01,803 - isca - DEBUG - Integration completed through    2 Feb 25   0: 0: 0
+2021-08-06 15:24:32,720 - isca - DEBUG - Integration completed through    2 Feb 26   0: 0: 0
+2021-08-06 15:25:03,566 - isca - DEBUG - Integration completed through    2 Feb 27   0: 0: 0
+2021-08-06 15:25:34,387 - isca - DEBUG - Integration completed through    2 Feb 28   0: 0: 0
+2021-08-06 15:26:06,448 - isca - DEBUG - Integration completed through    2 Feb 29   0: 0: 0
+2021-08-06 15:26:39,444 - isca - DEBUG - Integration completed through    2 Feb 30   0: 0: 0
+2021-08-06 15:27:10,235 - isca - DEBUG - Integration completed through    2 Mar  1   0: 0: 0
+2021-08-06 15:27:10,756 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 15:27:13,148 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 15:27:13,148 - isca - DEBUG - 
+2021-08-06 15:27:13,148 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 15:27:13,148 - isca - DEBUG - 
+2021-08-06 15:27:13,148 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 15:27:13,148 - isca - DEBUG - Total runtime                       938.587478    938.587486    938.587483      0.000001  1.000     0     0    31
+2021-08-06 15:27:13,148 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 15:27:13,213 - isca - INFO - Run 14 complete
+2021-08-06 15:27:37,835 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 15:27:46,550 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0014.tar.gz
+2021-08-06 15:27:46,731 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0014/input.nml'
+2021-08-06 15:27:46,741 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0014/field_table'
+2021-08-06 15:27:46,763 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0014/diag_table'
+2021-08-06 15:27:47,869 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 15:27:47,922 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 15:27:48,459 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 15:27:48,467 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 15:27:48,488 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 15:27:48,516 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0014.tar.gz'
+2021-08-06 15:27:50,406 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0014.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 15:27:50,408 - isca - INFO - Beginning run 15
+2021-08-06 15:27:50,419 - isca - INFO - process running as 37682
+2021-08-06 15:27:50,451 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 15:27:50,861 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 15:27:50,885 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 15:27:50,885 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 15:27:50,885 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 15:27:50,885 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 15:27:50,885 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 15:27:51,254 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 15:27:51,254 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 15:27:51,254 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 15:27:51,254 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 15:27:51,255 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 15:27:51,255 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 15:27:51,255 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 15:27:51,255 - isca - DEBUG - /
+2021-08-06 15:27:51,257 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 15:27:51,259 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 15:27:51,284 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 15:27:51,290 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 15:27:51,290 - isca - DEBUG - X-AXIS =  256
+2021-08-06 15:27:51,290 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 15:27:51,290 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 15:27:52,863 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 15:28:24,018 - isca - DEBUG - Integration completed through    2 Mar  2   0: 0: 0
+2021-08-06 15:28:54,754 - isca - DEBUG - Integration completed through    2 Mar  3   0: 0: 0
+2021-08-06 15:29:25,796 - isca - DEBUG - Integration completed through    2 Mar  4   0: 0: 0
+2021-08-06 15:29:56,666 - isca - DEBUG - Integration completed through    2 Mar  5   0: 0: 0
+2021-08-06 15:30:27,438 - isca - DEBUG - Integration completed through    2 Mar  6   0: 0: 0
+2021-08-06 15:30:59,169 - isca - DEBUG - Integration completed through    2 Mar  7   0: 0: 0
+2021-08-06 15:31:30,261 - isca - DEBUG - Integration completed through    2 Mar  8   0: 0: 0
+2021-08-06 15:32:01,011 - isca - DEBUG - Integration completed through    2 Mar  9   0: 0: 0
+2021-08-06 15:32:31,785 - isca - DEBUG - Integration completed through    2 Mar 10   0: 0: 0
+2021-08-06 15:33:02,854 - isca - DEBUG - Integration completed through    2 Mar 11   0: 0: 0
+2021-08-06 15:33:33,762 - isca - DEBUG - Integration completed through    2 Mar 12   0: 0: 0
+2021-08-06 15:34:04,451 - isca - DEBUG - Integration completed through    2 Mar 13   0: 0: 0
+2021-08-06 15:34:35,227 - isca - DEBUG - Integration completed through    2 Mar 14   0: 0: 0
+2021-08-06 15:35:06,218 - isca - DEBUG - Integration completed through    2 Mar 15   0: 0: 0
+2021-08-06 15:35:36,947 - isca - DEBUG - Integration completed through    2 Mar 16   0: 0: 0
+2021-08-06 15:36:08,698 - isca - DEBUG - Integration completed through    2 Mar 17   0: 0: 0
+2021-08-06 15:36:39,597 - isca - DEBUG - Integration completed through    2 Mar 18   0: 0: 0
+2021-08-06 15:37:10,468 - isca - DEBUG - Integration completed through    2 Mar 19   0: 0: 0
+2021-08-06 15:37:41,134 - isca - DEBUG - Integration completed through    2 Mar 20   0: 0: 0
+2021-08-06 15:38:11,986 - isca - DEBUG - Integration completed through    2 Mar 21   0: 0: 0
+2021-08-06 15:38:43,019 - isca - DEBUG - Integration completed through    2 Mar 22   0: 0: 0
+2021-08-06 15:39:13,826 - isca - DEBUG - Integration completed through    2 Mar 23   0: 0: 0
+2021-08-06 15:39:44,510 - isca - DEBUG - Integration completed through    2 Mar 24   0: 0: 0
+2021-08-06 15:40:15,385 - isca - DEBUG - Integration completed through    2 Mar 25   0: 0: 0
+2021-08-06 15:40:46,255 - isca - DEBUG - Integration completed through    2 Mar 26   0: 0: 0
+2021-08-06 15:41:17,705 - isca - DEBUG - Integration completed through    2 Mar 27   0: 0: 0
+2021-08-06 15:41:50,501 - isca - DEBUG - Integration completed through    2 Mar 28   0: 0: 0
+2021-08-06 15:42:21,564 - isca - DEBUG - Integration completed through    2 Mar 29   0: 0: 0
+2021-08-06 15:42:52,254 - isca - DEBUG - Integration completed through    2 Mar 30   0: 0: 0
+2021-08-06 15:43:22,864 - isca - DEBUG - Integration completed through    2 Apr  1   0: 0: 0
+2021-08-06 15:43:23,282 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 15:43:25,655 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 15:43:25,655 - isca - DEBUG - 
+2021-08-06 15:43:25,655 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 15:43:25,655 - isca - DEBUG - 
+2021-08-06 15:43:25,655 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 15:43:25,655 - isca - DEBUG - Total runtime                       934.403293    934.403297    934.403295      0.000001  1.000     0     0    31
+2021-08-06 15:43:25,656 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 15:43:25,717 - isca - INFO - Run 15 complete
+2021-08-06 15:43:49,355 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 15:43:57,951 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0015.tar.gz
+2021-08-06 15:43:58,130 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0015/input.nml'
+2021-08-06 15:43:58,139 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0015/field_table'
+2021-08-06 15:43:58,163 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0015/diag_table'
+2021-08-06 15:43:59,303 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 15:43:59,357 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 15:43:59,918 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 15:43:59,926 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 15:43:59,946 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 15:43:59,971 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0015.tar.gz'
+2021-08-06 15:44:01,740 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0015.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 15:44:01,742 - isca - INFO - Beginning run 16
+2021-08-06 15:44:01,753 - isca - INFO - process running as 38327
+2021-08-06 15:44:01,785 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 15:44:02,210 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 15:44:02,233 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 15:44:02,234 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 15:44:02,234 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 15:44:02,234 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 15:44:02,234 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 15:44:02,608 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 15:44:02,608 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 15:44:02,608 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 15:44:02,608 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 15:44:02,608 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 15:44:02,608 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 15:44:02,608 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 15:44:02,608 - isca - DEBUG - /
+2021-08-06 15:44:02,611 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 15:44:02,613 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 15:44:02,639 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 15:44:02,645 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 15:44:02,645 - isca - DEBUG - X-AXIS =  256
+2021-08-06 15:44:02,645 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 15:44:02,645 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 15:44:04,173 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 15:44:35,204 - isca - DEBUG - Integration completed through    2 Apr  2   0: 0: 0
+2021-08-06 15:45:05,801 - isca - DEBUG - Integration completed through    2 Apr  3   0: 0: 0
+2021-08-06 15:45:36,768 - isca - DEBUG - Integration completed through    2 Apr  4   0: 0: 0
+2021-08-06 15:46:08,614 - isca - DEBUG - Integration completed through    2 Apr  5   0: 0: 0
+2021-08-06 15:46:39,649 - isca - DEBUG - Integration completed through    2 Apr  6   0: 0: 0
+2021-08-06 15:47:10,606 - isca - DEBUG - Integration completed through    2 Apr  7   0: 0: 0
+2021-08-06 15:47:41,599 - isca - DEBUG - Integration completed through    2 Apr  8   0: 0: 0
+2021-08-06 15:48:12,262 - isca - DEBUG - Integration completed through    2 Apr  9   0: 0: 0
+2021-08-06 15:48:42,907 - isca - DEBUG - Integration completed through    2 Apr 10   0: 0: 0
+2021-08-06 15:49:13,914 - isca - DEBUG - Integration completed through    2 Apr 11   0: 0: 0
+2021-08-06 15:49:44,721 - isca - DEBUG - Integration completed through    2 Apr 12   0: 0: 0
+2021-08-06 15:50:15,380 - isca - DEBUG - Integration completed through    2 Apr 13   0: 0: 0
+2021-08-06 15:50:46,110 - isca - DEBUG - Integration completed through    2 Apr 14   0: 0: 0
+2021-08-06 15:51:18,015 - isca - DEBUG - Integration completed through    2 Apr 15   0: 0: 0
+2021-08-06 15:51:48,817 - isca - DEBUG - Integration completed through    2 Apr 16   0: 0: 0
+2021-08-06 15:52:19,649 - isca - DEBUG - Integration completed through    2 Apr 17   0: 0: 0
+2021-08-06 15:52:50,624 - isca - DEBUG - Integration completed through    2 Apr 18   0: 0: 0
+2021-08-06 15:53:21,605 - isca - DEBUG - Integration completed through    2 Apr 19   0: 0: 0
+2021-08-06 15:53:52,289 - isca - DEBUG - Integration completed through    2 Apr 20   0: 0: 0
+2021-08-06 15:54:23,051 - isca - DEBUG - Integration completed through    2 Apr 21   0: 0: 0
+2021-08-06 15:54:53,998 - isca - DEBUG - Integration completed through    2 Apr 22   0: 0: 0
+2021-08-06 15:55:24,879 - isca - DEBUG - Integration completed through    2 Apr 23   0: 0: 0
+2021-08-06 15:55:56,529 - isca - DEBUG - Integration completed through    2 Apr 24   0: 0: 0
+2021-08-06 15:56:27,597 - isca - DEBUG - Integration completed through    2 Apr 25   0: 0: 0
+2021-08-06 15:57:00,245 - isca - DEBUG - Integration completed through    2 Apr 26   0: 0: 0
+2021-08-06 15:57:30,990 - isca - DEBUG - Integration completed through    2 Apr 27   0: 0: 0
+2021-08-06 15:58:01,783 - isca - DEBUG - Integration completed through    2 Apr 28   0: 0: 0
+2021-08-06 15:58:32,884 - isca - DEBUG - Integration completed through    2 Apr 29   0: 0: 0
+2021-08-06 15:59:03,669 - isca - DEBUG - Integration completed through    2 Apr 30   0: 0: 0
+2021-08-06 15:59:34,397 - isca - DEBUG - Integration completed through    2 May  1   0: 0: 0
+2021-08-06 15:59:34,911 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 15:59:37,227 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 15:59:37,227 - isca - DEBUG - 
+2021-08-06 15:59:37,227 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 15:59:37,228 - isca - DEBUG - 
+2021-08-06 15:59:37,228 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 15:59:37,228 - isca - DEBUG - Total runtime                       934.621643    934.621649    934.621646      0.000002  1.000     0     0    31
+2021-08-06 15:59:37,228 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 15:59:37,301 - isca - INFO - Run 16 complete
+2021-08-06 16:00:00,616 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 16:00:09,098 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0016.tar.gz
+2021-08-06 16:00:09,306 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0016/input.nml'
+2021-08-06 16:00:09,316 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0016/field_table'
+2021-08-06 16:00:09,339 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0016/diag_table'
+2021-08-06 16:00:10,442 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 16:00:10,498 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 16:00:11,042 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 16:00:11,050 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 16:00:11,070 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 16:00:11,098 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0016.tar.gz'
+2021-08-06 16:00:13,026 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0016.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 16:00:13,029 - isca - INFO - Beginning run 17
+2021-08-06 16:00:13,040 - isca - INFO - process running as 39005
+2021-08-06 16:00:13,076 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 16:00:13,494 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 16:00:13,514 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 16:00:13,514 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 16:00:13,515 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 16:00:13,515 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 16:00:13,515 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 16:00:13,868 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 16:00:13,868 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 16:00:13,868 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 16:00:13,868 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 16:00:13,868 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 16:00:13,868 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 16:00:13,868 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 16:00:13,868 - isca - DEBUG - /
+2021-08-06 16:00:13,871 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 16:00:13,873 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 16:00:13,897 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 16:00:13,903 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 16:00:13,903 - isca - DEBUG - X-AXIS =  256
+2021-08-06 16:00:13,903 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 16:00:13,903 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 16:00:15,561 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 16:00:46,525 - isca - DEBUG - Integration completed through    2 May  2   0: 0: 0
+2021-08-06 16:01:18,003 - isca - DEBUG - Integration completed through    2 May  3   0: 0: 0
+2021-08-06 16:01:48,969 - isca - DEBUG - Integration completed through    2 May  4   0: 0: 0
+2021-08-06 16:02:19,729 - isca - DEBUG - Integration completed through    2 May  5   0: 0: 0
+2021-08-06 16:02:50,242 - isca - DEBUG - Integration completed through    2 May  6   0: 0: 0
+2021-08-06 16:03:20,943 - isca - DEBUG - Integration completed through    2 May  7   0: 0: 0
+2021-08-06 16:03:51,720 - isca - DEBUG - Integration completed through    2 May  8   0: 0: 0
+2021-08-06 16:04:22,414 - isca - DEBUG - Integration completed through    2 May  9   0: 0: 0
+2021-08-06 16:04:52,983 - isca - DEBUG - Integration completed through    2 May 10   0: 0: 0
+2021-08-06 16:05:24,012 - isca - DEBUG - Integration completed through    2 May 11   0: 0: 0
+2021-08-06 16:05:55,650 - isca - DEBUG - Integration completed through    2 May 12   0: 0: 0
+2021-08-06 16:06:26,294 - isca - DEBUG - Integration completed through    2 May 13   0: 0: 0
+2021-08-06 16:06:57,017 - isca - DEBUG - Integration completed through    2 May 14   0: 0: 0
+2021-08-06 16:07:27,971 - isca - DEBUG - Integration completed through    2 May 15   0: 0: 0
+2021-08-06 16:07:58,647 - isca - DEBUG - Integration completed through    2 May 16   0: 0: 0
+2021-08-06 16:08:29,361 - isca - DEBUG - Integration completed through    2 May 17   0: 0: 0
+2021-08-06 16:09:00,290 - isca - DEBUG - Integration completed through    2 May 18   0: 0: 0
+2021-08-06 16:09:31,136 - isca - DEBUG - Integration completed through    2 May 19   0: 0: 0
+2021-08-06 16:10:01,717 - isca - DEBUG - Integration completed through    2 May 20   0: 0: 0
+2021-08-06 16:10:32,441 - isca - DEBUG - Integration completed through    2 May 21   0: 0: 0
+2021-08-06 16:11:04,233 - isca - DEBUG - Integration completed through    2 May 22   0: 0: 0
+2021-08-06 16:11:34,983 - isca - DEBUG - Integration completed through    2 May 23   0: 0: 0
+2021-08-06 16:12:05,579 - isca - DEBUG - Integration completed through    2 May 24   0: 0: 0
+2021-08-06 16:12:36,471 - isca - DEBUG - Integration completed through    2 May 25   0: 0: 0
+2021-08-06 16:13:07,318 - isca - DEBUG - Integration completed through    2 May 26   0: 0: 0
+2021-08-06 16:13:37,989 - isca - DEBUG - Integration completed through    2 May 27   0: 0: 0
+2021-08-06 16:14:08,714 - isca - DEBUG - Integration completed through    2 May 28   0: 0: 0
+2021-08-06 16:14:39,699 - isca - DEBUG - Integration completed through    2 May 29   0: 0: 0
+2021-08-06 16:15:10,540 - isca - DEBUG - Integration completed through    2 May 30   0: 0: 0
+2021-08-06 16:15:41,103 - isca - DEBUG - Integration completed through    2 Jun  1   0: 0: 0
+2021-08-06 16:15:41,530 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 16:15:43,890 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 16:15:43,890 - isca - DEBUG - 
+2021-08-06 16:15:43,890 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 16:15:43,890 - isca - DEBUG - 
+2021-08-06 16:15:43,890 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 16:15:43,891 - isca - DEBUG - Total runtime                       930.024656    930.024661    930.024658      0.000001  1.000     0     0    31
+2021-08-06 16:15:43,891 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 16:15:44,005 - isca - INFO - Run 17 complete
+2021-08-06 16:16:06,830 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 16:16:15,471 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0017.tar.gz
+2021-08-06 16:16:15,653 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0017/input.nml'
+2021-08-06 16:16:15,663 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0017/field_table'
+2021-08-06 16:16:15,686 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0017/diag_table'
+2021-08-06 16:16:16,823 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 16:16:16,875 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 16:16:17,404 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 16:16:17,413 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 16:16:17,434 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 16:16:17,464 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0017.tar.gz'
+2021-08-06 16:16:19,411 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0017.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 16:16:19,413 - isca - INFO - Beginning run 18
+2021-08-06 16:16:19,425 - isca - INFO - process running as 39680
+2021-08-06 16:16:19,458 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 16:16:19,893 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 16:16:19,916 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 16:16:19,916 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 16:16:19,916 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 16:16:19,916 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 16:16:19,916 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 16:16:20,289 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 16:16:20,290 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 16:16:20,290 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 16:16:20,290 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 16:16:20,290 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 16:16:20,290 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 16:16:20,290 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 16:16:20,290 - isca - DEBUG - /
+2021-08-06 16:16:20,293 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 16:16:20,295 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 16:16:20,318 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 16:16:20,324 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 16:16:20,324 - isca - DEBUG - X-AXIS =  256
+2021-08-06 16:16:20,324 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 16:16:20,324 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 16:16:22,045 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 16:16:53,514 - isca - DEBUG - Integration completed through    2 Jun  2   0: 0: 0
+2021-08-06 16:17:24,343 - isca - DEBUG - Integration completed through    2 Jun  3   0: 0: 0
+2021-08-06 16:17:55,357 - isca - DEBUG - Integration completed through    2 Jun  4   0: 0: 0
+2021-08-06 16:18:26,247 - isca - DEBUG - Integration completed through    2 Jun  5   0: 0: 0
+2021-08-06 16:18:56,962 - isca - DEBUG - Integration completed through    2 Jun  6   0: 0: 0
+2021-08-06 16:19:27,927 - isca - DEBUG - Integration completed through    2 Jun  7   0: 0: 0
+2021-08-06 16:19:58,948 - isca - DEBUG - Integration completed through    2 Jun  8   0: 0: 0
+2021-08-06 16:20:29,774 - isca - DEBUG - Integration completed through    2 Jun  9   0: 0: 0
+2021-08-06 16:21:01,369 - isca - DEBUG - Integration completed through    2 Jun 10   0: 0: 0
+2021-08-06 16:21:32,444 - isca - DEBUG - Integration completed through    2 Jun 11   0: 0: 0
+2021-08-06 16:22:03,477 - isca - DEBUG - Integration completed through    2 Jun 12   0: 0: 0
+2021-08-06 16:22:34,223 - isca - DEBUG - Integration completed through    2 Jun 13   0: 0: 0
+2021-08-06 16:23:05,051 - isca - DEBUG - Integration completed through    2 Jun 14   0: 0: 0
+2021-08-06 16:23:36,064 - isca - DEBUG - Integration completed through    2 Jun 15   0: 0: 0
+2021-08-06 16:24:06,953 - isca - DEBUG - Integration completed through    2 Jun 16   0: 0: 0
+2021-08-06 16:24:37,744 - isca - DEBUG - Integration completed through    2 Jun 17   0: 0: 0
+2021-08-06 16:25:08,753 - isca - DEBUG - Integration completed through    2 Jun 18   0: 0: 0
+2021-08-06 16:25:39,644 - isca - DEBUG - Integration completed through    2 Jun 19   0: 0: 0
+2021-08-06 16:26:11,417 - isca - DEBUG - Integration completed through    2 Jun 20   0: 0: 0
+2021-08-06 16:26:42,442 - isca - DEBUG - Integration completed through    2 Jun 21   0: 0: 0
+2021-08-06 16:27:13,533 - isca - DEBUG - Integration completed through    2 Jun 22   0: 0: 0
+2021-08-06 16:27:44,346 - isca - DEBUG - Integration completed through    2 Jun 23   0: 0: 0
+2021-08-06 16:28:15,070 - isca - DEBUG - Integration completed through    2 Jun 24   0: 0: 0
+2021-08-06 16:28:45,979 - isca - DEBUG - Integration completed through    2 Jun 25   0: 0: 0
+2021-08-06 16:29:16,956 - isca - DEBUG - Integration completed through    2 Jun 26   0: 0: 0
+2021-08-06 16:29:47,747 - isca - DEBUG - Integration completed through    2 Jun 27   0: 0: 0
+2021-08-06 16:30:18,684 - isca - DEBUG - Integration completed through    2 Jun 28   0: 0: 0
+2021-08-06 16:30:49,772 - isca - DEBUG - Integration completed through    2 Jun 29   0: 0: 0
+2021-08-06 16:31:21,786 - isca - DEBUG - Integration completed through    2 Jun 30   0: 0: 0
+2021-08-06 16:31:52,567 - isca - DEBUG - Integration completed through    2 Jul  1   0: 0: 0
+2021-08-06 16:31:53,028 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 16:31:55,431 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 16:31:55,432 - isca - DEBUG - 
+2021-08-06 16:31:55,432 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 16:31:55,432 - isca - DEBUG - 
+2021-08-06 16:31:55,432 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 16:31:55,432 - isca - DEBUG - Total runtime                       935.144595    935.144600    935.144598      0.000001  1.000     0     0    31
+2021-08-06 16:31:55,433 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 16:31:55,474 - isca - INFO - Run 18 complete
+2021-08-06 16:32:19,787 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 16:32:28,192 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0018.tar.gz
+2021-08-06 16:32:28,363 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0018/input.nml'
+2021-08-06 16:32:28,371 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0018/field_table'
+2021-08-06 16:32:28,393 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0018/diag_table'
+2021-08-06 16:32:29,528 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 16:32:29,636 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 16:32:30,209 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 16:32:30,218 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 16:32:30,239 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 16:32:30,269 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0018.tar.gz'
+2021-08-06 16:32:32,228 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0018.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 16:32:32,230 - isca - INFO - Beginning run 19
+2021-08-06 16:32:32,243 - isca - INFO - process running as 40341
+2021-08-06 16:32:32,273 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 16:32:32,705 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 16:32:32,728 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 16:32:32,729 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 16:32:32,729 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 16:32:32,729 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 16:32:32,729 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 16:32:33,094 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 16:32:33,094 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 16:32:33,094 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 16:32:33,094 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 16:32:33,094 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 16:32:33,094 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 16:32:33,094 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 16:32:33,095 - isca - DEBUG - /
+2021-08-06 16:32:33,097 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 16:32:33,099 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 16:32:33,122 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 16:32:33,128 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 16:32:33,129 - isca - DEBUG - X-AXIS =  256
+2021-08-06 16:32:33,129 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 16:32:33,129 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 16:32:34,697 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 16:33:06,553 - isca - DEBUG - Integration completed through    2 Jul  2   0: 0: 0
+2021-08-06 16:33:38,117 - isca - DEBUG - Integration completed through    2 Jul  3   0: 0: 0
+2021-08-06 16:34:09,890 - isca - DEBUG - Integration completed through    2 Jul  4   0: 0: 0
+2021-08-06 16:34:41,679 - isca - DEBUG - Integration completed through    2 Jul  5   0: 0: 0
+2021-08-06 16:35:13,300 - isca - DEBUG - Integration completed through    2 Jul  6   0: 0: 0
+2021-08-06 16:35:44,959 - isca - DEBUG - Integration completed through    2 Jul  7   0: 0: 0
+2021-08-06 16:36:17,571 - isca - DEBUG - Integration completed through    2 Jul  8   0: 0: 0
+2021-08-06 16:36:49,113 - isca - DEBUG - Integration completed through    2 Jul  9   0: 0: 0
+2021-08-06 16:37:20,675 - isca - DEBUG - Integration completed through    2 Jul 10   0: 0: 0
+2021-08-06 16:37:52,644 - isca - DEBUG - Integration completed through    2 Jul 11   0: 0: 0
+2021-08-06 16:38:24,440 - isca - DEBUG - Integration completed through    2 Jul 12   0: 0: 0
+2021-08-06 16:38:55,951 - isca - DEBUG - Integration completed through    2 Jul 13   0: 0: 0
+2021-08-06 16:39:27,647 - isca - DEBUG - Integration completed through    2 Jul 14   0: 0: 0
+2021-08-06 16:39:59,471 - isca - DEBUG - Integration completed through    2 Jul 15   0: 0: 0
+2021-08-06 16:40:31,179 - isca - DEBUG - Integration completed through    2 Jul 16   0: 0: 0
+2021-08-06 16:41:03,573 - isca - DEBUG - Integration completed through    2 Jul 17   0: 0: 0
+2021-08-06 16:41:35,370 - isca - DEBUG - Integration completed through    2 Jul 18   0: 0: 0
+2021-08-06 16:42:07,168 - isca - DEBUG - Integration completed through    2 Jul 19   0: 0: 0
+2021-08-06 16:42:38,667 - isca - DEBUG - Integration completed through    2 Jul 20   0: 0: 0
+2021-08-06 16:43:10,458 - isca - DEBUG - Integration completed through    2 Jul 21   0: 0: 0
+2021-08-06 16:43:42,328 - isca - DEBUG - Integration completed through    2 Jul 22   0: 0: 0
+2021-08-06 16:44:14,057 - isca - DEBUG - Integration completed through    2 Jul 23   0: 0: 0
+2021-08-06 16:44:45,632 - isca - DEBUG - Integration completed through    2 Jul 24   0: 0: 0
+2021-08-06 16:45:17,527 - isca - DEBUG - Integration completed through    2 Jul 25   0: 0: 0
+2021-08-06 16:45:49,244 - isca - DEBUG - Integration completed through    2 Jul 26   0: 0: 0
+2021-08-06 16:46:21,702 - isca - DEBUG - Integration completed through    2 Jul 27   0: 0: 0
+2021-08-06 16:46:53,466 - isca - DEBUG - Integration completed through    2 Jul 28   0: 0: 0
+2021-08-06 16:47:25,499 - isca - DEBUG - Integration completed through    2 Jul 29   0: 0: 0
+2021-08-06 16:47:57,285 - isca - DEBUG - Integration completed through    2 Jul 30   0: 0: 0
+2021-08-06 16:48:28,870 - isca - DEBUG - Integration completed through    2 Aug  1   0: 0: 0
+2021-08-06 16:48:29,365 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 16:48:31,718 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 16:48:31,718 - isca - DEBUG - 
+2021-08-06 16:48:31,718 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 16:48:31,718 - isca - DEBUG - 
+2021-08-06 16:48:31,718 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 16:48:31,718 - isca - DEBUG - Total runtime                       958.626534    958.626537    958.626536      0.000001  1.000     0     0    31
+2021-08-06 16:48:31,719 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 16:48:31,840 - isca - INFO - Run 19 complete
+2021-08-06 16:48:54,242 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 16:49:02,766 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0019.tar.gz
+2021-08-06 16:49:02,948 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0019/input.nml'
+2021-08-06 16:49:02,957 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0019/field_table'
+2021-08-06 16:49:02,980 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0019/diag_table'
+2021-08-06 16:49:04,060 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 16:49:04,116 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 16:49:04,689 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 16:49:04,698 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 16:49:04,718 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 16:49:04,748 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0019.tar.gz'
+2021-08-06 16:49:06,655 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0019.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 16:49:06,657 - isca - INFO - Beginning run 20
+2021-08-06 16:49:06,669 - isca - INFO - process running as 40995
+2021-08-06 16:49:06,700 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 16:49:07,129 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 16:49:07,152 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 16:49:07,152 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 16:49:07,152 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 16:49:07,152 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 16:49:07,152 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 16:49:07,511 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 16:49:07,511 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 16:49:07,511 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 16:49:07,511 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 16:49:07,511 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 16:49:07,511 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 16:49:07,511 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 16:49:07,511 - isca - DEBUG - /
+2021-08-06 16:49:07,513 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 16:49:07,515 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 16:49:07,535 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 16:49:07,541 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 16:49:07,541 - isca - DEBUG - X-AXIS =  256
+2021-08-06 16:49:07,542 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 16:49:07,542 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 16:49:09,046 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 16:49:40,182 - isca - DEBUG - Integration completed through    2 Aug  2   0: 0: 0
+2021-08-06 16:50:10,928 - isca - DEBUG - Integration completed through    2 Aug  3   0: 0: 0
+2021-08-06 16:50:41,876 - isca - DEBUG - Integration completed through    2 Aug  4   0: 0: 0
+2021-08-06 16:51:13,529 - isca - DEBUG - Integration completed through    2 Aug  5   0: 0: 0
+2021-08-06 16:51:44,192 - isca - DEBUG - Integration completed through    2 Aug  6   0: 0: 0
+2021-08-06 16:52:15,132 - isca - DEBUG - Integration completed through    2 Aug  7   0: 0: 0
+2021-08-06 16:52:46,144 - isca - DEBUG - Integration completed through    2 Aug  8   0: 0: 0
+2021-08-06 16:53:16,973 - isca - DEBUG - Integration completed through    2 Aug  9   0: 0: 0
+2021-08-06 16:53:47,763 - isca - DEBUG - Integration completed through    2 Aug 10   0: 0: 0
+2021-08-06 16:54:18,743 - isca - DEBUG - Integration completed through    2 Aug 11   0: 0: 0
+2021-08-06 16:54:49,621 - isca - DEBUG - Integration completed through    2 Aug 12   0: 0: 0
+2021-08-06 16:55:20,349 - isca - DEBUG - Integration completed through    2 Aug 13   0: 0: 0
+2021-08-06 16:55:51,462 - isca - DEBUG - Integration completed through    2 Aug 14   0: 0: 0
+2021-08-06 16:56:22,924 - isca - DEBUG - Integration completed through    2 Aug 15   0: 0: 0
+2021-08-06 16:56:53,737 - isca - DEBUG - Integration completed through    2 Aug 16   0: 0: 0
+2021-08-06 16:57:24,579 - isca - DEBUG - Integration completed through    2 Aug 17   0: 0: 0
+2021-08-06 16:57:55,483 - isca - DEBUG - Integration completed through    2 Aug 18   0: 0: 0
+2021-08-06 16:58:26,412 - isca - DEBUG - Integration completed through    2 Aug 19   0: 0: 0
+2021-08-06 16:58:57,092 - isca - DEBUG - Integration completed through    2 Aug 20   0: 0: 0
+2021-08-06 16:59:27,945 - isca - DEBUG - Integration completed through    2 Aug 21   0: 0: 0
+2021-08-06 16:59:58,945 - isca - DEBUG - Integration completed through    2 Aug 22   0: 0: 0
+2021-08-06 17:00:29,759 - isca - DEBUG - Integration completed through    2 Aug 23   0: 0: 0
+2021-08-06 17:01:01,414 - isca - DEBUG - Integration completed through    2 Aug 24   0: 0: 0
+2021-08-06 17:01:32,332 - isca - DEBUG - Integration completed through    2 Aug 25   0: 0: 0
+2021-08-06 17:02:03,275 - isca - DEBUG - Integration completed through    2 Aug 26   0: 0: 0
+2021-08-06 17:02:33,973 - isca - DEBUG - Integration completed through    2 Aug 27   0: 0: 0
+2021-08-06 17:03:04,682 - isca - DEBUG - Integration completed through    2 Aug 28   0: 0: 0
+2021-08-06 17:03:35,691 - isca - DEBUG - Integration completed through    2 Aug 29   0: 0: 0
+2021-08-06 17:04:06,486 - isca - DEBUG - Integration completed through    2 Aug 30   0: 0: 0
+2021-08-06 17:04:37,087 - isca - DEBUG - Integration completed through    2 Sep  1   0: 0: 0
+2021-08-06 17:04:37,517 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 17:04:39,810 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 17:04:39,811 - isca - DEBUG - 
+2021-08-06 17:04:39,811 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 17:04:39,811 - isca - DEBUG - 
+2021-08-06 17:04:39,811 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 17:04:39,811 - isca - DEBUG - Total runtime                       932.301539    932.301543    932.301540      0.000001  1.000     0     0    31
+2021-08-06 17:04:39,811 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 17:04:39,872 - isca - INFO - Run 20 complete
+2021-08-06 17:05:04,047 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 17:05:12,534 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0020.tar.gz
+2021-08-06 17:05:12,753 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0020/input.nml'
+2021-08-06 17:05:12,764 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0020/field_table'
+2021-08-06 17:05:12,787 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0020/diag_table'
+2021-08-06 17:05:13,896 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 17:05:13,950 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 17:05:14,518 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 17:05:14,527 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 17:05:14,548 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 17:05:14,573 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0020.tar.gz'
+2021-08-06 17:05:16,759 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0020.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 17:05:16,761 - isca - INFO - Beginning run 21
+2021-08-06 17:05:16,772 - isca - INFO - process running as 41660
+2021-08-06 17:05:16,803 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 17:05:17,220 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 17:05:17,243 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 17:05:17,243 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 17:05:17,243 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 17:05:17,244 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 17:05:17,244 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 17:05:17,621 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 17:05:17,621 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 17:05:17,621 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 17:05:17,621 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 17:05:17,621 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 17:05:17,622 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 17:05:17,622 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 17:05:17,622 - isca - DEBUG - /
+2021-08-06 17:05:17,624 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 17:05:17,626 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 17:05:17,672 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 17:05:17,680 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 17:05:17,680 - isca - DEBUG - X-AXIS =  256
+2021-08-06 17:05:17,680 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 17:05:17,681 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 17:05:19,161 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 17:05:50,241 - isca - DEBUG - Integration completed through    2 Sep  2   0: 0: 0
+2021-08-06 17:06:21,639 - isca - DEBUG - Integration completed through    2 Sep  3   0: 0: 0
+2021-08-06 17:06:52,502 - isca - DEBUG - Integration completed through    2 Sep  4   0: 0: 0
+2021-08-06 17:07:23,202 - isca - DEBUG - Integration completed through    2 Sep  5   0: 0: 0
+2021-08-06 17:07:53,746 - isca - DEBUG - Integration completed through    2 Sep  6   0: 0: 0
+2021-08-06 17:08:24,614 - isca - DEBUG - Integration completed through    2 Sep  7   0: 0: 0
+2021-08-06 17:08:55,588 - isca - DEBUG - Integration completed through    2 Sep  8   0: 0: 0
+2021-08-06 17:09:26,251 - isca - DEBUG - Integration completed through    2 Sep  9   0: 0: 0
+2021-08-06 17:09:56,921 - isca - DEBUG - Integration completed through    2 Sep 10   0: 0: 0
+2021-08-06 17:10:27,860 - isca - DEBUG - Integration completed through    2 Sep 11   0: 0: 0
+2021-08-06 17:10:59,642 - isca - DEBUG - Integration completed through    2 Sep 12   0: 0: 0
+2021-08-06 17:11:31,507 - isca - DEBUG - Integration completed through    2 Sep 13   0: 0: 0
+2021-08-06 17:12:02,704 - isca - DEBUG - Integration completed through    2 Sep 14   0: 0: 0
+2021-08-06 17:12:33,647 - isca - DEBUG - Integration completed through    2 Sep 15   0: 0: 0
+2021-08-06 17:13:04,453 - isca - DEBUG - Integration completed through    2 Sep 16   0: 0: 0
+2021-08-06 17:13:35,170 - isca - DEBUG - Integration completed through    2 Sep 17   0: 0: 0
+2021-08-06 17:14:06,153 - isca - DEBUG - Integration completed through    2 Sep 18   0: 0: 0
+2021-08-06 17:14:37,093 - isca - DEBUG - Integration completed through    2 Sep 19   0: 0: 0
+2021-08-06 17:15:07,902 - isca - DEBUG - Integration completed through    2 Sep 20   0: 0: 0
+2021-08-06 17:15:38,748 - isca - DEBUG - Integration completed through    2 Sep 21   0: 0: 0
+2021-08-06 17:16:10,648 - isca - DEBUG - Integration completed through    2 Sep 22   0: 0: 0
+2021-08-06 17:16:41,728 - isca - DEBUG - Integration completed through    2 Sep 23   0: 0: 0
+2021-08-06 17:17:12,428 - isca - DEBUG - Integration completed through    2 Sep 24   0: 0: 0
+2021-08-06 17:17:43,408 - isca - DEBUG - Integration completed through    2 Sep 25   0: 0: 0
+2021-08-06 17:18:14,302 - isca - DEBUG - Integration completed through    2 Sep 26   0: 0: 0
+2021-08-06 17:18:44,934 - isca - DEBUG - Integration completed through    2 Sep 27   0: 0: 0
+2021-08-06 17:19:15,682 - isca - DEBUG - Integration completed through    2 Sep 28   0: 0: 0
+2021-08-06 17:19:46,713 - isca - DEBUG - Integration completed through    2 Sep 29   0: 0: 0
+2021-08-06 17:20:17,716 - isca - DEBUG - Integration completed through    2 Sep 30   0: 0: 0
+2021-08-06 17:20:48,405 - isca - DEBUG - Integration completed through    2 Oct  1   0: 0: 0
+2021-08-06 17:20:48,845 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 17:20:51,117 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 17:20:51,117 - isca - DEBUG - 
+2021-08-06 17:20:51,117 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 17:20:51,117 - isca - DEBUG - 
+2021-08-06 17:20:51,117 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 17:20:51,117 - isca - DEBUG - Total runtime                       933.498085    933.498092    933.498089      0.000002  1.000     0     0    31
+2021-08-06 17:20:51,118 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 17:20:51,240 - isca - INFO - Run 21 complete
+2021-08-06 17:21:15,435 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 17:21:23,825 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0021.tar.gz
+2021-08-06 17:21:24,131 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0021/input.nml'
+2021-08-06 17:21:24,140 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0021/field_table'
+2021-08-06 17:21:24,165 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0021/diag_table'
+2021-08-06 17:21:25,333 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 17:21:25,390 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 17:21:25,962 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 17:21:25,970 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 17:21:25,990 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 17:21:26,019 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0021.tar.gz'
+2021-08-06 17:21:28,348 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0021.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 17:21:28,352 - isca - INFO - Beginning run 22
+2021-08-06 17:21:28,363 - isca - INFO - process running as 42349
+2021-08-06 17:21:28,397 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 17:21:28,807 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 17:21:28,827 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 17:21:28,827 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 17:21:28,827 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 17:21:28,827 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 17:21:28,827 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 17:21:29,194 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 17:21:29,194 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 17:21:29,194 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 17:21:29,194 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 17:21:29,194 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 17:21:29,194 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 17:21:29,195 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 17:21:29,195 - isca - DEBUG - /
+2021-08-06 17:21:29,198 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 17:21:29,200 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 17:21:29,222 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 17:21:29,228 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 17:21:29,228 - isca - DEBUG - X-AXIS =  256
+2021-08-06 17:21:29,228 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 17:21:29,228 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 17:21:31,055 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 17:22:02,812 - isca - DEBUG - Integration completed through    2 Oct  2   0: 0: 0
+2021-08-06 17:22:34,192 - isca - DEBUG - Integration completed through    2 Oct  3   0: 0: 0
+2021-08-06 17:23:05,724 - isca - DEBUG - Integration completed through    2 Oct  4   0: 0: 0
+2021-08-06 17:23:37,228 - isca - DEBUG - Integration completed through    2 Oct  5   0: 0: 0
+2021-08-06 17:24:08,571 - isca - DEBUG - Integration completed through    2 Oct  6   0: 0: 0
+2021-08-06 17:24:40,040 - isca - DEBUG - Integration completed through    2 Oct  7   0: 0: 0
+2021-08-06 17:25:11,633 - isca - DEBUG - Integration completed through    2 Oct  8   0: 0: 0
+2021-08-06 17:25:43,005 - isca - DEBUG - Integration completed through    2 Oct  9   0: 0: 0
+2021-08-06 17:26:15,274 - isca - DEBUG - Integration completed through    2 Oct 10   0: 0: 0
+2021-08-06 17:26:48,904 - isca - DEBUG - Integration completed through    2 Oct 11   0: 0: 0
+2021-08-06 17:27:20,446 - isca - DEBUG - Integration completed through    2 Oct 12   0: 0: 0
+2021-08-06 17:27:51,778 - isca - DEBUG - Integration completed through    2 Oct 13   0: 0: 0
+2021-08-06 17:28:23,280 - isca - DEBUG - Integration completed through    2 Oct 14   0: 0: 0
+2021-08-06 17:28:54,897 - isca - DEBUG - Integration completed through    2 Oct 15   0: 0: 0
+2021-08-06 17:29:26,373 - isca - DEBUG - Integration completed through    2 Oct 16   0: 0: 0
+2021-08-06 17:29:57,768 - isca - DEBUG - Integration completed through    2 Oct 17   0: 0: 0
+2021-08-06 17:30:29,448 - isca - DEBUG - Integration completed through    2 Oct 18   0: 0: 0
+2021-08-06 17:31:02,026 - isca - DEBUG - Integration completed through    2 Oct 19   0: 0: 0
+2021-08-06 17:31:33,473 - isca - DEBUG - Integration completed through    2 Oct 20   0: 0: 0
+2021-08-06 17:32:04,942 - isca - DEBUG - Integration completed through    2 Oct 21   0: 0: 0
+2021-08-06 17:32:36,551 - isca - DEBUG - Integration completed through    2 Oct 22   0: 0: 0
+2021-08-06 17:33:08,059 - isca - DEBUG - Integration completed through    2 Oct 23   0: 0: 0
+2021-08-06 17:33:39,452 - isca - DEBUG - Integration completed through    2 Oct 24   0: 0: 0
+2021-08-06 17:34:11,160 - isca - DEBUG - Integration completed through    2 Oct 25   0: 0: 0
+2021-08-06 17:34:42,837 - isca - DEBUG - Integration completed through    2 Oct 26   0: 0: 0
+2021-08-06 17:35:14,303 - isca - DEBUG - Integration completed through    2 Oct 27   0: 0: 0
+2021-08-06 17:35:45,791 - isca - DEBUG - Integration completed through    2 Oct 28   0: 0: 0
+2021-08-06 17:36:18,410 - isca - DEBUG - Integration completed through    2 Oct 29   0: 0: 0
+2021-08-06 17:36:49,947 - isca - DEBUG - Integration completed through    2 Oct 30   0: 0: 0
+2021-08-06 17:37:21,353 - isca - DEBUG - Integration completed through    2 Nov  1   0: 0: 0
+2021-08-06 17:37:21,810 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 17:37:24,203 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 17:37:24,203 - isca - DEBUG - 
+2021-08-06 17:37:24,203 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 17:37:24,203 - isca - DEBUG - 
+2021-08-06 17:37:24,203 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 17:37:24,204 - isca - DEBUG - Total runtime                       955.012543    955.012549    955.012546      0.000001  1.000     0     0    31
+2021-08-06 17:37:24,204 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 17:37:24,312 - isca - INFO - Run 22 complete
+2021-08-06 17:37:48,082 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 17:37:56,533 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0022.tar.gz
+2021-08-06 17:37:56,738 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0022/input.nml'
+2021-08-06 17:37:56,748 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0022/field_table'
+2021-08-06 17:37:56,771 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0022/diag_table'
+2021-08-06 17:37:58,028 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 17:37:58,099 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 17:37:58,656 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 17:37:58,663 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 17:37:58,685 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 17:37:58,709 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0022.tar.gz'
+2021-08-06 17:38:00,737 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0022.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 17:38:00,744 - isca - INFO - Beginning run 23
+2021-08-06 17:38:00,756 - isca - INFO - process running as 43004
+2021-08-06 17:38:00,791 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 17:38:01,226 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 17:38:01,249 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 17:38:01,249 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 17:38:01,250 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 17:38:01,250 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 17:38:01,250 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 17:38:01,631 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 17:38:01,631 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 17:38:01,631 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 17:38:01,631 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 17:38:01,631 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 17:38:01,631 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 17:38:01,631 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 17:38:01,631 - isca - DEBUG - /
+2021-08-06 17:38:01,634 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 17:38:01,636 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 17:38:01,665 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 17:38:01,672 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 17:38:01,672 - isca - DEBUG - X-AXIS =  256
+2021-08-06 17:38:01,672 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 17:38:01,672 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 17:38:03,282 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 17:38:34,585 - isca - DEBUG - Integration completed through    2 Nov  2   0: 0: 0
+2021-08-06 17:39:05,497 - isca - DEBUG - Integration completed through    2 Nov  3   0: 0: 0
+2021-08-06 17:39:36,531 - isca - DEBUG - Integration completed through    2 Nov  4   0: 0: 0
+2021-08-06 17:40:07,457 - isca - DEBUG - Integration completed through    2 Nov  5   0: 0: 0
+2021-08-06 17:40:38,235 - isca - DEBUG - Integration completed through    2 Nov  6   0: 0: 0
+2021-08-06 17:41:10,197 - isca - DEBUG - Integration completed through    2 Nov  7   0: 0: 0
+2021-08-06 17:41:43,268 - isca - DEBUG - Integration completed through    2 Nov  8   0: 0: 0
+2021-08-06 17:42:14,157 - isca - DEBUG - Integration completed through    2 Nov  9   0: 0: 0
+2021-08-06 17:42:44,942 - isca - DEBUG - Integration completed through    2 Nov 10   0: 0: 0
+2021-08-06 17:43:16,012 - isca - DEBUG - Integration completed through    2 Nov 11   0: 0: 0
+2021-08-06 17:43:46,981 - isca - DEBUG - Integration completed through    2 Nov 12   0: 0: 0
+2021-08-06 17:44:17,751 - isca - DEBUG - Integration completed through    2 Nov 13   0: 0: 0
+2021-08-06 17:44:48,769 - isca - DEBUG - Integration completed through    2 Nov 14   0: 0: 0
+2021-08-06 17:45:19,858 - isca - DEBUG - Integration completed through    2 Nov 15   0: 0: 0
+2021-08-06 17:45:50,728 - isca - DEBUG - Integration completed through    2 Nov 16   0: 0: 0
+2021-08-06 17:46:22,268 - isca - DEBUG - Integration completed through    2 Nov 17   0: 0: 0
+2021-08-06 17:46:53,607 - isca - DEBUG - Integration completed through    2 Nov 18   0: 0: 0
+2021-08-06 17:47:24,685 - isca - DEBUG - Integration completed through    2 Nov 19   0: 0: 0
+2021-08-06 17:47:55,487 - isca - DEBUG - Integration completed through    2 Nov 20   0: 0: 0
+2021-08-06 17:48:26,393 - isca - DEBUG - Integration completed through    2 Nov 21   0: 0: 0
+2021-08-06 17:48:57,503 - isca - DEBUG - Integration completed through    2 Nov 22   0: 0: 0
+2021-08-06 17:49:28,358 - isca - DEBUG - Integration completed through    2 Nov 23   0: 0: 0
+2021-08-06 17:49:59,073 - isca - DEBUG - Integration completed through    2 Nov 24   0: 0: 0
+2021-08-06 17:50:30,094 - isca - DEBUG - Integration completed through    2 Nov 25   0: 0: 0
+2021-08-06 17:51:01,994 - isca - DEBUG - Integration completed through    2 Nov 26   0: 0: 0
+2021-08-06 17:51:32,795 - isca - DEBUG - Integration completed through    2 Nov 27   0: 0: 0
+2021-08-06 17:52:03,676 - isca - DEBUG - Integration completed through    2 Nov 28   0: 0: 0
+2021-08-06 17:52:34,832 - isca - DEBUG - Integration completed through    2 Nov 29   0: 0: 0
+2021-08-06 17:53:05,901 - isca - DEBUG - Integration completed through    2 Nov 30   0: 0: 0
+2021-08-06 17:53:36,663 - isca - DEBUG - Integration completed through    2 Dec  1   0: 0: 0
+2021-08-06 17:53:37,185 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 17:53:39,557 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 17:53:39,557 - isca - DEBUG - 
+2021-08-06 17:53:39,557 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 17:53:39,557 - isca - DEBUG - 
+2021-08-06 17:53:39,557 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 17:53:39,558 - isca - DEBUG - Total runtime                       937.929878    937.929883    937.929881      0.000002  1.000     0     0    31
+2021-08-06 17:53:39,558 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 17:53:39,673 - isca - INFO - Run 23 complete
+2021-08-06 17:54:03,686 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 17:54:12,339 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0023.tar.gz
+2021-08-06 17:54:12,540 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0023/input.nml'
+2021-08-06 17:54:12,550 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0023/field_table'
+2021-08-06 17:54:12,574 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0023/diag_table'
+2021-08-06 17:54:13,682 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 17:54:13,736 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'
+2021-08-06 17:54:14,267 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/input.nml'
+2021-08-06 17:54:14,275 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/field_table'
+2021-08-06 17:54:14,307 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/diag_table'
+2021-08-06 17:54:14,336 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0023.tar.gz'
+2021-08-06 17:54:16,287 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0023.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run/INPUT
+2021-08-06 17:54:16,290 - isca - INFO - Beginning run 24
+2021-08-06 17:54:16,302 - isca - INFO - process running as 43646
+2021-08-06 17:54:16,333 - isca - DEBUG - loadmodules for oxford machines
+2021-08-06 17:54:16,752 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2021-08-06 17:54:16,775 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2021-08-06 17:54:16,775 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2021-08-06 17:54:16,775 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2021-08-06 17:54:16,775 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2021-08-06 17:54:16,775 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2021-08-06 17:54:17,131 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2021-08-06 17:54:17,131 - isca - DEBUG - &MPP_IO_NML
+2021-08-06 17:54:17,131 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2021-08-06 17:54:17,131 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2021-08-06 17:54:17,131 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2021-08-06 17:54:17,131 - isca - DEBUG - SHUFFLE =           0,
+2021-08-06 17:54:17,131 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2021-08-06 17:54:17,131 - isca - DEBUG - /
+2021-08-06 17:54:17,134 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2021-08-06 17:54:17,136 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2021-08-06 17:54:17,160 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2021-08-06 17:54:17,166 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2021-08-06 17:54:17,166 - isca - DEBUG - X-AXIS =  256
+2021-08-06 17:54:17,166 - isca - DEBUG - Y-AXIS =    4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4   4
+2021-08-06 17:54:17,166 - isca - DEBUG - 4   4   4   4   4   4   4   4
+2021-08-06 17:54:18,808 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2021-08-06 17:54:50,490 - isca - DEBUG - Integration completed through    2 Dec  2   0: 0: 0
+2021-08-06 17:55:21,799 - isca - DEBUG - Integration completed through    2 Dec  3   0: 0: 0
+2021-08-06 17:55:53,923 - isca - DEBUG - Integration completed through    2 Dec  4   0: 0: 0
+2021-08-06 17:56:25,418 - isca - DEBUG - Integration completed through    2 Dec  5   0: 0: 0
+2021-08-06 17:56:56,584 - isca - DEBUG - Integration completed through    2 Dec  6   0: 0: 0
+2021-08-06 17:57:28,019 - isca - DEBUG - Integration completed through    2 Dec  7   0: 0: 0
+2021-08-06 17:57:59,431 - isca - DEBUG - Integration completed through    2 Dec  8   0: 0: 0
+2021-08-06 17:58:30,701 - isca - DEBUG - Integration completed through    2 Dec  9   0: 0: 0
+2021-08-06 17:59:02,005 - isca - DEBUG - Integration completed through    2 Dec 10   0: 0: 0
+2021-08-06 17:59:33,597 - isca - DEBUG - Integration completed through    2 Dec 11   0: 0: 0
+2021-08-06 18:00:05,152 - isca - DEBUG - Integration completed through    2 Dec 12   0: 0: 0
+2021-08-06 18:00:36,359 - isca - DEBUG - Integration completed through    2 Dec 13   0: 0: 0
+2021-08-06 18:01:08,471 - isca - DEBUG - Integration completed through    2 Dec 14   0: 0: 0
+2021-08-06 18:01:40,066 - isca - DEBUG - Integration completed through    2 Dec 15   0: 0: 0
+2021-08-06 18:02:11,467 - isca - DEBUG - Integration completed through    2 Dec 16   0: 0: 0
+2021-08-06 18:02:42,756 - isca - DEBUG - Integration completed through    2 Dec 17   0: 0: 0
+2021-08-06 18:03:14,241 - isca - DEBUG - Integration completed through    2 Dec 18   0: 0: 0
+2021-08-06 18:03:45,721 - isca - DEBUG - Integration completed through    2 Dec 19   0: 0: 0
+2021-08-06 18:04:17,047 - isca - DEBUG - Integration completed through    2 Dec 20   0: 0: 0
+2021-08-06 18:04:48,558 - isca - DEBUG - Integration completed through    2 Dec 21   0: 0: 0
+2021-08-06 18:05:20,302 - isca - DEBUG - Integration completed through    2 Dec 22   0: 0: 0
+2021-08-06 18:05:52,054 - isca - DEBUG - Integration completed through    2 Dec 23   0: 0: 0
+2021-08-06 18:06:23,822 - isca - DEBUG - Integration completed through    2 Dec 24   0: 0: 0
+2021-08-06 18:06:55,423 - isca - DEBUG - Integration completed through    2 Dec 25   0: 0: 0
+2021-08-06 18:07:27,028 - isca - DEBUG - Integration completed through    2 Dec 26   0: 0: 0
+2021-08-06 18:07:58,400 - isca - DEBUG - Integration completed through    2 Dec 27   0: 0: 0
+2021-08-06 18:08:29,780 - isca - DEBUG - Integration completed through    2 Dec 28   0: 0: 0
+2021-08-06 18:09:01,455 - isca - DEBUG - Integration completed through    2 Dec 29   0: 0: 0
+2021-08-06 18:09:32,970 - isca - DEBUG - Integration completed through    2 Dec 30   0: 0: 0
+2021-08-06 18:10:04,314 - isca - DEBUG - Integration completed through    3 Jan  1   0: 0: 0
+2021-08-06 18:10:04,751 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     983040.
+2021-08-06 18:10:07,036 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       61440
+2021-08-06 18:10:07,036 - isca - DEBUG - 
+2021-08-06 18:10:07,036 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2021-08-06 18:10:07,036 - isca - DEBUG - 
+2021-08-06 18:10:07,036 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2021-08-06 18:10:07,037 - isca - DEBUG - Total runtime                       949.907249    949.907253    949.907251      0.000001  1.000     0     0    31
+2021-08-06 18:10:07,037 - isca - DEBUG - MPP_STACK high water mark=           0
+2021-08-06 18:10:07,135 - isca - INFO - Run 24 complete
+2021-08-06 18:10:30,564 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2021-08-06 18:10:39,168 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/restarts/res0024.tar.gz
+2021-08-06 18:10:39,387 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0024/input.nml'
+2021-08-06 18:10:39,432 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0024/field_table'
+2021-08-06 18:10:39,456 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run0024/diag_table'
+2021-08-06 18:10:40,531 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T85L30fr_TL_om_1_4_a_1_1_ps_1_1_fixd/run'

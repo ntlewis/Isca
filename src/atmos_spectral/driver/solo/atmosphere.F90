@@ -93,7 +93,7 @@ real, allocatable, dimension(:,:,:,:) :: z_half, z_full
 
 type(tracer_type), allocatable, dimension(:) :: tracer_attributes
 real, allocatable, dimension(:,:,:,:,:) :: grid_tracers
-real, allocatable, dimension(:,:,:    ) :: psg, wg_full
+real, allocatable, dimension(:,:,:    ) :: psg, wg_full, wg
 real, allocatable, dimension(:,:,:,:  ) :: ug, vg, tg
 
 real, allocatable, dimension(:,:    ) :: dt_psg
@@ -165,6 +165,7 @@ allocate (z_half       (is:ie, js:je, num_levels+1, num_time_levels))
 allocate (p_full       (is:ie, js:je, num_levels, num_time_levels))
 allocate (z_full       (is:ie, js:je, num_levels, num_time_levels))
 allocate (wg_full      (is:ie, js:je, num_levels))
+allocate (wg      (is:ie, js:je, num_levels+1))
 allocate (psg          (is:ie, js:je, num_time_levels))
 allocate (ug           (is:ie, js:je, num_levels, num_time_levels))
 allocate (vg           (is:ie, js:je, num_levels, num_time_levels))
@@ -187,7 +188,7 @@ allocate (rad_lonb (is:ie+1))
 allocate (rad_latb (js:je+1))
 
 p_half = 0.; z_half = 0.; p_full = 0.; z_full = 0.
-wg_full = 0.; psg = 0.; ug = 0.; vg = 0.; tg = 0.; grid_tracers = 0.
+wg_full = 0.; wg =0.; psg = 0.; ug = 0.; vg = 0.; tg = 0.; grid_tracers = 0.
 dt_psg = 0.; dt_ug  = 0.; dt_vg  = 0.; dt_tg  = 0.; dt_tracers = 0.
 
 allocate (surf_geopotential(is:ie, js:je))
@@ -298,7 +299,7 @@ endif
 Time_next = Time + Time_step
 
 if(idealized_moist_model) then
-   call idealized_moist_phys(Time, p_half, p_full, z_half, z_full, ug, vg, tg, grid_tracers, &
+   call idealized_moist_phys(Time, Time_next, p_half, p_full, z_half, z_full, ug, vg, tg, grid_tracers, &
                              previous, current, dt_ug, dt_vg, dt_tg, dt_tracers)
 else
    call hs_forcing(1, ie-is+1, 1, je-js+1, delta_t, Time_next, rad_lon_2d, rad_lat_2d, &
@@ -324,7 +325,7 @@ call column(Time, psg(:,:,future), ug(:,:,:,future), vg(:,:,:,future), &
 #else 
   call spectral_dynamics(Time, psg(:,:,future), ug(:,:,:,future), vg(:,:,:,future), &
                        tg(:,:,:,future), tracer_attributes, grid_tracers(:,:,:,:,:), future, &
-                       dt_psg, dt_ug, dt_vg, dt_tg, dt_tracers, wg_full, &
+                       dt_psg, dt_ug, dt_vg, dt_tg, dt_tracers, wg_full, wg, &
                        p_full(:,:,:,current), p_half(:,:,:,current), z_full(:,:,:,current))
 #endif
 
@@ -342,7 +343,7 @@ call column_diagnostics(Time_next, psg(:,:,future), ug(:,:,:,future), vg(:,:,:,f
 tg(:,:,:,future), wg_full, grid_tracers(:,:,:,:,:), future)
 #else
 call spectral_diagnostics(Time_next, psg(:,:,future), ug(:,:,:,future), vg(:,:,:,future), &
-                          tg(:,:,:,future), wg_full, grid_tracers(:,:,:,:,:), future)
+                          tg(:,:,:,future), wg_full, wg, grid_tracers(:,:,:,:,:), future)
 #endif
 
 previous = current

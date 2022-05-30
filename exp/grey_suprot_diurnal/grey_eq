@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --ntasks-per-node=32
+#SBATCH --ntasks=32
+#SBATCH --cpus-per-task=2
+#SBATCH --time=800:00:00
+#SBATCH --mincpus=32
+##SBATCH --exclude=atmnode007,atmnode008,atmnode009,atmnode010,atmnode011,atmnode012,atmnode013,atmnode014,atmnode015,atmnode016,atmnode025,atmnode026,atmnode027,atmnode028
+#SBATCH --nodelist=atmnode019
+#SBATCH --output=grey_eq_4.out
+#SBATCH -p priority-rp
+source $HOME/.bashrc
+cd $HOME/research/isca_dir/Isca/exp/grey_suprot_diurnal/
+$HOME/anaconda3/envs/isca_env2/bin/python grey_eq.py

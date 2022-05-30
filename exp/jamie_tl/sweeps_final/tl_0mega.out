@@ -1,0 +1,983 @@
+/home/l/lewis/.bashrc: line 87: goisca: command not found
+2022-03-25 10:53:55,977 - isca - WARNING - Environment variable GFDL_SOC not set, but this is only required if using SocratesCodebase. Setting to None
+2022-03-25 10:53:56,255 - isca - INFO - RRTM compilation disabled.
+2022-03-25 10:53:56,255 - isca - INFO - SOCRATES compilation disabled.
+2022-03-25 10:53:56,449 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/GREY_T42L25fr6_TL_om_1_1_a_1_1_ps_1_1_TJ001_n1/run'
+2022-03-25 10:54:07,432 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:07,508 - isca - WARNING - Data for run 1 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:07,670 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:07,748 - isca - WARNING - Data for run 2 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:07,837 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:07,908 - isca - WARNING - Data for run 3 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:08,106 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:08,188 - isca - WARNING - Data for run 4 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:08,366 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:08,432 - isca - WARNING - Data for run 5 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:08,564 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:08,624 - isca - WARNING - Data for run 6 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:08,812 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:08,890 - isca - WARNING - Data for run 7 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:09,038 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:09,127 - isca - WARNING - Data for run 8 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:09,273 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:09,342 - isca - WARNING - Data for run 9 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:09,510 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:09,599 - isca - WARNING - Data for run 10 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:09,801 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:09,872 - isca - WARNING - Data for run 11 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:10,037 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:10,108 - isca - WARNING - Data for run 12 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:10,261 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:10,331 - isca - WARNING - Data for run 13 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:10,495 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:10,549 - isca - WARNING - Data for run 14 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:10,676 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:10,733 - isca - WARNING - Data for run 15 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:10,872 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:11,299 - isca - WARNING - Data for run 16 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:11,634 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:11,694 - isca - WARNING - Data for run 17 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:11,977 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:12,038 - isca - WARNING - Data for run 18 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:12,219 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:12,289 - isca - WARNING - Data for run 19 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:12,461 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:12,513 - isca - WARNING - Data for run 20 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:12,686 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:12,762 - isca - WARNING - Data for run 21 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:12,924 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:12,993 - isca - WARNING - Data for run 22 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:13,183 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:13,237 - isca - WARNING - Data for run 23 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:13,419 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:13,494 - isca - WARNING - Data for run 24 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:13,671 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:13,733 - isca - WARNING - Data for run 25 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:13,923 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:14,014 - isca - WARNING - Data for run 26 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:14,206 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:14,270 - isca - WARNING - Data for run 27 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:14,448 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:14,537 - isca - WARNING - Data for run 28 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:14,737 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:14,808 - isca - WARNING - Data for run 29 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:14,962 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:15,008 - isca - WARNING - Data for run 30 already exists but overwrite_data is False. Stopping.
+2022-03-25 10:54:15,150 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:54:16,832 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/input.nml'
+2022-03-25 10:54:17,075 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/field_table'
+2022-03-25 10:54:17,231 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/diag_table'
+2022-03-25 10:54:17,756 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0030.tar.gz'
+2022-03-25 10:54:18,590 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0030.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/INPUT
+2022-03-25 10:54:18,696 - isca - INFO - Beginning run 31
+2022-03-25 10:54:18,708 - isca - INFO - process running as 32848
+2022-03-25 10:54:18,739 - isca - DEBUG - loadmodules for oxford machines
+2022-03-25 10:54:19,144 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-25 10:54:19,168 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-25 10:54:19,168 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-25 10:54:19,168 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-25 10:54:19,168 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-25 10:54:19,168 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-25 10:54:19,963 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-25 10:54:19,964 - isca - DEBUG - &MPP_IO_NML
+2022-03-25 10:54:19,964 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-25 10:54:19,964 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-25 10:54:19,964 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-25 10:54:19,964 - isca - DEBUG - SHUFFLE =           0,
+2022-03-25 10:54:19,964 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-25 10:54:19,964 - isca - DEBUG - /
+2022-03-25 10:54:19,966 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-25 10:54:19,968 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-25 10:54:20,077 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-25 10:54:20,088 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-25 10:54:20,088 - isca - DEBUG - X-AXIS =  128
+2022-03-25 10:54:20,088 - isca - DEBUG - Y-AXIS =    2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+2022-03-25 10:54:20,088 - isca - DEBUG - 2   2   2   2   2   2   2   2
+2022-03-25 10:54:21,171 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2022-03-25 10:54:21,533 - isca - DEBUG - 
+2022-03-25 10:54:21,533 - isca - DEBUG - 
+2022-03-25 10:54:21,533 - isca - DEBUG - Rayleigh Drag in boundary layer.
+2022-03-25 10:54:21,533 - isca - DEBUG - Extent of frictional layer: sigma_b =     0.70
+2022-03-25 10:54:21,533 - isca - DEBUG - Frictional timescale in days:      1.00
+2022-03-25 10:54:21,533 - isca - DEBUG - 
+2022-03-25 10:54:21,533 - isca - DEBUG - 
+2022-03-25 10:54:27,094 - isca - DEBUG - Integration completed through    9 May  2   0: 0: 0
+2022-03-25 10:54:28,352 - isca - DEBUG - Integration completed through    9 May  3   0: 0: 0
+2022-03-25 10:54:29,587 - isca - DEBUG - Integration completed through    9 May  4   0: 0: 0
+2022-03-25 10:54:30,865 - isca - DEBUG - Integration completed through    9 May  5   0: 0: 0
+2022-03-25 10:54:32,110 - isca - DEBUG - Integration completed through    9 May  6   0: 0: 0
+2022-03-25 10:54:33,343 - isca - DEBUG - Integration completed through    9 May  7   0: 0: 0
+2022-03-25 10:54:34,580 - isca - DEBUG - Integration completed through    9 May  8   0: 0: 0
+2022-03-25 10:54:35,829 - isca - DEBUG - Integration completed through    9 May  9   0: 0: 0
+2022-03-25 10:54:37,063 - isca - DEBUG - Integration completed through    9 May 10   0: 0: 0
+2022-03-25 10:54:38,301 - isca - DEBUG - Integration completed through    9 May 11   0: 0: 0
+2022-03-25 10:54:39,530 - isca - DEBUG - Integration completed through    9 May 12   0: 0: 0
+2022-03-25 10:54:40,761 - isca - DEBUG - Integration completed through    9 May 13   0: 0: 0
+2022-03-25 10:54:41,997 - isca - DEBUG - Integration completed through    9 May 14   0: 0: 0
+2022-03-25 10:54:43,253 - isca - DEBUG - Integration completed through    9 May 15   0: 0: 0
+2022-03-25 10:54:44,510 - isca - DEBUG - Integration completed through    9 May 16   0: 0: 0
+2022-03-25 10:54:45,765 - isca - DEBUG - Integration completed through    9 May 17   0: 0: 0
+2022-03-25 10:54:47,199 - isca - DEBUG - Integration completed through    9 May 18   0: 0: 0
+2022-03-25 10:54:48,434 - isca - DEBUG - Integration completed through    9 May 19   0: 0: 0
+2022-03-25 10:54:49,672 - isca - DEBUG - Integration completed through    9 May 20   0: 0: 0
+2022-03-25 10:54:50,909 - isca - DEBUG - Integration completed through    9 May 21   0: 0: 0
+2022-03-25 10:54:52,142 - isca - DEBUG - Integration completed through    9 May 22   0: 0: 0
+2022-03-25 10:54:53,395 - isca - DEBUG - Integration completed through    9 May 23   0: 0: 0
+2022-03-25 10:54:54,637 - isca - DEBUG - Integration completed through    9 May 24   0: 0: 0
+2022-03-25 10:54:55,881 - isca - DEBUG - Integration completed through    9 May 25   0: 0: 0
+2022-03-25 10:54:57,117 - isca - DEBUG - Integration completed through    9 May 26   0: 0: 0
+2022-03-25 10:54:58,355 - isca - DEBUG - Integration completed through    9 May 27   0: 0: 0
+2022-03-25 10:54:59,608 - isca - DEBUG - Integration completed through    9 May 28   0: 0: 0
+2022-03-25 10:55:00,845 - isca - DEBUG - Integration completed through    9 May 29   0: 0: 0
+2022-03-25 10:55:02,125 - isca - DEBUG - Integration completed through    9 May 30   0: 0: 0
+2022-03-25 10:55:03,363 - isca - DEBUG - Integration completed through    9 Jun  1   0: 0: 0
+2022-03-25 10:55:04,632 - isca - DEBUG - Integration completed through    9 Jun  2   0: 0: 0
+2022-03-25 10:55:05,865 - isca - DEBUG - Integration completed through    9 Jun  3   0: 0: 0
+2022-03-25 10:55:07,091 - isca - DEBUG - Integration completed through    9 Jun  4   0: 0: 0
+2022-03-25 10:55:08,345 - isca - DEBUG - Integration completed through    9 Jun  5   0: 0: 0
+2022-03-25 10:55:09,605 - isca - DEBUG - Integration completed through    9 Jun  6   0: 0: 0
+2022-03-25 10:55:10,851 - isca - DEBUG - Integration completed through    9 Jun  7   0: 0: 0
+2022-03-25 10:55:12,088 - isca - DEBUG - Integration completed through    9 Jun  8   0: 0: 0
+2022-03-25 10:55:13,339 - isca - DEBUG - Integration completed through    9 Jun  9   0: 0: 0
+2022-03-25 10:55:14,596 - isca - DEBUG - Integration completed through    9 Jun 10   0: 0: 0
+2022-03-25 10:55:15,824 - isca - DEBUG - Integration completed through    9 Jun 11   0: 0: 0
+2022-03-25 10:55:17,097 - isca - DEBUG - Integration completed through    9 Jun 12   0: 0: 0
+2022-03-25 10:55:18,527 - isca - DEBUG - Integration completed through    9 Jun 13   0: 0: 0
+2022-03-25 10:55:19,761 - isca - DEBUG - Integration completed through    9 Jun 14   0: 0: 0
+2022-03-25 10:55:21,043 - isca - DEBUG - Integration completed through    9 Jun 15   0: 0: 0
+2022-03-25 10:55:22,289 - isca - DEBUG - Integration completed through    9 Jun 16   0: 0: 0
+2022-03-25 10:55:23,544 - isca - DEBUG - Integration completed through    9 Jun 17   0: 0: 0
+2022-03-25 10:55:24,811 - isca - DEBUG - Integration completed through    9 Jun 18   0: 0: 0
+2022-03-25 10:55:26,109 - isca - DEBUG - Integration completed through    9 Jun 19   0: 0: 0
+2022-03-25 10:55:27,344 - isca - DEBUG - Integration completed through    9 Jun 20   0: 0: 0
+2022-03-25 10:55:28,591 - isca - DEBUG - Integration completed through    9 Jun 21   0: 0: 0
+2022-03-25 10:55:29,822 - isca - DEBUG - Integration completed through    9 Jun 22   0: 0: 0
+2022-03-25 10:55:31,058 - isca - DEBUG - Integration completed through    9 Jun 23   0: 0: 0
+2022-03-25 10:55:32,318 - isca - DEBUG - Integration completed through    9 Jun 24   0: 0: 0
+2022-03-25 10:55:33,558 - isca - DEBUG - Integration completed through    9 Jun 25   0: 0: 0
+2022-03-25 10:55:34,825 - isca - DEBUG - Integration completed through    9 Jun 26   0: 0: 0
+2022-03-25 10:55:36,059 - isca - DEBUG - Integration completed through    9 Jun 27   0: 0: 0
+2022-03-25 10:55:37,316 - isca - DEBUG - Integration completed through    9 Jun 28   0: 0: 0
+2022-03-25 10:55:38,549 - isca - DEBUG - Integration completed through    9 Jun 29   0: 0: 0
+2022-03-25 10:55:39,796 - isca - DEBUG - Integration completed through    9 Jun 30   0: 0: 0
+2022-03-25 10:55:41,041 - isca - DEBUG - Integration completed through    9 Jul  1   0: 0: 0
+2022-03-25 10:55:42,285 - isca - DEBUG - Integration completed through    9 Jul  2   0: 0: 0
+2022-03-25 10:55:43,532 - isca - DEBUG - Integration completed through    9 Jul  3   0: 0: 0
+2022-03-25 10:55:44,764 - isca - DEBUG - Integration completed through    9 Jul  4   0: 0: 0
+2022-03-25 10:55:46,015 - isca - DEBUG - Integration completed through    9 Jul  5   0: 0: 0
+2022-03-25 10:55:47,272 - isca - DEBUG - Integration completed through    9 Jul  6   0: 0: 0
+2022-03-25 10:55:48,513 - isca - DEBUG - Integration completed through    9 Jul  7   0: 0: 0
+2022-03-25 10:55:49,990 - isca - DEBUG - Integration completed through    9 Jul  8   0: 0: 0
+2022-03-25 10:55:51,225 - isca - DEBUG - Integration completed through    9 Jul  9   0: 0: 0
+2022-03-25 10:55:52,504 - isca - DEBUG - Integration completed through    9 Jul 10   0: 0: 0
+2022-03-25 10:55:53,764 - isca - DEBUG - Integration completed through    9 Jul 11   0: 0: 0
+2022-03-25 10:55:55,017 - isca - DEBUG - Integration completed through    9 Jul 12   0: 0: 0
+2022-03-25 10:55:56,265 - isca - DEBUG - Integration completed through    9 Jul 13   0: 0: 0
+2022-03-25 10:55:57,525 - isca - DEBUG - Integration completed through    9 Jul 14   0: 0: 0
+2022-03-25 10:55:58,789 - isca - DEBUG - Integration completed through    9 Jul 15   0: 0: 0
+2022-03-25 10:56:00,032 - isca - DEBUG - Integration completed through    9 Jul 16   0: 0: 0
+2022-03-25 10:56:01,303 - isca - DEBUG - Integration completed through    9 Jul 17   0: 0: 0
+2022-03-25 10:56:02,568 - isca - DEBUG - Integration completed through    9 Jul 18   0: 0: 0
+2022-03-25 10:56:03,799 - isca - DEBUG - Integration completed through    9 Jul 19   0: 0: 0
+2022-03-25 10:56:05,081 - isca - DEBUG - Integration completed through    9 Jul 20   0: 0: 0
+2022-03-25 10:56:06,329 - isca - DEBUG - Integration completed through    9 Jul 21   0: 0: 0
+2022-03-25 10:56:07,575 - isca - DEBUG - Integration completed through    9 Jul 22   0: 0: 0
+2022-03-25 10:56:08,850 - isca - DEBUG - Integration completed through    9 Jul 23   0: 0: 0
+2022-03-25 10:56:10,105 - isca - DEBUG - Integration completed through    9 Jul 24   0: 0: 0
+2022-03-25 10:56:11,344 - isca - DEBUG - Integration completed through    9 Jul 25   0: 0: 0
+2022-03-25 10:56:12,589 - isca - DEBUG - Integration completed through    9 Jul 26   0: 0: 0
+2022-03-25 10:56:13,832 - isca - DEBUG - Integration completed through    9 Jul 27   0: 0: 0
+2022-03-25 10:56:15,077 - isca - DEBUG - Integration completed through    9 Jul 28   0: 0: 0
+2022-03-25 10:56:16,330 - isca - DEBUG - Integration completed through    9 Jul 29   0: 0: 0
+2022-03-25 10:56:17,577 - isca - DEBUG - Integration completed through    9 Jul 30   0: 0: 0
+2022-03-25 10:56:18,814 - isca - DEBUG - Integration completed through    9 Aug  1   0: 0: 0
+2022-03-25 10:56:20,071 - isca - DEBUG - Integration completed through    9 Aug  2   0: 0: 0
+2022-03-25 10:56:21,338 - isca - DEBUG - Integration completed through    9 Aug  3   0: 0: 0
+2022-03-25 10:56:22,593 - isca - DEBUG - Integration completed through    9 Aug  4   0: 0: 0
+2022-03-25 10:56:23,823 - isca - DEBUG - Integration completed through    9 Aug  5   0: 0: 0
+2022-03-25 10:56:25,045 - isca - DEBUG - Integration completed through    9 Aug  6   0: 0: 0
+2022-03-25 10:56:26,276 - isca - DEBUG - Integration completed through    9 Aug  7   0: 0: 0
+2022-03-25 10:56:27,510 - isca - DEBUG - Integration completed through    9 Aug  8   0: 0: 0
+2022-03-25 10:56:28,752 - isca - DEBUG - Integration completed through    9 Aug  9   0: 0: 0
+2022-03-25 10:56:29,983 - isca - DEBUG - Integration completed through    9 Aug 10   0: 0: 0
+2022-03-25 10:56:31,222 - isca - DEBUG - Integration completed through    9 Aug 11   0: 0: 0
+2022-03-25 10:56:31,551 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     204800.
+2022-03-25 10:56:32,278 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       25600
+2022-03-25 10:56:32,278 - isca - DEBUG - 
+2022-03-25 10:56:32,278 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2022-03-25 10:56:32,279 - isca - DEBUG - 
+2022-03-25 10:56:32,279 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-03-25 10:56:32,279 - isca - DEBUG - Total runtime                       132.317709    132.317714    132.317711      0.000002  1.000     0     0    31
+2022-03-25 10:56:32,279 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-03-25 10:56:32,393 - isca - INFO - Run 31 complete
+2022-03-25 10:57:12,743 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2022-03-25 10:57:14,784 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0031.tar.gz
+2022-03-25 10:57:14,893 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0031/input.nml'
+2022-03-25 10:57:15,210 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0031/field_table'
+2022-03-25 10:57:15,368 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0031/diag_table'
+2022-03-25 10:57:16,545 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:57:16,767 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 10:57:17,426 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/input.nml'
+2022-03-25 10:57:17,611 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/field_table'
+2022-03-25 10:57:17,843 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/diag_table'
+2022-03-25 10:57:18,004 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0031.tar.gz'
+2022-03-25 10:57:19,025 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0031.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/INPUT
+2022-03-25 10:57:19,184 - isca - INFO - Beginning run 32
+2022-03-25 10:57:19,201 - isca - INFO - process running as 33198
+2022-03-25 10:57:19,232 - isca - DEBUG - loadmodules for oxford machines
+2022-03-25 10:57:19,661 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-25 10:57:19,685 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-25 10:57:19,685 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-25 10:57:19,685 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-25 10:57:19,686 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-25 10:57:19,686 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-25 10:57:20,271 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-25 10:57:20,272 - isca - DEBUG - &MPP_IO_NML
+2022-03-25 10:57:20,272 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-25 10:57:20,272 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-25 10:57:20,272 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-25 10:57:20,272 - isca - DEBUG - SHUFFLE =           0,
+2022-03-25 10:57:20,272 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-25 10:57:20,272 - isca - DEBUG - /
+2022-03-25 10:57:20,275 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-25 10:57:20,277 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-25 10:57:20,365 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-25 10:57:20,377 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-25 10:57:20,377 - isca - DEBUG - X-AXIS =  128
+2022-03-25 10:57:20,377 - isca - DEBUG - Y-AXIS =    2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+2022-03-25 10:57:20,377 - isca - DEBUG - 2   2   2   2   2   2   2   2
+2022-03-25 10:57:21,440 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2022-03-25 10:57:21,825 - isca - DEBUG - 
+2022-03-25 10:57:21,825 - isca - DEBUG - 
+2022-03-25 10:57:21,825 - isca - DEBUG - Rayleigh Drag in boundary layer.
+2022-03-25 10:57:21,825 - isca - DEBUG - Extent of frictional layer: sigma_b =     0.70
+2022-03-25 10:57:21,825 - isca - DEBUG - Frictional timescale in days:      1.00
+2022-03-25 10:57:21,825 - isca - DEBUG - 
+2022-03-25 10:57:21,825 - isca - DEBUG - 
+2022-03-25 10:57:27,242 - isca - DEBUG - Integration completed through    9 Aug 12   0: 0: 0
+2022-03-25 10:57:28,493 - isca - DEBUG - Integration completed through    9 Aug 13   0: 0: 0
+2022-03-25 10:57:29,743 - isca - DEBUG - Integration completed through    9 Aug 14   0: 0: 0
+2022-03-25 10:57:31,005 - isca - DEBUG - Integration completed through    9 Aug 15   0: 0: 0
+2022-03-25 10:57:32,292 - isca - DEBUG - Integration completed through    9 Aug 16   0: 0: 0
+2022-03-25 10:57:33,577 - isca - DEBUG - Integration completed through    9 Aug 17   0: 0: 0
+2022-03-25 10:57:34,839 - isca - DEBUG - Integration completed through    9 Aug 18   0: 0: 0
+2022-03-25 10:57:36,082 - isca - DEBUG - Integration completed through    9 Aug 19   0: 0: 0
+2022-03-25 10:57:37,334 - isca - DEBUG - Integration completed through    9 Aug 20   0: 0: 0
+2022-03-25 10:57:38,605 - isca - DEBUG - Integration completed through    9 Aug 21   0: 0: 0
+2022-03-25 10:57:39,869 - isca - DEBUG - Integration completed through    9 Aug 22   0: 0: 0
+2022-03-25 10:57:41,110 - isca - DEBUG - Integration completed through    9 Aug 23   0: 0: 0
+2022-03-25 10:57:42,376 - isca - DEBUG - Integration completed through    9 Aug 24   0: 0: 0
+2022-03-25 10:57:43,632 - isca - DEBUG - Integration completed through    9 Aug 25   0: 0: 0
+2022-03-25 10:57:44,882 - isca - DEBUG - Integration completed through    9 Aug 26   0: 0: 0
+2022-03-25 10:57:46,147 - isca - DEBUG - Integration completed through    9 Aug 27   0: 0: 0
+2022-03-25 10:57:47,396 - isca - DEBUG - Integration completed through    9 Aug 28   0: 0: 0
+2022-03-25 10:57:48,638 - isca - DEBUG - Integration completed through    9 Aug 29   0: 0: 0
+2022-03-25 10:57:49,897 - isca - DEBUG - Integration completed through    9 Aug 30   0: 0: 0
+2022-03-25 10:57:51,153 - isca - DEBUG - Integration completed through    9 Sep  1   0: 0: 0
+2022-03-25 10:57:52,401 - isca - DEBUG - Integration completed through    9 Sep  2   0: 0: 0
+2022-03-25 10:57:53,673 - isca - DEBUG - Integration completed through    9 Sep  3   0: 0: 0
+2022-03-25 10:57:54,961 - isca - DEBUG - Integration completed through    9 Sep  4   0: 0: 0
+2022-03-25 10:57:56,227 - isca - DEBUG - Integration completed through    9 Sep  5   0: 0: 0
+2022-03-25 10:57:57,476 - isca - DEBUG - Integration completed through    9 Sep  6   0: 0: 0
+2022-03-25 10:57:58,740 - isca - DEBUG - Integration completed through    9 Sep  7   0: 0: 0
+2022-03-25 10:58:00,017 - isca - DEBUG - Integration completed through    9 Sep  8   0: 0: 0
+2022-03-25 10:58:01,293 - isca - DEBUG - Integration completed through    9 Sep  9   0: 0: 0
+2022-03-25 10:58:02,557 - isca - DEBUG - Integration completed through    9 Sep 10   0: 0: 0
+2022-03-25 10:58:03,813 - isca - DEBUG - Integration completed through    9 Sep 11   0: 0: 0
+2022-03-25 10:58:05,094 - isca - DEBUG - Integration completed through    9 Sep 12   0: 0: 0
+2022-03-25 10:58:06,375 - isca - DEBUG - Integration completed through    9 Sep 13   0: 0: 0
+2022-03-25 10:58:07,621 - isca - DEBUG - Integration completed through    9 Sep 14   0: 0: 0
+2022-03-25 10:58:08,898 - isca - DEBUG - Integration completed through    9 Sep 15   0: 0: 0
+2022-03-25 10:58:10,168 - isca - DEBUG - Integration completed through    9 Sep 16   0: 0: 0
+2022-03-25 10:58:11,446 - isca - DEBUG - Integration completed through    9 Sep 17   0: 0: 0
+2022-03-25 10:58:12,696 - isca - DEBUG - Integration completed through    9 Sep 18   0: 0: 0
+2022-03-25 10:58:13,943 - isca - DEBUG - Integration completed through    9 Sep 19   0: 0: 0
+2022-03-25 10:58:15,202 - isca - DEBUG - Integration completed through    9 Sep 20   0: 0: 0
+2022-03-25 10:58:16,455 - isca - DEBUG - Integration completed through    9 Sep 21   0: 0: 0
+2022-03-25 10:58:17,720 - isca - DEBUG - Integration completed through    9 Sep 22   0: 0: 0
+2022-03-25 10:58:18,980 - isca - DEBUG - Integration completed through    9 Sep 23   0: 0: 0
+2022-03-25 10:58:20,233 - isca - DEBUG - Integration completed through    9 Sep 24   0: 0: 0
+2022-03-25 10:58:21,482 - isca - DEBUG - Integration completed through    9 Sep 25   0: 0: 0
+2022-03-25 10:58:22,765 - isca - DEBUG - Integration completed through    9 Sep 26   0: 0: 0
+2022-03-25 10:58:24,043 - isca - DEBUG - Integration completed through    9 Sep 27   0: 0: 0
+2022-03-25 10:58:25,290 - isca - DEBUG - Integration completed through    9 Sep 28   0: 0: 0
+2022-03-25 10:58:26,550 - isca - DEBUG - Integration completed through    9 Sep 29   0: 0: 0
+2022-03-25 10:58:27,810 - isca - DEBUG - Integration completed through    9 Sep 30   0: 0: 0
+2022-03-25 10:58:29,061 - isca - DEBUG - Integration completed through    9 Oct  1   0: 0: 0
+2022-03-25 10:58:30,337 - isca - DEBUG - Integration completed through    9 Oct  2   0: 0: 0
+2022-03-25 10:58:31,617 - isca - DEBUG - Integration completed through    9 Oct  3   0: 0: 0
+2022-03-25 10:58:32,877 - isca - DEBUG - Integration completed through    9 Oct  4   0: 0: 0
+2022-03-25 10:58:34,149 - isca - DEBUG - Integration completed through    9 Oct  5   0: 0: 0
+2022-03-25 10:58:35,417 - isca - DEBUG - Integration completed through    9 Oct  6   0: 0: 0
+2022-03-25 10:58:36,709 - isca - DEBUG - Integration completed through    9 Oct  7   0: 0: 0
+2022-03-25 10:58:37,968 - isca - DEBUG - Integration completed through    9 Oct  8   0: 0: 0
+2022-03-25 10:58:39,241 - isca - DEBUG - Integration completed through    9 Oct  9   0: 0: 0
+2022-03-25 10:58:40,527 - isca - DEBUG - Integration completed through    9 Oct 10   0: 0: 0
+2022-03-25 10:58:41,783 - isca - DEBUG - Integration completed through    9 Oct 11   0: 0: 0
+2022-03-25 10:58:43,109 - isca - DEBUG - Integration completed through    9 Oct 12   0: 0: 0
+2022-03-25 10:58:44,389 - isca - DEBUG - Integration completed through    9 Oct 13   0: 0: 0
+2022-03-25 10:58:45,660 - isca - DEBUG - Integration completed through    9 Oct 14   0: 0: 0
+2022-03-25 10:58:46,929 - isca - DEBUG - Integration completed through    9 Oct 15   0: 0: 0
+2022-03-25 10:58:48,197 - isca - DEBUG - Integration completed through    9 Oct 16   0: 0: 0
+2022-03-25 10:58:49,468 - isca - DEBUG - Integration completed through    9 Oct 17   0: 0: 0
+2022-03-25 10:58:50,733 - isca - DEBUG - Integration completed through    9 Oct 18   0: 0: 0
+2022-03-25 10:58:51,989 - isca - DEBUG - Integration completed through    9 Oct 19   0: 0: 0
+2022-03-25 10:58:53,246 - isca - DEBUG - Integration completed through    9 Oct 20   0: 0: 0
+2022-03-25 10:58:54,534 - isca - DEBUG - Integration completed through    9 Oct 21   0: 0: 0
+2022-03-25 10:58:55,789 - isca - DEBUG - Integration completed through    9 Oct 22   0: 0: 0
+2022-03-25 10:58:57,050 - isca - DEBUG - Integration completed through    9 Oct 23   0: 0: 0
+2022-03-25 10:58:58,324 - isca - DEBUG - Integration completed through    9 Oct 24   0: 0: 0
+2022-03-25 10:58:59,585 - isca - DEBUG - Integration completed through    9 Oct 25   0: 0: 0
+2022-03-25 10:59:00,853 - isca - DEBUG - Integration completed through    9 Oct 26   0: 0: 0
+2022-03-25 10:59:02,106 - isca - DEBUG - Integration completed through    9 Oct 27   0: 0: 0
+2022-03-25 10:59:03,363 - isca - DEBUG - Integration completed through    9 Oct 28   0: 0: 0
+2022-03-25 10:59:04,615 - isca - DEBUG - Integration completed through    9 Oct 29   0: 0: 0
+2022-03-25 10:59:05,902 - isca - DEBUG - Integration completed through    9 Oct 30   0: 0: 0
+2022-03-25 10:59:07,181 - isca - DEBUG - Integration completed through    9 Nov  1   0: 0: 0
+2022-03-25 10:59:08,456 - isca - DEBUG - Integration completed through    9 Nov  2   0: 0: 0
+2022-03-25 10:59:09,721 - isca - DEBUG - Integration completed through    9 Nov  3   0: 0: 0
+2022-03-25 10:59:11,007 - isca - DEBUG - Integration completed through    9 Nov  4   0: 0: 0
+2022-03-25 10:59:12,263 - isca - DEBUG - Integration completed through    9 Nov  5   0: 0: 0
+2022-03-25 10:59:13,522 - isca - DEBUG - Integration completed through    9 Nov  6   0: 0: 0
+2022-03-25 10:59:14,805 - isca - DEBUG - Integration completed through    9 Nov  7   0: 0: 0
+2022-03-25 10:59:16,081 - isca - DEBUG - Integration completed through    9 Nov  8   0: 0: 0
+2022-03-25 10:59:17,337 - isca - DEBUG - Integration completed through    9 Nov  9   0: 0: 0
+2022-03-25 10:59:18,609 - isca - DEBUG - Integration completed through    9 Nov 10   0: 0: 0
+2022-03-25 10:59:19,874 - isca - DEBUG - Integration completed through    9 Nov 11   0: 0: 0
+2022-03-25 10:59:21,122 - isca - DEBUG - Integration completed through    9 Nov 12   0: 0: 0
+2022-03-25 10:59:22,399 - isca - DEBUG - Integration completed through    9 Nov 13   0: 0: 0
+2022-03-25 10:59:23,656 - isca - DEBUG - Integration completed through    9 Nov 14   0: 0: 0
+2022-03-25 10:59:24,910 - isca - DEBUG - Integration completed through    9 Nov 15   0: 0: 0
+2022-03-25 10:59:26,184 - isca - DEBUG - Integration completed through    9 Nov 16   0: 0: 0
+2022-03-25 10:59:27,434 - isca - DEBUG - Integration completed through    9 Nov 17   0: 0: 0
+2022-03-25 10:59:28,692 - isca - DEBUG - Integration completed through    9 Nov 18   0: 0: 0
+2022-03-25 10:59:29,942 - isca - DEBUG - Integration completed through    9 Nov 19   0: 0: 0
+2022-03-25 10:59:31,194 - isca - DEBUG - Integration completed through    9 Nov 20   0: 0: 0
+2022-03-25 10:59:32,448 - isca - DEBUG - Integration completed through    9 Nov 21   0: 0: 0
+2022-03-25 10:59:32,788 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     204800.
+2022-03-25 10:59:33,469 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       25600
+2022-03-25 10:59:33,469 - isca - DEBUG - 
+2022-03-25 10:59:33,469 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2022-03-25 10:59:33,469 - isca - DEBUG - 
+2022-03-25 10:59:33,469 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-03-25 10:59:33,469 - isca - DEBUG - Total runtime                       133.199528    133.199534    133.199531      0.000002  1.000     0     0    31
+2022-03-25 10:59:33,469 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-03-25 10:59:33,521 - isca - INFO - Run 32 complete
+2022-03-25 11:00:13,368 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2022-03-25 11:00:15,847 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0032.tar.gz
+2022-03-25 11:00:15,992 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0032/input.nml'
+2022-03-25 11:00:16,058 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0032/field_table'
+2022-03-25 11:00:16,263 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0032/diag_table'
+2022-03-25 11:00:17,305 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 11:00:17,482 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 11:00:18,067 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/input.nml'
+2022-03-25 11:00:18,224 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/field_table'
+2022-03-25 11:00:18,345 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/diag_table'
+2022-03-25 11:00:18,467 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0032.tar.gz'
+2022-03-25 11:00:19,233 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0032.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/INPUT
+2022-03-25 11:00:19,324 - isca - INFO - Beginning run 33
+2022-03-25 11:00:19,342 - isca - INFO - process running as 33492
+2022-03-25 11:00:19,369 - isca - DEBUG - loadmodules for oxford machines
+2022-03-25 11:00:19,804 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-25 11:00:19,826 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-25 11:00:19,827 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-25 11:00:19,827 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-25 11:00:19,827 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-25 11:00:19,827 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-25 11:00:20,435 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-25 11:00:20,435 - isca - DEBUG - &MPP_IO_NML
+2022-03-25 11:00:20,435 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-25 11:00:20,435 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-25 11:00:20,436 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-25 11:00:20,436 - isca - DEBUG - SHUFFLE =           0,
+2022-03-25 11:00:20,436 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-25 11:00:20,436 - isca - DEBUG - /
+2022-03-25 11:00:20,438 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-25 11:00:20,441 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-25 11:00:20,499 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-25 11:00:20,509 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-25 11:00:20,509 - isca - DEBUG - X-AXIS =  128
+2022-03-25 11:00:20,509 - isca - DEBUG - Y-AXIS =    2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+2022-03-25 11:00:20,509 - isca - DEBUG - 2   2   2   2   2   2   2   2
+2022-03-25 11:00:21,589 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2022-03-25 11:00:21,870 - isca - DEBUG - 
+2022-03-25 11:00:21,871 - isca - DEBUG - 
+2022-03-25 11:00:21,871 - isca - DEBUG - Rayleigh Drag in boundary layer.
+2022-03-25 11:00:21,871 - isca - DEBUG - Extent of frictional layer: sigma_b =     0.70
+2022-03-25 11:00:21,871 - isca - DEBUG - Frictional timescale in days:      1.00
+2022-03-25 11:00:21,871 - isca - DEBUG - 
+2022-03-25 11:00:21,871 - isca - DEBUG - 
+2022-03-25 11:00:27,550 - isca - DEBUG - Integration completed through    9 Nov 22   0: 0: 0
+2022-03-25 11:00:28,862 - isca - DEBUG - Integration completed through    9 Nov 23   0: 0: 0
+2022-03-25 11:00:30,157 - isca - DEBUG - Integration completed through    9 Nov 24   0: 0: 0
+2022-03-25 11:00:31,452 - isca - DEBUG - Integration completed through    9 Nov 25   0: 0: 0
+2022-03-25 11:00:32,743 - isca - DEBUG - Integration completed through    9 Nov 26   0: 0: 0
+2022-03-25 11:00:34,064 - isca - DEBUG - Integration completed through    9 Nov 27   0: 0: 0
+2022-03-25 11:00:35,385 - isca - DEBUG - Integration completed through    9 Nov 28   0: 0: 0
+2022-03-25 11:00:36,694 - isca - DEBUG - Integration completed through    9 Nov 29   0: 0: 0
+2022-03-25 11:00:38,000 - isca - DEBUG - Integration completed through    9 Nov 30   0: 0: 0
+2022-03-25 11:00:39,332 - isca - DEBUG - Integration completed through    9 Dec  1   0: 0: 0
+2022-03-25 11:00:40,659 - isca - DEBUG - Integration completed through    9 Dec  2   0: 0: 0
+2022-03-25 11:00:41,952 - isca - DEBUG - Integration completed through    9 Dec  3   0: 0: 0
+2022-03-25 11:00:43,242 - isca - DEBUG - Integration completed through    9 Dec  4   0: 0: 0
+2022-03-25 11:00:44,531 - isca - DEBUG - Integration completed through    9 Dec  5   0: 0: 0
+2022-03-25 11:00:45,849 - isca - DEBUG - Integration completed through    9 Dec  6   0: 0: 0
+2022-03-25 11:00:47,154 - isca - DEBUG - Integration completed through    9 Dec  7   0: 0: 0
+2022-03-25 11:00:48,453 - isca - DEBUG - Integration completed through    9 Dec  8   0: 0: 0
+2022-03-25 11:00:49,761 - isca - DEBUG - Integration completed through    9 Dec  9   0: 0: 0
+2022-03-25 11:00:51,058 - isca - DEBUG - Integration completed through    9 Dec 10   0: 0: 0
+2022-03-25 11:00:52,376 - isca - DEBUG - Integration completed through    9 Dec 11   0: 0: 0
+2022-03-25 11:00:53,680 - isca - DEBUG - Integration completed through    9 Dec 12   0: 0: 0
+2022-03-25 11:00:54,992 - isca - DEBUG - Integration completed through    9 Dec 13   0: 0: 0
+2022-03-25 11:00:56,318 - isca - DEBUG - Integration completed through    9 Dec 14   0: 0: 0
+2022-03-25 11:00:57,629 - isca - DEBUG - Integration completed through    9 Dec 15   0: 0: 0
+2022-03-25 11:00:58,954 - isca - DEBUG - Integration completed through    9 Dec 16   0: 0: 0
+2022-03-25 11:01:00,261 - isca - DEBUG - Integration completed through    9 Dec 17   0: 0: 0
+2022-03-25 11:01:01,566 - isca - DEBUG - Integration completed through    9 Dec 18   0: 0: 0
+2022-03-25 11:01:02,895 - isca - DEBUG - Integration completed through    9 Dec 19   0: 0: 0
+2022-03-25 11:01:04,204 - isca - DEBUG - Integration completed through    9 Dec 20   0: 0: 0
+2022-03-25 11:01:05,507 - isca - DEBUG - Integration completed through    9 Dec 21   0: 0: 0
+2022-03-25 11:01:06,809 - isca - DEBUG - Integration completed through    9 Dec 22   0: 0: 0
+2022-03-25 11:01:08,136 - isca - DEBUG - Integration completed through    9 Dec 23   0: 0: 0
+2022-03-25 11:01:09,435 - isca - DEBUG - Integration completed through    9 Dec 24   0: 0: 0
+2022-03-25 11:01:10,746 - isca - DEBUG - Integration completed through    9 Dec 25   0: 0: 0
+2022-03-25 11:01:12,053 - isca - DEBUG - Integration completed through    9 Dec 26   0: 0: 0
+2022-03-25 11:01:13,382 - isca - DEBUG - Integration completed through    9 Dec 27   0: 0: 0
+2022-03-25 11:01:14,686 - isca - DEBUG - Integration completed through    9 Dec 28   0: 0: 0
+2022-03-25 11:01:15,996 - isca - DEBUG - Integration completed through    9 Dec 29   0: 0: 0
+2022-03-25 11:01:17,297 - isca - DEBUG - Integration completed through    9 Dec 30   0: 0: 0
+2022-03-25 11:01:18,592 - isca - DEBUG - Integration completed through   10 Jan  1   0: 0: 0
+2022-03-25 11:01:19,884 - isca - DEBUG - Integration completed through   10 Jan  2   0: 0: 0
+2022-03-25 11:01:21,187 - isca - DEBUG - Integration completed through   10 Jan  3   0: 0: 0
+2022-03-25 11:01:22,492 - isca - DEBUG - Integration completed through   10 Jan  4   0: 0: 0
+2022-03-25 11:01:23,797 - isca - DEBUG - Integration completed through   10 Jan  5   0: 0: 0
+2022-03-25 11:01:25,121 - isca - DEBUG - Integration completed through   10 Jan  6   0: 0: 0
+2022-03-25 11:01:26,442 - isca - DEBUG - Integration completed through   10 Jan  7   0: 0: 0
+2022-03-25 11:01:27,777 - isca - DEBUG - Integration completed through   10 Jan  8   0: 0: 0
+2022-03-25 11:01:29,080 - isca - DEBUG - Integration completed through   10 Jan  9   0: 0: 0
+2022-03-25 11:01:30,380 - isca - DEBUG - Integration completed through   10 Jan 10   0: 0: 0
+2022-03-25 11:01:31,694 - isca - DEBUG - Integration completed through   10 Jan 11   0: 0: 0
+2022-03-25 11:01:33,014 - isca - DEBUG - Integration completed through   10 Jan 12   0: 0: 0
+2022-03-25 11:01:34,331 - isca - DEBUG - Integration completed through   10 Jan 13   0: 0: 0
+2022-03-25 11:01:35,667 - isca - DEBUG - Integration completed through   10 Jan 14   0: 0: 0
+2022-03-25 11:01:36,963 - isca - DEBUG - Integration completed through   10 Jan 15   0: 0: 0
+2022-03-25 11:01:38,296 - isca - DEBUG - Integration completed through   10 Jan 16   0: 0: 0
+2022-03-25 11:01:39,624 - isca - DEBUG - Integration completed through   10 Jan 17   0: 0: 0
+2022-03-25 11:01:40,933 - isca - DEBUG - Integration completed through   10 Jan 18   0: 0: 0
+2022-03-25 11:01:42,255 - isca - DEBUG - Integration completed through   10 Jan 19   0: 0: 0
+2022-03-25 11:01:43,550 - isca - DEBUG - Integration completed through   10 Jan 20   0: 0: 0
+2022-03-25 11:01:44,846 - isca - DEBUG - Integration completed through   10 Jan 21   0: 0: 0
+2022-03-25 11:01:46,161 - isca - DEBUG - Integration completed through   10 Jan 22   0: 0: 0
+2022-03-25 11:01:47,471 - isca - DEBUG - Integration completed through   10 Jan 23   0: 0: 0
+2022-03-25 11:01:48,818 - isca - DEBUG - Integration completed through   10 Jan 24   0: 0: 0
+2022-03-25 11:01:50,143 - isca - DEBUG - Integration completed through   10 Jan 25   0: 0: 0
+2022-03-25 11:01:51,483 - isca - DEBUG - Integration completed through   10 Jan 26   0: 0: 0
+2022-03-25 11:01:52,804 - isca - DEBUG - Integration completed through   10 Jan 27   0: 0: 0
+2022-03-25 11:01:54,119 - isca - DEBUG - Integration completed through   10 Jan 28   0: 0: 0
+2022-03-25 11:01:55,442 - isca - DEBUG - Integration completed through   10 Jan 29   0: 0: 0
+2022-03-25 11:01:56,760 - isca - DEBUG - Integration completed through   10 Jan 30   0: 0: 0
+2022-03-25 11:01:58,087 - isca - DEBUG - Integration completed through   10 Feb  1   0: 0: 0
+2022-03-25 11:01:59,415 - isca - DEBUG - Integration completed through   10 Feb  2   0: 0: 0
+2022-03-25 11:02:00,736 - isca - DEBUG - Integration completed through   10 Feb  3   0: 0: 0
+2022-03-25 11:02:02,071 - isca - DEBUG - Integration completed through   10 Feb  4   0: 0: 0
+2022-03-25 11:02:03,398 - isca - DEBUG - Integration completed through   10 Feb  5   0: 0: 0
+2022-03-25 11:02:04,707 - isca - DEBUG - Integration completed through   10 Feb  6   0: 0: 0
+2022-03-25 11:02:06,021 - isca - DEBUG - Integration completed through   10 Feb  7   0: 0: 0
+2022-03-25 11:02:07,338 - isca - DEBUG - Integration completed through   10 Feb  8   0: 0: 0
+2022-03-25 11:02:08,654 - isca - DEBUG - Integration completed through   10 Feb  9   0: 0: 0
+2022-03-25 11:02:09,985 - isca - DEBUG - Integration completed through   10 Feb 10   0: 0: 0
+2022-03-25 11:02:11,280 - isca - DEBUG - Integration completed through   10 Feb 11   0: 0: 0
+2022-03-25 11:02:12,737 - isca - DEBUG - Integration completed through   10 Feb 12   0: 0: 0
+2022-03-25 11:02:14,432 - isca - DEBUG - Integration completed through   10 Feb 13   0: 0: 0
+2022-03-25 11:02:15,983 - isca - DEBUG - Integration completed through   10 Feb 14   0: 0: 0
+2022-03-25 11:02:17,378 - isca - DEBUG - Integration completed through   10 Feb 15   0: 0: 0
+2022-03-25 11:02:18,693 - isca - DEBUG - Integration completed through   10 Feb 16   0: 0: 0
+2022-03-25 11:02:20,002 - isca - DEBUG - Integration completed through   10 Feb 17   0: 0: 0
+2022-03-25 11:02:21,332 - isca - DEBUG - Integration completed through   10 Feb 18   0: 0: 0
+2022-03-25 11:02:22,638 - isca - DEBUG - Integration completed through   10 Feb 19   0: 0: 0
+2022-03-25 11:02:23,954 - isca - DEBUG - Integration completed through   10 Feb 20   0: 0: 0
+2022-03-25 11:02:25,264 - isca - DEBUG - Integration completed through   10 Feb 21   0: 0: 0
+2022-03-25 11:02:26,589 - isca - DEBUG - Integration completed through   10 Feb 22   0: 0: 0
+2022-03-25 11:02:27,895 - isca - DEBUG - Integration completed through   10 Feb 23   0: 0: 0
+2022-03-25 11:02:29,207 - isca - DEBUG - Integration completed through   10 Feb 24   0: 0: 0
+2022-03-25 11:02:30,524 - isca - DEBUG - Integration completed through   10 Feb 25   0: 0: 0
+2022-03-25 11:02:31,836 - isca - DEBUG - Integration completed through   10 Feb 26   0: 0: 0
+2022-03-25 11:02:33,141 - isca - DEBUG - Integration completed through   10 Feb 27   0: 0: 0
+2022-03-25 11:02:34,446 - isca - DEBUG - Integration completed through   10 Feb 28   0: 0: 0
+2022-03-25 11:02:35,787 - isca - DEBUG - Integration completed through   10 Feb 29   0: 0: 0
+2022-03-25 11:02:37,116 - isca - DEBUG - Integration completed through   10 Feb 30   0: 0: 0
+2022-03-25 11:02:38,426 - isca - DEBUG - Integration completed through   10 Mar  1   0: 0: 0
+2022-03-25 11:02:38,730 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     204800.
+2022-03-25 11:02:39,452 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       25600
+2022-03-25 11:02:39,452 - isca - DEBUG - 
+2022-03-25 11:02:39,452 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2022-03-25 11:02:39,452 - isca - DEBUG - 
+2022-03-25 11:02:39,452 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-03-25 11:02:39,452 - isca - DEBUG - Total runtime                       139.018948    139.018954    139.018951      0.000002  1.000     0     0    31
+2022-03-25 11:02:39,452 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-03-25 11:02:39,576 - isca - INFO - Run 33 complete
+2022-03-25 11:03:20,022 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2022-03-25 11:03:22,090 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0033.tar.gz
+2022-03-25 11:03:22,193 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0033/input.nml'
+2022-03-25 11:03:22,341 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0033/field_table'
+2022-03-25 11:03:22,492 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0033/diag_table'
+2022-03-25 11:03:24,092 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 11:03:24,265 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 11:03:24,910 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/input.nml'
+2022-03-25 11:03:25,005 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/field_table'
+2022-03-25 11:03:25,178 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/diag_table'
+2022-03-25 11:03:25,276 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0033.tar.gz'
+2022-03-25 11:03:26,286 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0033.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/INPUT
+2022-03-25 11:03:26,399 - isca - INFO - Beginning run 34
+2022-03-25 11:03:26,412 - isca - INFO - process running as 33791
+2022-03-25 11:03:26,444 - isca - DEBUG - loadmodules for oxford machines
+2022-03-25 11:03:26,886 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-25 11:03:26,908 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-25 11:03:26,908 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-25 11:03:26,908 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-25 11:03:26,908 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-25 11:03:26,909 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-25 11:03:28,172 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-25 11:03:28,172 - isca - DEBUG - &MPP_IO_NML
+2022-03-25 11:03:28,172 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-25 11:03:28,172 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-25 11:03:28,172 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-25 11:03:28,172 - isca - DEBUG - SHUFFLE =           0,
+2022-03-25 11:03:28,172 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-25 11:03:28,172 - isca - DEBUG - /
+2022-03-25 11:03:28,175 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-25 11:03:28,177 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-25 11:03:28,249 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-25 11:03:28,260 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-25 11:03:28,260 - isca - DEBUG - X-AXIS =  128
+2022-03-25 11:03:28,261 - isca - DEBUG - Y-AXIS =    2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+2022-03-25 11:03:28,261 - isca - DEBUG - 2   2   2   2   2   2   2   2
+2022-03-25 11:03:29,297 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2022-03-25 11:03:29,932 - isca - DEBUG - 
+2022-03-25 11:03:29,933 - isca - DEBUG - 
+2022-03-25 11:03:29,933 - isca - DEBUG - Rayleigh Drag in boundary layer.
+2022-03-25 11:03:29,933 - isca - DEBUG - Extent of frictional layer: sigma_b =     0.70
+2022-03-25 11:03:29,933 - isca - DEBUG - Frictional timescale in days:      1.00
+2022-03-25 11:03:29,933 - isca - DEBUG - 
+2022-03-25 11:03:29,933 - isca - DEBUG - 
+2022-03-25 11:03:36,309 - isca - DEBUG - Integration completed through   10 Mar  2   0: 0: 0
+2022-03-25 11:03:37,605 - isca - DEBUG - Integration completed through   10 Mar  3   0: 0: 0
+2022-03-25 11:03:38,904 - isca - DEBUG - Integration completed through   10 Mar  4   0: 0: 0
+2022-03-25 11:03:40,217 - isca - DEBUG - Integration completed through   10 Mar  5   0: 0: 0
+2022-03-25 11:03:41,556 - isca - DEBUG - Integration completed through   10 Mar  6   0: 0: 0
+2022-03-25 11:03:42,868 - isca - DEBUG - Integration completed through   10 Mar  7   0: 0: 0
+2022-03-25 11:03:44,214 - isca - DEBUG - Integration completed through   10 Mar  8   0: 0: 0
+2022-03-25 11:03:45,523 - isca - DEBUG - Integration completed through   10 Mar  9   0: 0: 0
+2022-03-25 11:03:46,838 - isca - DEBUG - Integration completed through   10 Mar 10   0: 0: 0
+2022-03-25 11:03:48,168 - isca - DEBUG - Integration completed through   10 Mar 11   0: 0: 0
+2022-03-25 11:03:49,467 - isca - DEBUG - Integration completed through   10 Mar 12   0: 0: 0
+2022-03-25 11:03:50,772 - isca - DEBUG - Integration completed through   10 Mar 13   0: 0: 0
+2022-03-25 11:03:52,089 - isca - DEBUG - Integration completed through   10 Mar 14   0: 0: 0
+2022-03-25 11:03:53,408 - isca - DEBUG - Integration completed through   10 Mar 15   0: 0: 0
+2022-03-25 11:03:54,725 - isca - DEBUG - Integration completed through   10 Mar 16   0: 0: 0
+2022-03-25 11:03:56,023 - isca - DEBUG - Integration completed through   10 Mar 17   0: 0: 0
+2022-03-25 11:03:57,319 - isca - DEBUG - Integration completed through   10 Mar 18   0: 0: 0
+2022-03-25 11:03:58,617 - isca - DEBUG - Integration completed through   10 Mar 19   0: 0: 0
+2022-03-25 11:03:59,916 - isca - DEBUG - Integration completed through   10 Mar 20   0: 0: 0
+2022-03-25 11:04:01,264 - isca - DEBUG - Integration completed through   10 Mar 21   0: 0: 0
+2022-03-25 11:04:02,585 - isca - DEBUG - Integration completed through   10 Mar 22   0: 0: 0
+2022-03-25 11:04:03,924 - isca - DEBUG - Integration completed through   10 Mar 23   0: 0: 0
+2022-03-25 11:04:05,238 - isca - DEBUG - Integration completed through   10 Mar 24   0: 0: 0
+2022-03-25 11:04:06,548 - isca - DEBUG - Integration completed through   10 Mar 25   0: 0: 0
+2022-03-25 11:04:07,845 - isca - DEBUG - Integration completed through   10 Mar 26   0: 0: 0
+2022-03-25 11:04:09,150 - isca - DEBUG - Integration completed through   10 Mar 27   0: 0: 0
+2022-03-25 11:04:10,452 - isca - DEBUG - Integration completed through   10 Mar 28   0: 0: 0
+2022-03-25 11:04:11,751 - isca - DEBUG - Integration completed through   10 Mar 29   0: 0: 0
+2022-03-25 11:04:13,047 - isca - DEBUG - Integration completed through   10 Mar 30   0: 0: 0
+2022-03-25 11:04:14,362 - isca - DEBUG - Integration completed through   10 Apr  1   0: 0: 0
+2022-03-25 11:04:15,661 - isca - DEBUG - Integration completed through   10 Apr  2   0: 0: 0
+2022-03-25 11:04:16,952 - isca - DEBUG - Integration completed through   10 Apr  3   0: 0: 0
+2022-03-25 11:04:18,243 - isca - DEBUG - Integration completed through   10 Apr  4   0: 0: 0
+2022-03-25 11:04:19,541 - isca - DEBUG - Integration completed through   10 Apr  5   0: 0: 0
+2022-03-25 11:04:20,851 - isca - DEBUG - Integration completed through   10 Apr  6   0: 0: 0
+2022-03-25 11:04:22,158 - isca - DEBUG - Integration completed through   10 Apr  7   0: 0: 0
+2022-03-25 11:04:23,458 - isca - DEBUG - Integration completed through   10 Apr  8   0: 0: 0
+2022-03-25 11:04:24,762 - isca - DEBUG - Integration completed through   10 Apr  9   0: 0: 0
+2022-03-25 11:04:26,058 - isca - DEBUG - Integration completed through   10 Apr 10   0: 0: 0
+2022-03-25 11:04:27,363 - isca - DEBUG - Integration completed through   10 Apr 11   0: 0: 0
+2022-03-25 11:04:28,707 - isca - DEBUG - Integration completed through   10 Apr 12   0: 0: 0
+2022-03-25 11:04:30,001 - isca - DEBUG - Integration completed through   10 Apr 13   0: 0: 0
+2022-03-25 11:04:31,320 - isca - DEBUG - Integration completed through   10 Apr 14   0: 0: 0
+2022-03-25 11:04:32,616 - isca - DEBUG - Integration completed through   10 Apr 15   0: 0: 0
+2022-03-25 11:04:33,911 - isca - DEBUG - Integration completed through   10 Apr 16   0: 0: 0
+2022-03-25 11:04:35,216 - isca - DEBUG - Integration completed through   10 Apr 17   0: 0: 0
+2022-03-25 11:04:36,520 - isca - DEBUG - Integration completed through   10 Apr 18   0: 0: 0
+2022-03-25 11:04:37,815 - isca - DEBUG - Integration completed through   10 Apr 19   0: 0: 0
+2022-03-25 11:04:39,115 - isca - DEBUG - Integration completed through   10 Apr 20   0: 0: 0
+2022-03-25 11:04:40,414 - isca - DEBUG - Integration completed through   10 Apr 21   0: 0: 0
+2022-03-25 11:04:41,742 - isca - DEBUG - Integration completed through   10 Apr 22   0: 0: 0
+2022-03-25 11:04:43,055 - isca - DEBUG - Integration completed through   10 Apr 23   0: 0: 0
+2022-03-25 11:04:44,379 - isca - DEBUG - Integration completed through   10 Apr 24   0: 0: 0
+2022-03-25 11:04:45,693 - isca - DEBUG - Integration completed through   10 Apr 25   0: 0: 0
+2022-03-25 11:04:47,012 - isca - DEBUG - Integration completed through   10 Apr 26   0: 0: 0
+2022-03-25 11:04:48,345 - isca - DEBUG - Integration completed through   10 Apr 27   0: 0: 0
+2022-03-25 11:04:49,654 - isca - DEBUG - Integration completed through   10 Apr 28   0: 0: 0
+2022-03-25 11:04:50,951 - isca - DEBUG - Integration completed through   10 Apr 29   0: 0: 0
+2022-03-25 11:04:52,263 - isca - DEBUG - Integration completed through   10 Apr 30   0: 0: 0
+2022-03-25 11:04:53,581 - isca - DEBUG - Integration completed through   10 May  1   0: 0: 0
+2022-03-25 11:04:54,899 - isca - DEBUG - Integration completed through   10 May  2   0: 0: 0
+2022-03-25 11:04:56,205 - isca - DEBUG - Integration completed through   10 May  3   0: 0: 0
+2022-03-25 11:04:57,511 - isca - DEBUG - Integration completed through   10 May  4   0: 0: 0
+2022-03-25 11:04:58,835 - isca - DEBUG - Integration completed through   10 May  5   0: 0: 0
+2022-03-25 11:05:00,140 - isca - DEBUG - Integration completed through   10 May  6   0: 0: 0
+2022-03-25 11:05:01,637 - isca - DEBUG - Integration completed through   10 May  7   0: 0: 0
+2022-03-25 11:05:02,952 - isca - DEBUG - Integration completed through   10 May  8   0: 0: 0
+2022-03-25 11:05:04,260 - isca - DEBUG - Integration completed through   10 May  9   0: 0: 0
+2022-03-25 11:05:05,569 - isca - DEBUG - Integration completed through   10 May 10   0: 0: 0
+2022-03-25 11:05:06,878 - isca - DEBUG - Integration completed through   10 May 11   0: 0: 0
+2022-03-25 11:05:08,189 - isca - DEBUG - Integration completed through   10 May 12   0: 0: 0
+2022-03-25 11:05:09,490 - isca - DEBUG - Integration completed through   10 May 13   0: 0: 0
+2022-03-25 11:05:10,825 - isca - DEBUG - Integration completed through   10 May 14   0: 0: 0
+2022-03-25 11:05:12,156 - isca - DEBUG - Integration completed through   10 May 15   0: 0: 0
+2022-03-25 11:05:13,465 - isca - DEBUG - Integration completed through   10 May 16   0: 0: 0
+2022-03-25 11:05:14,777 - isca - DEBUG - Integration completed through   10 May 17   0: 0: 0
+2022-03-25 11:05:16,094 - isca - DEBUG - Integration completed through   10 May 18   0: 0: 0
+2022-03-25 11:05:17,392 - isca - DEBUG - Integration completed through   10 May 19   0: 0: 0
+2022-03-25 11:05:18,706 - isca - DEBUG - Integration completed through   10 May 20   0: 0: 0
+2022-03-25 11:05:20,006 - isca - DEBUG - Integration completed through   10 May 21   0: 0: 0
+2022-03-25 11:05:21,334 - isca - DEBUG - Integration completed through   10 May 22   0: 0: 0
+2022-03-25 11:05:22,636 - isca - DEBUG - Integration completed through   10 May 23   0: 0: 0
+2022-03-25 11:05:23,950 - isca - DEBUG - Integration completed through   10 May 24   0: 0: 0
+2022-03-25 11:05:25,288 - isca - DEBUG - Integration completed through   10 May 25   0: 0: 0
+2022-03-25 11:05:26,590 - isca - DEBUG - Integration completed through   10 May 26   0: 0: 0
+2022-03-25 11:05:27,898 - isca - DEBUG - Integration completed through   10 May 27   0: 0: 0
+2022-03-25 11:05:29,194 - isca - DEBUG - Integration completed through   10 May 28   0: 0: 0
+2022-03-25 11:05:30,498 - isca - DEBUG - Integration completed through   10 May 29   0: 0: 0
+2022-03-25 11:05:31,800 - isca - DEBUG - Integration completed through   10 May 30   0: 0: 0
+2022-03-25 11:05:33,105 - isca - DEBUG - Integration completed through   10 Jun  1   0: 0: 0
+2022-03-25 11:05:34,412 - isca - DEBUG - Integration completed through   10 Jun  2   0: 0: 0
+2022-03-25 11:05:35,731 - isca - DEBUG - Integration completed through   10 Jun  3   0: 0: 0
+2022-03-25 11:05:37,036 - isca - DEBUG - Integration completed through   10 Jun  4   0: 0: 0
+2022-03-25 11:05:38,343 - isca - DEBUG - Integration completed through   10 Jun  5   0: 0: 0
+2022-03-25 11:05:39,672 - isca - DEBUG - Integration completed through   10 Jun  6   0: 0: 0
+2022-03-25 11:05:41,000 - isca - DEBUG - Integration completed through   10 Jun  7   0: 0: 0
+2022-03-25 11:05:42,351 - isca - DEBUG - Integration completed through   10 Jun  8   0: 0: 0
+2022-03-25 11:05:43,654 - isca - DEBUG - Integration completed through   10 Jun  9   0: 0: 0
+2022-03-25 11:05:44,959 - isca - DEBUG - Integration completed through   10 Jun 10   0: 0: 0
+2022-03-25 11:05:46,265 - isca - DEBUG - Integration completed through   10 Jun 11   0: 0: 0
+2022-03-25 11:05:46,664 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     204800.
+2022-03-25 11:05:47,359 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       25600
+2022-03-25 11:05:47,359 - isca - DEBUG - 
+2022-03-25 11:05:47,359 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2022-03-25 11:05:47,359 - isca - DEBUG - 
+2022-03-25 11:05:47,359 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-03-25 11:05:47,359 - isca - DEBUG - Total runtime                       139.189848    139.189855    139.189852      0.000002  1.000     0     0    31
+2022-03-25 11:05:47,359 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-03-25 11:05:47,465 - isca - INFO - Run 34 complete
+2022-03-25 11:06:25,750 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2022-03-25 11:06:27,712 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0034.tar.gz
+2022-03-25 11:06:27,808 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0034/input.nml'
+2022-03-25 11:06:27,928 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0034/field_table'
+2022-03-25 11:06:28,032 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0034/diag_table'
+2022-03-25 11:06:29,201 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 11:06:29,410 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 11:06:30,474 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/input.nml'
+2022-03-25 11:06:30,570 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/field_table'
+2022-03-25 11:06:30,690 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/diag_table'
+2022-03-25 11:06:30,809 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0034.tar.gz'
+2022-03-25 11:06:31,622 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0034.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/INPUT
+2022-03-25 11:06:31,725 - isca - INFO - Beginning run 35
+2022-03-25 11:06:31,738 - isca - INFO - process running as 34093
+2022-03-25 11:06:31,770 - isca - DEBUG - loadmodules for oxford machines
+2022-03-25 11:06:32,194 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-25 11:06:32,214 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-25 11:06:32,214 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-25 11:06:32,214 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-25 11:06:32,214 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-25 11:06:32,214 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-25 11:06:32,859 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-25 11:06:32,859 - isca - DEBUG - &MPP_IO_NML
+2022-03-25 11:06:32,859 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-25 11:06:32,860 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-25 11:06:32,860 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-25 11:06:32,860 - isca - DEBUG - SHUFFLE =           0,
+2022-03-25 11:06:32,860 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-25 11:06:32,860 - isca - DEBUG - /
+2022-03-25 11:06:32,862 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-25 11:06:32,864 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-25 11:06:32,948 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-25 11:06:32,962 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-25 11:06:32,962 - isca - DEBUG - X-AXIS =  128
+2022-03-25 11:06:32,962 - isca - DEBUG - Y-AXIS =    2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+2022-03-25 11:06:32,962 - isca - DEBUG - 2   2   2   2   2   2   2   2
+2022-03-25 11:06:34,023 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2022-03-25 11:06:34,318 - isca - DEBUG - 
+2022-03-25 11:06:34,319 - isca - DEBUG - 
+2022-03-25 11:06:34,319 - isca - DEBUG - Rayleigh Drag in boundary layer.
+2022-03-25 11:06:34,319 - isca - DEBUG - Extent of frictional layer: sigma_b =     0.70
+2022-03-25 11:06:34,319 - isca - DEBUG - Frictional timescale in days:      1.00
+2022-03-25 11:06:34,319 - isca - DEBUG - 
+2022-03-25 11:06:34,319 - isca - DEBUG - 
+2022-03-25 11:06:39,267 - isca - DEBUG - Integration completed through   10 Jun 12   0: 0: 0
+2022-03-25 11:06:40,525 - isca - DEBUG - Integration completed through   10 Jun 13   0: 0: 0
+2022-03-25 11:06:41,826 - isca - DEBUG - Integration completed through   10 Jun 14   0: 0: 0
+2022-03-25 11:06:43,119 - isca - DEBUG - Integration completed through   10 Jun 15   0: 0: 0
+2022-03-25 11:06:44,430 - isca - DEBUG - Integration completed through   10 Jun 16   0: 0: 0
+2022-03-25 11:06:45,698 - isca - DEBUG - Integration completed through   10 Jun 17   0: 0: 0
+2022-03-25 11:06:46,966 - isca - DEBUG - Integration completed through   10 Jun 18   0: 0: 0
+2022-03-25 11:06:48,257 - isca - DEBUG - Integration completed through   10 Jun 19   0: 0: 0
+2022-03-25 11:06:49,538 - isca - DEBUG - Integration completed through   10 Jun 20   0: 0: 0
+2022-03-25 11:06:50,814 - isca - DEBUG - Integration completed through   10 Jun 21   0: 0: 0
+2022-03-25 11:06:52,088 - isca - DEBUG - Integration completed through   10 Jun 22   0: 0: 0
+2022-03-25 11:06:53,357 - isca - DEBUG - Integration completed through   10 Jun 23   0: 0: 0
+2022-03-25 11:06:54,636 - isca - DEBUG - Integration completed through   10 Jun 24   0: 0: 0
+2022-03-25 11:06:55,921 - isca - DEBUG - Integration completed through   10 Jun 25   0: 0: 0
+2022-03-25 11:06:57,206 - isca - DEBUG - Integration completed through   10 Jun 26   0: 0: 0
+2022-03-25 11:06:58,478 - isca - DEBUG - Integration completed through   10 Jun 27   0: 0: 0
+2022-03-25 11:06:59,755 - isca - DEBUG - Integration completed through   10 Jun 28   0: 0: 0
+2022-03-25 11:07:01,034 - isca - DEBUG - Integration completed through   10 Jun 29   0: 0: 0
+2022-03-25 11:07:02,307 - isca - DEBUG - Integration completed through   10 Jun 30   0: 0: 0
+2022-03-25 11:07:03,585 - isca - DEBUG - Integration completed through   10 Jul  1   0: 0: 0
+2022-03-25 11:07:04,847 - isca - DEBUG - Integration completed through   10 Jul  2   0: 0: 0
+2022-03-25 11:07:06,129 - isca - DEBUG - Integration completed through   10 Jul  3   0: 0: 0
+2022-03-25 11:07:07,396 - isca - DEBUG - Integration completed through   10 Jul  4   0: 0: 0
+2022-03-25 11:07:08,675 - isca - DEBUG - Integration completed through   10 Jul  5   0: 0: 0
+2022-03-25 11:07:09,970 - isca - DEBUG - Integration completed through   10 Jul  6   0: 0: 0
+2022-03-25 11:07:11,273 - isca - DEBUG - Integration completed through   10 Jul  7   0: 0: 0
+2022-03-25 11:07:12,658 - isca - DEBUG - Integration completed through   10 Jul  8   0: 0: 0
+2022-03-25 11:07:14,294 - isca - DEBUG - Integration completed through   10 Jul  9   0: 0: 0
+2022-03-25 11:07:15,796 - isca - DEBUG - Integration completed through   10 Jul 10   0: 0: 0
+2022-03-25 11:07:17,219 - isca - DEBUG - Integration completed through   10 Jul 11   0: 0: 0
+2022-03-25 11:07:18,515 - isca - DEBUG - Integration completed through   10 Jul 12   0: 0: 0
+2022-03-25 11:07:19,794 - isca - DEBUG - Integration completed through   10 Jul 13   0: 0: 0
+2022-03-25 11:07:21,078 - isca - DEBUG - Integration completed through   10 Jul 14   0: 0: 0
+2022-03-25 11:07:22,362 - isca - DEBUG - Integration completed through   10 Jul 15   0: 0: 0
+2022-03-25 11:07:23,644 - isca - DEBUG - Integration completed through   10 Jul 16   0: 0: 0
+2022-03-25 11:07:24,919 - isca - DEBUG - Integration completed through   10 Jul 17   0: 0: 0
+2022-03-25 11:07:26,201 - isca - DEBUG - Integration completed through   10 Jul 18   0: 0: 0
+2022-03-25 11:07:27,491 - isca - DEBUG - Integration completed through   10 Jul 19   0: 0: 0
+2022-03-25 11:07:28,756 - isca - DEBUG - Integration completed through   10 Jul 20   0: 0: 0
+2022-03-25 11:07:30,038 - isca - DEBUG - Integration completed through   10 Jul 21   0: 0: 0
+2022-03-25 11:07:31,311 - isca - DEBUG - Integration completed through   10 Jul 22   0: 0: 0
+2022-03-25 11:07:32,585 - isca - DEBUG - Integration completed through   10 Jul 23   0: 0: 0
+2022-03-25 11:07:33,847 - isca - DEBUG - Integration completed through   10 Jul 24   0: 0: 0
+2022-03-25 11:07:35,151 - isca - DEBUG - Integration completed through   10 Jul 25   0: 0: 0
+2022-03-25 11:07:36,450 - isca - DEBUG - Integration completed through   10 Jul 26   0: 0: 0
+2022-03-25 11:07:37,726 - isca - DEBUG - Integration completed through   10 Jul 27   0: 0: 0
+2022-03-25 11:07:39,013 - isca - DEBUG - Integration completed through   10 Jul 28   0: 0: 0
+2022-03-25 11:07:40,302 - isca - DEBUG - Integration completed through   10 Jul 29   0: 0: 0
+2022-03-25 11:07:41,570 - isca - DEBUG - Integration completed through   10 Jul 30   0: 0: 0
+2022-03-25 11:07:42,861 - isca - DEBUG - Integration completed through   10 Aug  1   0: 0: 0
+2022-03-25 11:07:44,139 - isca - DEBUG - Integration completed through   10 Aug  2   0: 0: 0
+2022-03-25 11:07:45,414 - isca - DEBUG - Integration completed through   10 Aug  3   0: 0: 0
+2022-03-25 11:07:46,701 - isca - DEBUG - Integration completed through   10 Aug  4   0: 0: 0
+2022-03-25 11:07:47,994 - isca - DEBUG - Integration completed through   10 Aug  5   0: 0: 0
+2022-03-25 11:07:49,286 - isca - DEBUG - Integration completed through   10 Aug  6   0: 0: 0
+2022-03-25 11:07:50,590 - isca - DEBUG - Integration completed through   10 Aug  7   0: 0: 0
+2022-03-25 11:07:51,900 - isca - DEBUG - Integration completed through   10 Aug  8   0: 0: 0
+2022-03-25 11:07:53,213 - isca - DEBUG - Integration completed through   10 Aug  9   0: 0: 0
+2022-03-25 11:07:54,525 - isca - DEBUG - Integration completed through   10 Aug 10   0: 0: 0
+2022-03-25 11:07:55,811 - isca - DEBUG - Integration completed through   10 Aug 11   0: 0: 0
+2022-03-25 11:07:57,084 - isca - DEBUG - Integration completed through   10 Aug 12   0: 0: 0
+2022-03-25 11:07:58,358 - isca - DEBUG - Integration completed through   10 Aug 13   0: 0: 0
+2022-03-25 11:07:59,636 - isca - DEBUG - Integration completed through   10 Aug 14   0: 0: 0
+2022-03-25 11:08:00,907 - isca - DEBUG - Integration completed through   10 Aug 15   0: 0: 0
+2022-03-25 11:08:02,188 - isca - DEBUG - Integration completed through   10 Aug 16   0: 0: 0
+2022-03-25 11:08:03,460 - isca - DEBUG - Integration completed through   10 Aug 17   0: 0: 0
+2022-03-25 11:08:04,761 - isca - DEBUG - Integration completed through   10 Aug 18   0: 0: 0
+2022-03-25 11:08:06,033 - isca - DEBUG - Integration completed through   10 Aug 19   0: 0: 0
+2022-03-25 11:08:07,306 - isca - DEBUG - Integration completed through   10 Aug 20   0: 0: 0
+2022-03-25 11:08:08,585 - isca - DEBUG - Integration completed through   10 Aug 21   0: 0: 0
+2022-03-25 11:08:09,870 - isca - DEBUG - Integration completed through   10 Aug 22   0: 0: 0
+2022-03-25 11:08:11,163 - isca - DEBUG - Integration completed through   10 Aug 23   0: 0: 0
+2022-03-25 11:08:12,434 - isca - DEBUG - Integration completed through   10 Aug 24   0: 0: 0
+2022-03-25 11:08:13,707 - isca - DEBUG - Integration completed through   10 Aug 25   0: 0: 0
+2022-03-25 11:08:14,979 - isca - DEBUG - Integration completed through   10 Aug 26   0: 0: 0
+2022-03-25 11:08:16,263 - isca - DEBUG - Integration completed through   10 Aug 27   0: 0: 0
+2022-03-25 11:08:17,564 - isca - DEBUG - Integration completed through   10 Aug 28   0: 0: 0
+2022-03-25 11:08:18,861 - isca - DEBUG - Integration completed through   10 Aug 29   0: 0: 0
+2022-03-25 11:08:20,282 - isca - DEBUG - Integration completed through   10 Aug 30   0: 0: 0
+2022-03-25 11:08:21,593 - isca - DEBUG - Integration completed through   10 Sep  1   0: 0: 0
+2022-03-25 11:08:22,866 - isca - DEBUG - Integration completed through   10 Sep  2   0: 0: 0
+2022-03-25 11:08:24,147 - isca - DEBUG - Integration completed through   10 Sep  3   0: 0: 0
+2022-03-25 11:08:25,425 - isca - DEBUG - Integration completed through   10 Sep  4   0: 0: 0
+2022-03-25 11:08:26,704 - isca - DEBUG - Integration completed through   10 Sep  5   0: 0: 0
+2022-03-25 11:08:27,987 - isca - DEBUG - Integration completed through   10 Sep  6   0: 0: 0
+2022-03-25 11:08:29,282 - isca - DEBUG - Integration completed through   10 Sep  7   0: 0: 0
+2022-03-25 11:08:30,572 - isca - DEBUG - Integration completed through   10 Sep  8   0: 0: 0
+2022-03-25 11:08:31,854 - isca - DEBUG - Integration completed through   10 Sep  9   0: 0: 0
+2022-03-25 11:08:33,136 - isca - DEBUG - Integration completed through   10 Sep 10   0: 0: 0
+2022-03-25 11:08:34,412 - isca - DEBUG - Integration completed through   10 Sep 11   0: 0: 0
+2022-03-25 11:08:35,706 - isca - DEBUG - Integration completed through   10 Sep 12   0: 0: 0
+2022-03-25 11:08:36,983 - isca - DEBUG - Integration completed through   10 Sep 13   0: 0: 0
+2022-03-25 11:08:38,290 - isca - DEBUG - Integration completed through   10 Sep 14   0: 0: 0
+2022-03-25 11:08:39,569 - isca - DEBUG - Integration completed through   10 Sep 15   0: 0: 0
+2022-03-25 11:08:40,851 - isca - DEBUG - Integration completed through   10 Sep 16   0: 0: 0
+2022-03-25 11:08:42,155 - isca - DEBUG - Integration completed through   10 Sep 17   0: 0: 0
+2022-03-25 11:08:43,451 - isca - DEBUG - Integration completed through   10 Sep 18   0: 0: 0
+2022-03-25 11:08:44,736 - isca - DEBUG - Integration completed through   10 Sep 19   0: 0: 0
+2022-03-25 11:08:46,028 - isca - DEBUG - Integration completed through   10 Sep 20   0: 0: 0
+2022-03-25 11:08:47,311 - isca - DEBUG - Integration completed through   10 Sep 21   0: 0: 0
+2022-03-25 11:08:47,621 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     204800.
+2022-03-25 11:08:48,410 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       25600
+2022-03-25 11:08:48,410 - isca - DEBUG - 
+2022-03-25 11:08:48,410 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2022-03-25 11:08:48,410 - isca - DEBUG - 
+2022-03-25 11:08:48,410 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-03-25 11:08:48,410 - isca - DEBUG - Total runtime                       135.553651    135.553656    135.553653      0.000001  1.000     0     0    31
+2022-03-25 11:08:48,410 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-03-25 11:08:48,540 - isca - INFO - Run 35 complete
+2022-03-25 11:09:30,655 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2022-03-25 11:09:32,766 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0035.tar.gz
+2022-03-25 11:09:32,932 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0035/input.nml'
+2022-03-25 11:09:33,034 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0035/field_table'
+2022-03-25 11:09:33,240 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0035/diag_table'
+2022-03-25 11:09:34,463 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 11:09:34,606 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'
+2022-03-25 11:09:35,186 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/input.nml'
+2022-03-25 11:09:35,306 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/field_table'
+2022-03-25 11:09:35,434 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/diag_table'
+2022-03-25 11:09:36,427 - isca - INFO - Using restart file '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0035.tar.gz'
+2022-03-25 11:09:37,322 - isca - INFO - Restart /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0035.tar.gz extracted to /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run/INPUT
+2022-03-25 11:09:37,436 - isca - INFO - Beginning run 36
+2022-03-25 11:09:37,450 - isca - INFO - process running as 34400
+2022-03-25 11:09:37,480 - isca - DEBUG - loadmodules for oxford machines
+2022-03-25 11:09:37,908 - isca - DEBUG - [?1h=Currently Loaded Modulefiles:[m
+2022-03-25 11:09:37,931 - isca - DEBUG - 1) physicspaths/2.0         6) otheros/generic-arc          [m
+2022-03-25 11:09:37,931 - isca - DEBUG - 2) otheros/generic-oxphys   7) intel-compilers/2018upd4     [m
+2022-03-25 11:09:37,931 - isca - DEBUG - 3) otheros/ubuntu_bionic    8) intel-mpi/2015               [m
+2022-03-25 11:09:37,931 - isca - DEBUG - 4) otheros/ubuntu_trusty    9) netcdf/netcdf-c-4.7.3        [m
+2022-03-25 11:09:37,931 - isca - DEBUG - 5) arcpaths/1.0            10) netcdf/netcdf-fortran-4.5.2  [m
+2022-03-25 11:09:38,579 - isca - DEBUG - [K[?1l>NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to    32768.
+2022-03-25 11:09:38,579 - isca - DEBUG - &MPP_IO_NML
+2022-03-25 11:09:38,579 - isca - DEBUG - HEADER_BUFFER_VAL       =       16384,
+2022-03-25 11:09:38,579 - isca - DEBUG - GLOBAL_FIELD_ON_ROOT_PE = T,
+2022-03-25 11:09:38,579 - isca - DEBUG - IO_CLOCKS_ON    = F,
+2022-03-25 11:09:38,579 - isca - DEBUG - SHUFFLE =           0,
+2022-03-25 11:09:38,579 - isca - DEBUG - DEFLATE_LEVEL   =          -1
+2022-03-25 11:09:38,579 - isca - DEBUG - /
+2022-03-25 11:09:38,582 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     131072.
+2022-03-25 11:09:38,584 - isca - DEBUG - NOTE from PE    0: MPP_DOMAINS_SET_STACK_SIZE: stack size set to   600000.
+2022-03-25 11:09:38,665 - isca - DEBUG - starting            1  OpenMP threads per MPI-task
+2022-03-25 11:09:38,678 - isca - DEBUG - ATMOS MODEL DOMAIN DECOMPOSITION
+2022-03-25 11:09:38,678 - isca - DEBUG - X-AXIS =  128
+2022-03-25 11:09:38,678 - isca - DEBUG - Y-AXIS =    2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+2022-03-25 11:09:38,678 - isca - DEBUG - 2   2   2   2   2   2   2   2
+2022-03-25 11:09:39,748 - isca - DEBUG - NOTE from PE    0: idealized_moist_phys: Using AM3 dry adjustment convection scheme.
+2022-03-25 11:09:40,314 - isca - DEBUG - 
+2022-03-25 11:09:40,314 - isca - DEBUG - 
+2022-03-25 11:09:40,314 - isca - DEBUG - Rayleigh Drag in boundary layer.
+2022-03-25 11:09:40,314 - isca - DEBUG - Extent of frictional layer: sigma_b =     0.70
+2022-03-25 11:09:40,314 - isca - DEBUG - Frictional timescale in days:      1.00
+2022-03-25 11:09:40,314 - isca - DEBUG - 
+2022-03-25 11:09:40,315 - isca - DEBUG - 
+2022-03-25 11:09:45,108 - isca - DEBUG - Integration completed through   10 Sep 22   0: 0: 0
+2022-03-25 11:09:46,376 - isca - DEBUG - Integration completed through   10 Sep 23   0: 0: 0
+2022-03-25 11:09:47,651 - isca - DEBUG - Integration completed through   10 Sep 24   0: 0: 0
+2022-03-25 11:09:48,924 - isca - DEBUG - Integration completed through   10 Sep 25   0: 0: 0
+2022-03-25 11:09:50,207 - isca - DEBUG - Integration completed through   10 Sep 26   0: 0: 0
+2022-03-25 11:09:51,477 - isca - DEBUG - Integration completed through   10 Sep 27   0: 0: 0
+2022-03-25 11:09:52,741 - isca - DEBUG - Integration completed through   10 Sep 28   0: 0: 0
+2022-03-25 11:09:54,004 - isca - DEBUG - Integration completed through   10 Sep 29   0: 0: 0
+2022-03-25 11:09:55,273 - isca - DEBUG - Integration completed through   10 Sep 30   0: 0: 0
+2022-03-25 11:09:56,542 - isca - DEBUG - Integration completed through   10 Oct  1   0: 0: 0
+2022-03-25 11:09:57,811 - isca - DEBUG - Integration completed through   10 Oct  2   0: 0: 0
+2022-03-25 11:09:59,089 - isca - DEBUG - Integration completed through   10 Oct  3   0: 0: 0
+2022-03-25 11:10:00,371 - isca - DEBUG - Integration completed through   10 Oct  4   0: 0: 0
+2022-03-25 11:10:01,639 - isca - DEBUG - Integration completed through   10 Oct  5   0: 0: 0
+2022-03-25 11:10:02,946 - isca - DEBUG - Integration completed through   10 Oct  6   0: 0: 0
+2022-03-25 11:10:04,217 - isca - DEBUG - Integration completed through   10 Oct  7   0: 0: 0
+2022-03-25 11:10:05,521 - isca - DEBUG - Integration completed through   10 Oct  8   0: 0: 0
+2022-03-25 11:10:06,795 - isca - DEBUG - Integration completed through   10 Oct  9   0: 0: 0
+2022-03-25 11:10:08,064 - isca - DEBUG - Integration completed through   10 Oct 10   0: 0: 0
+2022-03-25 11:10:09,352 - isca - DEBUG - Integration completed through   10 Oct 11   0: 0: 0
+2022-03-25 11:10:10,637 - isca - DEBUG - Integration completed through   10 Oct 12   0: 0: 0
+2022-03-25 11:10:11,911 - isca - DEBUG - Integration completed through   10 Oct 13   0: 0: 0
+2022-03-25 11:10:13,182 - isca - DEBUG - Integration completed through   10 Oct 14   0: 0: 0
+2022-03-25 11:10:14,443 - isca - DEBUG - Integration completed through   10 Oct 15   0: 0: 0
+2022-03-25 11:10:15,714 - isca - DEBUG - Integration completed through   10 Oct 16   0: 0: 0
+2022-03-25 11:10:17,012 - isca - DEBUG - Integration completed through   10 Oct 17   0: 0: 0
+2022-03-25 11:10:18,294 - isca - DEBUG - Integration completed through   10 Oct 18   0: 0: 0
+2022-03-25 11:10:19,596 - isca - DEBUG - Integration completed through   10 Oct 19   0: 0: 0
+2022-03-25 11:10:20,912 - isca - DEBUG - Integration completed through   10 Oct 20   0: 0: 0
+2022-03-25 11:10:22,225 - isca - DEBUG - Integration completed through   10 Oct 21   0: 0: 0
+2022-03-25 11:10:23,517 - isca - DEBUG - Integration completed through   10 Oct 22   0: 0: 0
+2022-03-25 11:10:24,804 - isca - DEBUG - Integration completed through   10 Oct 23   0: 0: 0
+2022-03-25 11:10:26,084 - isca - DEBUG - Integration completed through   10 Oct 24   0: 0: 0
+2022-03-25 11:10:27,372 - isca - DEBUG - Integration completed through   10 Oct 25   0: 0: 0
+2022-03-25 11:10:28,655 - isca - DEBUG - Integration completed through   10 Oct 26   0: 0: 0
+2022-03-25 11:10:29,928 - isca - DEBUG - Integration completed through   10 Oct 27   0: 0: 0
+2022-03-25 11:10:31,223 - isca - DEBUG - Integration completed through   10 Oct 28   0: 0: 0
+2022-03-25 11:10:32,519 - isca - DEBUG - Integration completed through   10 Oct 29   0: 0: 0
+2022-03-25 11:10:33,792 - isca - DEBUG - Integration completed through   10 Oct 30   0: 0: 0
+2022-03-25 11:10:35,073 - isca - DEBUG - Integration completed through   10 Nov  1   0: 0: 0
+2022-03-25 11:10:36,342 - isca - DEBUG - Integration completed through   10 Nov  2   0: 0: 0
+2022-03-25 11:10:37,613 - isca - DEBUG - Integration completed through   10 Nov  3   0: 0: 0
+2022-03-25 11:10:38,880 - isca - DEBUG - Integration completed through   10 Nov  4   0: 0: 0
+2022-03-25 11:10:40,166 - isca - DEBUG - Integration completed through   10 Nov  5   0: 0: 0
+2022-03-25 11:10:41,478 - isca - DEBUG - Integration completed through   10 Nov  6   0: 0: 0
+2022-03-25 11:10:42,742 - isca - DEBUG - Integration completed through   10 Nov  7   0: 0: 0
+2022-03-25 11:10:44,040 - isca - DEBUG - Integration completed through   10 Nov  8   0: 0: 0
+2022-03-25 11:10:45,314 - isca - DEBUG - Integration completed through   10 Nov  9   0: 0: 0
+2022-03-25 11:10:46,592 - isca - DEBUG - Integration completed through   10 Nov 10   0: 0: 0
+2022-03-25 11:10:47,878 - isca - DEBUG - Integration completed through   10 Nov 11   0: 0: 0
+2022-03-25 11:10:49,389 - isca - DEBUG - Integration completed through   10 Nov 12   0: 0: 0
+2022-03-25 11:10:50,670 - isca - DEBUG - Integration completed through   10 Nov 13   0: 0: 0
+2022-03-25 11:10:51,963 - isca - DEBUG - Integration completed through   10 Nov 14   0: 0: 0
+2022-03-25 11:10:53,277 - isca - DEBUG - Integration completed through   10 Nov 15   0: 0: 0
+2022-03-25 11:10:54,563 - isca - DEBUG - Integration completed through   10 Nov 16   0: 0: 0
+2022-03-25 11:10:55,858 - isca - DEBUG - Integration completed through   10 Nov 17   0: 0: 0
+2022-03-25 11:10:57,150 - isca - DEBUG - Integration completed through   10 Nov 18   0: 0: 0
+2022-03-25 11:10:58,430 - isca - DEBUG - Integration completed through   10 Nov 19   0: 0: 0
+2022-03-25 11:10:59,734 - isca - DEBUG - Integration completed through   10 Nov 20   0: 0: 0
+2022-03-25 11:11:01,022 - isca - DEBUG - Integration completed through   10 Nov 21   0: 0: 0
+2022-03-25 11:11:02,312 - isca - DEBUG - Integration completed through   10 Nov 22   0: 0: 0
+2022-03-25 11:11:03,595 - isca - DEBUG - Integration completed through   10 Nov 23   0: 0: 0
+2022-03-25 11:11:04,878 - isca - DEBUG - Integration completed through   10 Nov 24   0: 0: 0
+2022-03-25 11:11:06,169 - isca - DEBUG - Integration completed through   10 Nov 25   0: 0: 0
+2022-03-25 11:11:07,452 - isca - DEBUG - Integration completed through   10 Nov 26   0: 0: 0
+2022-03-25 11:11:08,735 - isca - DEBUG - Integration completed through   10 Nov 27   0: 0: 0
+2022-03-25 11:11:10,026 - isca - DEBUG - Integration completed through   10 Nov 28   0: 0: 0
+2022-03-25 11:11:11,305 - isca - DEBUG - Integration completed through   10 Nov 29   0: 0: 0
+2022-03-25 11:11:12,599 - isca - DEBUG - Integration completed through   10 Nov 30   0: 0: 0
+2022-03-25 11:11:13,879 - isca - DEBUG - Integration completed through   10 Dec  1   0: 0: 0
+2022-03-25 11:11:15,175 - isca - DEBUG - Integration completed through   10 Dec  2   0: 0: 0
+2022-03-25 11:11:16,468 - isca - DEBUG - Integration completed through   10 Dec  3   0: 0: 0
+2022-03-25 11:11:17,755 - isca - DEBUG - Integration completed through   10 Dec  4   0: 0: 0
+2022-03-25 11:11:19,046 - isca - DEBUG - Integration completed through   10 Dec  5   0: 0: 0
+2022-03-25 11:11:20,347 - isca - DEBUG - Integration completed through   10 Dec  6   0: 0: 0
+2022-03-25 11:11:21,628 - isca - DEBUG - Integration completed through   10 Dec  7   0: 0: 0
+2022-03-25 11:11:22,943 - isca - DEBUG - Integration completed through   10 Dec  8   0: 0: 0
+2022-03-25 11:11:24,254 - isca - DEBUG - Integration completed through   10 Dec  9   0: 0: 0
+2022-03-25 11:11:25,574 - isca - DEBUG - Integration completed through   10 Dec 10   0: 0: 0
+2022-03-25 11:11:26,868 - isca - DEBUG - Integration completed through   10 Dec 11   0: 0: 0
+2022-03-25 11:11:28,162 - isca - DEBUG - Integration completed through   10 Dec 12   0: 0: 0
+2022-03-25 11:11:29,467 - isca - DEBUG - Integration completed through   10 Dec 13   0: 0: 0
+2022-03-25 11:11:30,764 - isca - DEBUG - Integration completed through   10 Dec 14   0: 0: 0
+2022-03-25 11:11:32,047 - isca - DEBUG - Integration completed through   10 Dec 15   0: 0: 0
+2022-03-25 11:11:33,366 - isca - DEBUG - Integration completed through   10 Dec 16   0: 0: 0
+2022-03-25 11:11:34,669 - isca - DEBUG - Integration completed through   10 Dec 17   0: 0: 0
+2022-03-25 11:11:35,965 - isca - DEBUG - Integration completed through   10 Dec 18   0: 0: 0
+2022-03-25 11:11:37,240 - isca - DEBUG - Integration completed through   10 Dec 19   0: 0: 0
+2022-03-25 11:11:38,519 - isca - DEBUG - Integration completed through   10 Dec 20   0: 0: 0
+2022-03-25 11:11:39,802 - isca - DEBUG - Integration completed through   10 Dec 21   0: 0: 0
+2022-03-25 11:11:41,112 - isca - DEBUG - Integration completed through   10 Dec 22   0: 0: 0
+2022-03-25 11:11:42,395 - isca - DEBUG - Integration completed through   10 Dec 23   0: 0: 0
+2022-03-25 11:11:43,680 - isca - DEBUG - Integration completed through   10 Dec 24   0: 0: 0
+2022-03-25 11:11:44,956 - isca - DEBUG - Integration completed through   10 Dec 25   0: 0: 0
+2022-03-25 11:11:46,251 - isca - DEBUG - Integration completed through   10 Dec 26   0: 0: 0
+2022-03-25 11:11:47,554 - isca - DEBUG - Integration completed through   10 Dec 27   0: 0: 0
+2022-03-25 11:11:48,836 - isca - DEBUG - Integration completed through   10 Dec 28   0: 0: 0
+2022-03-25 11:11:50,123 - isca - DEBUG - Integration completed through   10 Dec 29   0: 0: 0
+2022-03-25 11:11:51,400 - isca - DEBUG - Integration completed through   10 Dec 30   0: 0: 0
+2022-03-25 11:11:52,695 - isca - DEBUG - Integration completed through   11 Jan  1   0: 0: 0
+2022-03-25 11:11:52,974 - isca - DEBUG - NOTE from PE    0: MPP_IO_SET_STACK_SIZE: stack size set to     204800.
+2022-03-25 11:11:53,759 - isca - DEBUG - MPP_DOMAINS_STACK high water mark=       25600
+2022-03-25 11:11:53,759 - isca - DEBUG - 
+2022-03-25 11:11:53,759 - isca - DEBUG - Tabulating mpp_clock statistics across     32 PEs...
+2022-03-25 11:11:53,759 - isca - DEBUG - 
+2022-03-25 11:11:53,759 - isca - DEBUG - tmin          tmax          tavg          tstd  tfrac grain pemin pemax
+2022-03-25 11:11:53,759 - isca - DEBUG - Total runtime                       135.183054    135.183059    135.183057      0.000001  1.000     0     0    31
+2022-03-25 11:11:53,759 - isca - DEBUG - MPP_STACK high water mark=           0
+2022-03-25 11:11:53,850 - isca - INFO - Run 36 complete
+2022-03-25 11:12:35,010 - isca - DEBUG - atmos_monthly.nc combined and copied to data directory
+2022-03-25 11:12:37,075 - isca - INFO - Restart archive created at /network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/restarts/res0036.tar.gz
+2022-03-25 11:12:37,173 - isca - INFO - Writing namelist to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0036/input.nml'
+2022-03-25 11:12:37,334 - isca - INFO - Writing field_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0036/field_table'
+2022-03-25 11:12:37,509 - isca - INFO - Writing diag_table to '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_data/F_greytl_1_1rad_1_infom/run0036/diag_table'
+2022-03-25 11:12:38,879 - isca - INFO - Emptied run directory '/network/group/aopp/planetary/PLR018_LEWIS_VENUS2/isca_work/experiment/F_greytl_1_1rad_1_infom/run'

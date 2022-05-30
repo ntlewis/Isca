@@ -135,6 +135,10 @@ logical :: add_latent_heat_flux_anom = .false.
 character(len=256) :: flux_lhe_anom_file_name  = 'INPUT/flux_lhe_anom.nc'
 character(len=256) :: flux_lhe_anom_field_name = 'flux_lhe_anom'
 
+logical :: ic_neil_style = .false.
+character(len=128) :: neil_ic_file_name = 'INPUT/init_cond.nc'
+character(len=128) :: t_surf_name    = 't_surf'
+
 namelist/mixed_layer_nml/ evaporation, depth, qflux_amp, qflux_width, tconst,&
                               delta_T, prescribe_initial_dist,albedo_value,  &
                               land_depth,trop_depth,                         &  !mj
@@ -152,7 +156,8 @@ namelist/mixed_layer_nml/ evaporation, depth, qflux_amp, qflux_width, tconst,&
                               ice_albedo_value, specify_sst_over_ocean_only, &
                               ice_concentration_threshold,                   &
                               add_latent_heat_flux_anom,flux_lhe_anom_file_name,&
-                              flux_lhe_anom_field_name, do_ape_sst, qflux_field_name
+                              flux_lhe_anom_field_name, do_ape_sst, qflux_field_name,& 
+                              ic_neil_style, neil_ic_file_name, t_surf_name
 
 !=================================================================================================================================
 
@@ -345,6 +350,8 @@ elseif (prescribe_initial_dist) then
 
     t_surf(:,:) = tconst - delta_T*((3.*sin(rad_lat_2d)**2.)-1.)/3.
 
+else if( ic_neil_style ) then 
+  call read_data(neil_ic_file_name, t_surf_name, t_surf, domain=grid_domain)
 else
 
   call error_mesg('mixed_layer','mixed_layer restart file not found - initializing from lowest model level temp', WARNING)

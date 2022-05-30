@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --ntasks-per-node=16
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=2
+#SBATCH --time=800:00:00
+#SBATCH --mincpus=32
+#SBATCH --mem-per-cpu=1000
+##SBATCH --exclude=atmnode007,atmnode008,atmnode009,atmnode010,atmnode011,atmnode012,atmnode013,atmnode014,atmnode015,atmnode016,atmnode025,atmnode026,atmnode027,atmnode028
+#SBATCH --nodelist=atmnode028
+#SBATCH --output=grey_venus_FINAL_LLEB_varcp.out
+##SBATCH -p priority-rp
+source $HOME/.bashrc
+cd $HOME/research/isca_dir/Isca/exp/grey_suprot_test/gcm_test/venus_gcm_test_new/
+$HOME/anaconda3/envs/isca_env2/bin/python grey_venus_FINAL_LLEB_varcp.py

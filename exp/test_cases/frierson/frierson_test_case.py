@@ -2,13 +2,13 @@ import os
 
 import numpy as np
 
-from isca import IscaCodeBase, DiagTable, Experiment, Namelist, GFDL_BASE
+from isca import GreyCodeBase, DiagTable, Experiment, Namelist, GFDL_BASE
 
-NCORES = 8
+NCORES = 64
 base_dir = os.path.dirname(os.path.realpath(__file__))
 # a CodeBase can be a directory on the computer,
 # useful for iterative development
-cb = IscaCodeBase.from_directory(GFDL_BASE)
+cb = GreyCodeBase.from_directory(GFDL_BASE)
 
 # or it can point to a specific git repo and commit id.
 # This method should ensure future, independent, reproducibility of results.
@@ -23,11 +23,11 @@ cb.compile()  # compile the source code to working directory $GFDL_WORK/codebase
 
 # create an Experiment object to handle the configuration of model parameters
 # and output diagnostics
-exp = Experiment('frierson_test_experiment', codebase=cb)
+exp = Experiment('frierson_test_experiment_test_nodT3', codebase=cb)
 
 #Tell model how to write diagnostics
 diag = DiagTable()
-diag.add_file('atmos_monthly', 30, 'days', time_units='days')
+diag.add_file('atmos_monthly', 1, 'days', time_units='days')
 
 #Tell model which diagnostics to write
 diag.add_field('dynamics', 'ps', time_avg=True)
@@ -39,8 +39,11 @@ diag.add_field('dynamics', 'sphum', time_avg=True)
 diag.add_field('dynamics', 'ucomp', time_avg=True)
 diag.add_field('dynamics', 'vcomp', time_avg=True)
 diag.add_field('dynamics', 'temp', time_avg=True)
-diag.add_field('dynamics', 'vor', time_avg=True)
-diag.add_field('dynamics', 'div', time_avg=True)
+diag.add_field('dynamics', 'height', time_avg=True)
+diag.add_field('dynamics', 'zsurf', time_avg=True)
+diag.add_field('dynamics', 'omega', time_avg=True)
+#diag.add_field('dynamics', 'vor', time_avg=True)
+#diag.add_field('dynamics', 'div', time_avg=True)
 
 exp.diag_table = diag
 
@@ -54,7 +57,7 @@ exp.namelist = namelist = Namelist({
      'hours'  : 0,
      'minutes': 0,
      'seconds': 0,
-     'dt_atmos':720,
+     'dt_atmos':360,
      'current_date' : [1,1,1,0,0,0],
      'calendar' : 'thirty_day'
     },
@@ -65,24 +68,29 @@ exp.namelist = namelist = Namelist({
         'mixed_layer_bc':True,
         'do_virtual' :False,
         'do_simple': True,
-        'roughness_mom':3.21e-05,
-        'roughness_heat':3.21e-05,
-        'roughness_moist':3.21e-05,                
+        'roughness_mom':1.e-3,#3.21e-05,
+        'roughness_heat':1.e-3,#3.21e-05,
+        'roughness_moist':1.e-3,#3.21e-05,                
         'two_stream_gray': True,     #Use grey radiation
-        'convection_scheme': 'SIMPLE_BETTS_MILLER', #Use the simple Betts Miller convection scheme from Frierson
+        'titan_gray':False, 
+        'convection_scheme': 'NONE', #Use the simple Betts Miller convection scheme from Frierson
     },
 
     'vert_turb_driver_nml': {
         'do_mellor_yamada': False,     # default: True
         'do_diffusivity': True,        # default: False
         'do_simple': True,             # default: False
-        'constant_gust': 0.0,          # default: 1.0
+        'constant_gust': 20.0,          # default: 1.0
         'use_tau': False
     },
+
+    #'constants_nml':{ 
+    #    'es0':0.0, 
+        #}, 
     
     'diffusivity_nml': {
         'do_entrain':False,
-        'do_simple': True,
+        'do_simple': False,
     },
 
     'surface_flux_nml': {
@@ -101,7 +109,7 @@ exp.namelist = namelist = Namelist({
         'prescribe_initial_dist':True,
         'evaporation':True,   
         'depth': 2.5,                          #Depth of mixed layer used
-        'albedo_value': 0.31,                  #Albedo value used             
+        'albedo_value': 0.0,#31,                  #Albedo value used             
     },
 
     'qe_moist_convection_nml': {
@@ -136,6 +144,10 @@ exp.namelist = namelist = Namelist({
         'rad_scheme': 'frierson',            #Select radiation scheme to use, which in this case is Frierson
         'do_seasonal': False,                #do_seasonal=false uses the p2 insolation profile from Frierson 2006. do_seasonal=True uses the GFDL astronomy module to calculate seasonally-varying insolation.
         'atm_abs': 0.2,                      # default: 0.0        
+        'ir_tau_eq':3.75, 
+        'ir_tau_pole':3.75, 
+        'del_sol':0.0, 
+        'solar_constant':1000.
     },
 
     # FMS Framework configuration
@@ -163,7 +175,11 @@ exp.namelist = namelist = Namelist({
         'surf_res':0.5,
         'scale_heights' : 11.0,
         'exponent':7.0,
-        'robert_coeff':0.03
+        'robert_coeff':0.03,
+        'num_fourier':170,
+        'num_spherical':171,
+        'lat_max':32*8,
+        'lon_max':64*8
     },
     'vert_coordinate_nml': {
         'bk': [0.000000, 0.0117665, 0.0196679, 0.0315244, 0.0485411, 0.0719344, 0.1027829, 0.1418581, 0.1894648, 0.2453219, 0.3085103, 0.3775033, 0.4502789, 0.5244989, 0.5977253, 0.6676441, 0.7322627, 0.7900587, 0.8400683, 0.8819111, 0.9157609, 0.9422770, 0.9625127, 0.9778177, 0.9897489, 1.0000000],
@@ -174,5 +190,5 @@ exp.namelist = namelist = Namelist({
 #Lets do a run!
 if __name__=="__main__":
     exp.run(1, use_restart=False, num_cores=NCORES)
-    for i in range(2,121):
+    for i in range(2,25):#121):
         exp.run(i, num_cores=NCORES)
