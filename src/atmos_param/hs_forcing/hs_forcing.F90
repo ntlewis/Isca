@@ -88,6 +88,7 @@ private
    real :: local_heating_xcenter=180.            ! degrees longitude  Used only when local_heating_option='Isidoro'
    real :: local_heating_ycenter=45.             ! degrees latitude   Used only when local_heating_option='Isidoro'
    real :: local_heating_vert_decay=1.e4         ! pascals            Used only when local_heating_option='Isidoro'
+   real :: local_heating_delta_p0=5.e4           ! pascals 
 
    logical :: relax_to_specified_wind = .false.
    character(len=256) :: u_wind_file='u', v_wind_file='v' ! Name of files relative to $work/INPUT  Used only when relax_to_specified_wind=.true.
@@ -758,6 +759,14 @@ else if(trim(local_heating_option) == 'Isidoro') then
      enddo
    enddo
    enddo
+else if(trim(local_heating_option) == 'Polar') then 
+   do j=1,size(lon,2)
+   do i=1,size(lon,1)
+   lat_factor(i,j) = exp(-1.0*((lat(i,j)-ycenter)/ywidth)**2)
+   lon_factor(i,j) = 1.0 
+   do k=1,size(p_full,3)
+     p_factor = 0.5 * (1.0 + tanh((p_full(i,j,k) - local_heating_delta_p0)/local_heating_vert_decay))
+     tdt(i,j,k) = srfamp*lon_factor(i,j)*lat_factor(i,j)*p_factor
 else
   call error_mesg ('hs_forcing_nml','"'//trim(local_heating_option)//'"  is not a valid value for local_heating_option',FATAL)
 endif
