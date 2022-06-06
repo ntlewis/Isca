@@ -57,6 +57,8 @@ use  field_manager_mod, only: MODEL_ATMOS
 
 use rayleigh_bottom_drag_mod, only: rayleigh_bottom_drag_init, compute_rayleigh_bottom_drag
 
+use hs_forcing_mod, only: hs_forcing_init, local_heating, hs_forcing_end
+
 #ifdef RRTM_NO_COMPILE
     ! RRTM_NO_COMPILE not included
 #else
@@ -147,6 +149,10 @@ real :: robert_bucket = 0.04   ! default robert coefficient for bucket depth LJJ
 real :: raw_bucket = 0.53       ! default raw coefficient for bucket depth LJJ
 ! end RG Add bucket
 
+!s Adding localised heating option from Held-Suarez
+logical :: do_local_heating = .false.
+!s end Adding localised heating option from Held-Suarez
+
 namelist / idealized_moist_phys_nml / turb, lwet_convection, do_bm, do_ras, roughness_heat,  &
                                       do_cloud_simple,                                       &
                                       two_stream_gray, do_rrtm_radiation, do_damping,&
@@ -157,7 +163,7 @@ namelist / idealized_moist_phys_nml / turb, lwet_convection, do_bm, do_ras, roug
                                       gp_surface, convection_scheme,          &
                                       bucket, init_bucket_depth, init_bucket_depth_land, & !RG Add bucket 
                                       max_bucket_depth_land, robert_bucket, raw_bucket, &
-                                      do_socrates_radiation
+                                      do_socrates_radiation, do_local_heating
 
 
 integer, parameter :: num_time_levels = 2 !RG Add bucket - number of time levels added to allow timestepping in this module
@@ -784,6 +790,11 @@ endif
    id_rh = register_diag_field ( mod_name, 'rh',                           &
         axes(1:3), Time, 'relative humidity', 'percent')
 
+if (do_local_heating) then
+    call hs_forcing_init(get_axis_id(), Time, rad_lonb_2d, rad_latb_2d,  rad_lat_2d)
+endif
+
+
 end subroutine idealized_moist_phys_init
 !=================================================================================================================================
 subroutine idealized_moist_phys(Time, p_half, p_full, z_half, z_full, ug, vg, tg, grid_tracers, &
@@ -797,7 +808,7 @@ real, dimension(:,:,:),     intent(inout) :: dt_ug, dt_vg, dt_tg
 real, dimension(:,:,:,:),   intent(inout) :: dt_tracers
 
 real :: delta_t
-real, dimension(size(ug,1), size(ug,2), size(ug,3)) :: tg_tmp, qg_tmp, RH,tg_interp, mc, dt_ug_conv, dt_vg_conv
+real, dimension(size(ug,1), size(ug,2), size(ug,3)) :: tg_tmp, qg_tmp, RH,tg_interp, mc, dt_ug_conv, dt_vg_conv, tdt_local_heating
 
 ! Simple cloud scheme variabilies to pass to radiation
 real, dimension(size(ug,1), size(ug,2), size(ug,3))    :: cf_rad, reff_rad, qcl_rad, cca_rad  
@@ -1131,6 +1142,14 @@ if (do_socrates_radiation) then
                       do_cloud_simple, cf_rad(:,:,:), cca_rad(:,:,:),          &
                       reff_rad(:,:,:), qcl_rad(:,:,:)   )
 
+if (do_local_heating) then
+   call local_heating ( Time, is, js, rad_lon, rad_lat, &
+   p_half(:,:,num_levels+1,current), p_full(:,:,:,current), &
+   p_half(:,:,:,current), tdt_local_heating )
+   dt_tg = dt_tg + tdt_local_heating
+endif
+
+
 endif
 #endif
 
@@ -1350,11 +1369,15 @@ call lscale_cond_end
 if(mixed_layer_bc)  call mixed_layer_end(t_surf, bucket_depth, bucket)
 if(do_damping) call damping_driver_end
 
+
 #ifdef SOC_NO_COMPILE
  !No need to end socrates
 #else
 if(do_socrates_radiation) call run_socrates_end
 #endif
+
+if(do_local_heating) call hs_forcing_end
+
 
 end subroutine idealized_moist_phys_end
 !=================================================================================================================================
