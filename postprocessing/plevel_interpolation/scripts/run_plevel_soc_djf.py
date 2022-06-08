@@ -8,7 +8,7 @@ import subprocess
 
 start_time=time.time()
 base_dir='/scratch/ntl203/isca_data/'
-exp_name_list = ['soc_aquaplanet_amip_djf_cont_heating']
+exp_name_list = ['soc_aquaplanet_amip_djf_cont']
 avg_or_daily_list=['monthly']
 start_file=41
 end_file=60
