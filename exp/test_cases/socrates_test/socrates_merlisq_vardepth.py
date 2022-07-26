@@ -5,7 +5,7 @@ import numpy as np
 from isca import SocratesCodeBase, DiagTable, Experiment, Namelist, GFDL_BASE
 from isca.util import exp_progress
 
-NCORES = 16
+NCORES = 32
 base_dir = os.path.dirname(os.path.realpath(__file__))
 # a CodeBase can be a directory on the computer,
 # useful for iterative development
@@ -23,13 +23,10 @@ cb = SocratesCodeBase.from_directory(GFDL_BASE)
 # create an Experiment object to handle the configuration of model parameters
 # and output diagnostics
 
-exp = Experiment('soc_aquaplanet_amip_qobswide_notopo', codebase=cb)
+exp = Experiment('soc_aquaplanet_tanlchshaw_merlisq_vardepth_test', codebase=cb)
 exp.clear_rundir()
 
-exp.inputfiles = [os.path.join(GFDL_BASE,'input/rrtm_input_files/ozone_1990.nc'),
-                  #os.path.join(GFDL_BASE,'exp/test_cases/realistic_continents/input/era-spectral7_T42_64x128.out.nc'),
-                  os.path.join(GFDL_BASE,'exp/test_cases/socrates_test/input/sst_qobswide.nc'), 
-                  os.path.join(GFDL_BASE,'exp/test_cases/realistic_continents/input/siconc_clim_amip.nc')]
+#inputfiles = [os.path.join(GFDL_BASE,'input/rrtm_input_files/ozone_1990.nc')]
 
 #Tell model how to write diagnostics
 diag = DiagTable()
@@ -43,8 +40,9 @@ diag.add_field('dynamics', 'zsurf')
 
 #Tell model which diagnostics to write
 diag.add_field('atmosphere', 'precipitation', time_avg=True)
-diag.add_field('atmosphere', 'rh', time_avg=True)
+#diag.add_field('atmosphere', 'rh', time_avg=True)
 diag.add_field('mixed_layer', 't_surf', time_avg=True)
+diag.add_field('mixed_layer', 'ml_heat_cap', time_avg=True)
 #diag.add_field('mixed_layer', 'flux_t', time_avg=True) #SH
 #diag.add_field('mixed_layer', 'flux_lhe', time_avg=True) #LH
 diag.add_field('dynamics', 'sphum', time_avg=True)
@@ -65,11 +63,12 @@ diag.add_field('dynamics', 'height', time_avg=True)
 #diag.add_field('socrates', 'soc_surf_flux_lw_down', time_avg=True)
 #diag.add_field('socrates', 'soc_surf_flux_sw_down', time_avg=True)
 #net (up) TOA and downard fluxes
-#diag.add_field('socrates', 'soc_olr', time_avg=True)
+diag.add_field('socrates', 'soc_olr', time_avg=True)
 #diag.add_field('socrates', 'soc_toa_sw', time_avg=True) 
 diag.add_field('socrates', 'soc_toa_sw_down', time_avg=True)
 
 exp.diag_table = diag
+#exp.inputfiles = inputfiles
 
 #Define values for the 'core' namelist
 exp.namelist = namelist = Namelist({
@@ -83,18 +82,22 @@ exp.namelist = namelist = Namelist({
      'calendar' : 'thirty_day'
     },
     'socrates_rad_nml': {
-        'stellar_constant':1370.,
+        'stellar_constant':1360.,
         'lw_spectral_filename':os.path.join(GFDL_BASE,'src/atmos_param/socrates/src/trunk/data/spectra/ga7/sp_lw_ga7'),
         'sw_spectral_filename':os.path.join(GFDL_BASE,'src/atmos_param/socrates/src/trunk/data/spectra/ga7/sp_sw_ga7'),
-        'do_read_ozone': True,
-        'ozone_file_name':'ozone_1990',
-        'ozone_field_name':'ozone_1990',
+        'do_read_ozone': False, # True, 
+        #'ozone_file_name':'ozone_1990',
+        #'ozone_field_name':'ozone_1990',
+        'o3_ppbv':30.,
         'dt_rad':3600,
+        'stellar_constant':1360., 
+        'del_sol':1.2,
+        'input_o3_mmr':False, # True, 
         'store_intermediate_rad':True,
         'chunk_size': 16,
         'use_pressure_interp_for_half_levels':False,
         'tidally_locked':False,
-        'solday':90
+        'frierson_solar_rad':True,
     }, 
     'idealized_moist_phys_nml': {
         'do_damping': True,
@@ -108,10 +111,6 @@ exp.namelist = namelist = Namelist({
         'two_stream_gray': False,     #Use the grey radiation scheme
         'do_socrates_radiation': True,
         'convection_scheme': 'SIMPLE_BETTS_MILLER', #Use simple Betts miller convection            
-        'do_cloud_simple': False, 
-        #'land_option' : 'input',
-        #'land_file_name' : 'INPUT/era-spectral7_T42_64x128.out.nc',
-        #'land_roughness_prefactor' :10.0, 
     },
 
 
@@ -131,8 +130,7 @@ exp.namelist = namelist = Namelist({
     'surface_flux_nml': {
         'use_virtual_temp': False,
         'do_simple': True,
-        'old_dtaudv': True,
-	    'land_humidity_prefactor': 0.7,
+        'old_dtaudv': True    
     },
 
     'atmosphere_nml': {
@@ -144,15 +142,15 @@ exp.namelist = namelist = Namelist({
         'tconst' : 285.,
         'prescribe_initial_dist':True,
         'evaporation':True,  
-        #'land_option': 'input',              #Tell mixed layer to get land mask from input file
-        #'land_h_capacity_prefactor': 0.1,    #What factor to multiply mixed-layer depth by over land. 
-        'albedo_value': 0.25,                #albedo value
-        #'land_albedo_prefactor': 1.3,        #What factor to multiply ocean albedo by over land     
-        'do_qflux' : False, #Don't use the prescribed analytical formula for q-fluxes
-        'do_read_sst' : True, #Read in sst values from input file
-        'do_sc_sst' : True, #Do specified ssts (need both to be true)
-        'sst_file' : 'sst_qobswide', #Set name of sst input file
-        #'specify_sst_over_ocean_only' : True, #Make sure sst only specified in regions of ocean.              
+        'depth': 30.,                          #Depth of mixed layer used
+        'albedo_value': 0.25,#0.38,                  #Albedo value used  
+        'do_qflux' : True,
+        'land_option':'lonlat', 
+        'land_depth':2.5, 
+        'slandlon':0., 
+        'elandlon':360., 
+        'slandlat':75., 
+        'elandlat':90.
     },
 
     'qe_moist_convection_nml': {
@@ -168,7 +166,6 @@ exp.namelist = namelist = Namelist({
     
     'sat_vapor_pres_nml': {
            'do_simple':True,
-           'construct_table_wrt_liq_and_ice':True
        },
     
     'damping_driver_nml': {
@@ -203,14 +200,8 @@ exp.namelist = namelist = Namelist({
         'surf_res':0.2, #Parameter that sets the vertical distribution of sigma levels
         'scale_heights' : 11.0,
         'exponent':7.0,
-        'robert_coeff':0.03,
-        'ocean_topog_smoothing': 0.0
+        'robert_coeff':0.03
     },
-
-    #'spectral_init_cond_nml':{
-    #    'topog_file_name': 'era-spectral7_T42_64x128.out.nc',
-    #    'topography_option': 'input'
-    #},
 
 })
 
@@ -223,7 +214,7 @@ if __name__=="__main__":
 
         overwrite=False
 
-        exp.run(1, use_restart=False, num_cores=NCORES, overwrite_data=overwrite)#,
-	#restart_file='/scratch/ntl203/isca_data/soc_aquaplanet_amip_djf/restarts/res0060.tar.gz')#, run_idb=True)                                                                                     
-        for i in range(2,121):
-            exp.run(i, num_cores=NCORES, overwrite_data=overwrite)
+        exp.run(1, use_restart=False, num_cores=NCORES, overwrite_data=overwrite)#, run_idb=True)
+        #for i in range(2,21):
+        #    exp.run(i, num_cores=NCORES, overwrite_data=overwrite)
+

@@ -1126,8 +1126,14 @@ subroutine run_socrates(Time, Time_diag, rad_lat, rad_lon, temp_in, q_in, t_surf
            
        endif
 
-       ozone_in = 0.0
+       !ozone_in = 0.0
        
+       if (input_o3_mmr.eqv..false.) then 
+         ozone_in = o3_ppbv * 1.e-9 * wtmozone / (1000. * gas_constant / rdgas)
+       else
+         ozone_in = o3_ppbv * 1.e-9
+       endif
+
       !get ozone 
        if(do_read_ozone)then
          call interpolator( o3_interp, Time_diag, p_half_in, ozone_in, trim(ozone_field_name))

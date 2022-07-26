@@ -140,6 +140,7 @@
         real(kind=rb)      :: cfc12_val= 0.                   !                       CFC12
         real(kind=rb)      :: cfc22_val= 0.                   !                       CFC22
         real(kind=rb)      :: ccl4_val = 0.                   !                       CCL4
+        real(kind=rb)      :: o3_val = 0.
 ! some safety boundaries
         real(kind=rb)      :: h2o_lower_limit = 2.e-7         ! never use smaller than this in radiative scheme
         real(kind=rb)      :: temp_lower_limit = 100.         ! never go below this in radiative scheme
@@ -200,7 +201,7 @@
 !---------------------------------------------------------------------------------------------------------------
 
         namelist/rrtm_radiation_nml/ include_secondary_gases, do_read_ozone, ozone_file, input_o3_file_is_mmr, &
-             &do_read_h2o, h2o_file, convert_sphum_to_vmr, ch4_val, n2o_val, o2_val, cfc11_val, cfc12_val, cfc22_val, ccl4_val, &
+             &do_read_h2o, h2o_file, convert_sphum_to_vmr, ch4_val, n2o_val, o2_val, cfc11_val, cfc12_val, cfc22_val, ccl4_val, o3_val, &
              &do_read_radiation, radiation_file, rad_missing_value, &
              &do_read_sw_flux, sw_flux_file, do_read_lw_flux, lw_flux_file,&
              &h2o_lower_limit,temp_lower_limit,temp_upper_limit,co2ppmv, &
@@ -801,7 +802,11 @@
           tfull = reshape(t     (1:si:lonstep,:,sk  :1:-1),(/ si*sj/lonstep,sk   /))
           thalf = reshape(t_half(1:si:lonstep,:,sk+1:1:-1),(/ si*sj/lonstep,sk+1 /))
           h2o   = reshape(h2o_vmr (1:si:lonstep,:,sk  :1:-1),(/ si*sj/lonstep,sk   /))
-          if(do_read_ozone)o3 = reshape(o3f(1:si:lonstep,:,sk :1:-1),(/ si*sj/lonstep,sk  /))
+          if(do_read_ozone) then 
+            o3 = reshape(o3f(1:si:lonstep,:,sk :1:-1),(/ si*sj/lonstep,sk  /))
+          else 
+            o3 = o3_val
+          endif 
           if(do_read_co2)co2 = reshape(co2f(1:si:lonstep,:,sk :1:-1),(/ si*sj/lonstep,sk  /))
 
          

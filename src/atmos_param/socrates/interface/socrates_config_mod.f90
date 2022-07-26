@@ -33,6 +33,8 @@ LOGICAL :: l_planet_grey_surface = .TRUE.
   character(len=256) :: ozone_file_name='ozone' !Name of file containing ozone field - n.b. don't need to include '.nc'
   character(len=256) :: ozone_field_name='ozone' !Name of ozone variable in ozone file
   logical            :: input_o3_file_is_mmr=.true. ! Does the ozone input file contain values as a mass mixing ratio (set to true) or a volume mixing ratio (set to false)?
+  logical :: input_o3_mmr=.false. ! is constant ozone mmr or vmr? 
+  real :: o3_ppbv = 0.
   logical :: do_read_co2 = .FALSE. ! read ozone from an external file?
   character(len=256) :: co2_file_name='co2' !Name of file containing co2 field - n.b. don't need to include '.nc'
   character(len=256) :: co2_field_name='co2' !Name of co2 variable in co2 file  
@@ -117,6 +119,7 @@ LOGICAL :: l_planet_grey_surface = .TRUE.
                              account_for_effect_of_water, account_for_effect_of_ozone, &
                              do_read_ozone, ozone_file_name, ozone_field_name, input_o3_file_is_mmr, &
                              do_read_co2, co2_file_name, co2_field_name, input_co2_mmr, &                             
+                             o3_ppbv, input_o3_mmr, &
                              solday, do_rad_time_avg, equinox_day,  &
                              store_intermediate_rad, dt_rad_avg, dt_rad, &
                              chunk_size, &

@@ -8,10 +8,11 @@ import subprocess
 
 start_time=time.time()
 base_dir='/scratch/ntl203/isca_data/'
-exp_name_list = ['soc_fixsst_annmean_noheat','soc_fixsst_annmean_localheat']
+exp_name_list = ['soc_fixsst_annmean_noheat_daily50']
+#exp_name_list = ['soc_fixsst_annmean_localheat_daily50']
 avg_or_daily_list=['monthly']
-start_file=21
-end_file=30
+start_file=81
+end_file=100
 nfiles=(end_file-start_file)+1
 
 do_extra_averaging=False #If true, then 6hourly data is averaged into daily data using cdo
@@ -59,7 +60,7 @@ elif level_set=='tom_diagnostics':
     file_suffix='_tom_mk2'
 
 elif level_set=='neil_soc':
-    var_names['monthly'] = '-a' 
+    var_names['monthly'] = '-a height' 
     plevs['monthly'] = ' -p "2 15 50 137 324 676 1266 2161 3407 5013 6956 9184 11627 14209 16863 19533 22180 24782 27331 29829 32290 34731 37172 39637 42147 44725 47390 50163 53061 56099 59295 62660 66210 69957 73914 78094 82510 87175 92104 97311"'
     file_suffix = '_interp'
 
@@ -77,11 +78,11 @@ for exp_name in exp_name_list:
             if n+start_file < 10:
                 number_prefix='000'
 
-            #nc_file_in = base_dir+'/'+exp_name+'/run'+number_prefix+str(n+start_file)+'/atmos_6hrly'+'.nc'
-            #nc_file_out = out_dir+'/'+exp_name+'/run'+number_prefix+str(n+start_file)+'/atmos_6hrly'+file_suffix+'.nc'
+            nc_file_in = base_dir+'/'+exp_name+'/run'+number_prefix+str(n+start_file)+'/atmos_daily'+'.nc'
+            nc_file_out = out_dir+'/'+exp_name+'/run'+number_prefix+str(n+start_file)+'/atmos_daily'+file_suffix+'.nc'
 
-            nc_file_in = base_dir+'/'+exp_name+'/run'+number_prefix+str(n+start_file)+'/atmos_yearly'+'.nc'
-            nc_file_out = out_dir+'/'+exp_name+'/run'+number_prefix+str(n+start_file)+'/atmos_yearly'+file_suffix+'.nc'
+            #nc_file_in = base_dir+'/'+exp_name+'/run'+number_prefix+str(n+start_file)+'/atmos_yearly'+'.nc'
+            #nc_file_out = out_dir+'/'+exp_name+'/run'+number_prefix+str(n+start_file)+'/atmos_yearly'+file_suffix+'.nc'
             
             if not os.path.isfile(nc_file_out):
                 plevel_call(nc_file_in,nc_file_out, var_names = var_names[avg_or_daily], p_levels = plevs[avg_or_daily], mask_below_surface_option=mask_below_surface_set)

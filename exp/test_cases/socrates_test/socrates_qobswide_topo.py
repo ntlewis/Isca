@@ -23,17 +23,17 @@ cb = SocratesCodeBase.from_directory(GFDL_BASE)
 # create an Experiment object to handle the configuration of model parameters
 # and output diagnostics
 
-exp = Experiment('soc_aquaplanet_amip_qobswide_notopo', codebase=cb)
+exp = Experiment('soc_aquaplanet_amip_qobswide_topo_noant', codebase=cb)
 exp.clear_rundir()
 
 exp.inputfiles = [os.path.join(GFDL_BASE,'input/rrtm_input_files/ozone_1990.nc'),
-                  #os.path.join(GFDL_BASE,'exp/test_cases/realistic_continents/input/era-spectral7_T42_64x128.out.nc'),
+                  os.path.join(GFDL_BASE,'exp/test_cases/realistic_continents/input/era-spectral7_T42_64x128_noantarctic.out.nc'),
                   os.path.join(GFDL_BASE,'exp/test_cases/socrates_test/input/sst_qobswide.nc'), 
                   os.path.join(GFDL_BASE,'exp/test_cases/realistic_continents/input/siconc_clim_amip.nc')]
 
 #Tell model how to write diagnostics
 diag = DiagTable()
-diag.add_file('atmos_monthly', 30, 'days', time_units='days')
+diag.add_file('atmos_yearly', 360, 'days', time_units='days')
 
 #Write out diagnostics need for vertical interpolation post-processing
 diag.add_field('dynamics', 'ps', time_avg=True)
@@ -74,7 +74,7 @@ exp.diag_table = diag
 #Define values for the 'core' namelist
 exp.namelist = namelist = Namelist({
     'main_nml':{
-     'days'   : 30,
+     'days'   : 360,
      'hours'  : 0,
      'minutes': 0,
      'seconds': 0,
@@ -109,9 +109,9 @@ exp.namelist = namelist = Namelist({
         'do_socrates_radiation': True,
         'convection_scheme': 'SIMPLE_BETTS_MILLER', #Use simple Betts miller convection            
         'do_cloud_simple': False, 
-        #'land_option' : 'input',
-        #'land_file_name' : 'INPUT/era-spectral7_T42_64x128.out.nc',
-        #'land_roughness_prefactor' :10.0, 
+        'land_option' : 'input',
+        'land_file_name' : 'INPUT/era-spectral7_T42_64x128_noantarctic.out.nc',
+        'land_roughness_prefactor' :10.0, 
     },
 
 
@@ -144,15 +144,15 @@ exp.namelist = namelist = Namelist({
         'tconst' : 285.,
         'prescribe_initial_dist':True,
         'evaporation':True,  
-        #'land_option': 'input',              #Tell mixed layer to get land mask from input file
-        #'land_h_capacity_prefactor': 0.1,    #What factor to multiply mixed-layer depth by over land. 
+        'land_option': 'input',              #Tell mixed layer to get land mask from input file
+        'land_h_capacity_prefactor': 0.1,    #What factor to multiply mixed-layer depth by over land. 
         'albedo_value': 0.25,                #albedo value
-        #'land_albedo_prefactor': 1.3,        #What factor to multiply ocean albedo by over land     
+        'land_albedo_prefactor': 1.3,        #What factor to multiply ocean albedo by over land     
         'do_qflux' : False, #Don't use the prescribed analytical formula for q-fluxes
         'do_read_sst' : True, #Read in sst values from input file
         'do_sc_sst' : True, #Do specified ssts (need both to be true)
         'sst_file' : 'sst_qobswide', #Set name of sst input file
-        #'specify_sst_over_ocean_only' : True, #Make sure sst only specified in regions of ocean.              
+        'specify_sst_over_ocean_only' : True, #Make sure sst only specified in regions of ocean.              
     },
 
     'qe_moist_convection_nml': {
@@ -207,10 +207,10 @@ exp.namelist = namelist = Namelist({
         'ocean_topog_smoothing': 0.0
     },
 
-    #'spectral_init_cond_nml':{
-    #    'topog_file_name': 'era-spectral7_T42_64x128.out.nc',
-    #    'topography_option': 'input'
-    #},
+    'spectral_init_cond_nml':{
+        'topog_file_name': 'era-spectral7_T42_64x128_noantarctic.out.nc',
+        'topography_option': 'input'
+    },
 
 })
 
@@ -225,5 +225,5 @@ if __name__=="__main__":
 
         exp.run(1, use_restart=False, num_cores=NCORES, overwrite_data=overwrite)#,
 	#restart_file='/scratch/ntl203/isca_data/soc_aquaplanet_amip_djf/restarts/res0060.tar.gz')#, run_idb=True)                                                                                     
-        for i in range(2,121):
+        for i in range(2,11):
             exp.run(i, num_cores=NCORES, overwrite_data=overwrite)
