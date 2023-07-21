@@ -33,6 +33,8 @@ use        betts_miller_mod, only: betts_miller, betts_miller_init
 
 use      dry_convection_mod, only: dry_convection_init, dry_convection
 
+use      dry_adj_mod, only: dry_adj_init, dry_adj, dry_adj_end 
+
 use        diag_manager_mod, only: register_diag_field, send_data
 
 #ifdef COLUMN_MODEL 
@@ -104,13 +106,15 @@ integer, parameter :: UNSET = -1,                & !! are NONE, SIMPLE_BETTS_MIL
                       SIMPLE_BETTS_CONV = 1,     &
                       FULL_BETTS_MILLER_CONV = 2,&
                       DRY_CONV = 3,              &
-                      RAS_CONV = 4
+                      RAS_CONV = 4, & 
+                      DRYADJ_CONV = 5
                       
 integer :: r_conv_scheme = UNSET  ! the selected convection scheme
 
 logical :: lwet_convection = .false.
 logical :: do_bm = .false.
 logical :: do_ras = .false.
+logical :: do_dryadj = .false. 
 
 ! Cloud options
 logical :: do_cloud_simple = .false. ! by default the cloud scheme is off.
@@ -149,7 +153,9 @@ real :: robert_bucket = 0.04   ! default robert coefficient for bucket depth LJJ
 real :: raw_bucket = 0.53       ! default raw coefficient for bucket depth LJJ
 ! end RG Add bucket
 
-namelist / idealized_moist_phys_nml / turb, lwet_convection, do_bm, do_ras, roughness_heat,  &
+real :: alpha = 1.0
+
+namelist / idealized_moist_phys_nml / turb, lwet_convection, do_bm, do_ras, do_dryadj, roughness_heat,  &
                                       do_cloud_simple,                                       &
                                       two_stream_gray, do_rrtm_radiation, do_damping,&
                                       mixed_layer_bc, do_simple,                     &
@@ -169,6 +175,7 @@ real, allocatable, dimension(:,:    ) :: dt_bucket, filt   ! RG Add bucket
 real, allocatable, dimension(:,:)   ::                                        &
      z_surf,               &   ! surface height
      t_surf,               &   ! surface temperature
+     t_ml, h_thermo_ice, const_correct, nudge_out,  &   ! NTL 01/23 thermodynamic sea ice
      q_surf,               &   ! surface moisture
      u_surf,               &   ! surface U wind
      v_surf,               &   ! surface V wind
@@ -373,6 +380,7 @@ if(uppercase(trim(convection_scheme)) == 'NONE') then
   lwet_convection = .false.
   do_bm           = .false.
   do_ras          = .false.
+  do_dryadj       = .false. 
   call error_mesg('idealized_moist_phys','No convective adjustment scheme used.', NOTE)
 
 else if(uppercase(trim(convection_scheme)) == 'SIMPLE_BETTS_MILLER') then
@@ -381,6 +389,7 @@ else if(uppercase(trim(convection_scheme)) == 'SIMPLE_BETTS_MILLER') then
   lwet_convection = .true.
   do_bm           = .false.
   do_ras          = .false.
+  do_dryadj       = .false. 
   
 else if(uppercase(trim(convection_scheme)) == 'FULL_BETTS_MILLER') then
   r_conv_scheme = FULL_BETTS_MILLER_CONV
@@ -388,6 +397,7 @@ else if(uppercase(trim(convection_scheme)) == 'FULL_BETTS_MILLER') then
   do_bm           = .true.
   lwet_convection = .false.
   do_ras          = .false.
+  do_dryadj       = .false. 
   
 else if(uppercase(trim(convection_scheme)) == 'RAS') then
   r_conv_scheme = RAS_CONV
@@ -395,6 +405,7 @@ else if(uppercase(trim(convection_scheme)) == 'RAS') then
   do_ras          = .true.
   do_bm           = .false.
   lwet_convection = .false.
+  do_dryadj       = .false. 
 
 else if(uppercase(trim(convection_scheme)) == 'DRY') then
   r_conv_scheme = DRY_CONV
@@ -402,6 +413,15 @@ else if(uppercase(trim(convection_scheme)) == 'DRY') then
   lwet_convection = .false.
   do_bm           = .false.
   do_ras          = .false.  
+  do_dryadj       = .false. 
+
+else if(uppercase(trim(convection_scheme)) == 'DRYADJ') then
+  r_conv_scheme = DRYADJ_CONV
+  call error_mesg('idealized_moist_phys','Using AM3 dry adjustment convection scheme.', NOTE)
+  lwet_convection = .false.
+  do_bm           = .false.
+  do_ras          = .false.  
+  do_dryadj       = .true. 
 
 else if(uppercase(trim(convection_scheme)) == 'UNSET') then
   call error_mesg('idealized_moist_phys','determining convection scheme from flags', NOTE)
@@ -412,7 +432,11 @@ else if(uppercase(trim(convection_scheme)) == 'UNSET') then
   if (do_bm) then
     r_conv_scheme = FULL_BETTS_MILLER_CONV
     call error_mesg('idealized_moist_phys','Using Betts-Miller convection scheme.', NOTE)
-  end if
+  end if 
+  if (do_dryadj) then
+    r_conv_scheme = DRYADJ_CONV
+    call error_mesg('idealized_moist_phys','Using AM3 dry adjustment convection scheme.',NOTE)
+  end if 
   if (do_ras) then
     r_conv_scheme = RAS_CONV
     call error_mesg('idealized_moist_phys','Using  relaxed Arakawa Schubert convection scheme.', NOTE)
@@ -425,11 +449,20 @@ endif
 if(lwet_convection .and. do_bm) &
   call error_mesg('idealized_moist_phys','lwet_convection and do_bm cannot both be .true.',FATAL)
   
+if(do_dryadj .and. do_bm) &
+     call error_mesg('idealized_moist_phys','do_dryadj and do_bm cannot both be .true.',FATAL)
+  
 if(lwet_convection .and. do_ras) &
-  call error_mesg('idealized_moist_phys','lwet_convection and do_ras cannot both be .true.',FATAL)  
+  call error_mesg('idealized_moist_phys','lwet_convection and do_ras cannot both be .true.',FATAL) 
+  
+if(lwet_convection .and. do_dryadj) &
+     call error_mesg('idealized_moist_phys','lwet_convection and do_dryadj cannot both be .true.',FATAL)
 
 if(do_bm .and. do_ras) &
   call error_mesg('idealized_moist_phys','do_bm and do_ras cannot both be .true.',FATAL)  
+  
+if(do_dryadj .and. do_ras) &
+     call error_mesg('idealized_moist_phys', 'do_dryadj and do_ras cannot both be .true.',FATAL)
 
 nsphum = nhum
 Time_step = Time_step_in
@@ -450,6 +483,12 @@ allocate(depth_change_cond(is:ie, js:je))
 allocate(depth_change_conv(is:ie, js:je))
 allocate(z_surf      (is:ie, js:je))
 allocate(t_surf      (is:ie, js:je))
+! NTL 01/23 thermodynamic sea ice
+allocate(h_thermo_ice(is:ie, js:je))
+allocate(t_ml        (is:ie, js:je))
+allocate(const_correct(is:ie, js:je))
+allocate(nudge_out(is:ie, js:je))
+!
 allocate(q_surf      (is:ie, js:je)); q_surf = 0.0
 allocate(u_surf      (is:ie, js:je)); u_surf = 0.0
 allocate(v_surf      (is:ie, js:je)); v_surf = 0.0
@@ -613,7 +652,9 @@ if(mixed_layer_bc) then
   ! to quickly enter the atmosphere avoiding problems with the convection scheme
   t_surf = t_surf_init + 1.0
 
-  call mixed_layer_init(is, ie, js, je, num_levels, t_surf, bucket_depth, get_axis_id(), Time, albedo, rad_lonb_2d(:,:), rad_latb_2d(:,:), land, bucket) ! t_surf is intent(inout) !s albedo distribution set here.
+  call mixed_layer_init(is, ie, js, je, num_levels, t_surf, &
+                        h_thermo_ice, t_ml, const_correct,nudge_out, & ! NTL 01/23 thermodynamic sea ice
+                        bucket_depth, get_axis_id(), Time, albedo, rad_lonb_2d(:,:), rad_latb_2d(:,:), land, bucket) ! t_surf is intent(inout) !s albedo distribution set here.
   
 elseif(gp_surface) then
   albedo=0.0
@@ -726,6 +767,9 @@ case(RAS_CONV)
 
         call ras_init (do_strat, axes,Time,tracers_in_ras) 
 
+case (DRYADJ_CONV) 
+  call dry_adj_init(alpha)
+
 end select
 
 !jp not sure why these diag_fields are fenced when condensation ones above are not...
@@ -785,6 +829,8 @@ endif
 
    id_rh = register_diag_field ( mod_name, 'rh',                           &
         axes(1:3), Time, 'relative humidity', 'percent')
+
+
 
 end subroutine idealized_moist_phys_init
 !=================================================================================================================================
@@ -881,6 +927,17 @@ case(FULL_BETTS_MILLER_CONV)
    if(id_conv_rain  > 0) used = send_data(id_conv_rain, rain, Time)
    if(id_cape  > 0) used = send_data(id_cape, cape, Time)
    if(id_cin  > 0) used = send_data(id_cin, cin, Time)
+
+case(DRYADJ_CONV)
+    call dry_adj(tg(:, :, :, previous),                         &
+                        p_full(:,:,:,previous), p_half(:,:,:,previous),      &
+                        conv_dt_tg, delta_t)
+
+    tg_tmp = conv_dt_tg(:,:,:) + tg(:,:,:,previous)
+    conv_dt_tg = conv_dt_tg / delta_t
+    conv_dt_qg = 0.0
+    qg_tmp = grid_tracers(:,:,:,previous,nsphum)
+    if(id_conv_dt_tg > 0) used = send_data(id_conv_dt_tg, conv_dt_tg, Time)
 
 case(DRY_CONV)
     call dry_convection(Time, tg(:, :, :, previous),                         &
@@ -1002,7 +1059,7 @@ if(two_stream_gray) then
                        tg(:,:,:,previous),     &
                        net_surf_sw_down(:,:),  &
                        surf_lw_down(:,:), albedo, &
-                       grid_tracers(:,:,:,previous,nsphum))
+                       grid_tracers(:,:,:,previous,nsphum), const_correct(:,:), nudge_out(:,:)) !NTL_CHANGE
 end if
 
 if(.not.mixed_layer_bc) then
@@ -1251,6 +1308,7 @@ if(turb) then
                               js,                                          & 
                               je,                                          &
                               t_surf(:,:),                                 & ! t_surf is intent(inout)
+                              h_thermo_ice(:,:), t_ml(:,:), const_correct(:,:), nudge_out(:,:), & ! NTL 01/23 thermodynamic sea ice
                               flux_t(:,:),                                 &
                               flux_q(:,:),                                 &
                               flux_r(:,:),                                 &
@@ -1277,8 +1335,11 @@ if(turb) then
 endif ! if(turb) then
 
 !s Adding relative humidity calculation so as to allow comparison with Frierson's thesis.
-   call rh_calc (p_full(:,:,:,previous),tg_tmp,qg_tmp,RH)
-   if(id_rh >0) used = send_data(id_rh, RH*100., Time)
+   
+   if(id_rh >0) then 
+    call rh_calc (p_full(:,:,:,previous),tg_tmp,qg_tmp,RH)
+    used = send_data(id_rh, RH*100., Time)
+   endif
 
 
 ! RG Add bucket
@@ -1344,13 +1405,16 @@ deallocate (dt_bucket, filt)
 if(two_stream_gray)      call two_stream_gray_rad_end
 if(lwet_convection)      call qe_moist_convection_end
 if(do_ras)               call ras_end
+if(do_dryadj)            call dry_adj_end
 
 if(turb) then
    call vert_diff_end
    call vert_turb_driver_end
 endif
 call lscale_cond_end
-if(mixed_layer_bc)  call mixed_layer_end(t_surf, bucket_depth, bucket)
+if(mixed_layer_bc)  call mixed_layer_end(t_surf, &
+                                         h_thermo_ice, t_ml, const_correct, nudge_out, albedo, & ! NTL 01/23 thermodynamic sea ice
+                                         bucket_depth, bucket)
 if(do_damping) call damping_driver_end
 
 #ifdef SOC_NO_COMPILE
