@@ -35,7 +35,11 @@
  use tridiagonal_mod,   only : tri_invert, close_tridiagonal
  use constants_mod,     only : grav, vonkarm
  use monin_obukhov_mod, only : mo_diff
- use transforms_mod, only: grid_domain
+#ifdef COLUMN_MODEL 
+ use            spec_mpp_mod, only: grid_domain 
+#else
+ use          transforms_mod, only: grid_domain
+#endif 
 
 !---------------------------------------------------------------------
  implicit none

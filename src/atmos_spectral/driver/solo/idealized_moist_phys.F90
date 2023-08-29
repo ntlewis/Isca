@@ -45,7 +45,7 @@ use          transforms_mod, only: get_grid_domain, grid_domain
 use   spectral_dynamics_mod, only: get_axis_id, get_num_levels, get_surf_geopotential
 #endif 
 
-use        surface_flux_mod, only: surface_flux, gp_surface_flux
+use        surface_flux_mod, only: surface_flux_init, surface_flux, surface_flux_end, gp_surface_flux
 
 use      sat_vapor_pres_mod, only: lookup_es ! needed for relative humdity to be calculated in a consistent way.
 
@@ -98,6 +98,7 @@ public :: idealized_moist_phys_init , idealized_moist_phys , idealized_moist_phy
 logical :: module_is_initialized =.false.
 logical :: turb = .false.
 logical :: do_virtual = .false. ! whether virtual temp used in gcm_vert_diff
+logical :: do_tj_bl = .false. 
 
 !s Convection scheme options
 character(len=256) :: convection_scheme = 'unset'  !< Use a specific convection scheme.  Valid options
@@ -159,7 +160,7 @@ namelist / idealized_moist_phys_nml / turb, lwet_convection, do_bm, do_ras, do_d
                                       do_cloud_simple,                                       &
                                       two_stream_gray, do_rrtm_radiation, do_damping,&
                                       mixed_layer_bc, do_simple,                     &
-                                      roughness_moist, roughness_mom, do_virtual,    &
+                                      roughness_moist, roughness_mom, do_virtual, do_tj_bl,   &
                                       land_option, land_file_name, land_field_name,   & !s options for idealised land
                                       land_roughness_prefactor,               &
                                       gp_surface, convection_scheme,          &
@@ -814,7 +815,7 @@ endif
 
 if(turb) then
    call vert_turb_driver_init (rad_lonb_2d, rad_latb_2d, ie-is+1,je-js+1, &
-                 num_levels,get_axis_id(),Time, doing_edt, doing_entrain)
+                 num_levels,get_axis_id(),Time, do_tj_bl, doing_edt, doing_entrain)
 
    axes = get_axis_id()
    id_diff_dt_ug = register_diag_field(mod_name, 'dt_ug_diffusion',        &
@@ -830,7 +831,9 @@ endif
    id_rh = register_diag_field ( mod_name, 'rh',                           &
         axes(1:3), Time, 'relative humidity', 'percent')
 
-
+if(.not.gp_surface) then 
+   call surface_flux_init(do_tj_bl)
+endif 
 
 end subroutine idealized_moist_phys_init
 !=================================================================================================================================
@@ -1416,6 +1419,7 @@ if(mixed_layer_bc)  call mixed_layer_end(t_surf, &
                                          h_thermo_ice, t_ml, const_correct, nudge_out, albedo, & ! NTL 01/23 thermodynamic sea ice
                                          bucket_depth, bucket)
 if(do_damping) call damping_driver_end
+if(.not.gp_surface) call surface_flux_end 
 
 #ifdef SOC_NO_COMPILE
  !No need to end socrates
