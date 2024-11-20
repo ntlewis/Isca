@@ -15,8 +15,8 @@ USE rad_pcf
 USE def_control,  ONLY: StrCtrl, allocate_control
 USE def_spectrum, ONLY: StrSpecData
 USE socrates_config_mod, ONLY: l_planet_grey_surface, inc_h2o, inc_co2, inc_co,      & 
-                               inc_o3, inc_n2o, inc_ch4, inc_o2, inc_so2, inc_cfc11, &
-                               inc_cfc12, inc_cfc113, inc_hcfc22, inc_hfc134a
+                               inc_o3, inc_n2o, inc_ch4, inc_o2, inc_so2, inc_h2, inc_n2, inc_cfc11, &
+                               inc_cfc12, inc_cfc113, inc_hcfc22, inc_hfc134a, i_st_ice, i_cnv_ice, i_st_water, i_cnv_water
 
 IMPLICIT NONE
 
@@ -57,10 +57,12 @@ case(ip_solar)
   control%l_ch4            = inc_ch4
   control%l_o2             = inc_o2
   control%l_so2            = inc_so2
-  control%i_st_water       = 5
-  control%i_cnv_water      = 5
-  control%i_st_ice         = 11
-  control%i_cnv_ice        = 11
+  control%l_h2             = inc_h2 
+  control%l_n2             = inc_n2 
+  control%i_st_water       = i_st_water
+  control%i_cnv_water      = i_cnv_water
+  control%i_st_ice         = i_st_ice
+  control%i_cnv_ice        = i_cnv_ice
 case(ip_infra_red)
   control%i_2stream        = ip_elsasser
   control%i_scatter_method = ip_no_scatter_ext!ip_scatter_hybrid
@@ -72,15 +74,17 @@ case(ip_infra_red)
   control%l_n2o            = inc_n2o
   control%l_ch4            = inc_ch4
   control%l_so2            = inc_so2
+  control%l_h2             = inc_h2 
+  control%l_n2             = inc_n2
   control%l_cfc11          = inc_cfc11
   control%l_cfc12          = inc_cfc12
   control%l_cfc113         = inc_cfc113
   control%l_hcfc22         = inc_hcfc22
   control%l_hfc134a        = inc_hfc134a
-  control%i_st_water       = 5
-  control%i_cnv_water      = 5
-  control%i_st_ice         = 11
-  control%i_cnv_ice        = 11
+  control%i_st_water       = i_st_water 
+  control%i_cnv_water      = i_cnv_water 
+  control%i_st_ice         = i_st_ice 
+  control%i_cnv_ice        = i_cnv_ice 
 end select
 
 ! Angular integration (including algorithmic options):

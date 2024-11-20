@@ -59,6 +59,7 @@ DO i=1, spec%gas%n_absorb
       ((spec%gas%type_absorb(i) == ip_tio)     .AND. con%l_tio    ) .OR.       &
       ((spec%gas%type_absorb(i) == ip_vo)      .AND. con%l_vo     ) .OR.       &
       ((spec%gas%type_absorb(i) == ip_h2)      .AND. con%l_h2     ) .OR.       &
+      ((spec%gas%type_absorb(i) == ip_n2)      .AND. con%l_n2     ) .OR.       &
       ((spec%gas%type_absorb(i) == ip_he)      .AND. con%l_he     ) .OR.       &
       ((spec%gas%type_absorb(i) == ip_na)      .AND. con%l_na     ) .OR.       &
       ((spec%gas%type_absorb(i) == ip_k)       .AND. con%l_k      ) .OR.       &
