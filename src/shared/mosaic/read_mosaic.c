@@ -29,6 +29,9 @@
 #ifdef use_netCDF
 #include <netcdf.h>
 #endif
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 /*********************************************************************
     void netcdf_error( int status )
     status is the returning value of netcdf call. this routine will

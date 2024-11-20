@@ -15,13 +15,19 @@ netcdf_flags=`nc-config --cflags --libs`
 #--------------------------------------------------------------------------------------------------------
 # compile combine tool
 #cd $ppdir
+echo $CC 
+echo $netcdf_flags
 $CC -O -c mppnccombine.c $netcdf_flags
 if [ $? != 0 ]; then
+    echo 'here'
     echo "ERROR: could not compile combine tool"
     exit 1
 fi
+echo $CC 
+echo $netcdf_flags
 $CC -O -o mppnccombine.x mppnccombine.o $netcdf_flags
 if [ $? != 0 ]; then
+    echo 'here2'
     echo "ERROR: could not compile combine tool"
     exit 1
 fi

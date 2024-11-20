@@ -25,4 +25,4 @@ LD = $(F90) $(NETCDF_LIBS)
 #CC = mpicc
 
 LDFLAGS = -lnetcdff -lnetcdf -lmpi -shared-intel -lhdf5_hl -lhdf5 -lm -lz -lsz -lbz2 -lxml2 -lcurl
-CFLAGS = -D__IFC
+CFLAGS = -D__IFC -std=c89

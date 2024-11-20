@@ -29,6 +29,10 @@
 #include "mosaic_util.h"
 #include "constant.h"
 
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
+
 #define HPI (0.5*M_PI)
 #define TPI (2.0*M_PI)
 #define TOLORENCE (1.e-6)

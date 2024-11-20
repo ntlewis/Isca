@@ -19,12 +19,17 @@
 /*                                                                   */
 /*********************************************************************/
 
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 #include "mosaic_util.h"
 #include "create_xgrid.h"
 #include "constant.h"
+
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 
 #define AREA_RATIO_THRESH (1.e-6)  
 #define MASK_THRESH       (0.5)
