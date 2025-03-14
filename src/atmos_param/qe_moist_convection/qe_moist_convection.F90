@@ -672,6 +672,9 @@ contains
                          nocape = .false.
                          kLFC   = k
                       end if
+                      if ((kLZB .eq. 0) .and. (k .eq. 1)) then 
+                         kLZB = 1
+                      endif 
                    end if
                 end if
              end if
