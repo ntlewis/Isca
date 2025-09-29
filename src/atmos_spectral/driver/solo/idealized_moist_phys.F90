@@ -158,6 +158,7 @@ real :: max_bucket_depth_land = 0.15 ! default from Manabe 1969
 real :: robert_bucket = 0.04   ! default robert coefficient for bucket depth LJJ
 real :: raw_bucket = 0.53       ! default raw coefficient for bucket depth LJJ
 ! end Add bucket
+real :: alpha = 1.0
 
 namelist / idealized_moist_phys_nml / turb, lwet_convection, do_bm, do_ras, do_dryadj, roughness_heat,  &
                                       do_cloud_simple, do_cloud_spookie,             &
