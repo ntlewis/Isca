@@ -21,7 +21,7 @@ cb = ShallowCodeBase.from_directory(GFDL_BASE)
 
 # create an Experiment object to handle the configuration of model parameters
 # and output diagnostics
-exp = Experiment('shallow_showman_polvani', codebase=cb)
+exp = Experiment('shallow_pb_showman_like_deepjets', codebase=cb)
 
 #Tell model how to write diagnostics
 diag = DiagTable()
@@ -87,13 +87,19 @@ exp.namelist = namelist = Namelist({
     },
 
  'shallow_physics_nml': {
-   'h_eq_option'      : 'showman_polvani',  # default 'legacy'
+   'h_eq_option'      : 'perez_becker',  # default 'legacy' 
+   'do_zero_mean_h_eq': True,
    'h_lon'            : 180.0,                # default 90.0 (!) — substellar longitude
    'del_h'            : 0.1,                # default 0.0 — must be < 1
    'h_0'              : 4.e6,               # must equal shallow_dynamics_nml h_0
    'therm_damp_time'  : 0.1*86400.,         # negative = days, positive = seconds, 0 disables
    'fric_damp_time'   : 10.*86400.,         # same convention; 0.0 for no drag
    'do_mass_exchange' : True,               # default False
+   'do_deep_jet_force': True,               # deep jet body force 
+   'do_deep_jet_mass':  True,               # deep jet contributes to momentum exchange 
+   'u_deep_amp'        : 200.0,             # deep jet amplitude 
+   'u_deep_n'          : 8.0,               # deep jet meridional wavenumber 
+   'u_deep_width'      : 20.0,              # deep jet exponential taper width
    },
   
   'constants_nml': { 
@@ -107,6 +113,6 @@ exp.namelist = namelist = Namelist({
 if __name__=="__main__":
     cb.compile()  # compile the source code to working directory $GFDL_WORK/codebase
 
-    exp.run(1, use_restart=False, num_cores=NCORES, overwrite_data=True)
+    exp.run(1, use_restart=False, num_cores=NCORES)
     for i in range(2,6):
-        exp.run(i, num_cores=NCORES, overwrite_data=True)
+        exp.run(i, num_cores=NCORES)

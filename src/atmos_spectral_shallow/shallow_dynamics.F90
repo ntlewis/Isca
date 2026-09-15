@@ -68,7 +68,8 @@ private
 !======================================================================================
 
 public :: shallow_dynamics_init, shallow_dynamics, shallow_dynamics_end, &
-          dynamics_type, grid_type, spectral_type, tendency_type
+          dynamics_type, grid_type, spectral_type, tendency_type,       &
+          get_u_deep_mag
 
 
 ! version information 
@@ -135,6 +136,7 @@ integer :: damping_order       = 4
 real    :: damping_coeff       = 1.e-04
 real    :: h_0                 = 3.e04
 
+! duplicated by u_deep_amp and u_deep_n in shallow_physics_nml
 real    :: u_deep_mag          = 0.
 real    :: n_merid_deep_flow   = 3.
 real    :: u_upper_mag_init    = 0.
@@ -309,7 +311,10 @@ if( initial_condition_from_input_file ) then
 endif
 
 
-do i = is, ie 
+! this is the same force as the f*u_deep body force in shallow_physics; using
+! both at once double counts it, so shallow_physics_init aborts with a fatal
+! error if u_deep_mag is non-zero while do_deep_jet_force is true
+do i = is, ie
     Dyn%grid%deep_geopot(i, js:je) = -2.*omega * u_deep_mag * radius * (1./(1.-n_merid_deep_flow**2.))*(-cos(n_merid_deep_flow*DEG_TO_RAD*deg_lat(js:je))*cos(DEG_TO_RAD*deg_lat(js:je)) - n_merid_deep_flow * (sin(n_merid_deep_flow*DEG_TO_RAD*deg_lat(js:je))*sin(DEG_TO_RAD*deg_lat(js:je))-sin(n_merid_deep_flow*(2.*atan(1.)))))
 enddo
 
@@ -725,6 +730,18 @@ module_is_initialized = .false.
 
 return
 end subroutine shallow_dynamics_end
+!===================================================================================
+
+! lets shallow_physics check for the double counting warned about above
+function get_u_deep_mag()
+
+real :: get_u_deep_mag
+
+get_u_deep_mag = u_deep_mag
+
+return
+end function get_u_deep_mag
+
 !===================================================================================
 
 end module shallow_dynamics_mod

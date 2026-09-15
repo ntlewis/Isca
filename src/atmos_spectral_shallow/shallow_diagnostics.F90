@@ -56,7 +56,7 @@ character(len=84) :: mod_name = 'shallow_diagnostics'
 
 logical :: module_is_initialized = .false.
 
-integer :: id_vor, id_stream, id_pv, id_u, id_v, id_div, id_h, id_trs, id_tr, id_d_geopot, id_u_sqd, id_v_sqd, id_h_sqd, id_u_sqd_mean, id_v_sqd_mean, id_h_sqd_mean, id_ekin, id_ekin_density, id_eq_geopot, id_e_kin_real_units, id_e_pot_real_units, id_e_tot_real_units, id_u_rms, id_vcomp_vor, id_ucomp_vcomp, id_h_eq, id_du_dt_mass, id_dv_dt_mass
+integer :: id_vor, id_stream, id_pv, id_u, id_v, id_div, id_h, id_trs, id_tr, id_d_geopot, id_u_sqd, id_v_sqd, id_h_sqd, id_u_sqd_mean, id_v_sqd_mean, id_h_sqd_mean, id_ekin, id_ekin_density, id_eq_geopot, id_e_kin_real_units, id_e_pot_real_units, id_e_tot_real_units, id_u_rms, id_vcomp_vor, id_ucomp_vcomp, id_h_eq, id_du_dt_mass, id_dv_dt_mass, id_du_dt_drag, id_dv_dt_drag, id_u_deep
 
 integer :: is, ie, js, je
 
@@ -111,6 +111,9 @@ id_d_geopot = register_diag_field(mod_name, 'deep_geopot', axis_2d, Time, 'deep_
 id_h_eq   = register_diag_field(mod_name, 'h_eq'  , axis_2d, Time, 'equilibrium geopotential', 'm2/s2')
 id_du_dt_mass = register_diag_field(mod_name, 'du_dt_mass', axis_2d, Time, 'ucomp tendency from mass exchange', 'm/s^2')
 id_dv_dt_mass = register_diag_field(mod_name, 'dv_dt_mass', axis_2d, Time, 'vcomp tendency from mass exchange', 'm/s^2')
+id_du_dt_drag = register_diag_field(mod_name, 'du_dt_drag', axis_2d, Time, 'ucomp tendency from rayleigh drag', 'm/s^2')
+id_dv_dt_drag = register_diag_field(mod_name, 'dv_dt_drag', axis_2d, Time, 'vcomp tendency from rayleigh drag', 'm/s^2')
+id_u_deep = register_diag_field(mod_name, 'u_deep', axis_2d, Time, 'deep jet zonal velocity', 'm/s')
 
 id_u_sqd      = register_diag_field(mod_name, 'ucomp_sqd' , axis_2d, Time, 'u_wind_sqd'              , 'm^2/s^2'      ) 
 id_v_sqd      = register_diag_field(mod_name, 'vcomp_sqd' , axis_2d, Time, 'v_wind_sqd'              , 'm^2/s^2'      ) 
@@ -165,6 +168,9 @@ if(id_d_geopot > 0) used = send_data(id_d_geopot, Grid%deep_geopot (:,:)        
 if(id_h_eq    > 0) used = send_data(id_h_eq   , Phys%h_eq    (:,:)                 , time)
 if(id_du_dt_mass > 0) used = send_data(id_du_dt_mass, Phys%du_dt_mass (:,:)          , time)
 if(id_dv_dt_mass > 0) used = send_data(id_dv_dt_mass, Phys%dv_dt_mass (:,:)          , time)
+if(id_du_dt_drag > 0) used = send_data(id_du_dt_drag, Phys%du_dt_drag (:,:)          , time)
+if(id_dv_dt_drag > 0) used = send_data(id_dv_dt_drag, Phys%dv_dt_drag (:,:)          , time)
+if(id_u_deep  > 0) used = send_data(id_u_deep , Phys%u_deep  (:,:)                 , time)
 
 if (id_u_sqd > 0) then
     used = send_data(id_u_sqd      , Grid%u       (:,:, time_index)**2     , time)
