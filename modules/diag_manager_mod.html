@@ -15,11 +15,11 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=3ce10a4d"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -200,10 +200,10 @@ given range</p></td>
 <code class="docutils literal notranslate"><span class="pre">diag.add_file('atmos_daily',</span> <span class="pre">1,</span> <span class="pre">'days',</span> <span class="pre">time_units='days')</span></code>
 <code class="docutils literal notranslate"><span class="pre">diag.add_file('atmos_6_hourly',</span> <span class="pre">6,</span> <span class="pre">'hours',</span> <span class="pre">time_units='hours')</span></code></p>
 <p>The frequency at which data is saved can be set in the <code class="docutils literal notranslate"><span class="pre">main_nml</span></code>:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;main_nml&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;dt_atmos&#39;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
-        <span class="s1">&#39;days&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-        <span class="s1">&#39;calendar&#39;</span><span class="p">:</span> <span class="s1">&#39;thirty_day&#39;</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="s1">'main_nml'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'dt_atmos'</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
+        <span class="s1">'days'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="s1">'calendar'</span><span class="p">:</span> <span class="s1">'thirty_day'</span>
 <span class="p">}</span>
 </pre></div>
 </div>
