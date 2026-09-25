@@ -65,6 +65,8 @@ type phys_type
    real, pointer, dimension(:,:)   :: h_eq=>NULL()
    real, pointer, dimension(:,:)   :: du_dt_mass=>NULL()
    real, pointer, dimension(:,:)   :: dv_dt_mass=>NULL()
+   real, pointer, dimension(:,:)   :: du_dt_drag=>NULL()
+   real, pointer, dimension(:,:)   :: dv_dt_drag=>NULL()
 end type
 
 logical :: module_is_initialized = .false.
@@ -77,7 +79,8 @@ logical :: root
 real, allocatable, dimension(:) :: rad_lat, deg_lat, deg_lon, &
          sin_lat, cos_lat, wts_lat
 
-real, allocatable, target, dimension(:,:) :: h_eq, du_dt_mass, dv_dt_mass
+real, allocatable, target, dimension(:,:) :: h_eq, du_dt_mass, dv_dt_mass, &
+         du_dt_drag, dv_dt_drag
 
 real    :: kappa_m, kappa_t
 
@@ -167,6 +170,8 @@ allocate ( deg_lon      (is:ie) )
 allocate ( h_eq   (is:ie,js:je) )
 allocate ( du_dt_mass (is:ie,js:je) ) ; du_dt_mass = 0.0
 allocate ( dv_dt_mass (is:ie,js:je) ) ; dv_dt_mass = 0.0
+allocate ( du_dt_drag (is:ie,js:je) ) ; du_dt_drag = 0.0
+allocate ( dv_dt_drag (is:ie,js:je) ) ; dv_dt_drag = 0.0
 
 call get_wts_lat(wts_lat)
 call get_deg_lat(deg_lat)
@@ -232,6 +237,8 @@ endif
 Phys%h_eq       => h_eq
 Phys%du_dt_mass => du_dt_mass
 Phys%dv_dt_mass => dv_dt_mass
+Phys%du_dt_drag => du_dt_drag
+Phys%dv_dt_drag => dv_dt_drag
 
 !if(file_exist('INPUT/shallow_physics.res')) then
 !  unit = open_restart_file(file='INPUT/shallow_physics.res',action='read')
@@ -279,8 +286,11 @@ endif
 ! mass source, reused by the mass exchange term below
 q_mass = kappa_t*(h_eq - hg(:,:,previous))
 
-dt_ug = dt_ug - kappa_m*ug(:,:,previous)
-dt_vg = dt_vg - kappa_m*vg(:,:,previous)
+du_dt_drag = -kappa_m*ug(:,:,previous)
+dv_dt_drag = -kappa_m*vg(:,:,previous)
+
+dt_ug = dt_ug + du_dt_drag
+dt_vg = dt_vg + dv_dt_drag
 dt_hg = dt_hg + q_mass
 
 ! showman and polvani mass exchange: injected mass carries no momentum
