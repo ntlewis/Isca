@@ -38,7 +38,6 @@ diag.add_field('shallow_diagnostics', 'dv_dt_mass', time_avg=False)
 diag.add_field('shallow_diagnostics', 'du_dt_drag', time_avg=False)
 diag.add_field('shallow_diagnostics', 'dv_dt_drag', time_avg=False)
 diag.add_field('shallow_diagnostics', 'h_eq', time_avg=False)
-diag.add_field('shallow_diagnostics', 'u_deep', time_avg=False)
 
 exp.diag_table = diag
 
